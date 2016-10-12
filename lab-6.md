@@ -195,4 +195,5 @@ Official steps are at the devcenter for Heroku: <https://devcenter.heroku.com/ar
     (likely) going to use for your CMPUT 404 project.
  6. How many Git remotes does your repository have? Explain how each
     entry got there and why it's there (hint: use `git remote -v`).
- 5. What is your OpenShift application URL (for this lab's code)?
+ 5. What is your OpenShift or Heroku application URL (for this lab's
+    code)?
