@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+/*
+ * Copyright 2016 Eddie Antonio Santos. MIT licensed.
+ */
+
 #header .author {
     display: none;
 }
@@ -9,6 +15,10 @@ body {
 
 @media print {
     a:link, a:visited { color: #3344DD; }
+
+    pre {
+        page-break-inside: avoid;
+    }
 }
 
 @media screen {
@@ -22,3 +32,4 @@ pre {
     border-radius: 4px;
     box-shadow: inset -1px 1px 4px rgba(0,0,0,0.2);
 }
+

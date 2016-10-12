@@ -25,7 +25,7 @@ Windows Azure, Google App Engine).
     # Note: enter the following two commands EXACTLY one after the
     # other (fc -ln -1 copies the last command to your startup file)
     export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
-    fc -ln -1 >> ~/.bash.rc
+    fc -ln -1 >> ~/.bashrc
     ```
 
     Else if you're on your own personal machine:
@@ -96,7 +96,14 @@ Windows Azure, Google App Engine).
     python app-root/repo/manage.py createsuperuser
     ```
 
- 13. Now use your browser to connect to the admin site.
+ 13. Now use your browser to connect to the admin site. The URL will be
+     of the form:
+
+     ```
+     https://{app-name}-{your-openshift-username}.rhcloud.com/admin/
+     ```
+
+     You should be able to login to Django's admin panel!
 
 
 ## Questions
@@ -107,7 +114,7 @@ Windows Azure, Google App Engine).
     applications?
     What are some of the drawbacks?
  4. List three different PaaS vendors. Also specify the vendor you are
-    (liekly) going to use for your CMPUT 404 project.
+    (likely) going to use for your CMPUT 404 project.
  6. How many Git remotes does your repository have? Explain how each
     entry got there and why it's there (hint: use `git remote -v`).
  5. What is your OpenShift application URL (for this lab's code)?

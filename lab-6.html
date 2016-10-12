@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Note: enter the following two commands EXACTLY one after the</span>
 <span class="co"># other (fc -ln -1 copies the last command to your startup file)</span>
 <span class="kw">export</span> <span class="ot">PATH=$PATH</span>:<span class="ot">$HOME</span>/.gem/ruby/1.9.1/bin
-<span class="kw">fc</span> -ln -1 <span class="kw">&gt;&gt;</span> ~/.bash.rc</code></pre></div>
+<span class="kw">fc</span> -ln -1 <span class="kw">&gt;&gt;</span> ~/.bashrc</code></pre></div>
 <p>Else if you’re on your own personal machine:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> gem install rhc</code></pre></div></li>
 <li><p>Log into your OpenShift account from the terminal</p>
@@ -94,14 +94,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>SSH into the application to create a Django superuser.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">rhc</span> ssh
 <span class="kw">python</span> app-root/repo/manage.py createsuperuser</code></pre></div></li>
-<li><p>Now use your browser to connect to the admin site.</p></li>
+<li><p>Now use your browser to connect to the admin site. The URL will be of the form:</p>
+<p><code>https://{app-name}-{your-openshift-username}.rhcloud.com/admin/</code></p>
+<p>You should be able to login to Django’s admin panel!</p></li>
 </ol>
 <h2 id="questions">Questions</h2>
 <ol style="list-style-type: decimal">
 <li>What does WSGI stand for? What does it do?</li>
 <li>What does PaaS stand for?</li>
 <li>What are some of the benefits to using a PaaS to host your applications? What are some of the drawbacks?</li>
-<li>List three different PaaS vendors. Also specify the vendor you are (liekly) going to use for your CMPUT 404 project.</li>
+<li>List three different PaaS vendors. Also specify the vendor you are (likely) going to use for your CMPUT 404 project.</li>
 <li>How many Git remotes does your repository have? Explain how each entry got there and why it’s there (hint: use <code>git remote -v</code>).</li>
 <li>What is your OpenShift application URL (for this lab’s code)?</li>
 </ol>
