@@ -184,6 +184,14 @@ Official steps are at the devcenter for Heroku: <https://devcenter.heroku.com/ar
     heroku open
     ```
 
+ #. Turn off your dynos to conserve dyno hours
+ 
+    ```bash
+    heroku ps:scale web=0
+    ```
+    
+ #. Check that your dynos are actually off by going to the website
+
 # Questions
 
  1. What does WSGI stand for? What does it do?
