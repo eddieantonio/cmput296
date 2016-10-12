@@ -131,7 +131,7 @@ Official steps are at the devcenter for Heroku: <https://devcenter.heroku.com/ar
     If you are on a lab machine:
 
     ```bash
-    gem install ­­user­install heroku
+    gem install --user-install heroku
     # Note: enter the following two commands EXACTLY one after the
     # other (fc -ln -1 copies the last command to your startup file)
     export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
@@ -141,25 +141,26 @@ Official steps are at the devcenter for Heroku: <https://devcenter.heroku.com/ar
     Else if you are on your personal computer:
 
     ```bash
-    wget ­O­ https://toolbelt.heroku.com/install.sh | sh
+    curl -f https://toolbelt.heroku.com/install.sh | sh
     ```
 
- #. Log in using the heroku cli
+ #. Log in using the Heroku CLI:
 
     ```bash
     heroku login
     ```
 
- #. Clone the heroku starter application
+ #. Clone the Heroku starter application:
 
     ```bash
-    git clone https://github.com/heroku/python­getting­started.git
+    git clone https://github.com/heroku/python-getting-started.git
     ```
 
-# . Create an app on heroku after navigating within the newly created project
+ #. Create an app on Heroku after navigating within the newly created
+ project:
 
     ```bash
-    cd python­getting­started
+    cd python-getting-started
     heroku create
     ```
 

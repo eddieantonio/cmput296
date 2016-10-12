@@ -110,24 +110,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Sign up for a free account at <a href="https://heroku.com" class="uri">https://heroku.com</a></p></li>
 <li><p>Download the Heroku dev tools:</p>
 <p>If you are on a lab machine:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gem</span> install ­­user­install heroku
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gem</span> install --user-install heroku
 <span class="co"># Note: enter the following two commands EXACTLY one after the</span>
 <span class="co"># other (fc -ln -1 copies the last command to your startup file)</span>
 <span class="kw">export</span> <span class="ot">PATH=$PATH</span>:<span class="ot">$HOME</span>/.gem/ruby/1.9.1/bin
 <span class="kw">fc</span> -ln -1 <span class="kw">&gt;&gt;</span> ~/.bashrc</code></pre></div>
 <p>Else if you are on your personal computer:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">wget</span> ­O­ https://toolbelt.heroku.com/install.sh <span class="kw">|</span> <span class="kw">sh</span></code></pre></div></li>
-<li><p>Log in using the heroku cli</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -f https://toolbelt.heroku.com/install.sh <span class="kw">|</span> <span class="kw">sh</span></code></pre></div></li>
+<li><p>Log in using the Heroku CLI:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">heroku</span> login</code></pre></div></li>
-<li><p>Clone the heroku starter application</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/heroku/python­getting­started.git</code></pre></div></li>
-</ol>
-<h1 id="create-an-app-on-heroku-after-navigating-within-the-newly-created-project">. Create an app on heroku after navigating within the newly created project</h1>
-<pre><code>```bash
-cd python­getting­started
-heroku create
-```</code></pre>
-<ol>
+<li><p>Clone the Heroku starter application:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone https://github.com/heroku/python-getting-started.git</code></pre></div></li>
+<li><p>Create an app on Heroku after navigating within the newly created project:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> python-getting-started
+<span class="kw">heroku</span> create</code></pre></div></li>
 <li><p>Push the code to the newly created application</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> push heroku master</code></pre></div></li>
 <li><p>Ensure one instance of your application is running</p>
