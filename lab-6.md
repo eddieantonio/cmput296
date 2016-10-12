@@ -10,13 +10,13 @@ Windows Azure, Google App Engine).
 
 ## OpenShift Steps
 
-Steps are at the openshift-django repository: <https://github.com/awwong1/openshift-django>
+Steps are derived from the `openshift-django` repository: <https://github.com/awwong1/openshift-django>
 
- 2. Sign up for a free account at <https://openshift.com>
- 3. Click "Create your first application now", and find the Python 2.7 cartridge.
- 4. Set your namespace and application name, click "Create Application"
+ #. Sign up for a free account at <https://openshift.com>
+ #. Click "Create your first application now", and find the Python 2.7 cartridge.
+ #. Set your namespace and application name, click "Create Application"
     (This may take 5-10 minutes)
- 5. Install the OpenShift CLI tools
+ #. Install the OpenShift CLI tools
 
     If you're on a lab machine:
 
@@ -35,13 +35,13 @@ Steps are at the openshift-django repository: <https://github.com/awwong1/opensh
     sudo gem install rhc
     ```
 
- 6. Log into your OpenShift account from the terminal
+ #. Log into your OpenShift account from the terminal
 
     ```bash
     rhc setup
     ```
 
- 7. Clone your application locally to your workspace
+ #. Clone your application locally to your workspace
 
     List your apps; find the name of the app you want to clone.
 
@@ -57,7 +57,7 @@ Steps are at the openshift-django repository: <https://github.com/awwong1/opensh
     cd {app-name}
     ```
 
- 8. Add a database cartridge to your application.
+ #. Add a database cartridge to your application.
 
     Chose either PostgreSQL:
 
@@ -71,33 +71,33 @@ Steps are at the openshift-django repository: <https://github.com/awwong1/opensh
     rhc add-cartridge mysql-5.5
     ```
 
- 9. Add the Django seed repository as the upstream repository:
+ #. Add the Django seed repository as the upstream repository:
 
     ```bash
     git remote add upstream -m master https://github.com/awwong1/openshift-django.git
     git pull -s recursive -X theirs --allow-unrelated-histories upstream master
     ```
 
- 10. Set the WSGI application to be Django's built-in WSGI application
+ #. Set the WSGI application to be Django's built-in WSGI application
 
     ```bash
     rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=wsgi.py --app {app-name}
     ```
 
- 11. Push the repo to OpenShift:
+ #. Push the repo to OpenShift:
 
     ```bash
     git push
     ```
 
- 12. SSH into the application to create a Django superuser.
+ #. SSH into the application to create a Django superuser.
 
     ```bash
     rhc ssh
     python app-root/repo/manage.py createsuperuser
     ```
 
- 13. Now use your browser to connect to the admin site. The URL will be
+ #. Now use your browser to connect to the admin site. The URL will be
      of the form:
 
      ```
