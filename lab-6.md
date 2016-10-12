@@ -10,9 +10,10 @@ Windows Azure, Google App Engine).
 
 ## OpenShift Steps
 
- 1. Steps are at the openshift-django repository: <https://github.com/awwong1/openshift-django>
+Steps are at the openshift-django repository: <https://github.com/awwong1/openshift-django>
+
  2. Sign up for a free account at <https://openshift.com>
- 3. Click "create your first application", select Python 2.7
+ 3. Click "Create your first application now", and find the Python 2.7 cartridge.
  4. Set your namespace and application name, click "Create Application"
     (This may take 5-10 minutes)
  5. Install the OpenShift CLI tools
