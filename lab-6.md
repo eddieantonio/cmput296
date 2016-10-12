@@ -2,11 +2,23 @@
 % Alexander Wong, Eddie Antonio Santos
 % October 12, 2016
 
-## Overview
+# Overview
 
-Learn how to host a Django application on a PaaS (OpenShift).
-Learn about the other cloud application PaaS services available (AWS,
-Windows Azure, Google App Engine).
+ - Learn how to host a Django application on a PaaS (OpenShift).
+ - Learn about the other cloud application PaaS services available (AWS, Windows Azure, Google App Engine).
+
+# Cloud Services
+
+We introduce two free PaaS services: [OpenShift][] and [Heroku][]. Note
+that the free accounts for both of these services have limitations, and
+may have service allocations that will run out at the most inconvenient
+of times.
+
+Choose to set up **one** of the following services.
+
+[OpenShift]: https://www.openshift.com/
+[Heroku]: https://heroku.com/
+
 
 ## OpenShift Steps
 
@@ -107,7 +119,71 @@ Steps are derived from the `openshift-django` repository: <https://github.com/aw
      You should be able to login to Django's admin panel!
 
 
-## Questions
+## Heroku Steps
+
+Official steps are at the devcenter for Heroku: <https://devcenter.heroku.com/articles/getting-started-with-python#introduction>
+
+ #. Sign up for a free account at <https://heroku.com>
+
+ #. Download the Heroku dev tools:
+
+
+    If you are on a lab machine:
+
+    ```bash
+    gem install ­­user­install heroku
+    # Note: enter the following two commands EXACTLY one after the
+    # other (fc -ln -1 copies the last command to your startup file)
+    export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
+    fc -ln -1 >> ~/.bashrc
+    ```
+
+    Else if you are on your personal computer:
+
+    ```bash
+    wget ­O­ https://toolbelt.heroku.com/install.sh | sh
+    ```
+
+ #. Log in using the heroku cli
+
+    ```bash
+    heroku login
+    ```
+
+ #. Clone the heroku starter application
+
+    ```bash
+    git clone https://github.com/heroku/python­getting­started.git
+    ```
+
+# . Create an app on heroku after navigating within the newly created project
+
+    ```bash
+    cd python­getting­started
+    heroku create
+    ```
+
+ #. Push the code to the newly created application
+
+    ```bash
+    git push heroku master
+    ```
+
+ #. Ensure one instance of your application is running
+
+    ```bash
+    heroku ps:scale web=1
+    ```
+
+<!-- TODO: Cover SSHing into the application and creating a user. -->
+
+ #. Open your application
+
+    ```bash
+    heroku open
+    ```
+
+# Questions
 
  1. What does WSGI stand for? What does it do?
  2. What does PaaS stand for?
