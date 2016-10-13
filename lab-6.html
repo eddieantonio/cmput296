@@ -133,6 +133,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol>
 <li><p>Open your application</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">heroku</span> open</code></pre></div></li>
+<li><p>Turn off your dynos to conserve dyno hours</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">heroku</span> ps:scale web=0</code></pre></div></li>
+<li><p>Check that your dynos are actually off by going to the website</p></li>
 </ol>
 <h1 id="questions">Questions</h1>
 <ol style="list-style-type: decimal">
