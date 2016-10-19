@@ -175,10 +175,10 @@ api.add_resource(TodoList, <span class="st">&#39;/todos&#39;</span>)
 <h1 id="protip">Protip:</h1>
 <p><a href="https://httpie.org">HTTPie</a> is like cURL, but designed specifically for interacting with RESTful JSON APIs. It colours output and pretty prints JSON automatically.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pip</span> install httpie
-<span class="kw">http</span> localhost:5000
-<span class="kw">http</span> :5000
-<span class="kw">http</span> HEAD :5000
-<span class="kw">http</span> POST :5000 foo=bar</code></pre></div>
+<span class="kw">http</span> localhost:5000/todos
+<span class="kw">http</span> :5000/todos
+<span class="kw">http</span> HEAD :5000/todos
+<span class="kw">http</span> POST :5000/todos task=<span class="st">&#39;try httpie!&#39;</span></code></pre></div>
 <h1 id="questions">Questions</h1>
 <ol>
 <li>What does REST stand for? What does it mean?</li>

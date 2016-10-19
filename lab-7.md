@@ -177,10 +177,10 @@ automatically.
 
 ```bash
 pip install httpie
-http localhost:5000
-http :5000
-http HEAD :5000
-http POST :5000 foo=bar
+http localhost:5000/todos
+http :5000/todos
+http HEAD :5000/todos
+http POST :5000/todos task='try httpie!'
 ```
 
 [HTTPie]: https://httpie.org
