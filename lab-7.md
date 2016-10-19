@@ -122,6 +122,7 @@
 
         def get(self, todo_id):
             abort_if_todo_not_found(todo_id)
+            return TODOs[todo_id]
 
         def delete(self, todo_id):
             abort_if_todo_not_found(todo_id)

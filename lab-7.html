@@ -135,6 +135,7 @@ TODOs <span class="op">=</span> {
 
     <span class="kw">def</span> get(<span class="va">self</span>, todo_id):
         abort_if_todo_not_found(todo_id)
+        <span class="cf">return</span> TODOs[todo_id]
 
     <span class="kw">def</span> delete(<span class="va">self</span>, todo_id):
         abort_if_todo_not_found(todo_id)
