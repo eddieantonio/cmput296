@@ -182,7 +182,7 @@ http HEAD :5000
 http POST :5000 foo=bar
 ```
 
-[HTTPie]: httpie.org
+[HTTPie]: https://httpie.org
 
 
 # Questions
