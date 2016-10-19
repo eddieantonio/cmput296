@@ -141,7 +141,7 @@
             return TODOs
 
         def post(self):
-            todo_id = max(TODOs.keys())
+            todo_id = max(TODOs.keys()) + 1
             return add_todo(todo_id), 201
 
     api.add_resource(Todo, '/todos/<int:todo_id>')

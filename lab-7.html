@@ -154,7 +154,7 @@ TODOs <span class="op">=</span> {
         <span class="cf">return</span> TODOs
 
     <span class="kw">def</span> post(<span class="va">self</span>):
-        todo_id <span class="op">=</span> <span class="bu">max</span>(TODOs.keys())
+        todo_id <span class="op">=</span> <span class="bu">max</span>(TODOs.keys()) <span class="op">+</span> <span class="dv">1</span>
         <span class="cf">return</span> add_todo(todo_id), <span class="dv">201</span>
 
 api.add_resource(Todo, <span class="st">&#39;/todos/&lt;int:todo_id&gt;&#39;</span>)
