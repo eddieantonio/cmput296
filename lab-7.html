@@ -56,7 +56,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Learn how to create a RESTful web application back-end using <a href="http://flask.pocoo.org/">Flask</a>.</li>
-<li>Integrate a basic <a href="https://angularjs.org/">Angular</a> front-end to interact (CRUD) with the Flask application’s RESTful API.</li>
+<li>Set up Heroku with a basic Django application.</li>
+<li>Research issues concerning client-side scripting.</li>
 </ul>
 <h1 id="steps">Steps</h1>
 <h2 id="flask">Flask</h2>
@@ -161,17 +162,7 @@ api.add_resource(TodoList, <span class="st">&#39;/todos&#39;</span>)</code></pre
 <span class="kw">curl</span> -v -X POST localhost:5000/todos -d <span class="st">&quot;task=something new&quot;</span>
 <span class="kw">curl</span> -v -X PUT localhost:5000/todos/3 -d <span class="st">&quot;task=something different&quot;</span></code></pre></div></li>
 </ol>
-<h2 id="angular">Angular</h2>
-<p>First, we need to configure the <code>npm</code> package manager, to install the app generator and install the <code>bower</code> package manager, that will enable us to make a basic JavaScript app ;).</p>
-<ol>
-<li><p>Get <code>npm</code> to install things to your home directory ([source][npm-home]):</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> ~/.npm-global
-<span class="kw">npm</span> config set prefix <span class="st">&#39;~/.npm-global&#39;</span>
-<span class="kw">echo</span> <span class="st">&#39;export PATH=~/.npm-global/bin/$PATH&#39;</span> <span class="kw">&gt;&gt;</span> .profile
-<span class="kw">source</span> ~/.profile</code></pre></div></li>
-<li><p>Install the [Yeoman] generator and its dependencies.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">npm</span> install -g grunt-cli bower yo generator-karma generator-angular</code></pre></div></li>
-</ol>
+<h2 id="heroku">Heroku</h2>
 <h1 id="protip">Protip:</h1>
 <p><a href="httpie.org">HTTPie</a> is like cURL, but designed specifically for interacting with RESTful JSON APIs. It colours output and pretty prints JSON automatically.</p>
 <pre><code>```bash
@@ -186,10 +177,8 @@ http POST :5000 foo=bar
 <li>What does REST stand for? What does it mean?</li>
 <li>What does CRUD stand for?</li>
 <li>In general, what do HTTP 1xx status codes mean? HTTP 2xx? HTTP 3xx? HTTP 4xx? HTTP 5xx?</li>
-<li>What are the benefits of using yeoman generators to scaffold our application? What are the cons?</li>
 <li>What is an XSS attack? Name one way a site can be vulnerable to an XSS attack.</li>
 <li>What does CORS stand for? Under what situation in web application development will you need to care about implementing CORS? (Hint: What does the “CO” part of “CORS” mean?)</li>
-<li>Why should client-side JavaScript and CSS be minified before deployment?</li>
 </ol>
 </body>
 </html>

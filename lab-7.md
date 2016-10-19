@@ -5,11 +5,10 @@
 # Overview
 
  - Learn how to create a RESTful web application back-end using [Flask].
- - Integrate a basic [Angular] front-end to interact (CRUD) with the Flask
- application's RESTful API.
+ - Set up Heroku with a basic Django application.
+ - Research issues concerning client-side scripting.
 
 [Flask]: http://flask.pocoo.org/
-[Angular]: https://angularjs.org/
 
 # Steps
 
@@ -156,27 +155,7 @@
     curl -v -X PUT localhost:5000/todos/3 -d "task=something different"
     ```
 
-## Angular
-
-First, we need to configure the `npm` package manager, to install the app
-generator and install the `bower` package manager, that will enable us
-to make a basic JavaScript app ;).
-
- #. Get `npm` to install things to your home directory
-    ([source][npm-home]):
-
-    ```bash
-    mkdir ~/.npm-global
-    npm config set prefix '~/.npm-global'
-    echo 'export PATH=~/.npm-global/bin/$PATH' >> .profile
-    source ~/.profile
-    ```
-
- #. Install the [Yeoman] generator and its dependencies.
-
-    ```bash
-    npm install -g grunt-cli bower yo generator-karma generator-angular
-    ```
+## Heroku
 
 
 
@@ -203,12 +182,8 @@ automatically.
  #. What does CRUD stand for?
  #. In general, what do HTTP 1xx status codes mean? HTTP 2xx? HTTP 3xx?
     HTTP 4xx? HTTP 5xx?
- #. What are the benefits of using yeoman generators to scaffold our
-    application? What are the cons?
  #. What is an XSS attack? Name one way a site can be vulnerable to an
     XSS attack.
  #. What does CORS stand for? Under what situation in web application
     development will you need to care about implementing CORS? (Hint:
     What does the "CO" part of "CORS" mean?)
- #. Why should client-side JavaScript and CSS be minified before
-    deployment?
