@@ -89,28 +89,31 @@
     `hello.py` and add the following:
 
     ```python
+    from flask import Flask
     from flask_restful import reqparse, abort, Api, Resource
 
+    app = Flask(__name__)
+    api = Api(app)
+
+    parser = reqparse.RequestParser()
+    parser.add_argument('task')
+
+    # The latest NoSQL key-value store trending on Hacker News.
     TODOs = {
         1: {'task': 'build an API'},
         2: {'task': '????'},
         3: {'task': 'profit'},
     }
 
-
     def abort_if_todo_not_found(todo_id):
         if todo_id not in TODOs:
-            abort(404, message="TODO {} does not exist".format(todo_id)
+            abort(404, message="TODO {} does not exist".format(todo_id))
 
     def add_todo(todo_id):
         args = parser.parse_args()
         todo = {'task': args['task']}
         TODOs[todo_id] = todo
         return todo
-
-
-    parser = reqparse.RequestParser()
-    parser.add_argument('task')
 
     class Todo(Resource):
         """
@@ -137,11 +140,14 @@
             return TODOs
 
         def post(self):
-            todo_id = max(TODOs.keys()
+            todo_id = max(TODOs.keys())
             return add_todo(todo_id), 201
 
     api.add_resource(Todo, '/todos/<int:todo_id>')
     api.add_resource(TodoList, '/todos')
+
+    if __name__ == '__main__':
+        app.run(debug=True)
     ```
 
  #. What does the browser show you when you navigate to these pages? Try
@@ -157,6 +163,9 @@
 
 ## Heroku
 
+Please follow this guide to set up Django on Heroku:
+
+<https://devcenter.heroku.com/articles/getting-started-with-python#introduction>
 
 
 # Protip:
@@ -165,13 +174,13 @@
 RESTful JSON APIs. It colours output and pretty prints JSON
 automatically.
 
-    ```bash
-    pip install httpie
-    http localhost:5000
-    http :5000
-    http HEAD :5000
-    http POST :5000 foo=bar
-    ```
+```bash
+pip install httpie
+http localhost:5000
+http :5000
+http HEAD :5000
+http POST :5000 foo=bar
+```
 
 [HTTPie]: httpie.org
 
@@ -179,7 +188,8 @@ automatically.
 # Questions
 
  #. What does REST stand for? What does it mean?
- #. What does CRUD stand for?
+ #. What does CRUD stand for? For each letter in CRUD, give the
+    associated HTTP method.
  #. In general, what do HTTP 1xx status codes mean? HTTP 2xx? HTTP 3xx?
     HTTP 4xx? HTTP 5xx?
  #. What is an XSS attack? Name one way a site can be vulnerable to an

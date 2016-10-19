@@ -102,28 +102,31 @@ api.add_resource(HelloWorld, <span class="st">&quot;/&quot;</span>)
 <li><p>Try it in your browser or using cURL.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> localhost:5000 <span class="co"># the port may be different on your machine</span></code></pre></div></li>
 <li><p>Let’s implement a fully RESTful application for TODOs. Open up <code>hello.py</code> and add the following:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask_restful <span class="im">import</span> reqparse, abort, Api, Resource
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask
+<span class="im">from</span> flask_restful <span class="im">import</span> reqparse, abort, Api, Resource
 
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+api <span class="op">=</span> Api(app)
+
+parser <span class="op">=</span> reqparse.RequestParser()
+parser.add_argument(<span class="st">&#39;task&#39;</span>)
+
+<span class="co"># The latest NoSQL key-value store trending on Hacker News.</span>
 TODOs <span class="op">=</span> {
     <span class="dv">1</span>: {<span class="st">&#39;task&#39;</span>: <span class="st">&#39;build an API&#39;</span>},
     <span class="dv">2</span>: {<span class="st">&#39;task&#39;</span>: <span class="st">&#39;????&#39;</span>},
     <span class="dv">3</span>: {<span class="st">&#39;task&#39;</span>: <span class="st">&#39;profit&#39;</span>},
 }
 
-
 <span class="kw">def</span> abort_if_todo_not_found(todo_id):
     <span class="cf">if</span> todo_id <span class="op">not</span> <span class="op">in</span> TODOs:
-        abort(<span class="dv">404</span>, message<span class="op">=</span><span class="st">&quot;TODO {} does not exist&quot;</span>.<span class="bu">format</span>(todo_id)
+        abort(<span class="dv">404</span>, message<span class="op">=</span><span class="st">&quot;TODO {} does not exist&quot;</span>.<span class="bu">format</span>(todo_id))
 
 <span class="kw">def</span> add_todo(todo_id):
     args <span class="op">=</span> parser.parse_args()
     todo <span class="op">=</span> {<span class="st">&#39;task&#39;</span>: args[<span class="st">&#39;task&#39;</span>]}
     TODOs[todo_id] <span class="op">=</span> todo
     <span class="cf">return</span> todo
-
-
-parser <span class="op">=</span> reqparse.RequestParser()
-parser.add_argument(<span class="st">&#39;task&#39;</span>)
 
 <span class="kw">class</span> Todo(Resource):
     <span class="co">&quot;&quot;&quot;</span>
@@ -150,11 +153,14 @@ parser.add_argument(<span class="st">&#39;task&#39;</span>)
         <span class="cf">return</span> TODOs
 
     <span class="kw">def</span> post(<span class="va">self</span>):
-        todo_id <span class="op">=</span> <span class="bu">max</span>(TODOs.keys()
+        todo_id <span class="op">=</span> <span class="bu">max</span>(TODOs.keys())
         <span class="cf">return</span> add_todo(todo_id), <span class="dv">201</span>
 
 api.add_resource(Todo, <span class="st">&#39;/todos/&lt;int:todo_id&gt;&#39;</span>)
-api.add_resource(TodoList, <span class="st">&#39;/todos&#39;</span>)</code></pre></div></li>
+api.add_resource(TodoList, <span class="st">&#39;/todos&#39;</span>)
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    app.run(debug<span class="op">=</span><span class="va">True</span>)</code></pre></div></li>
 <li><p>What does the browser show you when you navigate to these pages? Try out the following cURL commands:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> localhost:5000/todos
 <span class="kw">curl</span> localhost:5000/todos/3
@@ -163,19 +169,19 @@ api.add_resource(TodoList, <span class="st">&#39;/todos&#39;</span>)</code></pre
 <span class="kw">curl</span> -v -X PUT localhost:5000/todos/3 -d <span class="st">&quot;task=something different&quot;</span></code></pre></div></li>
 </ol>
 <h2 id="heroku">Heroku</h2>
+<p>Please follow this guide to set up Django on Heroku:</p>
+<p><a href="https://devcenter.heroku.com/articles/getting-started-with-python#introduction" class="uri">https://devcenter.heroku.com/articles/getting-started-with-python#introduction</a></p>
 <h1 id="protip">Protip:</h1>
 <p><a href="httpie.org">HTTPie</a> is like cURL, but designed specifically for interacting with RESTful JSON APIs. It colours output and pretty prints JSON automatically.</p>
-<pre><code>```bash
-pip install httpie
-http localhost:5000
-http :5000
-http HEAD :5000
-http POST :5000 foo=bar
-```</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">pip</span> install httpie
+<span class="kw">http</span> localhost:5000
+<span class="kw">http</span> :5000
+<span class="kw">http</span> HEAD :5000
+<span class="kw">http</span> POST :5000 foo=bar</code></pre></div>
 <h1 id="questions">Questions</h1>
 <ol>
 <li>What does REST stand for? What does it mean?</li>
-<li>What does CRUD stand for?</li>
+<li>What does CRUD stand for? For each letter in CRUD, give the associated HTTP method.</li>
 <li>In general, what do HTTP 1xx status codes mean? HTTP 2xx? HTTP 3xx? HTTP 4xx? HTTP 5xx?</li>
 <li>What is an XSS attack? Name one way a site can be vulnerable to an XSS attack.</li>
 <li>What does CORS stand for? Under what situation in web application development will you need to care about implementing CORS? (Hint: What does the “CO” part of “CORS” mean?)</li>
