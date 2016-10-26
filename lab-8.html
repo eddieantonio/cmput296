@@ -60,7 +60,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <h1 id="steps">Steps</h1>
 <ol>
-<li>Clone <a href="https://github.com/CMPUT404W2016/CMPUT404LAB8_W2016/tree/ec4f12ff40d8f6500938e994a9c69e2084dcbff6">this repository</a>.</li>
+<li>Clone <a href="https://github.com/eddieantonio/CMPUT404-lab-8">this repository</a>.</li>
 <li>In the root, run <code>npm install</code></li>
 <li>Run the application <code>./bin/www</code></li>
 <li>Go to <a href="http://phaser.io" class="uri">http://phaser.io</a> and view some examples</li>
@@ -114,9 +114,17 @@ players[id] <span class="op">=</span> <span class="op">{};</span>
 <ol>
 <li>What is a WebSocket? Why were they created?</li>
 <li>What is long-polling? Briefly explain what code you would need in the browser-side JavaScript and what code you would need the server-side to enable long-polling.</li>
-<li>What does the constructor of the <code>Client</code> class do?</li>
 <li>Why should WebSockets be used instead of long-polling?</li>
-<li>What is Phaser (in the context of this lab)?</li>
+<li>What does the constructor of the <code>Client</code> class do?</li>
+<li><p>WebSockets require callback methods. In the <code>openConnection()</code> method of the <code>Client</code>, these are set by using the following:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onmessage</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">onMessage</span>.<span class="at">bind</span>(<span class="kw">this</span>).
+<span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">displayError</span>.<span class="at">bind</span>(<span class="kw">this</span>)<span class="op">;</span>
+<span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onopen</span> <span class="op">=</span> <span class="kw">this</span>.<span class="va">connectionOpen</span>.<span class="at">bind</span>(<span class="kw">this</span>)<span class="op">;</span></code></pre></div>
+<p>Why is <code>Function#bind()</code> necessary? In other words, why couldn’t the code just do this?</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onmessage</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">onMessage</span><span class="op">;</span>
+<span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">displayError</span><span class="op">;</span>
+<span class="kw">this</span>.<span class="va">ws</span>.<span class="at">onopen</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">connectionOpen</span><span class="op">;</span></code></pre></div></li>
+<li><p>What is Phaser (in the context of this lab)?</p></li>
 </ol>
 </body>
 </html>

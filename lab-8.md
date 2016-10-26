@@ -11,7 +11,7 @@
 
 # Steps
 
- #. Clone [this repository](https://github.com/CMPUT404W2016/CMPUT404LAB8_W2016/tree/ec4f12ff40d8f6500938e994a9c69e2084dcbff6).
+ #. Clone [this repository](https://github.com/eddieantonio/CMPUT404-lab-8).
  #. In the root, run `npm install`
  #. Run the application `./bin/www`
  #. Go to <http://phaser.io> and view some examples
@@ -81,6 +81,24 @@
  #. What is long-polling? Briefly explain what code you would need in
     the browser-side JavaScript and what code you would need the
     server-side to enable long-polling.
- #. What does the constructor of the `Client` class do?
  #. Why should WebSockets be used instead of long-polling?
+ #. What does the constructor of the `Client` class do?
+ #. WebSockets require callback methods. In the `openConnection()`
+    method of the `Client`, these are set by using the following:
+
+    ```javascript
+    this.ws.onmessage = this.onMessage.bind(this).
+    this.ws.onerror = this.displayError.bind(this);
+    this.ws.onopen = this.connectionOpen.bind(this);
+    ```
+
+    Why is `Function#bind()` necessary? In other words, why couldn't the
+    code just do this?
+
+    ```javascript
+    this.ws.onmessage = this.onMessage;
+    this.ws.onerror = this.displayError;
+    this.ws.onopen = this.connectionOpen;
+    ```
+
  #. What is Phaser (in the context of this lab)?
