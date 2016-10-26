@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alexander Wong, Eddie Antonio Santos" />
+  <meta name="date" content="2016-10-26" />
+  <title>CMPUT 404 Lab 8</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">CMPUT 404 Lab 8</h1>
+<h2 class="author">Alexander Wong, Eddie Antonio Santos</h2>
+<h3 class="date">October 26, 2016</h3>
+</div>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Learn how to utilize WebSockets and phaser.</li>
+<li>Create a basic phaser game with WebSocket connectivity for real-time server to client communication.</li>
+<li>Learn yet another HTML templating language.</li>
+</ul>
+<h1 id="steps">Steps</h1>
+<ol>
+<li>Clone <a href="https://github.com/CMPUT404W2016/CMPUT404LAB8_W2016/tree/ec4f12ff40d8f6500938e994a9c69e2084dcbff6">this repository</a>.</li>
+<li>In the root, run <code>npm install</code></li>
+<li>Run the application <code>./bin/www</code></li>
+<li>Go to <a href="http://phaser.io" class="uri">http://phaser.io</a> and view some examples</li>
+<li>Navigate to <a href="http://phaser.io/examples/v2/tilemaps/csv-map-collide" class="uri">http://phaser.io/examples/v2/tilemaps/csv-map-collide</a></li>
+<li>Create a new folder instead <code>public</code> called <code>assets</code>.</li>
+<li>Download the three necessary asset files and place them instead <code>public/assets</code>:
+<ul>
+<li><a href="https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/tilemaps/csv/catastrophi_level2.csv" class="uri">https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/tilemaps/csv/catastrophi_level2.csv</a></li>
+<li><a href="https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/tilemaps/tiles/catastrophi_tiles_16.png" class="uri">https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/tilemaps/tiles/catastrophi_tiles_16.png</a></li>
+<li><a href="https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/sprites/spaceman.png" class="uri">https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/sprites/spaceman.png</a></li>
+</ul></li>
+<li>Copy the code from this example and place it into <code>public/javascript/game.js</code>:
+<ul>
+<li><a href="https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js">https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js</a></li>
+</ul></li>
+<li>Rename <code>new Phaser.Game</code>’s 4th argument from <code>phaser-example</code> to <code>phaser</code>
+<ul>
+<li>To match the <code>&lt;div&gt;</code> ID we specified in the template.</li>
+</ul></li>
+<li>Modify the paths in <code>preload()</code> to match the path we downloaded everything to—namely, <code>assets/</code> (the web framework removes the <code>public</code> part).</li>
+<li>(optional) Uncomment <code>layer.debug</code> to be <code>true</code> to see collision.</li>
+<li>Run the application again using <code>./bin/www</code></li>
+<li>Stop the application. Add the WebSocket Client code to <code>public/javascripts/game.js</code>: <a href="https://gist.github.com/awwong1/20b3acea02019f43a88f" class="uri">https://gist.github.com/awwong1/20b3acea02019f43a88f</a></li>
+<li><p>Add the client WebSocket instantiation at the bottom of the <code>create()</code> method:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">client</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">Client</span>()<span class="op">;</span>
+<span class="kw">this</span>.<span class="va">client</span>.<span class="at">openConnection</span>()<span class="op">;</span></code></pre></div></li>
+<li>Add in a UUID generator in the client. Create a new function with the following: <a href="http://stackoverflow.com/a/105074/6626414" class="uri">http://stackoverflow.com/a/105074/6626414</a></li>
+<li>Update the server side code to handle players instead of the one rabbit object: <a href="https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4" class="uri">https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4</a></li>
+<li><p>Set the variables of the class within <code>game.js</code> to equal the following:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> map<span class="op">;</span>
+<span class="kw">var</span> layer<span class="op">;</span>
+<span class="kw">var</span> cursors<span class="op">;</span>
+<span class="kw">var</span> players <span class="op">=</span> <span class="op">{};</span>
+<span class="kw">var</span> id <span class="op">=</span> <span class="at">guid</span>()<span class="op">;</span>
+players[id] <span class="op">=</span> <span class="op">{};</span>
+<span class="kw">var</span> player <span class="op">=</span> players[id]<span class="op">;</span></code></pre></div></li>
+<li><p>Add the following code to the bottom of the <code>update()</code> method:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="cf">if</span> (<span class="kw">this</span>.<span class="va">client</span>.<span class="at">connected</span>) <span class="op">{</span>
+    <span class="kw">this</span>.<span class="va">client</span>.<span class="va">ws</span>.<span class="at">send</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(<span class="op">{</span>
+        <span class="dt">uuid</span><span class="op">:</span> id<span class="op">,</span>
+        <span class="dt">x</span><span class="op">:</span> <span class="va">player</span>.<span class="at">x</span><span class="op">,</span>
+        <span class="dt">y</span><span class="op">:</span> <span class="va">player</span>.<span class="at">y</span>
+    <span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span></code></pre></div></li>
+<li>Modify the client <code>onMessage()</code> function to equal the following: <a href="https://gist.github.com/awwong1/2280e439b81c0fa666f7" class="uri">https://gist.github.com/awwong1/2280e439b81c0fa666f7</a></li>
+<li>Run the application. Open up a new browser window and run the application. What happens?</li>
+<li>(Bonus) Get the application working with up/down/left/right animations</li>
+<li><p>(Bonus) Get the WebSockets working with <a href="http://phaser.io/examples/v2/tilemaps/csv-map-with-p2" class="uri">http://phaser.io/examples/v2/tilemaps/csv-map-with-p2</a></p></li>
+</ol>
+<h1 id="questions">Questions</h1>
+<ol>
+<li>What is a WebSocket?</li>
+<li>What is long-polling?</li>
+<li>Why should WebSockets be used instead of client-side long-polling?</li>
+<li>What is Phaser (in the context of this lab)?</li>
+<li>What is Pug/Jade (in the context of this lab)?</li>
+<li>What is Express (in the context of this lab)?</li>
+</ol>
+</body>
+</html>
