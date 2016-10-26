@@ -67,7 +67,7 @@
             uuid: id,
             x: player.x,
             y: player.y
-        });
+        }));
     }
     ```
 
