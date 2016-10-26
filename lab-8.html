@@ -61,8 +61,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 id="steps">Steps</h1>
 <ol>
 <li>Clone <a href="https://github.com/eddieantonio/CMPUT404-lab-8">this repository</a>.</li>
-<li>In the root, run <code>npm install</code></li>
-<li>Run the application <code>./bin/www</code></li>
+<li>In the root, run <code>npm install</code>. This will install the server-side JavaScript dependencies into <code>node_modules/</code>.</li>
+<li>Run the application: <code>./bin/www</code></li>
 <li>Go to <a href="http://phaser.io" class="uri">http://phaser.io</a> and view some examples</li>
 <li>Navigate to <a href="http://phaser.io/examples/v2/tilemaps/csv-map-collide" class="uri">http://phaser.io/examples/v2/tilemaps/csv-map-collide</a></li>
 <li>Create a new folder inside <code>public</code> called <code>assets</code>.</li>
@@ -76,7 +76,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js">https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js</a></li>
 </ul></li>
-<li>In <code>game.js</code>, find the line that runs <code>new Phaser.Game</code> and replace its 4th argument from <code>phaser-example</code> to <code>phaser</code>
+<li>In <code>game.js</code>, find the line that executes <code>new Phaser.Game</code> and replace its 4th argument from <code>phaser-example</code> to <code>phaser</code>
 <ul>
 <li>This is to match the <code>&lt;div&gt;</code> ID specified in the template.</li>
 </ul></li>
@@ -87,8 +87,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Add the client WebSocket instantiation at the bottom of the <code>create()</code> method:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">client</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">Client</span>()<span class="op">;</span>
 <span class="kw">this</span>.<span class="va">client</span>.<span class="at">openConnection</span>()<span class="op">;</span></code></pre></div></li>
-<li>Add in a UUID generator in the client. Create a new function with the following: <a href="http://stackoverflow.com/a/105074/6626414" class="uri">http://stackoverflow.com/a/105074/6626414</a></li>
-<li>Update the server-side code to handle players instead of the one rabbit object: <a href="https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4" class="uri">https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4</a></li>
+<li>Add a UUID generator in the client to create unique IDs for each player. Create a new function with the following: <a href="http://stackoverflow.com/a/105074/6626414" class="uri">http://stackoverflow.com/a/105074/6626414</a>. Cite it in your source code.</li>
+<li>Update the server-side JavaScript (<code>app.js</code>) to handle players instead of the one rabbit object: <a href="https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4" class="uri">https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4</a></li>
 <li><p>Set the variables of the class within <code>game.js</code> to equal the following:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> map<span class="op">;</span>
 <span class="kw">var</span> layer<span class="op">;</span>
@@ -106,9 +106,7 @@ players[id] <span class="op">=</span> <span class="op">{};</span>
     <span class="op">}</span>)<span class="op">;</span>
 <span class="op">}</span></code></pre></div></li>
 <li>Modify the client <code>onMessage()</code> function to equal the following: <a href="https://gist.github.com/awwong1/2280e439b81c0fa666f7" class="uri">https://gist.github.com/awwong1/2280e439b81c0fa666f7</a></li>
-<li>Run the application. Open up a new browser window and run the application. What happens?</li>
-<li>(Bonus) Get the application working with up/down/left/right animations</li>
-<li><p>(Bonus) Get the WebSockets working with <a href="http://phaser.io/examples/v2/tilemaps/csv-map-with-p2" class="uri">http://phaser.io/examples/v2/tilemaps/csv-map-with-p2</a></p></li>
+<li><p>Run the application. Open up a new browser window and run the application. What happens?</p></li>
 </ol>
 <h1 id="questions">Questions</h1>
 <ol>

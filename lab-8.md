@@ -12,8 +12,9 @@
 # Steps
 
  #. Clone [this repository](https://github.com/eddieantonio/CMPUT404-lab-8).
- #. In the root, run `npm install`
- #. Run the application `./bin/www`
+ #. In the root, run `npm install`. This will install the server-side
+    JavaScript dependencies into `node_modules/`.
+ #. Run the application: `./bin/www`
  #. Go to <http://phaser.io> and view some examples
  #. Navigate to <http://phaser.io/examples/v2/tilemaps/csv-map-collide>
  #. Create a new folder inside `public` called `assets`.
@@ -24,7 +25,7 @@
  #. Replace the code in `public/javascript/game.js` with this example
     file:
     - <https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js>
- #. In `game.js`, find the line that runs `new Phaser.Game` and replace
+ #. In `game.js`, find the line that executes `new Phaser.Game` and replace
     its 4th argument from `phaser-example` to `phaser`
     - This is to match the `<div>` ID specified in the template.
  #. Modify the paths in  `preload()` to match the path we downloaded everything
@@ -39,10 +40,12 @@
     this.client = new Client();
     this.client.openConnection();
     ```
- #. Add in a UUID generator in the client. Create a new function with
-    the following: <http://stackoverflow.com/a/105074/6626414>
- #. Update the server-side code to handle players instead of the one
-    rabbit object: <https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4>
+ #. Add a UUID generator in the client to create unique IDs for each
+    player. Create a new function with the following:
+    <http://stackoverflow.com/a/105074/6626414>. Cite it in your source
+    code.
+ #. Update the server-side JavaScript (`app.js`) to handle players
+    instead of the one rabbit object: <https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4>
  #. Set the variables of the class within `game.js` to equal the
     following:
 
@@ -72,10 +75,6 @@
     <https://gist.github.com/awwong1/2280e439b81c0fa666f7>
  #. Run the application. Open up a new browser window and run the
     application. What happens?
- #. (Bonus) Get the application working with up/down/left/right
-    animations
- #. (Bonus) Get the WebSockets working with
-    <http://phaser.io/examples/v2/tilemaps/csv-map-with-p2>
 
 # Questions
 
