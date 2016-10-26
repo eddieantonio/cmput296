@@ -4,9 +4,10 @@
 
 # Overview
 
- - Learn how to utilize WebSockets and phaser.
+ - Learn how to utilize WebSockets and Phaser.
  - Create a basic phaser game with WebSocket connectivity for real-time server to client communication.
- - Learn yet another HTML templating language.
+
+[Phaser]: http://phaser.io/
 
 # Steps
 
@@ -76,9 +77,10 @@
 
 # Questions
 
- #. What is a WebSocket?
- #. What is long-polling?
- #. Why should WebSockets be used instead of client-side long-polling?
+ #. What is a WebSocket? Why were they created?
+ #. What is long-polling? Briefly explain what code you would need in
+    the browser-side JavaScript and what code you would need the
+    server-side to enable long-polling.
+ #. What does the constructor of the `Client` class do?
+ #. Why should WebSockets be used instead of long-polling?
  #. What is Phaser (in the context of this lab)?
- #. What is Pug/Jade (in the context of this lab)?
- #. What is Express (in the context of this lab)?
