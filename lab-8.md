@@ -19,12 +19,14 @@
  #. Create a new folder inside `public` called `assets`.
  #. Download the three necessary asset files and place them inside of `public/assets`:
     - <https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/tilemaps/csv/catastrophi_level2.csv>
-    - <https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/tilemaps/tiles/catastrophi_tiles_16.png>
-    - <https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/sprites/spaceman.png>
- #. Copy the code from this example and place it into `public/javascript/game.js`:
+    - <https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/tilemaps/tiles/catastrophi_tiles_16.png>
+    - <https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/sprites/spaceman.png>
+ #. Replace the code in `public/javascript/game.js` with this example
+    file:
     - <https://github.com/photonstorm/phaser-examples/blob/master/examples/tilemaps/csv%20map%20collide.js>
- #. Rename `new Phaser.Game`'s 4th argument from `phaser-example` to `phaser`
-    - To match the `<div>` ID we specified in the template.
+ #. In `game.js`, find the line that runs `new Phaser.Game` and replace
+    its 4th argument from `phaser-example` to `phaser`
+    - This is to match the `<div>` ID specified in the template.
  #. Modify the paths in  `preload()` to match the path we downloaded everything
     to---namely, `assets/` (the web framework removes the `public` part).
  #. (optional) Uncomment `layer.debug` to be `true` to see collision.
