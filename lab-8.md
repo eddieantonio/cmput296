@@ -16,8 +16,8 @@
  #. Run the application `./bin/www`
  #. Go to <http://phaser.io> and view some examples
  #. Navigate to <http://phaser.io/examples/v2/tilemaps/csv-map-collide>
- #. Create a new folder instead `public` called `assets`.
- #. Download the three necessary asset files and place them instead `public/assets`:
+ #. Create a new folder inside `public` called `assets`.
+ #. Download the three necessary asset files and place them inside of `public/assets`:
     - <https://github.com/photonstorm/phaser-examples/raw/master/examples/assets/tilemaps/csv/catastrophi_level2.csv>
     - <https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/tilemaps/tiles/catastrophi_tiles_16.png>
     - <https://github.com/photonstorm/phaser-examples/blob/master/examples/assets/sprites/spaceman.png>
@@ -39,7 +39,7 @@
     ```
  #. Add in a UUID generator in the client. Create a new function with
     the following: <http://stackoverflow.com/a/105074/6626414>
- #. Update the server side code to handle players instead of the one
+ #. Update the server-side code to handle players instead of the one
     rabbit object: <https://gist.github.com/awwong1/90d50ffa41cfc5ef7ea4>
  #. Set the variables of the class within `game.js` to equal the
     following:
