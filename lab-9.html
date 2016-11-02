@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Alexander Wong, Eddie Antonio Santos" />
+  <title>CMPUT 404 Lab 9</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">CMPUT 404 Lab 9</h1>
+<h2 class="author">Alexander Wong, Eddie Antonio Santos</h2>
+<h3 class="date">November 2, 2016</h3>
+</div>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Understand the basics of authentication for web-based applications</li>
+<li>Understand what HTTP Basic Authentication, HTTP TOken Authentication and HTTP Session Authentication are.</li>
+<li>Understand what OAuth and OAuth2 are.</li>
+</ul>
+<h1 id="steps">Steps</h1>
+<ol>
+<li>Clone <a href="https://github.com/CMPUT404W2016/CMPUT404LAB9_W2016">this repository</a></li>
+<li><p>Create a Python virtual environment and install the requirements.</p>
+<pre class="sh"><code>virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt</code></pre></li>
+<li>Navigate to the <code>leopard</code> application, migrate the Django application.</li>
+<li>Navigate to the <code>iguana</code> application, migrate the Django application.</li>
+<li>Within the iguana application, create a superuser.</li>
+<li>Run the iguana application on the default settings (localhost:8000)</li>
+<li>Run the leopard application on a operate port (e.g., 9000)</li>
+<li><p>Use the leopard application to query the iguana application’s user API using the three authentication methods</p></li>
+</ol>
+<h1 id="questions">Questions</h1>
+<p><strong>Remember to cite your sources!</strong></p>
+<ol>
+<li>Provide example header(s) for HTTP Basic Authentication, HTTP Token Authentication, and HTTP Session Authentication.</li>
+<li>What is OAuth and OAuth2? Who uses it?</li>
+<li>What authentication did you use to login to eClass?</li>
+<li>Which type of authentication would you use for an unencrypted connection?</li>
+</ol>
+</body>
+</html>
