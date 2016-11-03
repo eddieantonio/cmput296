@@ -36,5 +36,7 @@ pre {
         box-shadow: none;
         /* Try to keep an entire code-block on one page. */
         page-break-inside: avoid;
+        /* Avoid extra scrollbars in the PDF. */
+        overflow-x: auto;
     }
 }
