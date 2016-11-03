@@ -4,7 +4,10 @@ PDF = $(addsuffix .pdf,$(basename $(SRC)))
 CSSFILE = simple.css
 
 .PHONY: all
-all: $(HTML)
+all: html pdf
+
+.PHONY: html
+html: $(HTML)
 
 .PHONY: pdf
 pdf: $(PDF)
