@@ -60,11 +60,12 @@
 
  #. Use the `leopard` application to query the `iguana` application's
     user API using the three authentication methods: no authentication,
-    HTTP Basic, and HTTP Token.
+    HTTP Basic, and HTTP Token. Use the username and password for the
+    superuser you created for the `iguana` application.
 
 # Hints
 
-Examine the source of the Leopard app! Particularly `consumer/views.py`.
+Examine the source of the `leopard` app! Particularly `consumer/views.py`.
 
 # Questions
 
