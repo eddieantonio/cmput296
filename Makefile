@@ -14,7 +14,7 @@ pdf: $(PDF)
 
 .PHONY: install-hooks
 install-hooks:
-	ln -s ../../pre-commit.sh .git/hooks/pre-commit
+	ln -sf ../../pre-commit.sh .git/hooks/pre-commit
 
 %.html: %.md
 	pandoc --standalone --smart --css $(CSSFILE) -o $@ $<
