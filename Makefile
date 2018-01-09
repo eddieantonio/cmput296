@@ -17,7 +17,7 @@ install-hooks:
 	ln -sf ../../pre-commit.sh .git/hooks/pre-commit
 
 %.html: %.md
-	pandoc --standalone --smart --css $(CSSFILE) -o $@ $<
+	pandoc --standalone --css $(CSSFILE) -o $@ $<
 
 %.pdf: %.html
 	wkhtmltopdf --page-size letter --print-media-type $< $@
