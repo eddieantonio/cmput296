@@ -59,6 +59,12 @@ components of the URLs.
 > **query**, and **fragment**)? What are the components? If you are
 > unsure, simply answer "unsure".
 
+
+The path
+--------
+
+
+
 Query string
 ------------
 
@@ -136,18 +142,35 @@ string**.
 > answers to questions 4, 5, 6, 7, and 8. Describe the purpose of these
 > characters in the query string: the question mark (`?`), the ampersand
 > (`&`), and the equals sign (`=`). In other words, describe what they
-> do in the query string?
+> do in the query string.
 
-> **Question 9**: Suppose you were tasked with writing GitHub search in Python.
+Query strings are (by convention
+[[1]](https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type)),
+a list of **key-value** pairs.
+
+> **Question 10**: Suppose you were tasked with writing GitHub search in Python.
 > What data structure would you use to hold the pertinent information in
 > the query string? Pertinent information would be the query text, and
 > the type of search (e.g., "Repositories", "Code", "Wikis", "Users"),
-> but I might want to add new information in the future.
+> but I might want to add new information in the future. Why is this the
+> most appropriate data structure?
 
 
-The path
---------
+The fragment
+------------
+
+
+Percent encoding
+----------------
 
 
 Putting it all together
 -----------------------
+
+> **Question XXX**: Consider the following URL:
+>
+>     https://en.wikipedia.org/w/index.php?title=Humphrey_the_Whale&oldid=785931250#Humphrey's_journeys_inland
+>
+> Describe all of the components of this URL: list what components are
+> present, and give its value in this URL. Parse the query string, and
+> list the key-value pairs.
