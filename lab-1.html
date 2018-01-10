@@ -25,36 +25,95 @@
 </header>
 <h1 id="overview">Overview</h1>
 <ul>
+<li>Investigate URLs by manipulating them manually</li>
 <li>Learn about the components of a URL</li>
 <li>Learn about percent-encoding</li>
 </ul>
-<h1 id="steps">Steps</h1>
-<h2 id="query-parameters">Query parameters</h2>
-<!-- Instead of YouTube do a GitHub code search... -->
-<!-- Do the goofy side of GitHub like "dolphins" pull request -->
+<h1 id="materials">Materials</h1>
+<ul>
+<li>A modern web browser (like Firefox or Google Chrome)</li>
+</ul>
+<h1 id="procedure">Procedure</h1>
+<p>Submit your responses to the questions in this lab in eClass.</p>
+<blockquote>
+<p><strong>Question X</strong>. Questions look like this.</p>
+</blockquote>
+<p><strong>Remember to cite your sources</strong>.</p>
+<h2 id="what-is-a-url">What is a URL?</h2>
+<p>A URL (Uniform Resource Locator) is a way to address content on the web. We will be investigating the components of URL by manipulating the URL in the <strong>address bar</strong> of your browser of choice.</p>
+<p>URLs consist of a series of <strong>components</strong>. In this lab, we will focus on the following components:</p>
+<ul>
+<li><strong>scheme</strong></li>
+<li><strong>host</strong> (part of the authority)</li>
+<li><strong>path</strong></li>
+<li><strong>query</strong></li>
+<li><strong>fragment</strong></li>
+</ul>
+<p>The official <a href="https://tools.ietf.org/html/rfc3986#section-1.1.1">URI standard</a> lists more components, but we’ll only focus on these five components for now. Only the <strong>scheme</strong> and the <strong>host</strong> are required components of a URL.</p>
+<p>By the end of this lab, you should have a better understanding of the components of the URLs.</p>
+<blockquote>
+<p><strong>Question 1</strong>: Consider this URL:</p>
+<pre><code>https://wwww.ualberta.ca/computing-science/</code></pre>
+<p>Using your current understand of URLs: how many components are in this URL? Which components (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? What are the components? If you are unsure, simply answer “unsure”.</p>
+</blockquote>
+<h2 id="query-string">Query string</h2>
 <!--
-https://tools.ietf.org/html/rfc3986#section-3.4
 
-Note: PRESCRIBES that percent-encoding REQUIRES interpretation as UTF-8.
+    https://tools.ietf.org/html/rfc3986#section-3.4
+
+    Note: PRESCRIBES that percent-encoding REQUIRES interpretation as UTF-8.
+    https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type
+
+    It's **here** that it's spaces get converted to +
+
+    The exact structure of query strings is NOT standardized!
+
+    How do HTML forms create query strings?
 
 -->
-<!--
-
-https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type
-
-It's **here** that it's spaces get converted to +
-
--->
-<!-- http://www.erichstauffer.com/technology/youtube-query-string-parameters -->
-<!-- The exact structure of query strings is NOT standardized! -->
-<!-- How do HTML forms create query strings? -->
-<p>In this section, we will investigate URL <strong>query string parameters</strong>.</p>
-<p>Open up your web browser of choice.</p>
-<p>For the consideration of your lab partners, please mute the volume on your computer.</p>
-<p>Open this page in your browser:</p>
-<p><a href="https://www.youtube.com/watch?v=PWmfNeLs7fA" class="uri">https://www.youtube.com/watch?v=PWmfNeLs7fA</a></p>
-<p>Notice that</p>
-<p><a href="https://www.youtube.com/watch?v=PWmfNeLs7fA&amp;t=35s" class="uri">https://www.youtube.com/watch?v=PWmfNeLs7fA&amp;t=35s</a></p>
-<p><a href="https://youtu.be/PWmfNeLs7fA" class="uri">https://youtu.be/PWmfNeLs7fA</a></p>
+<p>We will use GitHub’s search feature to learn more about the <strong>query string</strong>.</p>
+<p>Go to <a href="https://github.com/search" class="uri">https://github.com/search</a> in your preferred browser.</p>
+<p>Search for <code>linux</code> (type <code>linux</code> in the search box and click “Search”).</p>
+<p>There should be search results for repositories containing “linux” on the page.</p>
+<blockquote>
+<p><strong>Question 2</strong>: What is the URL now? (copy and paste the URL from your browser’s location bar as the answer to this question).</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 3</strong>: Describe how the URL has changed from the original URL: <a href="https://github.com/search" class="uri">https://github.com/search</a></p>
+</blockquote>
+<p>Inspect the URL. Find the part that says <code>q=linux</code>. Change this to <code>q=freebsd</code> and press enter.</p>
+<blockquote>
+<p><strong>Question 4</strong>: Copy-paste your current GitHub search URL here. Describe what has changed on the web page and how it relates to the URL.</p>
+</blockquote>
+<p>In the web page, on the left-hand sidebar, there should be buttons for “Repositories”, “Code”, “Commits”, “Issues”, “Wikis”, and “Users. Make a note of the current URL. Click on”<strong>Wikis</strong>“.</p>
+<blockquote>
+<p><strong>Question 5</strong>: What part of the URL changed? How?</p>
+</blockquote>
+<p>These two strings should be present in the URL:</p>
+<ul>
+<li><code>type=Wikis</code></li>
+<li><code>q=freebsd</code></li>
+</ul>
+<p>Swap these two strings in the URL and try it (press enter).</p>
+<blockquote>
+<p><strong>Question 6</strong>: Copy-paste the URL you just tried (swapping the two strings). Has the web page &gt; changed at all? If so, how did it change?</p>
+</blockquote>
+<p>Append <code>&amp;q=linux</code> to the end of the URL.</p>
+<blockquote>
+<p><strong>Question 7</strong>: Copy-paste the URL you just tried (appending <code>&amp;q=linux</code>). Has the web page changed at all? If so, how did it change?</p>
+</blockquote>
+<p>Append <code>&amp;type=Users</code> to the end of the URL.</p>
+<blockquote>
+<p><strong>Question 8</strong>: Copy-paste the URL you just tried (appending <code>&amp;type=Users</code>). Has the web page changed at all? If so, how did it change?</p>
+</blockquote>
+<p>The part of the URL you have been changing is called the <strong>query string</strong>.</p>
+<blockquote>
+<p><strong>Question 9</strong>: Reflect on the changes you’ve made on the URL as answers to questions 4, 5, 6, 7, and 8. Describe the purpose of these characters in the query string: the question mark (<code>?</code>), the ampersand (<code>&amp;</code>), and the equals sign (<code>=</code>). In other words, describe what they do in the query string?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 9</strong>: Suppose you were tasked with writing GitHub search in Python. What data structure would you use to hold the pertinent information in the query string? Pertinent information would be the query text, and the type of search (e.g., “Repositories”, “Code”, “Wikis”, “Users”), but I might want to add new information in the future.</p>
+</blockquote>
+<h2 id="the-path">The path</h2>
+<h2 id="putting-it-all-together">Putting it all together</h2>
 </body>
 </html>
