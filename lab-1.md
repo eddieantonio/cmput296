@@ -55,10 +55,10 @@ components of the URLs.
 >
 >     https://wwww.ualberta.ca/computing-science/
 >
-> Using your current understand of URLs: how many components are in this
-> URL? Which components are present (choose from **scheme**, **host**,
-> **path**, **query**, and **fragment**)? Provide the value of each
-> components. If you are unsure, simply answer "unsure".
+> Using your current understanding of URLs: how many components are in
+> this URL? Which components are present (choose from **scheme**,
+> **host**, **path**, **query**, and **fragment**)? Provide the value of
+> each components. If you are unsure, simply answer "unsure".
 
 Query string
 ------------
@@ -185,7 +185,7 @@ as specified by page's HTML.
 The path and percent encoding
 -----------------------------
 
-There are only a few characters allowed any where in URLs/URIs.
+There are only a few characters allowed anywhere in URLs/URIs.
 
 > Characters that are allowed in a URI but do not have a reserved
 > purpose are called unreserved.  These include uppercase and lowercase
@@ -210,7 +210,7 @@ percent-encoding.
 
 Consult an [ASCII table](https://en.wikipedia.org/w/index.php?title=ASCII&oldid=819815126#Printable_characters) for more hexadecimal codes.
 
-I have a picture of cat called `cat.jpg`. It's URL is
+I have a picture of cat called `cat.jpg`. Its URL is
 <http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg>.
 In the same directory, there is a picture of a kitty cat called
 `kitty cat.jpg`. Its URL is
@@ -235,7 +235,7 @@ encoded (one percent for each byte).
 For example, the character `ñ` is used in the Spanish alphabet.
 Its Unicode *code point* is **U+00F1**. Encoded in UTF-8, its bytes (in
 hexadecimal) are: **C3 B1**. Therefore, a URL with an `ñ` will contain
-the sequence `%c3%b1`. For example, I have a picture in that directoy
+the sequence `%c3%b1`. For example, I have a picture in that directory
 called `buñuelos.jpg`. Its URL is
 `http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg`.
 
