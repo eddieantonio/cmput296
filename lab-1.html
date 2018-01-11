@@ -32,6 +32,7 @@
 <h1 id="materials">Materials</h1>
 <ul>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
+<li>An internet connection</li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -56,7 +57,6 @@
 <pre><code>https://wwww.ualberta.ca/computing-science/</code></pre>
 <p>Using your current understand of URLs: how many components are in this URL? Which components are present (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? Provide the value of each components. If you are unsure, simply answer “unsure”.</p>
 </blockquote>
-<h2 id="the-path">The path</h2>
 <h2 id="query-string">Query string</h2>
 <!--
 
@@ -133,10 +133,69 @@
 <blockquote>
 <p><strong>Question 14</strong>: Create the URL for the section called “Hipster”. Do this without clicking links in the web-page.</p>
 </blockquote>
-<h2 id="percent-encoding">Percent encoding</h2>
+<h2 id="the-path-and-percent-encoding">The path and percent encoding</h2>
+<p>There are only a few characters allowed any where in URLs/URIs.</p>
+<blockquote>
+<p>Characters that are allowed in a URI but do not have a reserved purpose are called unreserved. These include uppercase and lowercase letters, decimal digits, hyphen, period, underscore, and tilde.</p>
+<p><cite><a href="https://tools.ietf.org/html/rfc3986#section-2.3">RFC 3986 §2.3</a></cite></p>
+</blockquote>
+<p>To represent any other characters, they first need to be <strong>percent-encoded</strong>. To percent-encode an ASCII character, replace it with a <code>%</code>, and two hexadecimal digits representing the ASCII code of the character. Here’s a small chart of special characters and their percent-encoding.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th style="text-align: right;">ASCII code (hexadecimal)</th>
+<th style="text-align: right;">Percent-encoded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(space)</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;"><code>%20</code></td>
+</tr>
+<tr class="even">
+<td>#</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;"><code>%23</code></td>
+</tr>
+<tr class="odd">
+<td>+</td>
+<td style="text-align: right;">2B</td>
+<td style="text-align: right;"><code>%2B</code></td>
+</tr>
+<tr class="even">
+<td>:</td>
+<td style="text-align: right;">3A</td>
+<td style="text-align: right;"><code>%3A</code></td>
+</tr>
+<tr class="odd">
+<td>?</td>
+<td style="text-align: right;">3F</td>
+<td style="text-align: right;"><code>%3F</code></td>
+</tr>
+</tbody>
+</table>
+<p>Consult an <a href="https://en.wikipedia.org/w/index.php?title=ASCII&amp;oldid=819815126#Printable_characters">ASCII table</a> for more hexadecimal codes.</p>
+<p>I have a picture of cat called <code>cat.jpg</code>. It’s URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg" class="uri">http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg</a>. In the same directory, there is a picture of a kitty cat called <code>kitty cat.jpg</code>. Its URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg">http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg</a>.</p>
+<blockquote>
+<p><strong>Question 15</strong>: I have a picture in the same directory called <code>cool cat.jpg</code>. What is its URL?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 16</strong>: I have a picture in the same directory called <code>let's cooking.jpg</code>. What is its URL?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 17</strong>: I have a picture in the same directory called <code>what's up?.jpg</code>. What is its URL?</p>
+</blockquote>
+<p>Percent-encoding has been extended to work with UTF-8—a backwards-compatible extension of ASCII that works with non-English characters. The way it works, is if a Unicode character is representable by ASCII, it is percent-encoded the standard way; if the character can only be represented by UTF-8, then the bytes of its UTF-8 encoding are encoded (one percent for each byte).</p>
+<p>For example, the character <code>ñ</code> is used in the Spanish alphabet. Its Unicode <em>code point</em> is <strong>U+00F1</strong>. Encoded in UTF-8, its bytes (in hexadecimal) are: <strong>C3 B1</strong>. Therefore, a URL with an <code>ñ</code> will contain the sequence <code>%c3%b1</code>. For example, I have a picture in that directoy called <code>buñuelos.jpg</code>. Its URL is <code>http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg</code>.</p>
+<p>For the following question, use this tool to help you. <a href="http://unicode.scarfboy.com/" class="uri">http://unicode.scarfboy.com/</a></p>
+<blockquote>
+<p><strong>Question 18</strong>: I have a picture in the same directory called <code>😹.png</code>. That cat emoji is <strong>U+1F639</strong>. What is its URL?</p>
+</blockquote>
 <h2 id="putting-it-all-together">Putting it all together</h2>
 <blockquote>
-<p><strong>Question XXX</strong>: Consider the following URL:</p>
+<p><strong>Question 19</strong>: Consider the following URL:</p>
 <pre><code>https://en.wikipedia.org/w/index.php?title=Humphrey_the_Whale&amp;oldid=785931250#Humphrey&#39;s_journeys_inland</code></pre>
 <p>Describe all of the components of this URL: list what components are present, and give its value in this URL. Parse the query string, and list the key-value pairs.</p>
 </blockquote>

@@ -30,6 +30,11 @@ pre {
     box-shadow: inset -1px 1px 4px rgba(0,0,0,0.2);
 }
 
+table {
+    border-collapse: separate;
+    border-spacing: 1em 0;
+}
+
 @media print {
     pre {
         /* Remove the box-shadow. */

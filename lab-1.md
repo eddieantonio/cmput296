@@ -14,6 +14,7 @@ Materials
 =========
 
  - A modern web browser (like Firefox or Google Chrome)
+ - An internet connection
 
 
 Procedure
@@ -58,12 +59,6 @@ components of the URLs.
 > URL? Which components are present (choose from **scheme**, **host**,
 > **path**, **query**, and **fragment**)? Provide the value of each
 > components. If you are unsure, simply answer "unsure".
-
-
-The path
---------
-
-
 
 Query string
 ------------
@@ -187,14 +182,73 @@ as specified by page's HTML.
 > "Hipster". Do this without clicking links in the web-page.
 
 
-Percent encoding
-----------------
+The path and percent encoding
+-----------------------------
+
+There are only a few characters allowed any where in URLs/URIs.
+
+> Characters that are allowed in a URI but do not have a reserved
+> purpose are called unreserved.  These include uppercase and lowercase
+> letters, decimal digits, hyphen, period, underscore, and tilde.
+>
+> <cite>[RFC 3986 §2.3](https://tools.ietf.org/html/rfc3986#section-2.3)</cite>
+
+
+To represent any other characters, they first need to be
+**percent-encoded**. To percent-encode an ASCII character, replace it
+with a `%`, and two hexadecimal digits representing the ASCII code of
+the character. Here's a small chart of special characters and their
+percent-encoding.
+
+| Character    | ASCII code (hexadecimal) | Percent-encoded |
+|--------------|-------------------------:|----------------:|
+|  (space)     |                       20 |           `%20` |
+|  #           |                       23 |           `%23` |
+|  +           |                       2B |           `%2B` |
+|  :           |                       3A |           `%3A` |
+|  ?           |                       3F |           `%3F` |
+
+Consult an [ASCII table](https://en.wikipedia.org/w/index.php?title=ASCII&oldid=819815126#Printable_characters) for more hexadecimal codes.
+
+I have a picture of cat called `cat.jpg`. It's URL is
+<http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg>.
+In the same directory, there is a picture of a kitty cat called
+`kitty cat.jpg`. Its URL is
+<http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg>.
+
+> **Question 15**: I have a picture in the same directory called
+> `cool cat.jpg`. What is its URL?
+
+> **Question 16**: I have a picture in the same directory called
+> `let's cooking.jpg`. What is its URL?
+
+> **Question 17**: I have a picture in the same directory called
+> `what's up?.jpg`. What is its URL?
+
+Percent-encoding has been extended to work with UTF-8---a
+backwards-compatible extension of ASCII that works with non-English
+characters. The way it works, is if a Unicode character is representable
+by ASCII, it is percent-encoded the standard way; if the character can
+only be represented by UTF-8, then the bytes of its UTF-8 encoding are
+encoded (one percent for each byte).
+
+For example, the character `ñ` is used in the Spanish alphabet.
+Its Unicode *code point* is **U+00F1**. Encoded in UTF-8, its bytes (in
+hexadecimal) are: **C3 B1**. Therefore, a URL with an `ñ` will contain
+the sequence `%c3%b1`. For example, I have a picture in that directoy
+called `buñuelos.jpg`. Its URL is
+`http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg`.
+
+For the following question, use this tool to help you. <http://unicode.scarfboy.com/>
+
+> **Question 18**: I have a picture in the same directory called
+> `😹.png`. That cat emoji is **U+1F639**. What is its URL?
 
 
 Putting it all together
 -----------------------
 
-> **Question XXX**: Consider the following URL:
+> **Question 19**: Consider the following URL:
 >
 >     https://en.wikipedia.org/w/index.php?title=Humphrey_the_Whale&oldid=785931250#Humphrey's_journeys_inland
 >
