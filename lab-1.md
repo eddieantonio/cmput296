@@ -19,7 +19,7 @@ Materials
 Procedure
 =========
 
-Submit your responses to the questions in this lab in eClass.
+Submit your responses to the questions in this lab on eClass.
 
 > **Question X**. Questions look like this.
 
@@ -43,7 +43,7 @@ on the following components:
  - **fragment**
 
 The official [URI standard](https://tools.ietf.org/html/rfc3986#section-1.1.1)
-lists more components, but we'll only focus on these five components for
+lists more components, but we'll focus on these five components for
 now. Only the **scheme** and the **host** are required components of
 a URL.
 
@@ -55,9 +55,9 @@ components of the URLs.
 >     https://wwww.ualberta.ca/computing-science/
 >
 > Using your current understand of URLs: how many components are in this
-> URL? Which components (choose from **scheme**, **host**, **path**,
-> **query**, and **fragment**)? What are the components? If you are
-> unsure, simply answer "unsure".
+> URL? Which components are present (choose from **scheme**, **host**,
+> **path**, **query**, and **fragment**)? Provide the value of each
+> components. If you are unsure, simply answer "unsure".
 
 
 The path
@@ -148,16 +148,43 @@ Query strings are (by convention
 [[1]](https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type)),
 a list of **key-value** pairs.
 
-> **Question 10**: Suppose you were tasked with writing GitHub search in Python.
-> What data structure would you use to hold the pertinent information in
-> the query string? Pertinent information would be the query text, and
-> the type of search (e.g., "Repositories", "Code", "Wikis", "Users"),
-> but I might want to add new information in the future. Why is this the
-> most appropriate data structure?
+> **Question 10**: Suppose you were tasked with writing GitHub search in
+> Python. What data structure would you use to hold the pertinent
+> information in the query string? Pertinent information would be the
+> query text, and the type of search (e.g., "Repositories", "Code",
+> "Wikis", "Users"), but I might want to add new information in the
+> future. Why is this the most appropriate data structure?
 
 
 The fragment
 ------------
+
+Go to <http://www.eddieantonio.ca/cmput296/lab-1/>.
+
+You should be greeted by a long, scrolling page of gibberish filler text
+(called *lorem ipsum* [[2]](https://en.wikipedia.org/wiki/Lorem_ipsum)).
+
+Make a note of the current URL. Scroll down the page to find the section
+heading for "Cupcake". Click on the section heading. You should remain
+on the same webpage, but the page may have scrolled. The URL should have
+changed.
+
+> **Question 11**: Copy-paste the current value of the URL as the answer
+> to this question (Cupcake).
+
+> **Question 12**: What part of the URL has changed?
+
+Now, find the section header for "Bob Ross". Click the section heading.
+
+> **Question 13**: Copy-paste the current value of the URL as the answer
+> to this question (Bob Ross).
+
+The part of the URL that has changed is called the *fragment*.
+Your browser uses it to refer to different sections *within* a webpage,
+as specified by page's HTML.
+
+> **Question 14**: Create the URL for the section called
+> "Hipster". Do this without clicking links in the web-page.
 
 
 Percent encoding

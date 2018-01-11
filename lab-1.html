@@ -34,7 +34,7 @@
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 </ul>
 <h1 id="procedure">Procedure</h1>
-<p>Submit your responses to the questions in this lab in eClass.</p>
+<p>Submit your responses to the questions in this lab on eClass.</p>
 <blockquote>
 <p><strong>Question X</strong>. Questions look like this.</p>
 </blockquote>
@@ -49,12 +49,12 @@
 <li><strong>query</strong></li>
 <li><strong>fragment</strong></li>
 </ul>
-<p>The official <a href="https://tools.ietf.org/html/rfc3986#section-1.1.1">URI standard</a> lists more components, but we’ll only focus on these five components for now. Only the <strong>scheme</strong> and the <strong>host</strong> are required components of a URL.</p>
+<p>The official <a href="https://tools.ietf.org/html/rfc3986#section-1.1.1">URI standard</a> lists more components, but we’ll focus on these five components for now. Only the <strong>scheme</strong> and the <strong>host</strong> are required components of a URL.</p>
 <p>By the end of this lab, you should have a better understanding of the components of the URLs.</p>
 <blockquote>
 <p><strong>Question 1</strong>: Consider this URL:</p>
 <pre><code>https://wwww.ualberta.ca/computing-science/</code></pre>
-<p>Using your current understand of URLs: how many components are in this URL? Which components (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? What are the components? If you are unsure, simply answer “unsure”.</p>
+<p>Using your current understand of URLs: how many components are in this URL? Which components are present (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? Provide the value of each components. If you are unsure, simply answer “unsure”.</p>
 </blockquote>
 <h2 id="the-path">The path</h2>
 <h2 id="query-string">Query string</h2>
@@ -116,6 +116,23 @@
 <p><strong>Question 10</strong>: Suppose you were tasked with writing GitHub search in Python. What data structure would you use to hold the pertinent information in the query string? Pertinent information would be the query text, and the type of search (e.g., “Repositories”, “Code”, “Wikis”, “Users”), but I might want to add new information in the future. Why is this the most appropriate data structure?</p>
 </blockquote>
 <h2 id="the-fragment">The fragment</h2>
+<p>Go to <a href="http://www.eddieantonio.ca/cmput296/lab-1/" class="uri">http://www.eddieantonio.ca/cmput296/lab-1/</a>.</p>
+<p>You should be greeted by a long, scrolling page of gibberish filler text (called <em>lorem ipsum</em> <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">[2]</a>).</p>
+<p>Make a note of the current URL. Scroll down the page to find the section heading for “Cupcake”. Click on the section heading. You should remain on the same webpage, but the page may have scrolled. The URL should have changed.</p>
+<blockquote>
+<p><strong>Question 11</strong>: Copy-paste the current value of the URL as the answer to this question (Cupcake).</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 12</strong>: What part of the URL has changed?</p>
+</blockquote>
+<p>Now, find the section header for “Bob Ross”. Click the section heading.</p>
+<blockquote>
+<p><strong>Question 13</strong>: Copy-paste the current value of the URL as the answer to this question (Bob Ross).</p>
+</blockquote>
+<p>The part of the URL that has changed is called the <em>fragment</em>. Your browser uses it to refer to different sections <em>within</em> a webpage, as specified by page’s HTML.</p>
+<blockquote>
+<p><strong>Question 14</strong>: Create the URL for the section called “Hipster”. Do this without clicking links in the web-page.</p>
+</blockquote>
 <h2 id="percent-encoding">Percent encoding</h2>
 <h2 id="putting-it-all-together">Putting it all together</h2>
 <blockquote>
