@@ -1,5 +1,5 @@
 % Lab 1: URLs
-% CMPUT 296 Eddie Antonio Santos
+% CMPUT 296; written Eddie Antonio Santos
 % January 8, 2018
 
 Overview
