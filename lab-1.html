@@ -53,11 +53,11 @@
 <li><strong>fragment</strong></li>
 </ul>
 <p>The official <a href="https://tools.ietf.org/html/rfc3986#section-1.1.1">URI standard</a> lists more components, but we’ll focus on these five components for now. Only the <strong>scheme</strong> and the <strong>host</strong> are required components of a URL.</p>
-<p>By the end of this lab, you should have a better understanding of the components of the URLs.</p>
+<p>By the end of this lab, you should have a better understanding of the components of URLs.</p>
 <blockquote>
 <p><strong>Question 1</strong>: Consider this URL:</p>
-<pre><code>https://wwww.ualberta.ca/computing-science/</code></pre>
-<p>Using your current understanding of URLs: how many components are in this URL? Which components are present (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? Provide the value of each components. If you are unsure, simply answer “unsure”.</p>
+<pre><code>https://www.ualberta.ca/computing-science/</code></pre>
+<p>Using your current understanding of URLs: how many components are in this URL? Which components are present (choose from <strong>scheme</strong>, <strong>host</strong>, <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>)? Provide the value of each component. If you are unsure, simply answer “unsure”.</p>
 </blockquote>
 <h2 id="query-string">Query string</h2>
 <!--
@@ -79,18 +79,18 @@
 <p>Search for <code>linux</code> (type <code>linux</code> in the search box and click “Search”).</p>
 <p>There should be search results for repositories containing “linux” on the page.</p>
 <blockquote>
-<p><strong>Question 2</strong>: What is the URL now? (copy and paste the URL from your browser’s location bar as the answer to this question).</p>
+<p><strong>Question 2</strong>: What is the URL now? (copy and paste the URL from your browser’s address bar as the answer to this question).</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 3</strong>: Describe how the URL has changed from the original URL: <a href="https://github.com/search" class="uri">https://github.com/search</a></p>
+<p><strong>Question 3</strong>: Describe how the URL has changed from the original URL (which was <a href="https://github.com/search" class="uri">https://github.com/search</a>).</p>
 </blockquote>
 <p>Inspect the URL. Find the part that says <code>q=linux</code>. Change this to <code>q=freebsd</code> and press enter.</p>
 <blockquote>
 <p><strong>Question 4</strong>: Copy-paste your current GitHub search URL here. Describe what has changed on the web page and how it relates to the URL.</p>
 </blockquote>
-<p>In the web page, on the left-hand sidebar, there should be buttons for “Repositories”, “Code”, “Commits”, “Issues”, “Wikis”, and “Users. Make a note of the current URL. Click on”<strong>Wikis</strong>“.</p>
+<p>In the web page, on the left-hand sidebar, there should be buttons for “Repositories”, “Code”, “Commits”, “Issues”, “Wikis”, and “Users”. Make a note of the current URL. Click on “<strong>Wikis</strong>”.</p>
 <blockquote>
-<p><strong>Question 5</strong>: What part of the URL changed? How?</p>
+<p><strong>Question 5</strong>: What part of the URL changed? How did it change?</p>
 </blockquote>
 <p>These two strings should be present in the URL:</p>
 <ul>
@@ -99,7 +99,7 @@
 </ul>
 <p>Swap these two strings in the URL and try it (press enter).</p>
 <blockquote>
-<p><strong>Question 6</strong>: Copy-paste the URL you just tried (swapping the two strings). Has the web page &gt; changed at all? If so, how did it change?</p>
+<p><strong>Question 6</strong>: Copy-paste the URL you just tried (swapping the two strings). Has the web page changed at all? If so, how did it change?</p>
 </blockquote>
 <p>Append <code>&amp;q=linux</code> to the end of the URL.</p>
 <blockquote>
@@ -115,7 +115,7 @@
 </blockquote>
 <p>Query strings are (by convention <a href="https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">[1]</a>), a list of <strong>key-value</strong> pairs.</p>
 <blockquote>
-<p><strong>Question 10</strong>: Suppose you were tasked with writing GitHub search in Python. What data structure would you use to hold the pertinent information in the query string? Pertinent information would be the query text, and the type of search (e.g., “Repositories”, “Code”, “Wikis”, “Users”), but I might want to add new information in the future. Why is this the most appropriate data structure?</p>
+<p><strong>Question 10</strong>: Suppose you were tasked with writing GitHub’s search feature in Python. What data structure would you use to hold the pertinent information in the query string? Pertinent information would be the query text, and the type of search (e.g., “Repositories”, “Code”, “Wikis”, “Users”), but I might want to add new information in the future. Why is this the most appropriate data structure?</p>
 </blockquote>
 <h2 id="the-fragment">The fragment</h2>
 <p>Go to <a href="http://www.eddieantonio.ca/cmput296/lab-1/" class="uri">http://www.eddieantonio.ca/cmput296/lab-1/</a>.</p>
@@ -131,9 +131,9 @@
 <blockquote>
 <p><strong>Question 13</strong>: Copy-paste the current value of the URL as the answer to this question (Bob Ross).</p>
 </blockquote>
-<p>The part of the URL that has changed is called the <em>fragment</em>. Your browser uses it to refer to different sections <em>within</em> a webpage, as specified by page’s HTML.</p>
+<p>The part of the URL that has changed is called the <em>fragment</em>. Your browser uses it to refer to different sections <em>within</em> a webpage, as specified by the page’s HTML.</p>
 <blockquote>
-<p><strong>Question 14</strong>: Create the URL for the section called “Hipster”. Do this without clicking links in the web-page.</p>
+<p><strong>Question 14</strong>: Create the URL for the section called “Hipster”. Do this without clicking links in the webpage.</p>
 </blockquote>
 <h2 id="the-path-and-percent-encoding">The path and percent encoding</h2>
 <p>There are only a few characters allowed anywhere in URLs/URIs.</p>
@@ -179,7 +179,7 @@
 </tbody>
 </table>
 <p>Consult an <a href="https://en.wikipedia.org/w/index.php?title=ASCII&amp;oldid=819815126#Printable_characters">ASCII table</a> for more hexadecimal codes.</p>
-<p>I have a picture of cat called <code>cat.jpg</code>. Its URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg" class="uri">http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg</a>. In the same directory, there is a picture of a kitty cat called <code>kitty cat.jpg</code>. Its URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg">http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg</a>.</p>
+<p>I have a picture of a cat called <code>cat.jpg</code>. Its URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg" class="uri">http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg</a>. In the same directory, there is a picture of a kitty cat called <code>kitty cat.jpg</code>. Its URL is <a href="http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg">http://www.eddieantonio.ca/cmput296/lab-1/kitty%20cat.jpg</a>.</p>
 <blockquote>
 <p><strong>Question 15</strong>: I have a picture in the same directory called <code>cool cat.jpg</code>. What is its URL?</p>
 </blockquote>
@@ -189,8 +189,8 @@
 <blockquote>
 <p><strong>Question 17</strong>: I have a picture in the same directory called <code>what's up?.jpg</code>. What is its URL?</p>
 </blockquote>
-<p>Percent-encoding has been extended to work with UTF-8—a backwards-compatible extension of ASCII that works with non-English characters. The way it works, is if a Unicode character is representable by ASCII, it is percent-encoded the standard way; if the character can only be represented by UTF-8, then the bytes of its UTF-8 encoding are encoded (one percent for each byte).</p>
-<p>For example, the character <code>ñ</code> is used in the Spanish alphabet. Its Unicode <em>code point</em> is <strong>U+00F1</strong>. Encoded in UTF-8, its bytes (in hexadecimal) are: <strong>C3 B1</strong>. Therefore, a URL with an <code>ñ</code> will contain the sequence <code>%c3%b1</code>. For example, I have a picture in that directory called <code>buñuelos.jpg</code>. Its URL is <code>http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg</code>.</p>
+<p>Percent-encoding has been extended to work with UTF-8—a backwards-compatible extension of ASCII that works with non-English characters. The way it works is, if a Unicode character is representable by ASCII, it is percent-encoded the standard way; if the character can only be represented by UTF-8, then the bytes of its UTF-8 encoding are encoded (one percent for each byte).</p>
+<p>For example, the character <code>ñ</code> is used in the Spanish alphabet. Its Unicode <em>code point</em> is <strong>U+00F1</strong>. Encoded in UTF-8, its bytes (in hexadecimal) are: <strong>C3 B1</strong>. Therefore, a URL with an <code>ñ</code> will contain the sequence <code>%c3%b1</code>. For example, I have a picture in that directory called <code>buñuelos.jpg</code>. Its URL is <a href="http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg">http://eddieantonio.ca/cmput296/lab-1/bu%C3%B1uelos.jpg</a>.</p>
 <p>For the following question, use this tool to help you. <a href="http://unicode.scarfboy.com/" class="uri">http://unicode.scarfboy.com/</a></p>
 <blockquote>
 <p><strong>Question 18</strong>: I have a picture in the same directory called <code>😹.png</code>. That cat emoji is <strong>U+1F639</strong>. What is its URL?</p>
