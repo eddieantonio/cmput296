@@ -3,6 +3,10 @@ HTML = $(addsuffix .html,$(basename $(SRC)))
 PDF = $(addsuffix .pdf,$(basename $(SRC)))
 CSSFILE = simple.css
 
+# Explicitly set to correct DPI
+# https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3241
+DPI := $(shell dc -e '96 4 * p')
+
 .PHONY: all
 all: html pdf
 
@@ -20,4 +24,4 @@ install-hooks:
 	pandoc --standalone --css $(CSSFILE) -o $@ $<
 
 %.pdf: %.html
-	wkhtmltopdf --page-size letter --print-media-type $< $@
+	wkhtmltopdf --print-media-type --page-size letter --dpi 384 $< $@

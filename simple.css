@@ -17,11 +17,6 @@ body {
     body { max-width: 32em }
 }
 
-@media print {
-    /* Make the link colours uniform when printed. */
-    a:link, a:visited { color: #3344DD; }
-}
-
 pre {
     padding: .5em;
     background-color: #f0f0f0;
@@ -36,6 +31,13 @@ table {
 }
 
 @media print {
+    body {
+        font-size: 11pt;
+    }
+
+    /* Make the link colours uniform when printed. */
+    a:link, a:visited { color: #3344DD; }
+
     pre {
         /* Remove the box-shadow. */
         box-shadow: none;
