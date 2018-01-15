@@ -32,6 +32,10 @@ table {
 }
 
 @media print {
+    @page {
+        margin: auto .72in;
+    }
+
     body {
         font-size: 11pt;
     }
