@@ -193,7 +193,6 @@ There are only a few characters allowed anywhere in URLs/URIs.
 >
 > <cite>[RFC 3986 §2.3](https://tools.ietf.org/html/rfc3986#section-2.3)</cite>
 
-
 To represent any other characters, they first need to be
 **percent-encoded**. To percent-encode an ASCII character, replace it
 with a `%`, and two hexadecimal digits representing the ASCII code of
@@ -209,6 +208,9 @@ percent-encoding.
 |  ?           |                       3F |           `%3F` |
 
 Consult an [ASCII table](https://en.wikipedia.org/w/index.php?title=ASCII&oldid=819815126#Printable_characters) for more hexadecimal codes.
+
+**NOTE**: Certain reserved characters do not need to be percent-encoded
+within some components.
 
 I have a picture of a cat called `cat.jpg`. Its URL is
 <http://www.eddieantonio.ca/cmput296/lab-1/cat.jpg>.
