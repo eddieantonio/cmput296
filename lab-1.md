@@ -1,5 +1,5 @@
 % Lab 1: URLs
-% CMPUT 296; written Eddie Antonio Santos
+% CMPUT 296; written by Eddie Antonio Santos
 % January 8, 2018
 
 Overview
@@ -25,7 +25,6 @@ Submit your responses to the questions in this lab on eClass.
 > **Question X**. Questions look like this.
 
 **Remember to cite your sources**.
-
 
 What is a URL?
 --------------
@@ -244,7 +243,13 @@ called `buñuelos.jpg`. Its URL is
 For the following question, use this tool to help you. <http://unicode.scarfboy.com/>
 
 > **Question 18**: I have a picture in the same directory called
-> `😹.png`. That cat emoji is **U+1F639**. What is its URL?
+> `😹.png`. That cat emoji is **[U+1F639](https://emojipedia.org/cat-face-with-tears-of-joy/)**.
+> What is its URL?
+
+<!--
+    <img alt="😹" title="😹" style="height: 1em" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/cat-face-with-tears-of-joy_1f639.png">
+-->
+
 
 
 Putting it all together

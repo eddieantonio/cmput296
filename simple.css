@@ -26,6 +26,7 @@ pre {
 }
 
 table {
+    margin: auto;
     border-collapse: separate;
     border-spacing: 1em 0;
 }

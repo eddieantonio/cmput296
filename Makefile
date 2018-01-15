@@ -23,5 +23,5 @@ install-hooks:
 %.html: %.md
 	pandoc --standalone --css $(CSSFILE) -o $@ $<
 
-%.pdf: %.html
+%.pdf: %.html simple.css
 	wkhtmltopdf --print-media-type --page-size letter --dpi 384 $< $@
