@@ -2,6 +2,21 @@
 % CMPUT 296; written by Eddie Antonio Santos
 % January 8, 2018
 
+<!--
+
+Tue Jan 16 08:37:45 MST 2018
+============================
+
+ - wording could be more clear that they have to use the previous URL.
+ - ensure lab instructions and students' answers are available for
+   review after the lab
+ - It's been years since some people took a CS course; they may not know
+   what a dictionary/hash table is.
+ - confusing that last image is a .png and not a .jpg
+ - automatically convert emoji (or any astral code point) to images
+
+-->
+
 Overview
 ========
 
@@ -140,7 +155,7 @@ string**.
 
 Query strings are (by convention
 [[1]](https://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type)),
-a list of **key-value** pairs.
+a series of **key-value** pairs.
 
 > **Question 10**: Suppose you were tasked with writing GitHub's search
 > feature in Python. What data structure would you use to hold the
