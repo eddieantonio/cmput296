@@ -111,6 +111,7 @@
 <p><strong>Question 7</strong>: Why does the <strong>port</strong> (the part <em>after</em> the colon in the “Remote Address” field) change between the requests to Wikipedia and <code>example.com</code>? Hint: look at the very beginning of the URLs.</p>
 </blockquote>
 <h2 id="http-headers">HTTP headers</h2>
+<!-- Content type questions: -->
 <p>Navigate to <a href="https://www.ualberta.ca/" class="uri">https://www.ualberta.ca/</a>. Repeat the same steps as for questions 1, 2, &amp; 5. To reiterate:</p>
 <p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
 <p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
@@ -118,17 +119,61 @@
 <p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>www.ualberta.ca</code>.</p>
 <p>For the next question, study the information under the “Response Header” and “Request Headers” headings.</p>
 <blockquote>
-<p><strong>Question 8</strong>: Copy the value of the <strong>Accept</strong> request header as the answer to this question.</p>
+<p><strong>Question 8</strong>: Copy the value of the <strong>Accept</strong> request header as the answer to this question (<code>www.ualberta.ca/</code>).</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 9</strong>: Copy the value of the <strong>Content-Type</strong> response header as the answer to this question.</p>
+<p><strong>Question 9</strong>: Copy the value of the <strong>Content-Type</strong> response header as the answer to this question (<code>www.ualberta.ca/</code>).</p>
 </blockquote>
 <p>The <strong>Accept</strong> header indicates the type(s) of resource your browser expects the HTTP server at <code>www.ualberta.ca</code> to send. The <strong>Content-Type</strong> header, in turn, indicates what type of resource the server ultimately replied with. Instead of indicating file types with file extensions (like <code>.html</code>, <code>.jpg</code>, <code>.docx</code>, <code>.exe</code>), HTTP communicates file types with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME types</a>.</p>
 <blockquote>
 <p><strong>Question 10</strong>: Study your answers to questions 8 &amp; 9. In plain English, explain which file types your browser was expecting to receive (e.g., did it want a Word document? Did it want a JavaScript file? Did it want an .mp4 video file? Did it want a JPEG? Did it want an XML document?). List all file types that apply.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 11</strong>: What file type did the browser receive from the server? How do you know?</p>
+<p><strong>Question 11</strong>: What file type did the browser receive from the server? How does your browser know this?</p>
+</blockquote>
+<p>Close the details for the request to <code>https://www.ualberta.ca/</code> so that you can see the list of all of the other requests. Scroll down the list for a request called <code>custom.css</code>. <!-- IMPORTANT! This may change in
+future versions of the website --> Click to view this request’s details.</p>
+<blockquote>
+<p><strong>Question 12</strong>: Copy the value of the <strong>Accept</strong> request header as the answer to this question (<code>custom.css</code>).</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 13</strong>: Copy the value of the <strong>Content-Type</strong> response header as the answer to this question (<code>custom.css</code>).</p>
+</blockquote>
+<p><code>custom.css</code> is a Cascading Stylesheet (CSS) file, which specifies the fonts, colours, and layout of the webpage. We will be covering CSS later in this course. What’s important to know now is that the browser was instructed by the webpage to fetch some sort of styling information from the server (e.g., CSS).</p>
+<blockquote>
+<p><strong>Question 14</strong>: Why do you see a difference between the <strong>Accept</strong> header for the request to <code>www.ualberta.ca</code> (question 8) in contrast to the request for <code>custom.css</code> (question 12)?</p>
+</blockquote>
+<h3 id="host-header"><code>Host</code> header</h3>
+<p>Navigate to <a href="http://example.com/" class="uri">http://example.com/</a>. Repeat the same steps as for questions 1. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>example.com</code>.</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>example.com</code>.</p>
+<blockquote>
+<p><strong>Question 15</strong>: Copy the request address and the <strong>Host</strong> response header as the answer to this question (<code>example.com</code>).</p>
+</blockquote>
+<p>Navigate to <a href="http://example.org/" class="uri">http://example.org/</a>. That’s <code>.org</code>, not <code>.com</code>! Repeat the same steps as for questions 14. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>example.org</code>.</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>example.org</code>.</p>
+<blockquote>
+<p><strong>Question 16</strong>: Copy the request address and the <strong>Host</strong> response header as the answer to this question (<code>example.org</code>).</p>
+</blockquote>
+<p>Navigate to <a href="http://example.net/" class="uri">http://example.net/</a>. That’s <code>.net</code>, not <code>.com</code> or <code>.org</code>! Repeat the same steps as for questions 14. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>example.org</code>.</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>example.org</code>.</p>
+<blockquote>
+<p><strong>Question 17</strong>: Copy the request address and the <strong>Host</strong> response header as the answer to this question (<code>example.net</code>).</p>
+</blockquote>
+<p>Compare the responses you got for <code>example.com</code>, <code>example.org</code>, and <code>example.net</code>. Particularly, compare the remote address.</p>
+<blockquote>
+<p><strong>Question 18</strong>: As a simplification, assume that one <strong>IP address/port number</strong> pair uniquely identifies a server running on one machine. How many HTTP servers are running for <code>example.com</code>, <code>example.org</code>, and <code>example.net</code> in total?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 19</strong>: I have one HTTP server handling the requests for multiple domains. Describe how it my HTTP server uses HTTP request headers to determine which domain a particular request is intended for (e.g., how does my HTTP server know whether to send the content for <code>example.com</code> instead of content for <code>example.org</code>?).</p>
 </blockquote>
 <h2 id="http-methods-and-status-codes">HTTP methods and status codes</h2>
 <p>Use the <a href="https://tools.ietf.org/html/rfc2324">Hypertext Coffee Pot Control Protocol (HTCPCP)</a> to <code>GET</code> some coffee from Google’s teapot, located at <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a>.</p>

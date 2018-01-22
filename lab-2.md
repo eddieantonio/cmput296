@@ -161,6 +161,8 @@ requests to `example.com`.
 HTTP headers
 ------------
 
+<!-- Content type questions: -->
+
 Navigate to <https://www.ualberta.ca/>.
 Repeat the same steps as for questions 1, 2, & 5. To reiterate:
 
@@ -181,10 +183,10 @@ For the next question, study the information under the "Response Header"
 and "Request Headers" headings.
 
 > **Question 8**: Copy the value of the **Accept** request header as the
-> answer to this question.
+> answer to this question (`www.ualberta.ca/`).
 
 > **Question 9**: Copy the value of the **Content-Type** response
-> header as the answer to this question.
+> header as the answer to this question (`www.ualberta.ca/`).
 
 The **Accept** header indicates the type(s) of resource your browser
 expects the HTTP server at `www.ualberta.ca` to send. The
@@ -201,7 +203,98 @@ types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_typ
 > Did it want an XML document?). List all file types that apply.
 
 > **Question 11**: What file type did the browser receive from the
-> server? How do you know?
+> server? How does your browser know this?
+
+Close the details for the request to `https://www.ualberta.ca/` so that
+you can see the list of all of the other requests. Scroll down the list
+for a request called `custom.css`.  <!-- IMPORTANT! This may change in
+future versions of the website --> Click to view this request's details.
+
+> **Question 12**: Copy the value of the **Accept** request header as the
+> answer to this question (`custom.css`).
+
+> **Question 13**: Copy the value of the **Content-Type** response
+> header as the answer to this question (`custom.css`).
+
+`custom.css` is a Cascading Stylesheet (CSS) file, which specifies the
+fonts, colours, and layout of the webpage. We will be covering CSS later
+in this course. What's important to know now is that the browser was
+instructed by the webpage to fetch some sort of styling information from
+the server (e.g., CSS).
+
+> **Question 14**: Why do you see a difference between the **Accept**
+> header for the request to `www.ualberta.ca` (question 8) in contrast
+> to the request for `custom.css` (question 12)?
+
+### `Host` header
+
+Navigate to <http://example.com/>.
+Repeat the same steps as for questions 1. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `example.com`.
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`example.com`.
+
+> **Question 15**: Copy the request address and the **Host** response
+> header as the answer to this question (`example.com`).
+
+Navigate to <http://example.org/>. That's `.org`, not `.com`!
+Repeat the same steps as for questions 14. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `example.org`.
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`example.org`.
+
+> **Question 16**: Copy the request address and the **Host** response
+> header as the answer to this question (`example.org`).
+
+Navigate to <http://example.net/>. That's `.net`, not `.com` or `.org`!
+Repeat the same steps as for questions 14. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `example.org`.
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`example.org`.
+
+> **Question 17**: Copy the request address and the **Host** response
+> header as the answer to this question (`example.net`).
+
+Compare the responses you got for `example.com`, `example.org`, and
+`example.net`. Particularly, compare the remote address.
+
+> **Question 18**: As a simplification, assume that one **IP
+> address/port number** pair uniquely identifies a server running on one
+> machine. How many HTTP servers are running for `example.com`,
+> `example.org`, and `example.net` in total?
+
+> **Question 19**: I have one HTTP server handling the requests for
+> multiple domains. Describe how it my HTTP server uses HTTP request
+> headers to determine which domain a particular request is intended
+> for (e.g., how does my HTTP server know whether to send the content
+> for `example.com` instead of content for `example.org`?).
 
 
 HTTP methods and status codes
