@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CMPUT 296" />
+  <meta name="author" content="written by Eddie Antonio Santos" />
+  <meta name="dcterms.date" content="2018-01-22" />
+  <title>Lab 1: URLs</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="simple.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Lab 1: URLs</h1>
+<p class="author">CMPUT 296</p>
+<p class="author">written by Eddie Antonio Santos</p>
+<p class="date">January 22, 2018</p>
+</header>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Use your browser’s developer tools to investigate HTTP</li>
+<li>Learn about HTTP requests and responses</li>
+<li>Learn about HTTP status codes</li>
+<li>Learn about HTTP headers</li>
+</ul>
+<h1 id="materials">Materials</h1>
+<ul>
+<li>Google Chrome/Chromium (the instructional staff does not officially provide support for other browsers, although all major modern browsers have comparable functionality)</li>
+<li>An internet connection</li>
+</ul>
+<h1 id="procedure">Procedure</h1>
+<p>Submit your responses to the questions in this lab on eClass.</p>
+<blockquote>
+<p><strong>Question X</strong>. Questions look like this.</p>
+</blockquote>
+<p><strong>Remember to cite your sources</strong>.</p>
+<h2 id="introduction">Introduction</h2>
+<p>A common job interview question is,</p>
+<blockquote>
+<p>In as much detail as possible, describe what happens after I type “example.com” in my browser and press <kbd>Enter</kbd>.</p>
+</blockquote>
+<p>In this lab, we will investigate one crucial component of this process: the Hypertext Transfer Protocol (HTTP). To do this, we will open up <a href="https://developers.google.com/web/tools/chrome-devtools/">Google Chrome’s DevTools</a>.</p>
+<p>To access these Chrome’s DevTools from any open tab, do one of the following following:</p>
+<ul>
+<li>(Linux/Windows) Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></li>
+<li>(macOS): Press <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd></li>
+<li>(Any platform) Click the main drop-down menu &gt; “More Tools” &gt; “Developer Tools”</li>
+</ul>
+<p>The DevTools may appear “docked” to the bottom of your browser window, docked to the right side of the window or as a new window entirely. Use whichever configuration you find most convenient.</p>
+<p>The rest of the lab will assume the following:</p>
+<p>DevTools are open on the <strong>Network</strong> tab:</p>
+<figure>
+<img src="./lab-2-open-network-tab.png" alt="Clicking on DevTools Network tab" /><figcaption>Clicking on DevTools Network tab</figcaption>
+</figure>
+<p>In the <strong>Network</strong> tab, <strong>Disable Cache</strong> is clicked.</p>
+<figure>
+<img src="./lab-2-disable-cache.png" alt="Clicking on “Disable cache”" /><figcaption>Clicking on “Disable cache”</figcaption>
+</figure>
+<h2 id="investigating-an-http-request">Investigating an HTTP request</h2>
+<p>With the DevTools open, in the same browser tab navigate to <code>http://example.com</code>.</p>
+</body>
+</html>
