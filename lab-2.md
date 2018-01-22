@@ -59,7 +59,7 @@ The rest of the lab will assume the following:
 
 DevTools are open on the **Network** panel:
 
-![Clicking on DevTools Network panel](./lab-2/open-network-panel.png)
+![Clicking on DevTools Network panel](./lab-2/network-panel.png)
 
 In the **Network** panel, **Disable Cache** is clicked.
 
@@ -78,6 +78,8 @@ Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `example.com`.
+
+![Clicking on a request](./lab-2/example.com-request.png)
 
 Ensure you are viewing the "Headers" tab within the "Network" panel for
 `example.com`.
