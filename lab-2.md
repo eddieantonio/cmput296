@@ -73,8 +73,7 @@ Navigate to <http://example.com/>.
 Open the DevTools. Switch to the Network panel. Ensure "Disable cache"
 is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `example.com`.
@@ -91,7 +90,7 @@ heading.
 
 > **Question 1**: For this request, what is the request URL?
 > What request method was used? What its status code?
-> What is the IP address and port of the webserver hosting "example.com"?
+> What is the IP address and port of the web server hosting "example.com"?
 
 Now, navigate to <http://example.com/probably-does-not-exist-hopefully.html>.
 Repeat the same steps as for question 1. To reiterate:
@@ -99,8 +98,7 @@ Repeat the same steps as for question 1. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `probably-does-note-exist-hopefully.html`.
@@ -130,8 +128,7 @@ Repeat the same steps as for questions 1 & 2. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Unlike the
 previous requests to `example.com`, there should be a substantial number
@@ -171,8 +168,7 @@ Repeat the same steps as for questions 1, 2, & 5. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `www.ualberta.ca` with a status of 200 (usually
@@ -236,8 +232,7 @@ Repeat the same steps as for questions 1. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `example.com`.
@@ -254,8 +249,7 @@ Repeat the same steps as for questions 14. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `example.org`.
@@ -272,8 +266,7 @@ Repeat the same steps as for questions 14. To reiterate:
 Ensure the DevTools are open. Switch to the Network panel. Ensure
 "Disable cache" is on.
 
-Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
-+ <kbd>R</kbd>).
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
 request whose name is `example.org`.
