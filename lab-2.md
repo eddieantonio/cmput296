@@ -291,10 +291,10 @@ Compare the responses you got for `example.com`, `example.org`, and
 > `example.org`, and `example.net` in total?
 
 > **Question 19**: I have one HTTP server handling the requests for
-> multiple domains. Describe how it my HTTP server uses HTTP request
+> multiple domains. Describe how my HTTP server can use HTTP request
 > headers to determine which domain a particular request is intended
 > for (e.g., how does my HTTP server know whether to send the content
-> for `example.com` instead of content for `example.org`?).
+> for `example.org` instead of content for `example.com`?).
 
 
 HTTP methods and status codes
@@ -304,13 +304,12 @@ Use the [Hypertext Coffee Pot Control Protocol (HTCPCP)][HTCPCP] to
 `GET` some coffee from Google's teapot, located at
 <https://google.com/teapot>.
 
-> **Question X**: What is the HTTP status code for using `GET` on
+> **Question 20**: What is the HTTP status code for using `GET` on
 > <https://google.com/teapot>?
 
-> **Question X**: In general, what do status codes in the 4xx series
+> **Question 21**: In general, what do status codes in the 4xx series
 > mean (i.e., what is in common for status codes 404, 401, 400, 403,
 > etc.)? Why does <https://google.com/teapot> give you the status code
 > in the 4xx series?
 
 [HTCPCP]: https://tools.ietf.org/html/rfc2324
-
