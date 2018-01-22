@@ -6,9 +6,9 @@ Overview
 ========
 
  - Use your browser's developer tools to investigate HTTP
- - Learn about HTTP requests and responses
+ - Learn about HTTP requests
+ - Learn about HTTP request/response headers
  - Learn about HTTP status codes
- - Learn about HTTP headers
 
 
 Materials
@@ -158,6 +158,52 @@ requests to `example.com`.
 > and `example.com`? Hint: look at the very beginning of the URLs.
 
 
+HTTP headers
+------------
+
+Navigate to <https://www.ualberta.ca/>.
+Repeat the same steps as for questions 1, 2, & 5. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `www.ualberta.ca` with a status of 200 (usually
+at the very top of the list).
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`www.ualberta.ca`.
+
+For the next question, study the information under the "Response Header"
+and "Request Headers" headings.
+
+> **Question 8**: Copy the value of the **Accept** request header as the
+> answer to this question.
+
+> **Question 9**: Copy the value of the **Content-Type** response
+> header as the answer to this question.
+
+The **Accept** header indicates the type(s) of resource your browser
+expects the HTTP server at `www.ualberta.ca` to send. The
+**Content-Type** header, in turn, indicates what type of resource the
+server ultimately replied with. Instead of indicating file types with
+file extensions (like `.html`, `.jpg`, `.docx`, `.exe`), HTTP
+communicates file types with [MIME
+types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types).
+
+> **Question 10**: Study your answers to questions 8 & 9. In plain
+> English, explain which file types your browser was expecting
+> to receive (e.g., did it want a Word document? Did it want
+> a JavaScript file? Did it want an .mp4 video file? Did it want a JPEG?
+> Did it want an XML document?). List all file types that apply.
+
+> **Question 11**: What file type did the browser receive from the
+> server? How do you know?
+
+
 HTTP methods and status codes
 -----------------------------
 
@@ -175,10 +221,3 @@ Use the [Hypertext Coffee Pot Control Protocol (HTCPCP)][HTCPCP] to
 
 [HTCPCP]: https://tools.ietf.org/html/rfc2324
 
-
-HTTP request headers
---------------------
-
-
-HTTP response headers
----------------------

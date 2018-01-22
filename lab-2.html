@@ -29,9 +29,9 @@
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Use your browser’s developer tools to investigate HTTP</li>
-<li>Learn about HTTP requests and responses</li>
+<li>Learn about HTTP requests</li>
+<li>Learn about HTTP request/response headers</li>
 <li>Learn about HTTP status codes</li>
-<li>Learn about HTTP headers</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
@@ -110,6 +110,26 @@
 <blockquote>
 <p><strong>Question 7</strong>: Why does the <strong>port</strong> (the part <em>after</em> the colon in the “Remote Address” field) change between the requests to Wikipedia and <code>example.com</code>? Hint: look at the very beginning of the URLs.</p>
 </blockquote>
+<h2 id="http-headers">HTTP headers</h2>
+<p>Navigate to <a href="https://www.ualberta.ca/" class="uri">https://www.ualberta.ca/</a>. Repeat the same steps as for questions 1, 2, &amp; 5. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>www.ualberta.ca</code> with a status of 200 (usually at the very top of the list).</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>www.ualberta.ca</code>.</p>
+<p>For the next question, study the information under the “Response Header” and “Request Headers” headings.</p>
+<blockquote>
+<p><strong>Question 8</strong>: Copy the value of the <strong>Accept</strong> request header as the answer to this question.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 9</strong>: Copy the value of the <strong>Content-Type</strong> response header as the answer to this question.</p>
+</blockquote>
+<p>The <strong>Accept</strong> header indicates the type(s) of resource your browser expects the HTTP server at <code>www.ualberta.ca</code> to send. The <strong>Content-Type</strong> header, in turn, indicates what type of resource the server ultimately replied with. Instead of indicating file types with file extensions (like <code>.html</code>, <code>.jpg</code>, <code>.docx</code>, <code>.exe</code>), HTTP communicates file types with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME types</a>.</p>
+<blockquote>
+<p><strong>Question 10</strong>: Study your answers to questions 8 &amp; 9. In plain English, explain which file types your browser was expecting to receive (e.g., did it want a Word document? Did it want a JavaScript file? Did it want an .mp4 video file? Did it want a JPEG? Did it want an XML document?). List all file types that apply.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 11</strong>: What file type did the browser receive from the server? How do you know?</p>
+</blockquote>
 <h2 id="http-methods-and-status-codes">HTTP methods and status codes</h2>
 <p>Use the <a href="https://tools.ietf.org/html/rfc2324">Hypertext Coffee Pot Control Protocol (HTCPCP)</a> to <code>GET</code> some coffee from Google’s teapot, located at <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a>.</p>
 <blockquote>
@@ -118,7 +138,5 @@
 <blockquote>
 <p><strong>Question X</strong>: In general, what do status codes in the 4xx series mean (i.e., what is in common for status codes 404, 401, 400, 403, etc.)? Why does <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a> give you the status code in the 4xx series?</p>
 </blockquote>
-<h2 id="http-request-headers">HTTP request headers</h2>
-<h2 id="http-response-headers">HTTP response headers</h2>
 </body>
 </html>
