@@ -14,7 +14,7 @@ body {
 }
 
 @media screen {
-    body { max-width: 32em }
+    body { max-width: 36em }
 }
 
 pre {
@@ -51,4 +51,14 @@ table {
         /* Avoid extra scrollbars in the PDF. */
         overflow-x: auto;
     }
+}
+
+/* Make figures look less dumb. */
+figure {
+    margin: auto;
+    text-align: center;
+}
+
+figure > img {
+    max-width: 100%;
 }
