@@ -1,4 +1,4 @@
-% Lab 1: URLs
+% Lab 2: Introduction to HTTP
 % CMPUT 296; written by Eddie Antonio Santos
 % January 22, 2018
 
@@ -57,16 +57,128 @@ whichever configuration you find most convenient.
 
 The rest of the lab will assume the following:
 
-DevTools are open on the **Network** tab:
+DevTools are open on the **Network** panel:
 
-![Clicking on DevTools Network tab](./lab-2-open-network-tab.png)
+![Clicking on DevTools Network panel](./lab-2/open-network-panel.png)
 
-In the **Network** tab, **Disable Cache** is clicked.
+In the **Network** panel, **Disable Cache** is clicked.
 
-![Clicking on "Disable cache"](./lab-2-disable-cache.png)
+![Clicking on "Disable cache"](./lab-2/disable-cache.png)
 
 Investigating an HTTP request
 -----------------------------
 
-With the DevTools open, in the same browser tab navigate to
-`http://example.com`.
+Navigate to <http://example.com/>.
+
+Open the DevTools. Switch to the Network panel. Ensure "Disable cache"
+is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `example.com`.
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`example.com`.
+
+!["example.com" headers](./lab-2/example.com-headers.png)
+
+For the next question, study the information under the "General"
+heading.
+
+> **Question 1**: For this request, what is the request URL?
+> What request method was used? What its status code?
+> What is the IP address and port of the webserver hosting "example.com"?
+
+Now, navigate to <http://example.com/probably-does-not-exist-hopefully.html>.
+Repeat the same steps as for question 1. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Click the
+request whose name is `probably-does-note-exist-hopefully.html`.
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`probably-does-note-exist-hopefully.html`.
+
+For the next question, study the information under the "General"
+heading.
+
+> **Question 2**: For this request, what is the request URL?
+> What request method was used? What its status code?
+> What is the IP address and port of the web-server hosting `example.com`?
+
+> **Question 3**: What changed between requesting <http://example.com>
+> and <http://example.com/probably-does-not-exist-hopefully.html> (in
+> the information under the "General" heading only)?
+
+> **Question 4**: Explain the difference between the status codes you
+> received on <http://example.com> and
+> <http://example.com/probably-does-not-exist-hopefully.html>.
+> What do these status codes mean?
+
+Navigate to <https://en.wikipedia.org/wiki/Main_Page>.
+Repeat the same steps as for questions 1 & 2. To reiterate:
+
+Ensure the DevTools are open. Switch to the Network panel. Ensure
+"Disable cache" is on.
+
+Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd>
++ <kbd>R</kbd>).
+
+In the network panel, there should be a list of requests. Unlike the
+previous requests to `example.com`, there should be a substantial number
+of requests. Click the request whose name is `Main_Page` (usually at the
+very top of the list).
+
+Ensure you are viewing the "Headers" tab within the "Network" panel for
+`Main_Page`.
+
+For the next question, study the information under the "General"
+heading.
+
+> **Question 5**: For this request, what is the request URL?
+> What request method was used? What its status code?
+> What is the IP address and port of the web-server hosting `example.com`?
+
+Carefully compare the request to Wikipedia's Main Page to the
+requests to `example.com`.
+
+> **Question 6**: Why does the IP address (the part _before_ the colon
+> in the "Remote Address" field) change between the requests to
+> Wikipedia and `example.com`?
+
+> **Question 7**: Why does the **port** (the part _after_ the colon in
+> the "Remote Address" field) change between the requests to Wikipedia
+> and `example.com`? Hint: look at the very beginning of the URLs.
+
+
+HTTP methods and status codes
+-----------------------------
+
+Use the [Hypertext Coffee Pot Control Protocol (HTCPCP)][HTCPCP] to
+`GET` some coffee from Google's teapot, located at
+<https://google.com/teapot>.
+
+> **Question X**: What is the HTTP status code for using `GET` on
+> <https://google.com/teapot>?
+
+> **Question X**: In general, what do status codes in the 4xx series
+> mean (i.e., what is in common for status codes 404, 401, 400, 403,
+> etc.)? Why does <https://google.com/teapot> give you the status code
+> in the 4xx series?
+
+[HTCPCP]: https://tools.ietf.org/html/rfc2324
+
+
+HTTP request headers
+--------------------
+
+
+HTTP response headers
+---------------------

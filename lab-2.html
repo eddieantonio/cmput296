@@ -7,7 +7,7 @@
   <meta name="author" content="CMPUT 296" />
   <meta name="author" content="written by Eddie Antonio Santos" />
   <meta name="dcterms.date" content="2018-01-22" />
-  <title>Lab 1: URLs</title>
+  <title>Lab 2: Introduction to HTTP</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,7 @@
 </head>
 <body>
 <header>
-<h1 class="title">Lab 1: URLs</h1>
+<h1 class="title">Lab 2: Introduction to HTTP</h1>
 <p class="author">CMPUT 296</p>
 <p class="author">written by Eddie Antonio Santos</p>
 <p class="date">January 22, 2018</p>
@@ -58,15 +58,67 @@
 </ul>
 <p>The DevTools may appear “docked” to the bottom of your browser window, docked to the right side of the window or as a new window entirely. Use whichever configuration you find most convenient.</p>
 <p>The rest of the lab will assume the following:</p>
-<p>DevTools are open on the <strong>Network</strong> tab:</p>
+<p>DevTools are open on the <strong>Network</strong> panel:</p>
 <figure>
-<img src="./lab-2-open-network-tab.png" alt="Clicking on DevTools Network tab" /><figcaption>Clicking on DevTools Network tab</figcaption>
+<img src="./lab-2/open-network-panel.png" alt="Clicking on DevTools Network panel" /><figcaption>Clicking on DevTools Network panel</figcaption>
 </figure>
-<p>In the <strong>Network</strong> tab, <strong>Disable Cache</strong> is clicked.</p>
+<p>In the <strong>Network</strong> panel, <strong>Disable Cache</strong> is clicked.</p>
 <figure>
-<img src="./lab-2-disable-cache.png" alt="Clicking on “Disable cache”" /><figcaption>Clicking on “Disable cache”</figcaption>
+<img src="./lab-2/disable-cache.png" alt="Clicking on “Disable cache”" /><figcaption>Clicking on “Disable cache”</figcaption>
 </figure>
 <h2 id="investigating-an-http-request">Investigating an HTTP request</h2>
-<p>With the DevTools open, in the same browser tab navigate to <code>http://example.com</code>.</p>
+<p>Navigate to <a href="http://example.com/" class="uri">http://example.com/</a>.</p>
+<p>Open the DevTools. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>example.com</code>.</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>example.com</code>.</p>
+<figure>
+<img src="./lab-2/example.com-headers.png" alt="“example.com” headers" /><figcaption>“example.com” headers</figcaption>
+</figure>
+<p>For the next question, study the information under the “General” heading.</p>
+<blockquote>
+<p><strong>Question 1</strong>: For this request, what is the request URL? What request method was used? What its status code? What is the IP address and port of the webserver hosting “example.com”?</p>
+</blockquote>
+<p>Now, navigate to <a href="http://example.com/probably-does-not-exist-hopefully.html" class="uri">http://example.com/probably-does-not-exist-hopefully.html</a>. Repeat the same steps as for question 1. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Click the request whose name is <code>probably-does-note-exist-hopefully.html</code>.</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>probably-does-note-exist-hopefully.html</code>.</p>
+<p>For the next question, study the information under the “General” heading.</p>
+<blockquote>
+<p><strong>Question 2</strong>: For this request, what is the request URL? What request method was used? What its status code? What is the IP address and port of the web-server hosting <code>example.com</code>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 3</strong>: What changed between requesting <a href="http://example.com" class="uri">http://example.com</a> and <a href="http://example.com/probably-does-not-exist-hopefully.html" class="uri">http://example.com/probably-does-not-exist-hopefully.html</a> (in the information under the “General” heading only)?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 4</strong>: Explain the difference between the status codes you received on <a href="http://example.com" class="uri">http://example.com</a> and <a href="http://example.com/probably-does-not-exist-hopefully.html" class="uri">http://example.com/probably-does-not-exist-hopefully.html</a>. What do these status codes mean?</p>
+</blockquote>
+<p>Navigate to <a href="https://en.wikipedia.org/wiki/Main_Page" class="uri">https://en.wikipedia.org/wiki/Main_Page</a>. Repeat the same steps as for questions 1 &amp; 2. To reiterate:</p>
+<p>Ensure the DevTools are open. Switch to the Network panel. Ensure “Disable cache” is on.</p>
+<p>Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).</p>
+<p>In the network panel, there should be a list of requests. Unlike the previous requests to <code>example.com</code>, there should be a substantial number of requests. Click the request whose name is <code>Main_Page</code> (usually at the very top of the list).</p>
+<p>Ensure you are viewing the “Headers” tab within the “Network” panel for <code>Main_Page</code>.</p>
+<p>For the next question, study the information under the “General” heading.</p>
+<blockquote>
+<p><strong>Question 5</strong>: For this request, what is the request URL? What request method was used? What its status code? What is the IP address and port of the web-server hosting <code>example.com</code>?</p>
+</blockquote>
+<p>Carefully compare the request to Wikipedia’s Main Page to the requests to <code>example.com</code>.</p>
+<blockquote>
+<p><strong>Question 6</strong>: Why does the IP address (the part <em>before</em> the colon in the “Remote Address” field) change between the requests to Wikipedia and <code>example.com</code>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 7</strong>: Why does the <strong>port</strong> (the part <em>after</em> the colon in the “Remote Address” field) change between the requests to Wikipedia and <code>example.com</code>? Hint: look at the very beginning of the URLs.</p>
+</blockquote>
+<h2 id="http-methods-and-status-codes">HTTP methods and status codes</h2>
+<p>Use the <a href="https://tools.ietf.org/html/rfc2324">Hypertext Coffee Pot Control Protocol (HTCPCP)</a> to <code>GET</code> some coffee from Google’s teapot, located at <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a>.</p>
+<blockquote>
+<p><strong>Question X</strong>: What is the HTTP status code for using <code>GET</code> on <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: In general, what do status codes in the 4xx series mean (i.e., what is in common for status codes 404, 401, 400, 403, etc.)? Why does <a href="https://google.com/teapot" class="uri">https://google.com/teapot</a> give you the status code in the 4xx series?</p>
+</blockquote>
+<h2 id="http-request-headers">HTTP request headers</h2>
+<h2 id="http-response-headers">HTTP response headers</h2>
 </body>
 </html>
