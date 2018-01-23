@@ -240,7 +240,7 @@ request whose name is `example.com`.
 Ensure you are viewing the "Headers" tab within the "Network" panel for
 `example.com`.
 
-> **Question 15**: Copy the request address and the **Host** response
+> **Question 15**: Copy the request address and the **Host** request
 > header as the answer to this question (`example.com`).
 
 Navigate to <http://example.org/>. That's `.org`, not `.com`!
@@ -257,7 +257,7 @@ request whose name is `example.org`.
 Ensure you are viewing the "Headers" tab within the "Network" panel for
 `example.org`.
 
-> **Question 16**: Copy the request address and the **Host** response
+> **Question 16**: Copy the request address and the **Host** request
 > header as the answer to this question (`example.org`).
 
 Navigate to <http://example.net/>. That's `.net`, not `.com` or `.org`!
@@ -274,7 +274,7 @@ request whose name is `example.org`.
 Ensure you are viewing the "Headers" tab within the "Network" panel for
 `example.org`.
 
-> **Question 17**: Copy the request address and the **Host** response
+> **Question 17**: Copy the request address and the **Host** request
 > header as the answer to this question (`example.net`).
 
 Compare the responses you got for `example.com`, `example.org`, and
