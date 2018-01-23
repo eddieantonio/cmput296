@@ -92,7 +92,7 @@ heading.
 > What request method was used? What its status code?
 > What is the IP address and port of the web server hosting "example.com"?
 
-Now, navigate to <http://example.com/probably-does-not-exist-hopefully.html>.
+Now, navigate to <http://example.com/probably-does-not-exist-hopefully>.
 Repeat the same steps as for question 1. To reiterate:
 
 Ensure the DevTools are open. Switch to the Network panel. Ensure
@@ -101,10 +101,10 @@ Ensure the DevTools are open. Switch to the Network panel. Ensure
 Refresh the page (Linux/Windows: <kbd>F5</kbd>, macOS: <kbd>Cmd</kbd> + <kbd>R</kbd>).
 
 In the network panel, there should be a list of requests. Click the
-request whose name is `probably-does-note-exist-hopefully.html`.
+request whose name is `probably-does-note-exist-hopefully`.
 
 Ensure you are viewing the "Headers" tab within the "Network" panel for
-`probably-does-note-exist-hopefully.html`.
+`probably-does-note-exist-hopefully`.
 
 For the next question, study the information under the "General"
 heading.
@@ -114,12 +114,12 @@ heading.
 > What is the IP address and port of the web-server hosting `example.com`?
 
 > **Question 3**: What changed between requesting <http://example.com>
-> and <http://example.com/probably-does-not-exist-hopefully.html> (in
+> and <http://example.com/probably-does-not-exist-hopefully> (in
 > the information under the "General" heading only)?
 
 > **Question 4**: Explain the difference between the status codes you
 > received on <http://example.com> and
-> <http://example.com/probably-does-not-exist-hopefully.html>.
+> <http://example.com/probably-does-not-exist-hopefully>.
 > What do these status codes mean?
 
 Navigate to <https://en.wikipedia.org/wiki/Main_Page>.
