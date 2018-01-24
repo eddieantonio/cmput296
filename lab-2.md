@@ -143,7 +143,8 @@ heading.
 
 > **Question 5**: For this request, what is the request URL?
 > What request method was used? What its status code?
-> What is the IP address and port of the web-server hosting `example.com`?
+> What is the IP address and port of the web server hosting
+> `en.wikipedia.org`?
 
 Carefully compare the request to Wikipedia's Main Page to the
 requests to `example.com`.
