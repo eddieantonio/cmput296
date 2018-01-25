@@ -298,14 +298,14 @@ HTTP methods and status codes
 
 Use the [Hypertext Coffee Pot Control Protocol (HTCPCP)][HTCPCP] to
 `GET` some coffee from Google's teapot, located at
-<https://google.com/teapot>.
+<https://www.google.com/teapot>.
 
 > **Question 20**: What is the HTTP status code for using `GET` on
-> <https://google.com/teapot>?
+> <https://www.google.com/teapot>?
 
 > **Question 21**: In general, what do status codes in the 4xx series
 > mean (i.e., what is in common for status codes 404, 401, 400, 403,
-> etc.)? Why does <https://google.com/teapot> give you the status code
+> etc.)? Why does <https://www.google.com/teapot> give you the status code
 > in the 4xx series?
 
 [HTCPCP]: https://tools.ietf.org/html/rfc2324
