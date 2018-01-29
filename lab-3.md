@@ -6,7 +6,7 @@ Overview
 ========
 
  - Learn how to create a TCP connection on the command line
- - Use the TCP connection backwards engineer an HTTP request
+ - Use the TCP connection to backwards-engineer an HTTP request
  - Create our own HTTP request using a text editor
 
 Materials
@@ -50,8 +50,8 @@ ASCII text.
 
 Other CMPUT courses will cover how the network layers up to TCP/IP work;
 however, in this course, we can use the `netcat` program to establish
-fresh TCP connections; either to as a client to a server, or setup
-a server ourselves.
+fresh TCP connections; either as a client to a server, or as a server
+ourselves.
 
 We will create a process to **listen** to TCP connections. This will be
 our server. To do this, do the following in the command line:
@@ -195,7 +195,7 @@ example, your answer from Question 2 should have included the line:
 > **Question 6**: Using your current knowledge of web protocols, why is
 > the `Host` header required in all HTTP/1.1 requests? Try to answer
 > this question without consulting external resources (i.e., don't do
-> a Google search or consult a text book).
+> a Google search or consult a textbook).
 
 Most `GET` requests include a few more headers, indicating the type of
 entity it's requesting. For example, your browser indicated that it will
@@ -232,8 +232,8 @@ Accept: text/html, */*;q=0.1
 Let's GET that cat meme!
 ------------------------
 
-Before we are able to use netcat to get fetch that cat meme, we need to
-know the IP address of the server hosting it.
+Before we are able to use netcat to fetch that cat meme, we need to know
+the IP address of the server hosting it.
 
 The host is called `www.eddieantonio.ca`. Use the `dig` program to get
 the IP address of this host.
@@ -243,7 +243,7 @@ dig +short www.eddieantonio.ca
 ```
 
 (If there are multiple lines of output, use the line of output in the
-form `<number>.<number>.<number>.<number>`.)
+form `<number>.<number>.<number>.<number>`).
 
 > **Question 9**: What is the IP address of `www.eddieantonio.ca`?
 

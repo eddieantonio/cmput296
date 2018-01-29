@@ -84,7 +84,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Learn how to create a TCP connection on the command line</li>
-<li>Use the TCP connection backwards engineer an HTTP request</li>
+<li>Use the TCP connection to backwards-engineer an HTTP request</li>
 <li>Create our own HTTP request using a text editor</li>
 </ul>
 <h1 id="materials">Materials</h1>
@@ -108,7 +108,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <img src="./lab-3/cat-meme.jpg" alt="Picture of a cat, attempting to sit in a tiny, tiny box. Caption reads: “413: Request entity too large”" /><figcaption>Picture of a cat, attempting to sit in a tiny, tiny box. Caption reads: “413: Request entity too large”</figcaption>
 </figure>
 <p>…it first must establish a TCP connection with the server hosting the cat meme. Once a TCP connection is established, the client and server can communicate with each other using HTTP requests/responses, written as ASCII text.</p>
-<p>Other CMPUT courses will cover how the network layers up to TCP/IP work; however, in this course, we can use the <code>netcat</code> program to establish fresh TCP connections; either to as a client to a server, or setup a server ourselves.</p>
+<p>Other CMPUT courses will cover how the network layers up to TCP/IP work; however, in this course, we can use the <code>netcat</code> program to establish fresh TCP connections; either as a client to a server, or as a server ourselves.</p>
 <p>We will create a process to <strong>listen</strong> to TCP connections. This will be our server. To do this, do the following in the command line:</p>
 <pre class="sourceCode sh" id="cb1"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">nc</span> -l 8000</a></code></pre>
 <p>You have established a new TCP server, listening on <strong>port 8000</strong> for new connections.</p>
@@ -164,7 +164,7 @@ Connection: close</code></pre>
 <p>After the <strong>request line</strong>, is one or more <strong>HTTP headers</strong>. In HTTP/1.1, one of these headers <strong>must</strong> be the <code>Host</code> header. For example, your answer from Question 2 should have included the line:</p>
 <pre><code>Host: localhost:8000</code></pre>
 <blockquote>
-<p><strong>Question 6</strong>: Using your current knowledge of web protocols, why is the <code>Host</code> header required in all HTTP/1.1 requests? Try to answer this question without consulting external resources (i.e., don’t do a Google search or consult a text book).</p>
+<p><strong>Question 6</strong>: Using your current knowledge of web protocols, why is the <code>Host</code> header required in all HTTP/1.1 requests? Try to answer this question without consulting external resources (i.e., don’t do a Google search or consult a textbook).</p>
 </blockquote>
 <p>Most <code>GET</code> requests include a few more headers, indicating the type of entity it’s requesting. For example, your browser indicated that it will <em>accept</em> entities of many types, but it will prefer an HTML web page.</p>
 <blockquote>
@@ -186,10 +186,10 @@ Host: localhost:8000
 Accept: text/html, */*;q=0.1
 </code></pre>
 <h2 id="lets-get-that-cat-meme">Let’s GET that cat meme!</h2>
-<p>Before we are able to use netcat to get fetch that cat meme, we need to know the IP address of the server hosting it.</p>
+<p>Before we are able to use netcat to fetch that cat meme, we need to know the IP address of the server hosting it.</p>
 <p>The host is called <code>www.eddieantonio.ca</code>. Use the <code>dig</code> program to get the IP address of this host.</p>
 <pre class="sourceCode sh" id="cb13"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">dig</span> +short www.eddieantonio.ca</a></code></pre>
-<p>(If there are multiple lines of output, use the line of output in the form <code>&lt;number&gt;.&lt;number&gt;.&lt;number&gt;.&lt;number&gt;</code>.)</p>
+<p>(If there are multiple lines of output, use the line of output in the form <code>&lt;number&gt;.&lt;number&gt;.&lt;number&gt;.&lt;number&gt;</code>).</p>
 <blockquote>
 <p><strong>Question 9</strong>: What is the IP address of <code>www.eddieantonio.ca</code>?</p>
 </blockquote>
