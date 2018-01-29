@@ -91,7 +91,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <ul>
 <li>An internet connection</li>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
-<li>Unix command line tools: <code>dig</code>, <code>nc</code> (netcat), <code>tee</code>, <code>unix2dos</code>, <code>xxd</code></li>
+<li>Unix command line tools: <code>dig</code>, <code>nc</code> (netcat), <code>tee</code>, <code>xxd</code></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -162,7 +162,7 @@ Connection: close</code></pre>
 <pre><code>GET /hello HTTP/1.1</code></pre>
 <p>(We will cover HTTP methods in a future lab).</p>
 <p>After the <strong>request line</strong>, is one or more <strong>HTTP headers</strong>. In HTTP/1.1, one of these headers <strong>must</strong> be the <code>Host</code> header. For example, your answer from Question 2 should have included the line:</p>
-<p>Host: localhost:8000</p>
+<pre><code>Host: localhost:8000</code></pre>
 <blockquote>
 <p><strong>Question 6</strong>: Using your current knowledge of web protocols, why is the <code>Host</code> header required in all HTTP/1.1 requests? Try to answer this question without consulting external resources (i.e., don’t do a Google search or consult a text book).</p>
 </blockquote>
@@ -188,24 +188,23 @@ Accept: text/html, */*;q=0.1
 <h2 id="lets-get-that-cat-meme">Let’s GET that cat meme!</h2>
 <p>Before we are able to use netcat to get fetch that cat meme, we need to know the IP address of the server hosting it.</p>
 <p>The host is called <code>www.eddieantonio.ca</code>. Use the <code>dig</code> program to get the IP address of this host.</p>
-<pre class="sourceCode sh" id="cb12"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="ex">dig</span> +short www.eddieantonio.ca</a></code></pre>
+<pre class="sourceCode sh" id="cb13"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">dig</span> +short www.eddieantonio.ca</a></code></pre>
 <p>(If there are multiple lines of output, use the line of output in the form <code>&lt;number&gt;.&lt;number&gt;.&lt;number&gt;.&lt;number&gt;</code>.)</p>
 <blockquote>
 <p><strong>Question 9</strong>: What is the IP address of <code>www.eddieantonio.ca</code>?</p>
 </blockquote>
 <p>Use your favorite text editor to create an HTTP request to fetch that cat meme mentioned earlier. You will create a file called <code>my-request.txt</code>. This file will have the HTTP request: the HTTP status line, two HTTP headers, and a blank line. Here is all the information that your HTTP request should have:</p>
 <ul>
-<li>It should use the <code>GET</code> method to make the request.</li>
-<li>It should request the <strong>path</strong> <code>/cmput296/lab-3/cat-meme.jpg</code>.</li>
-<li>The <strong>host</strong> is <code>www.eddieantonio.ca</code>.</li>
-<li><code>cat-meme.jpg</code> is an image, so the request should specify that it will <code>Accept</code> an image. The value of the <code>Accept</code> header should be <code>image/jpeg,image/*;q=0.1</code>.</li>
+<li>It should use the <code>GET</code> method to make the request</li>
+<li>It should request the <strong>path</strong> <code>/cmput296/lab-3/cat-meme.jpg</code></li>
+<li>The <strong>host</strong> is <code>www.eddieantonio.ca</code></li>
+<li><code>cat-meme.jpg</code> is an image, so the request should specify that it will <code>Accept</code> an image. The value of the <code>Accept</code> header should be <code>image/jpeg,image/*;q=0.1</code></li>
 </ul>
-<p>Once you are done creating the HTTP request in your text editor, save it as <code>my-request.txt</code>. Now, we will need to ensure the line endings are in the correct format. For this, use the <code>unix2dos</code> program:</p>
-<pre><code>unix2dos my-request.txt</code></pre>
+<p>Once you are done creating the HTTP request in your text editor, save it as <code>my-request.txt</code>.</p>
 <blockquote>
 <p><strong>Question 10</strong>: Copy-and-paste the HTTP request you just created as the answer to this question. You may refine the HTTP request until you get it right.</p>
 </blockquote>
-<p>Finally, we’ll use netcat to send our HTTP request to the server, and save its response. In the following line, replace <code>IPADDRESS</code> with the IP address Of <code>www.eddieantonio.ca</code>, and run it.</p>
+<p>Finally, we’ll use netcat to send our HTTP request to the server, and save its response. In the following line, replace <code>IPADDRESS</code> with the IP address of <code>www.eddieantonio.ca</code>, and run it.</p>
 <pre class="sourceCode sh" id="cb14"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">cat</span> my-request.txt <span class="kw">|</span> <span class="ex">nc</span> IPADDRESS 80 <span class="kw">|</span> <span class="fu">tee</span> response.bin</a></code></pre>
 <p>If it worked, you should see a lot of gibberish scroll on your terminal. To prove that it worked, open <code>response.bin</code> in a text editor. Delete the HTTP request headers at the top of the file (including the blank line!), then save the file as <code>cat-meme.jpg</code>. You should now be able to open the file in an image viewer of your choice.</p>
 </body>

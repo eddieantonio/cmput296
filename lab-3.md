@@ -14,7 +14,7 @@ Materials
 
  - An internet connection
  - A modern web browser (like Firefox or  Google Chrome)
- - Unix command line tools: `dig`, `nc` (netcat), `tee`, `unix2dos`, `xxd`
+ - Unix command line tools: `dig`, `nc` (netcat), `tee`, `xxd`
 
 
 Procedure
@@ -187,7 +187,7 @@ After the **request line**, is one or more **HTTP headers**. In
 HTTP/1.1, one of these headers  **must** be the `Host` header. For
 example, your answer from Question 2 should have included the line:
 
-   Host: localhost:8000
+    Host: localhost:8000
 
 > **Question 6**: Using your current knowledge of web protocols, why is
 > the `Host` header required in all HTTP/1.1 requests? Try to answer
@@ -250,20 +250,15 @@ This file will have the HTTP request: the HTTP status line, two HTTP
 headers, and a blank line. Here is all the information that your HTTP
 request should have:
 
- - It should use the `GET` method to make the request.
- - It should request the **path** `/cmput296/lab-3/cat-meme.jpg`.
- - The **host** is `www.eddieantonio.ca`.
+ - It should use the `GET` method to make the request
+ - It should request the **path** `/cmput296/lab-3/cat-meme.jpg`
+ - The **host** is `www.eddieantonio.ca`
  - `cat-meme.jpg` is an image, so the request should specify that it
    will `Accept` an image. The value of the `Accept` header should be
-   `image/jpeg,image/*;q=0.1`.
+   `image/jpeg,image/*;q=0.1`
 
 Once you are done creating the HTTP request in your text editor, save it
-as `my-request.txt`. Now, we will need to ensure the line endings are in
-the correct format. For this, use the `unix2dos` program:
-
-```
-unix2dos my-request.txt
-```
+as `my-request.txt`.
 
 > **Question 10**: Copy-and-paste the HTTP request you just created as
 > the answer to this question. You may refine the HTTP request until you
@@ -271,7 +266,7 @@ unix2dos my-request.txt
 
 Finally, we'll use netcat to send our HTTP request to the server, and
 save its response. In the following line, replace `IPADDRESS` with the
-IP address Of `www.eddieantonio.ca`, and run it.
+IP address of `www.eddieantonio.ca`, and run it.
 
 ```sh
 cat my-request.txt | nc IPADDRESS 80 | tee response.bin
