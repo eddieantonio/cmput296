@@ -57,6 +57,7 @@ table {
 figure {
     margin: auto;
     text-align: center;
+    font-variant: italic;
 }
 
 figure > img {

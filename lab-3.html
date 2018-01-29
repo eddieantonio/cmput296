@@ -110,21 +110,21 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>…it first must establish a TCP connection with the server hosting the cat meme. Once a TCP connection is established, the client and server can communicate with each other using HTTP requests/responses, written as ASCII text.</p>
 <p>Other CMPUT courses will cover how the network layers up to TCP/IP work; however, in this course, we can use the <code>netcat</code> program to establish fresh TCP connections; either as a client to a server, or as a server ourselves.</p>
 <p>We will create a process to <strong>listen</strong> to TCP connections. This will be our server. To do this, do the following in the command line:</p>
-<pre class="sourceCode sh" id="cb1"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">nc</span> -l 8000</a></code></pre>
+<pre><code>nc -l 8000</code></pre>
 <p>You have established a new TCP server, listening on <strong>port 8000</strong> for new connections.</p>
 <p>To test this, open a new terminal, and connect to your server by invoking:</p>
-<pre class="sourceCode sh" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">nc</span> 127.0.0.1 8000</a></code></pre>
+<pre><code>nc 127.0.0.1 8000</code></pre>
 <p>This command means, connect to the computer with IP address <code>127.0.0.1</code>, and connect to port 8000 (as a client).</p>
 <blockquote>
 <p><strong>Question 1</strong>. What computer does 127.0.0.1 refer to?</p>
 </blockquote>
-<p>Now, with both terminals running <code>nc</code> on your screen, type something into one of the terminals. If all went well, you should be seeing the text appear in the other terminal. Congratulations! You just used TCP to send a message from one process to another process!</p>
+<p>Now, with both terminals running <code>nc</code> on your screen, type something into one of the terminals, and press <kbd>Enter</kbd>. If all went well, you should be seeing the text appear in the other terminal. Congratulations! You just used TCP to send a message from one process to another process!</p>
 <!-- screenshot of this happening. -->
 <p>This is how HTTP/1.1 works. One computer (the server) listens on a well-known port (typically port 80 for outside-facing servers). We used <code>nc -l 8000</code> to listen on port 8000. Another computer (or even the same computer) connects to this port via TCP, specifying the IP address and port it wishes to connect to. In our case, this was the <code>nc 127.0.0.1 8000</code> line.</p>
 <p>You may now exit either <code>nc</code> process by typing <kbd>Ctrl</kbd> + <kbd>D</kbd> to send an end-of-file. The other <code>nc</code> process should also exit. You may also close one of the two terminals.</p>
 <h2 id="backwards-engineering-an-http-request">Backwards engineering an HTTP request</h2>
 <p>Create another TCP server using netcat, listening on port 8000. The command to do this is:</p>
-<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">nc</span> -l 8000</a></code></pre>
+<pre><code>nc -l 8000</code></pre>
 <p>With <code>nc</code> waiting for a connection, open up your web browser of choice. Navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>. <code>nc</code> should be displaying a lot more text.</p>
 <blockquote>
 <p><strong>Question 2</strong>. Copy-paste the output of <code>nc</code> as the answer to this question.</p>
@@ -136,28 +136,29 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>What just happened is that our browser tried to connect to an HTTP server called “localhost:8000”. The server it connected to is the <code>nc</code> program running in your terminal. The browser sends an HTTP request as plain, ASCII text, and is waiting for a reply. You typed “hello” and pressed enter, which confused your browser. “That’s not an HTTP response!” says your browser.</p>
 <h2 id="understanding-the-http-request">Understanding the HTTP request</h2>
 <p>In this section, we will form an understanding of the byte-by-byte details of the HTTP request. Redirect the output of <code>nc</code> to a file called <code>request.txt</code>. We can do this by using the following command:</p>
-<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">nc</span> -c -l 8000 <span class="kw">|</span> <span class="fu">tee</span> request.txt</a></code></pre>
-<p>Once again, go to your browser and navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>. Type the following into <code>nc</code>:</p>
+<pre><code>nc -l 8000 | tee request.txt</code></pre>
+<p>In a new tab in your browser, navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>. Type the following into <code>nc</code>:</p>
 <pre><code>HTTP/1.1 204 No Content
-Connection: close</code></pre>
-<p>And press <kbd>Enter</kbd> twice. <code>nc</code> should have quit, and your browser should no longer be attempting to load from your server.</p>
+Connection: close
+</code></pre>
+<p>And press <kbd>Enter</kbd> twice. <code>nc</code> should have quit, and your browser should no longer be attempting to load from your server. The request that your browser attempted should be in <code>request.txt</code>.</p>
+<p>Open <code>request.txt</code> in a text editor of your choice.</p>
+<blockquote>
+<p><strong>Question 4</strong>. How many lines does <code>request.txt</code> have? Include any empty lines in your count. Where do empty lines (if any) appear in this file?</p>
+</blockquote>
 <p>An open problem in computing science is how to specify a newline in a text file. For ASCII (and its derivatives), here are a few of the ways that computer systems use to indicate the end of the file.</p>
 <ul>
 <li>CR: Using a carriage return character (<code>0d</code> in hexadecimal)</li>
 <li>LF: Using a line feed character (<code>0a</code> in hexadecimal)</li>
 <li>CRLF: Using a carriage return, followed by a line feed character (<code>0d</code>, followed by <code>0a</code> in hexadecimal)</li>
 </ul>
-<p>Open <code>request.txt</code> in a text editor of your choice.</p>
-<blockquote>
-<p><strong>Question 4</strong>. How many lines does <code>request.txt</code> have? Include any empty lines in your count. Where do empty lines (if any) appear in this file?</p>
-</blockquote>
 <p>Use the <code>xxd</code> program to output a <strong>hexadecimal dump</strong> of the bytes in the <code>request.txt</code> file.</p>
 <pre><code>xxd requests.txt</code></pre>
 <blockquote>
 <p><strong>Question 5</strong> Inspecting <code>request.txt</code> using <code>xxd</code>, how does HTTP specify line endings? Is it CR, LF, or CRLF? Specify the byte offset of the <strong>first</strong> line ending in <code>request.txt</code> (that is, the index of the first time you see either the line ending, which is one of CR, LF, or CRLF).</p>
 </blockquote>
 <p>Inspect the HTTP request in <code>request.txt</code>. Notice the structure of the file. The first line is the <strong>request line</strong>:</p>
-<pre><code>&lt;METHOD&gt; /path/of/resource/ HTTP/1.1</code></pre>
+<pre><code>METHOD /path/of/resource/ HTTP/1.1</code></pre>
 <p>For example, your browser made a <code>GET</code> request for the resource with the path <code>/hello</code>, so your answer to Question 2 should start with the following line:</p>
 <pre><code>GET /hello HTTP/1.1</code></pre>
 <p>(We will cover HTTP methods in a future lab).</p>

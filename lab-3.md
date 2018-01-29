@@ -56,9 +56,7 @@ ourselves.
 We will create a process to **listen** to TCP connections. This will be
 our server. To do this, do the following in the command line:
 
-```sh
-nc -l 8000
-```
+    nc -l 8000
 
 You have established a new TCP server, listening on **port 8000** for new
 connections.
@@ -66,9 +64,7 @@ connections.
 To test this, open a new terminal, and connect to your server by
 invoking:
 
-```sh
-nc 127.0.0.1 8000
-```
+    nc 127.0.0.1 8000
 
 This command means, connect to the computer with IP address `127.0.0.1`,
 and connect to port 8000 (as a client).
@@ -76,9 +72,10 @@ and connect to port 8000 (as a client).
 > **Question 1**. What computer does 127.0.0.1 refer to?
 
 Now, with both terminals running `nc` on your screen, type something
-into one of the terminals. If all went well, you should be seeing the
-text appear in the other terminal. Congratulations! You just used TCP to
-send a message from one process to another process!
+into one of the terminals, and press <kbd>Enter</kbd>. If all went well,
+you should be seeing the text appear in the other terminal.
+Congratulations! You just used TCP to send a message from one process to
+another process!
 
 <!-- screenshot of this happening. -->
 
@@ -99,9 +96,7 @@ Backwards engineering an HTTP request
 Create another TCP server using netcat, listening on port 8000.
 The command to do this is:
 
-```sh
-nc -l 8000
-```
+    nc -l 8000
 
 With `nc` waiting for a connection, open up your web browser of choice.
 Navigate to <http://localhost:8000/hello>. `nc` should be displaying a lot
@@ -131,20 +126,26 @@ In this section, we will form an understanding of the byte-by-byte
 details of the HTTP request. Redirect the output of `nc` to a file
 called `request.txt`. We can do this by using the following command:
 
-```sh
-nc -c -l 8000 | tee request.txt
-```
+    nc -l 8000 | tee request.txt
 
-Once again, go to your browser and navigate to
-<http://localhost:8000/hello>. Type the following into `nc`:
+In a new tab in your browser, navigate to <http://localhost:8000/hello>.
+Type the following into `nc`:
 
 ```
 HTTP/1.1 204 No Content
 Connection: close
+
 ```
 
 And press <kbd>Enter</kbd> twice. `nc` should have quit, and your
-browser should no longer be attempting to load from your server.
+browser should no longer be attempting to load from your server. The
+request that your browser attempted should be in `request.txt`.
+
+Open `request.txt` in a text editor of your choice.
+
+> **Question 4**. How many lines does `request.txt` have? Include any
+> empty lines in your count. Where do empty lines (if any) appear in
+> this file?
 
 An open problem in computing science is how to specify a newline in a text
 file. For ASCII (and its derivatives), here are a few of the ways that
@@ -153,12 +154,6 @@ computer systems use to indicate the end of the file.
  - CR: Using a carriage return character (`0d` in hexadecimal)
  - LF: Using a line feed  character (`0a` in hexadecimal)
  - CRLF: Using a carriage return, followed by a line feed character (`0d`, followed by `0a` in hexadecimal)
-
-Open `request.txt` in a text editor of your choice.
-
-> **Question 4**. How many lines does `request.txt` have? Include any
-> empty lines in your count. Where do empty lines (if any) appear in
-> this file?
 
 Use the `xxd` program to output a **hexadecimal dump** of the bytes in
 the `request.txt` file.
@@ -176,7 +171,7 @@ xxd requests.txt
 Inspect the HTTP request in `request.txt`. Notice the structure of the
 file. The first line is the **request line**:
 
-    <METHOD> /path/of/resource/ HTTP/1.1
+    METHOD /path/of/resource/ HTTP/1.1
 
 For example, your browser made a `GET` request for the resource with the
 path `/hello`, so your answer to Question 2 should start with the
