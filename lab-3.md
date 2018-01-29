@@ -233,9 +233,7 @@ the IP address of the server hosting it.
 The host is called `www.eddieantonio.ca`. Use the `dig` program to get
 the IP address of this host.
 
-```sh
-dig +short www.eddieantonio.ca
-```
+    dig +short www.eddieantonio.ca
 
 (If there are multiple lines of output, use the line of output in the
 form `<number>.<number>.<number>.<number>`).
@@ -266,9 +264,7 @@ Finally, we'll use netcat to send our HTTP request to the server, and
 save its response. In the following line, replace `IPADDRESS` with the
 IP address of `www.eddieantonio.ca`, and run it.
 
-```sh
-cat my-request.txt | nc IPADDRESS 80 | tee response.bin
-```
+    cat my-request.txt | nc IPADDRESS 80 | tee response.bin
 
 If it worked, you should see a lot of gibberish scroll on your terminal.
 To prove that it worked, open `response.bin` in a text editor. Delete
