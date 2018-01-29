@@ -7,7 +7,7 @@ Overview
 
  - Learn how to create a TCP connection on the command line
  - Use the TCP connection backwards engineer an HTTP request
- - Create our own HTTP requests
+ - Create our own HTTP request using a text editor
 
 Materials
 =========
@@ -15,6 +15,7 @@ Materials
  - An internet connection
  - A modern web browser (like Firefox or  Google Chrome)
  - Unix command line tools: `dig`, `nc` (netcat), `tee`, `xxd`
+ - A text editor
 
 
 Procedure
@@ -26,7 +27,9 @@ Submit your responses to the questions in this lab on eClass.
 
 **Remember to cite your sources**.
 
-In last weeks labs, we spied on how your browser creates HTTP requests
+--
+
+In last week's lab, we spied on how your browser creates HTTP requests
 to communicated with an HTTP server. In this lab, we will be creating
 HTTP requests "from scratch" using nothing but an open TCP connection.
 
@@ -45,7 +48,7 @@ meme. Once a TCP connection is established, the client and server can
 communicate with each other using HTTP requests/responses, written as
 ASCII text.
 
-Other CMPUT courses will cover how the network layers up to TCP/IP work,
+Other CMPUT courses will cover how the network layers up to TCP/IP work;
 however, in this course, we can use the `netcat` program to establish
 fresh TCP connections; either to as a client to a server, or setup
 a server ourselves.
@@ -77,7 +80,7 @@ into one of the terminals. If all went well, you should be seeing the
 text appear in the other terminal. Congratulations! You just used TCP to
 send a message from one process to another process!
 
-> screenshot of this happening.
+<!-- screenshot of this happening. -->
 
 This is how HTTP/1.1 works. One computer (the server) listens on
 a well-known port (typically port 80 for outside-facing servers). We

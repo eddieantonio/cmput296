@@ -85,13 +85,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <ul>
 <li>Learn how to create a TCP connection on the command line</li>
 <li>Use the TCP connection backwards engineer an HTTP request</li>
-<li>Create our own HTTP requests</li>
+<li>Create our own HTTP request using a text editor</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
 <li>An internet connection</li>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 <li>Unix command line tools: <code>dig</code>, <code>nc</code> (netcat), <code>tee</code>, <code>xxd</code></li>
+<li>A text editor</li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -99,14 +100,15 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question X</strong>. Questions look like this.</p>
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
-<p>In last weeks labs, we spied on how your browser creates HTTP requests to communicated with an HTTP server. In this lab, we will be creating HTTP requests “from scratch” using nothing but an open TCP connection.</p>
+<p>–</p>
+<p>In last week’s lab, we spied on how your browser creates HTTP requests to communicated with an HTTP server. In this lab, we will be creating HTTP requests “from scratch” using nothing but an open TCP connection.</p>
 <h2 id="creating-a-tcp-connection">Creating a TCP connection</h2>
 <p>In order for your computer to be able to retrieve this cat meme using HTTP:</p>
 <figure>
 <img src="./lab-3/cat-meme.jpg" alt="Picture of a cat, attempting to sit in a tiny, tiny box. Caption reads: “413: Request entity too large”" /><figcaption>Picture of a cat, attempting to sit in a tiny, tiny box. Caption reads: “413: Request entity too large”</figcaption>
 </figure>
 <p>…it first must establish a TCP connection with the server hosting the cat meme. Once a TCP connection is established, the client and server can communicate with each other using HTTP requests/responses, written as ASCII text.</p>
-<p>Other CMPUT courses will cover how the network layers up to TCP/IP work, however, in this course, we can use the <code>netcat</code> program to establish fresh TCP connections; either to as a client to a server, or setup a server ourselves.</p>
+<p>Other CMPUT courses will cover how the network layers up to TCP/IP work; however, in this course, we can use the <code>netcat</code> program to establish fresh TCP connections; either to as a client to a server, or setup a server ourselves.</p>
 <p>We will create a process to <strong>listen</strong> to TCP connections. This will be our server. To do this, do the following in the command line:</p>
 <pre class="sourceCode sh" id="cb1"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">nc</span> -l 8000</a></code></pre>
 <p>You have established a new TCP server, listening on <strong>port 8000</strong> for new connections.</p>
@@ -117,9 +119,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question 1</strong>. What computer does 127.0.0.1 refer to?</p>
 </blockquote>
 <p>Now, with both terminals running <code>nc</code> on your screen, type something into one of the terminals. If all went well, you should be seeing the text appear in the other terminal. Congratulations! You just used TCP to send a message from one process to another process!</p>
-<blockquote>
-<p>screenshot of this happening.</p>
-</blockquote>
+<!-- screenshot of this happening. -->
 <p>This is how HTTP/1.1 works. One computer (the server) listens on a well-known port (typically port 80 for outside-facing servers). We used <code>nc -l 8000</code> to listen on port 8000. Another computer (or even the same computer) connects to this port via TCP, specifying the IP address and port it wishes to connect to. In our case, this was the <code>nc 127.0.0.1 8000</code> line.</p>
 <p>You may now exit either <code>nc</code> process by typing <kbd>Ctrl</kbd> + <kbd>D</kbd> to send an end-of-file. The other <code>nc</code> process should also exit. You may also close one of the two terminals.</p>
 <h2 id="backwards-engineering-an-http-request">Backwards engineering an HTTP request</h2>
