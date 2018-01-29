@@ -5,11 +5,17 @@
 Overview
 ========
 
+ - Learn how to create a TCP connection on the command line
+ - Use the TCP connection backwards engineer an HTTP request
+ - Create our own HTTP requests
+
 Materials
 =========
 
  - An internet connection
- - Unix-like command line tools: `dig`, `nc` (netcat), `xxd`
+ - A modern web browser (like Firefox or  Google Chrome)
+ - Unix command line tools: `dig`, `nc` (netcat), `xxd`
+
 
 Procedure
 =========
@@ -28,38 +34,101 @@ HTTP requests "from scratch" using nothing but an open TCP connection.
 Creating a TCP connection
 -------------------------
 
-In order for your computer to be able to retrieve this cat meme from
-internet, it must do a few things at several layers of abstraction:
+In order for your computer to be able to retrieve this cat meme using
+HTTP:
 
- 1. Physical layer: it must transfer bits of information through some
-    physical mediums, such as modulating the voltage on a wire, or
-    modulating a carrier radio wave.
-    Our request for a cat meme will be converted into bits on a wire. 
- 2. Link layer: it must have a way of organizing and directing
-    those bits to a specific device (such as a router) on the local
-    network. The unit of organization is called a _packet_.
-    The bytes for our request for a cat image will be grouped into one
-    or more data packets which are destined to our router.
- 3. Internet layer: in order for those packets to be directed to
-    a device on a _different_ network, there must be a way to address
-    any computer in the world. This is the IP layer, and where IP
-    addresses come in to play.
-    Our request for a cat meme is destined for the machine at 
-    `151.101.149.147`, which happens to be running an HTTP server,
-    hosting the cat meme we want. An IP packet specifies that our
-    request is destined for this machine.
- 4. Transport layer: for some applications, we need to ensure that our
-    packets are properly received, and that there are ways to deal with
-    any errors along the way. This way we can establish a _reliable
-    transport mechanism_ that allows us to send bytes knowing that the
-    other end will get them, no matter how many networks that packet has
-    to hop through. For this, there is TCP.
-    Our request for a cat meme happens after our computer and the
-    external server make a "handshake" to establish that they will be
-    talking to each other. We send the bytes of our request in one or
-    more TCP packets, to which the server must reply and say "got it"
-    for each one.
- 5. Application layer: HTTP. 
+![Picture of a cat, attempting to sit in a tiny, tiny box. Caption
+reads: "413: Request entity too large"](./lab-3/cat-meme.jpg)
+
+...it first must establish a TCP connection with the server hosting the cat
+meme. Once a TCP connection is established, the client and server can
+communicate with each other using HTTP requests/responses, written as
+ASCII text.
+
+Other CMPUT courses will cover how the network layers up to TCP/IP work,
+however, in this course, we can use the `netcat` program to establish
+fresh TCP connections; either to as a client to a server, or setup
+a server ourselves.
+
+We will create a process to **listen** to TCP connections. This will be
+our server. To do this, do the following in the command line:
+
+```sh
+nc -l 8000
+```
+
+You have established a new TCP server, listening on **port 8000** for new
+connections.
+
+To test this, open a new terminal, and connect to your server by
+invoking:
+
+```sh
+nc 127.0.0.1 8000
+```
+
+This command means, connect to the computer with IP address `127.0.0.1`,
+and connect to port 8000 (as a client).
+
+> **Question 1**. What computer does 127.0.0.1 refer to?
+
+Now, with both terminals running `nc` on your screen, type something
+into one of the terminals. If all went well, you should be seeing the
+text appear in the other terminal. Congratulations! You just used TCP to
+send a message from one process to another process!
+
+> screenshot of this happening.
+
+This is how HTTP/1.1 works. One computer (the server) listens on
+a well-known port (typically port 80 for outside-facing servers). We
+used `nc -l 8000` to listen on port 8000.
+Another computer (or even the same computer) connects to this port via
+TCP, specifying the IP address and port it wishes to connect to. In our
+case, this was the `nc 127.0.0.1 8000` line.
+
+You may now exit either `nc` process by typing
+<kbd>Ctrl</kbd> + <kbd>D</kbd> to send an end-of-file. The other `nc`
+process should also exit. You may also close one of the two terminals.
+
+Backwards engineering an HTTP request
+-------------------------------------
+
+Create another TCP server using netcat, listening on port 8000.
+The command to do this is:
+
+```sh
+nc -l 8000
+```
+
+With `nc` waiting for a connection, open up your web browser of choice.
+Navigate to <http://localhost:8000/hello>. `nc` should be displaying a lot
+more text.
+
+> **Question 2**. Copy-paste the output of `nc` as the answer to this
+> question.
+
+Type "hello", press <kbd>Enter</kbd>, then press <kbd>Ctrl</kbd> + <kbd>C</kbd>
+to close the connection.
+
+
+> **Question 3**. Copy-paste the error message from your browser as the
+> answer to this question.
+
+What just happened is that our browser tried to connect to an HTTP
+server called "localhost:8000". The server it connected to is the `nc`
+program running in your terminal. The browser sends an HTTP request as
+plain, ASCII text, and is waiting for a reply. You typed "hello" and
+pressed enter, which confused your browser. "That's not an HTTP
+response!" says your browser.
+
+Understanding the HTTP request
+------------------------------
+
+Let's form an understanding of the byte-by-byte details of the HTTP
+request. We're going to create an appropriate HTTP response.
+
+
+
 
 <!--
 
