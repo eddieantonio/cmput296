@@ -135,37 +135,28 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p>What just happened is that our browser tried to connect to an HTTP server called “localhost:8000”. The server it connected to is the <code>nc</code> program running in your terminal. The browser sends an HTTP request as plain, ASCII text, and is waiting for a reply. You typed “hello” and pressed enter, which confused your browser. “That’s not an HTTP response!” says your browser.</p>
 <h2 id="understanding-the-http-request">Understanding the HTTP request</h2>
-<p>Let’s form an understanding of the byte-by-byte details of the HTTP request. We’re going to create an appropriate HTTP response.</p>
-<!--
-
-Create requests in a text editor of your choice.
-
--->
-<!--
-
-Attach Accept-Encoding to server
-
-Get the uncompressed data.
-
-Report the file size.
-
-gunzip the content
-
-Report the file size again.
-
-https://github.com/jvns/gzip.jl
-
--->
-<!--
-
-Omit the Host header to example.com
-
--->
-<!-- manually fetch IP addresses with dig -->
-<!--
-
-Make them construct an HTTP request
-
--->
+<p>In this section, we will form an understanding of the byte-by-byte details of the HTTP request.</p>
+<p>Download <a href="./lab-3/response.bin" download><code>response.bin</code></a> and save it to the same directory as where you’re running <code>nc</code>.</p>
+<p>Now, redirect <code>nc</code>’s input to come from <code>response.bin</code>, and write <code>nc</code>’s output to a file called <code>request.txt</code>. We can do both of these by using the following command:</p>
+<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">cat</span> response.bin <span class="kw">|</span> <span class="ex">nc</span> -l 8000 <span class="kw">|</span> <span class="fu">tee</span> request.txt</a></code></pre>
+<p>Once again, go to your browser and navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>.</p>
+<blockquote>
+<p><strong>Question 4</strong>. What happened in your browser when you navigated to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>? Copy-paste any text that appeared in your browser here.</p>
+</blockquote>
+<p>Open <code>request.txt</code> in your text editor of choice.</p>
+<blockquote>
+<p><strong>Question 5</strong>. How many lines does <code>request.txt</code> have? Include any empty lines in your count. Where do empty lines (if any) appear in this file?</p>
+</blockquote>
+<p>An open problem in computing science is how to specify a newline in a text file. For ASCII (and its derivatives), here are a few of the ways that computer systems use to indicate the end of the file.</p>
+<ul>
+<li>CR: Using a carriage return character (<code>0d</code> in hexadecimal)</li>
+<li>LF: Using a line feed character (<code>0a</code> in hexadecimal)</li>
+<li>CRLF: Using a carriage return, followed by a line feed character (<code>0d</code>, followed by <code>0a</code> in hexadecimal)</li>
+</ul>
+<p>Use the <code>xxd</code> program to output a <strong>hexadecimal dump</strong> of the bytes in the <code>request.txt</code> file.</p>
+<pre><code>xxd requests.txt</code></pre>
+<blockquote>
+<p><strong>Question 6</strong> Inspecting <code>request.txt</code> using <code>xxd</code>, how does HTTP specify line endings? Is it CR, LF, or CRLF? Specify the byte offset of the <strong>first</strong> line ending in <code>request.txt</code> (that is, the index of the first time you see either the line ending, which is one of CR, LF, or CRLF).</p>
+</blockquote>
 </body>
 </html>

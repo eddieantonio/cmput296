@@ -110,7 +110,6 @@ more text.
 Type "hello", press <kbd>Enter</kbd>, then press <kbd>Ctrl</kbd> + <kbd>C</kbd>
 to close the connection.
 
-
 > **Question 3**. Copy-paste the error message from your browser as the
 > answer to this question.
 
@@ -124,44 +123,51 @@ response!" says your browser.
 Understanding the HTTP request
 ------------------------------
 
-Let's form an understanding of the byte-by-byte details of the HTTP
-request. We're going to create an appropriate HTTP response.
+In this section, we will form an understanding of the byte-by-byte details of the HTTP
+request.
 
+Download
+<a href="./lab-3/response.bin" download><code>response.bin</code></a>
+and save it to the same directory as where you're running `nc`.
 
+Now, redirect `nc`'s input to come from `response.bin`, and write `nc`'s
+output to a file called `request.txt`. We can do both of these by using
+the following command:
 
+```sh
+cat response.bin | nc -l 8000 | tee request.txt
+```
 
-<!--
+Once again, go to your browser and navigate to
+<http://localhost:8000/hello>.
 
-Create requests in a text editor of your choice.
+> **Question 4**. What happened in your browser when you navigated to
+> <http://localhost:8000/hello>? Copy-paste any text that appeared in
+> your browser here.
 
--->
+Open `request.txt` in your text editor of choice.
 
-<!--
+> **Question 5**. How many lines does `request.txt` have? Include any
+> empty lines in your count. Where do empty lines (if any) appear in
+> this file?
 
-Attach Accept-Encoding to server
+An open problem in computing science is how to specify a newline in a text
+file. For ASCII (and its derivatives), here are a few of the ways that
+computer systems use to indicate the end of the file.
 
-Get the uncompressed data.
+ - CR: Using a carriage return character (`0d` in hexadecimal)
+ - LF: Using a line feed  character (`0a` in hexadecimal)
+ - CRLF: Using a carriage return, followed by a line feed character (`0d`, followed by `0a` in hexadecimal)
 
-Report the file size.
+Use the `xxd` program to output a **hexadecimal dump** of the bytes in
+the `request.txt` file.
 
-gunzip the content
+```
+xxd requests.txt
+```
 
-Report the file size again.
-
-https://github.com/jvns/gzip.jl
-
--->
-
-<!--
-
-Omit the Host header to example.com
-
--->
-
-<!-- manually fetch IP addresses with dig -->
-
-<!--
-
-Make them construct an HTTP request
-
--->
+> **Question 6** Inspecting `request.txt` using `xxd`, how does HTTP
+> specify line endings? Is it CR, LF, or CRLF? Specify the byte offset
+> of the **first** line ending in `request.txt` (that is, the index of
+> the first time you see either the line ending, which is one of CR, LF,
+> or CRLF).

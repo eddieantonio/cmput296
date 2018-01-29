@@ -54,4 +54,22 @@ Omit the Host header to example.com
 
 Make them construct an HTTP request
 
+
+Now, the bytes that your browser sent should be stored in the file
+called `request.txt`. Use the `xxd` program to retrieve a hexadecimal
+dump of the file's bytes:
+
+
+```sh
+xxd request.txt
+```
+
+> **Question 5**. Copy-paste the hex dump retrieved by typing `xxd
+> request.txt` in the terminal as the answer to this question.
+
+The hex dump shows three columns, the first is a hexadecimal offset in
+the file; the second are the bytes, expressed in hexadecimal, and last
+is an ASCII rendering of the bytes, with bytes that cannot be printed as
+ASCII replaced by a period (`.`).
+
 -->
