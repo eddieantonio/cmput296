@@ -14,7 +14,7 @@ Materials
 
  - An internet connection
  - A modern web browser (like Firefox or  Google Chrome)
- - Unix command line tools: `dig`, `nc` (netcat), `xxd`
+ - Unix command line tools: `dig`, `nc` (netcat), `tee`, `unix2dos`, `xxd`
 
 
 Procedure
@@ -120,36 +120,28 @@ plain, ASCII text, and is waiting for a reply. You typed "hello" and
 pressed enter, which confused your browser. "That's not an HTTP
 response!" says your browser.
 
+
 Understanding the HTTP request
 ------------------------------
 
-In this section, we will form an understanding of the byte-by-byte details of the HTTP
-request.
-
-Download
-<a href="./lab-3/response.bin" download><code>response.bin</code></a>
-and save it to the same directory as where you're running `nc`.
-
-Now, redirect `nc`'s input to come from `response.bin`, and write `nc`'s
-output to a file called `request.txt`. We can do both of these by using
-the following command:
+In this section, we will form an understanding of the byte-by-byte
+details of the HTTP request. Redirect the output of `nc` to a file
+called `request.txt`. We can do this by using the following command:
 
 ```sh
-cat response.bin | nc -l 8000 | tee request.txt
+nc -c -l 8000 | tee request.txt
 ```
 
 Once again, go to your browser and navigate to
-<http://localhost:8000/hello>.
+<http://localhost:8000/hello>. Type the following into `nc`:
 
-> **Question 4**. What happened in your browser when you navigated to
-> <http://localhost:8000/hello>? Copy-paste any text that appeared in
-> your browser here.
+```
+HTTP/1.1 204 No Content
+Connection: close
+```
 
-Open `request.txt` in your text editor of choice.
-
-> **Question 5**. How many lines does `request.txt` have? Include any
-> empty lines in your count. Where do empty lines (if any) appear in
-> this file?
+And press <kbd>Enter</kbd> twice. `nc` should have quit, and your
+browser should no longer be attempting to load from your server.
 
 An open problem in computing science is how to specify a newline in a text
 file. For ASCII (and its derivatives), here are a few of the ways that
@@ -159,6 +151,12 @@ computer systems use to indicate the end of the file.
  - LF: Using a line feed  character (`0a` in hexadecimal)
  - CRLF: Using a carriage return, followed by a line feed character (`0d`, followed by `0a` in hexadecimal)
 
+Open `request.txt` in a text editor of your choice.
+
+> **Question 4**. How many lines does `request.txt` have? Include any
+> empty lines in your count. Where do empty lines (if any) appear in
+> this file?
+
 Use the `xxd` program to output a **hexadecimal dump** of the bytes in
 the `request.txt` file.
 
@@ -166,8 +164,121 @@ the `request.txt` file.
 xxd requests.txt
 ```
 
-> **Question 6** Inspecting `request.txt` using `xxd`, how does HTTP
+> **Question 5** Inspecting `request.txt` using `xxd`, how does HTTP
 > specify line endings? Is it CR, LF, or CRLF? Specify the byte offset
 > of the **first** line ending in `request.txt` (that is, the index of
 > the first time you see either the line ending, which is one of CR, LF,
 > or CRLF).
+
+Inspect the HTTP request in `request.txt`. Notice the structure of the
+file. The first line is the **request line**:
+
+    <METHOD> /path/of/resource/ HTTP/1.1
+
+For example, your browser made a `GET` request for the resource with the
+path `/hello`, so your answer to Question 2 should start with the
+following line:
+
+    GET /hello HTTP/1.1
+
+(We will cover HTTP methods in a future lab).
+
+After the **request line**, is one or more **HTTP headers**. In
+HTTP/1.1, one of these headers  **must** be the `Host` header. For
+example, your answer from Question 2 should have included the line:
+
+   Host: localhost:8000
+
+> **Question 6**: Using your current knowledge of web protocols, why is
+> the `Host` header required in all HTTP/1.1 requests? Try to answer
+> this question without consulting external resources (i.e., don't do
+> a Google search or consult a text book).
+
+Most `GET` requests include a few more headers, indicating the type of
+entity it's requesting. For example, your browser indicated that it will
+_accept_ entities of many types, but it will prefer an HTML web page.
+
+> **Question 7** Copy-paste the value of the `Accept` header as the
+> answer to this question.
+
+Finally, the HTTP request is ended by a completely empty line.
+
+> **Question 8** what are the last four bytes (expressed in hexadecimal)
+> of the HTTP request contained with `request.txt`? Use `xxd` to get
+> a hexadecimal dump of the bytes in `request.txt`.
+
+To summarize, the generic structure of an HTTP request is as follows:
+
+    <status line> <newline>
+    <one or more request headers, one per line> <newline>
+    <blank line> <newline>
+
+Where headers have the following syntax:
+
+    <header name>: <header value> <newline>
+
+An example HTTP request looks like this:
+
+```
+GET /hello HTTP/1.1
+Host: localhost:8000
+Accept: text/html, */*;q=0.1
+
+```
+
+Let's GET that cat meme!
+------------------------
+
+Before we are able to use netcat to get fetch that cat meme, we need to
+know the IP address of the server hosting it.
+
+The host is called `www.eddieantonio.ca`. Use the `dig` program to get
+the IP address of this host.
+
+```sh
+dig +short www.eddieantonio.ca
+```
+
+(If there are multiple lines of output, use the line of output in the
+form `<number>.<number>.<number>.<number>`.)
+
+> **Question 9**: What is the IP address of `www.eddieantonio.ca`?
+
+Use your favorite text editor to create an HTTP request to fetch that cat meme
+mentioned earlier. You will create a file called `my-request.txt`.
+This file will have the HTTP request: the HTTP status line, two HTTP
+headers, and a blank line. Here is all the information that your HTTP
+request should have:
+
+ - It should use the `GET` method to make the request.
+ - It should request the **path** `/cmput296/lab-3/cat-meme.jpg`.
+ - The **host** is `www.eddieantonio.ca`.
+ - `cat-meme.jpg` is an image, so the request should specify that it
+   will `Accept` an image. The value of the `Accept` header should be
+   `image/jpeg,image/*;q=0.1`.
+
+Once you are done creating the HTTP request in your text editor, save it
+as `my-request.txt`. Now, we will need to ensure the line endings are in
+the correct format. For this, use the `unix2dos` program:
+
+```
+unix2dos my-request.txt
+```
+
+> **Question 10**: Copy-and-paste the HTTP request you just created as
+> the answer to this question. You may refine the HTTP request until you
+> get it right.
+
+Finally, we'll use netcat to send our HTTP request to the server, and
+save its response. In the following line, replace `IPADDRESS` with the
+IP address Of `www.eddieantonio.ca`, and run it.
+
+```sh
+cat my-request.txt | nc IPADDRESS 80 | tee response.bin
+```
+
+If it worked, you should see a lot of gibberish scroll on your terminal.
+To prove that it worked, open `response.bin` in a text editor. Delete
+the HTTP request headers at the top of the file (including the blank
+line!), then save the file as `cat-meme.jpg`. You should now be able to
+open the file in an image viewer of your choice.

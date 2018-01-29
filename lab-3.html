@@ -91,7 +91,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <ul>
 <li>An internet connection</li>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
-<li>Unix command line tools: <code>dig</code>, <code>nc</code> (netcat), <code>xxd</code></li>
+<li>Unix command line tools: <code>dig</code>, <code>nc</code> (netcat), <code>tee</code>, <code>unix2dos</code>, <code>xxd</code></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -135,28 +135,78 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p>What just happened is that our browser tried to connect to an HTTP server called “localhost:8000”. The server it connected to is the <code>nc</code> program running in your terminal. The browser sends an HTTP request as plain, ASCII text, and is waiting for a reply. You typed “hello” and pressed enter, which confused your browser. “That’s not an HTTP response!” says your browser.</p>
 <h2 id="understanding-the-http-request">Understanding the HTTP request</h2>
-<p>In this section, we will form an understanding of the byte-by-byte details of the HTTP request.</p>
-<p>Download <a href="./lab-3/response.bin" download><code>response.bin</code></a> and save it to the same directory as where you’re running <code>nc</code>.</p>
-<p>Now, redirect <code>nc</code>’s input to come from <code>response.bin</code>, and write <code>nc</code>’s output to a file called <code>request.txt</code>. We can do both of these by using the following command:</p>
-<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">cat</span> response.bin <span class="kw">|</span> <span class="ex">nc</span> -l 8000 <span class="kw">|</span> <span class="fu">tee</span> request.txt</a></code></pre>
-<p>Once again, go to your browser and navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>.</p>
-<blockquote>
-<p><strong>Question 4</strong>. What happened in your browser when you navigated to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>? Copy-paste any text that appeared in your browser here.</p>
-</blockquote>
-<p>Open <code>request.txt</code> in your text editor of choice.</p>
-<blockquote>
-<p><strong>Question 5</strong>. How many lines does <code>request.txt</code> have? Include any empty lines in your count. Where do empty lines (if any) appear in this file?</p>
-</blockquote>
+<p>In this section, we will form an understanding of the byte-by-byte details of the HTTP request. Redirect the output of <code>nc</code> to a file called <code>request.txt</code>. We can do this by using the following command:</p>
+<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">nc</span> -c -l 8000 <span class="kw">|</span> <span class="fu">tee</span> request.txt</a></code></pre>
+<p>Once again, go to your browser and navigate to <a href="http://localhost:8000/hello" class="uri">http://localhost:8000/hello</a>. Type the following into <code>nc</code>:</p>
+<pre><code>HTTP/1.1 204 No Content
+Connection: close</code></pre>
+<p>And press <kbd>Enter</kbd> twice. <code>nc</code> should have quit, and your browser should no longer be attempting to load from your server.</p>
 <p>An open problem in computing science is how to specify a newline in a text file. For ASCII (and its derivatives), here are a few of the ways that computer systems use to indicate the end of the file.</p>
 <ul>
 <li>CR: Using a carriage return character (<code>0d</code> in hexadecimal)</li>
 <li>LF: Using a line feed character (<code>0a</code> in hexadecimal)</li>
 <li>CRLF: Using a carriage return, followed by a line feed character (<code>0d</code>, followed by <code>0a</code> in hexadecimal)</li>
 </ul>
+<p>Open <code>request.txt</code> in a text editor of your choice.</p>
+<blockquote>
+<p><strong>Question 4</strong>. How many lines does <code>request.txt</code> have? Include any empty lines in your count. Where do empty lines (if any) appear in this file?</p>
+</blockquote>
 <p>Use the <code>xxd</code> program to output a <strong>hexadecimal dump</strong> of the bytes in the <code>request.txt</code> file.</p>
 <pre><code>xxd requests.txt</code></pre>
 <blockquote>
-<p><strong>Question 6</strong> Inspecting <code>request.txt</code> using <code>xxd</code>, how does HTTP specify line endings? Is it CR, LF, or CRLF? Specify the byte offset of the <strong>first</strong> line ending in <code>request.txt</code> (that is, the index of the first time you see either the line ending, which is one of CR, LF, or CRLF).</p>
+<p><strong>Question 5</strong> Inspecting <code>request.txt</code> using <code>xxd</code>, how does HTTP specify line endings? Is it CR, LF, or CRLF? Specify the byte offset of the <strong>first</strong> line ending in <code>request.txt</code> (that is, the index of the first time you see either the line ending, which is one of CR, LF, or CRLF).</p>
 </blockquote>
+<p>Inspect the HTTP request in <code>request.txt</code>. Notice the structure of the file. The first line is the <strong>request line</strong>:</p>
+<pre><code>&lt;METHOD&gt; /path/of/resource/ HTTP/1.1</code></pre>
+<p>For example, your browser made a <code>GET</code> request for the resource with the path <code>/hello</code>, so your answer to Question 2 should start with the following line:</p>
+<pre><code>GET /hello HTTP/1.1</code></pre>
+<p>(We will cover HTTP methods in a future lab).</p>
+<p>After the <strong>request line</strong>, is one or more <strong>HTTP headers</strong>. In HTTP/1.1, one of these headers <strong>must</strong> be the <code>Host</code> header. For example, your answer from Question 2 should have included the line:</p>
+<p>Host: localhost:8000</p>
+<blockquote>
+<p><strong>Question 6</strong>: Using your current knowledge of web protocols, why is the <code>Host</code> header required in all HTTP/1.1 requests? Try to answer this question without consulting external resources (i.e., don’t do a Google search or consult a text book).</p>
+</blockquote>
+<p>Most <code>GET</code> requests include a few more headers, indicating the type of entity it’s requesting. For example, your browser indicated that it will <em>accept</em> entities of many types, but it will prefer an HTML web page.</p>
+<blockquote>
+<p><strong>Question 7</strong> Copy-paste the value of the <code>Accept</code> header as the answer to this question.</p>
+</blockquote>
+<p>Finally, the HTTP request is ended by a completely empty line.</p>
+<blockquote>
+<p><strong>Question 8</strong> what are the last four bytes (expressed in hexadecimal) of the HTTP request contained with <code>request.txt</code>? Use <code>xxd</code> to get a hexadecimal dump of the bytes in <code>request.txt</code>.</p>
+</blockquote>
+<p>To summarize, the generic structure of an HTTP request is as follows:</p>
+<pre><code>&lt;status line&gt; &lt;newline&gt;
+&lt;one or more request headers, one per line&gt; &lt;newline&gt;
+&lt;blank line&gt; &lt;newline&gt;</code></pre>
+<p>Where headers have the following syntax:</p>
+<pre><code>&lt;header name&gt;: &lt;header value&gt; &lt;newline&gt;</code></pre>
+<p>An example HTTP request looks like this:</p>
+<pre><code>GET /hello HTTP/1.1
+Host: localhost:8000
+Accept: text/html, */*;q=0.1
+</code></pre>
+<h2 id="lets-get-that-cat-meme">Let’s GET that cat meme!</h2>
+<p>Before we are able to use netcat to get fetch that cat meme, we need to know the IP address of the server hosting it.</p>
+<p>The host is called <code>www.eddieantonio.ca</code>. Use the <code>dig</code> program to get the IP address of this host.</p>
+<pre class="sourceCode sh" id="cb12"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="ex">dig</span> +short www.eddieantonio.ca</a></code></pre>
+<p>(If there are multiple lines of output, use the line of output in the form <code>&lt;number&gt;.&lt;number&gt;.&lt;number&gt;.&lt;number&gt;</code>.)</p>
+<blockquote>
+<p><strong>Question 9</strong>: What is the IP address of <code>www.eddieantonio.ca</code>?</p>
+</blockquote>
+<p>Use your favorite text editor to create an HTTP request to fetch that cat meme mentioned earlier. You will create a file called <code>my-request.txt</code>. This file will have the HTTP request: the HTTP status line, two HTTP headers, and a blank line. Here is all the information that your HTTP request should have:</p>
+<ul>
+<li>It should use the <code>GET</code> method to make the request.</li>
+<li>It should request the <strong>path</strong> <code>/cmput296/lab-3/cat-meme.jpg</code>.</li>
+<li>The <strong>host</strong> is <code>www.eddieantonio.ca</code>.</li>
+<li><code>cat-meme.jpg</code> is an image, so the request should specify that it will <code>Accept</code> an image. The value of the <code>Accept</code> header should be <code>image/jpeg,image/*;q=0.1</code>.</li>
+</ul>
+<p>Once you are done creating the HTTP request in your text editor, save it as <code>my-request.txt</code>. Now, we will need to ensure the line endings are in the correct format. For this, use the <code>unix2dos</code> program:</p>
+<pre><code>unix2dos my-request.txt</code></pre>
+<blockquote>
+<p><strong>Question 10</strong>: Copy-and-paste the HTTP request you just created as the answer to this question. You may refine the HTTP request until you get it right.</p>
+</blockquote>
+<p>Finally, we’ll use netcat to send our HTTP request to the server, and save its response. In the following line, replace <code>IPADDRESS</code> with the IP address Of <code>www.eddieantonio.ca</code>, and run it.</p>
+<pre class="sourceCode sh" id="cb14"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">cat</span> my-request.txt <span class="kw">|</span> <span class="ex">nc</span> IPADDRESS 80 <span class="kw">|</span> <span class="fu">tee</span> response.bin</a></code></pre>
+<p>If it worked, you should see a lot of gibberish scroll on your terminal. To prove that it worked, open <code>response.bin</code> in a text editor. Delete the HTTP request headers at the top of the file (including the blank line!), then save the file as <code>cat-meme.jpg</code>. You should now be able to open the file in an image viewer of your choice.</p>
 </body>
 </html>

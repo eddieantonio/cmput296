@@ -86,6 +86,24 @@ the file; the second are the bytes, expressed in hexadecimal, and last
 is an ASCII rendering of the bytes, with bytes that cannot be printed as
 ASCII replaced by a period (`.`).
 
+<!--
+
+Download
+<a href="./lab-3/response.bin" download><code>response.bin</code></a>
+and save it to the same directory as where you're running `nc`.
+
+Now, redirect `nc`'s input to come from `response.bin`, and write `nc`'s
+output to a file called `request.txt`. We can do both of these by using
+the following command:
+
+```sh
+cat response.bin | nc -l 8000 | tee request.txt
+```
+
+> **Question ?**. What happened in your browser when you navigated to
+> <http://localhost:8000/hello>? Copy-paste any text that appeared in
+> your browser here.
+
 -->
 </body>
 </html>

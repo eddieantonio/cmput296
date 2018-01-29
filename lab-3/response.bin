@@ -1,4 +1,5 @@
 HTTP/1.1 200 OK
-Content-Length: 21
+Content-Type: text/plain
+Content-Length: 87
 
-Hello, from netcat!
+<span style="color: pink;font:72pt Comic Sans MS, fantasy">Hello, from netcat!</span>
