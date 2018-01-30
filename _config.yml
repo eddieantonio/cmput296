@@ -1,0 +1,9 @@
+---
+safe: true
+exclude:
+  - '*.md'
+  - '*.pdf'
+  - pre-commit.sh
+  - README.md
+  - Makefile
+  - LICENSE
