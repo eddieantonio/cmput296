@@ -209,7 +209,7 @@ To summarize, the generic structure of an HTTP request is as follows:
 
     <status line> <newline>
     <one or more request headers, one per line> <newline>
-    <blank line> <newline>
+    <empty line> <newline>
 
 Where headers have the following syntax:
 
@@ -217,12 +217,11 @@ Where headers have the following syntax:
 
 An example HTTP request looks like this:
 
-```
-GET /hello HTTP/1.1
+<pre><code>GET /hello HTTP/1.1
 Host: localhost:8000
 Accept: text/html, */*;q=0.1
 
-```
+</code></pre>
 
 Let's GET that cat meme!
 ------------------------
@@ -230,7 +229,7 @@ Let's GET that cat meme!
 Before we are able to use netcat to fetch that cat meme, we need to know
 the IP address of the server hosting it.
 
-The host is called `www.eddieantonio.ca`. Use the `dig` program to get
+The host is called `www.eddieantonio.ca`. Use the `dig` command to get
 the IP address of this host.
 
     dig +short www.eddieantonio.ca
@@ -243,7 +242,7 @@ form `<number>.<number>.<number>.<number>`).
 Use your favorite text editor to create an HTTP request to fetch that cat meme
 mentioned earlier. You will create a file called `my-request.txt`.
 This file will have the HTTP request: the HTTP status line, two HTTP
-headers, and a blank line. Here is all the information that your HTTP
+headers, and an empty line. Here is all the information that your HTTP
 request should have:
 
  - It should use the `GET` method to make the request
@@ -268,6 +267,6 @@ IP address of `www.eddieantonio.ca`, and run it.
 
 If it worked, you should see a lot of gibberish scroll on your terminal.
 To prove that it worked, open `response.bin` in a text editor. Delete
-the HTTP request headers at the top of the file (including the blank
+the HTTP request headers at the top of the file (including the empty
 line!), then save the file as `cat-meme.jpg`. You should now be able to
 open the file in an image viewer of your choice.

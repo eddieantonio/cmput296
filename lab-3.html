@@ -123,23 +123,24 @@ Connection: close
 <p>To summarize, the generic structure of an HTTP request is as follows:</p>
 <pre><code>&lt;status line&gt; &lt;newline&gt;
 &lt;one or more request headers, one per line&gt; &lt;newline&gt;
-&lt;blank line&gt; &lt;newline&gt;</code></pre>
+&lt;empty line&gt; &lt;newline&gt;</code></pre>
 <p>Where headers have the following syntax:</p>
 <pre><code>&lt;header name&gt;: &lt;header value&gt; &lt;newline&gt;</code></pre>
 <p>An example HTTP request looks like this:</p>
 <pre><code>GET /hello HTTP/1.1
 Host: localhost:8000
 Accept: text/html, */*;q=0.1
+
 </code></pre>
 <h2 id="lets-get-that-cat-meme">Let’s GET that cat meme!</h2>
 <p>Before we are able to use netcat to fetch that cat meme, we need to know the IP address of the server hosting it.</p>
-<p>The host is called <code>www.eddieantonio.ca</code>. Use the <code>dig</code> program to get the IP address of this host.</p>
+<p>The host is called <code>www.eddieantonio.ca</code>. Use the <code>dig</code> command to get the IP address of this host.</p>
 <pre><code>dig +short www.eddieantonio.ca</code></pre>
 <p>(If there are multiple lines of output, use the line of output in the form <code>&lt;number&gt;.&lt;number&gt;.&lt;number&gt;.&lt;number&gt;</code>).</p>
 <blockquote>
 <p><strong>Question 9</strong>: What is the IP address of <code>www.eddieantonio.ca</code>?</p>
 </blockquote>
-<p>Use your favorite text editor to create an HTTP request to fetch that cat meme mentioned earlier. You will create a file called <code>my-request.txt</code>. This file will have the HTTP request: the HTTP status line, two HTTP headers, and a blank line. Here is all the information that your HTTP request should have:</p>
+<p>Use your favorite text editor to create an HTTP request to fetch that cat meme mentioned earlier. You will create a file called <code>my-request.txt</code>. This file will have the HTTP request: the HTTP status line, two HTTP headers, and an empty line. Here is all the information that your HTTP request should have:</p>
 <ul>
 <li>It should use the <code>GET</code> method to make the request</li>
 <li>It should request the <strong>path</strong> <code>/cmput296/lab-3/cat-meme.jpg</code></li>
@@ -152,6 +153,6 @@ Accept: text/html, */*;q=0.1
 </blockquote>
 <p>Finally, we’ll use netcat to send our HTTP request to the server, and save its response. In the following line, replace <code>IPADDRESS</code> with the IP address of <code>www.eddieantonio.ca</code>, and run it.</p>
 <pre><code>cat my-request.txt | nc IPADDRESS 80 | tee response.bin</code></pre>
-<p>If it worked, you should see a lot of gibberish scroll on your terminal. To prove that it worked, open <code>response.bin</code> in a text editor. Delete the HTTP request headers at the top of the file (including the blank line!), then save the file as <code>cat-meme.jpg</code>. You should now be able to open the file in an image viewer of your choice.</p>
+<p>If it worked, you should see a lot of gibberish scroll on your terminal. To prove that it worked, open <code>response.bin</code> in a text editor. Delete the HTTP request headers at the top of the file (including the empty line!), then save the file as <code>cat-meme.jpg</code>. You should now be able to open the file in an image viewer of your choice.</p>
 </body>
 </html>
