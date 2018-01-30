@@ -108,8 +108,10 @@ more text.
 Type "hello", press <kbd>Enter</kbd>, then press <kbd>Ctrl</kbd> + <kbd>C</kbd>
 to close the connection.
 
-> **Question 3**. Copy-paste the error message from your browser as the
-> answer to this question.
+> **Question 3**. If you got an error message, copy-paste the error
+> message from your browser as the answer to this question. If your
+> browser simply says "hello", answer this question with the name of
+> your browser.
 
 What just happened is that our browser tried to connect to an HTTP
 server called "localhost:8000". The server it connected to is the `nc`
