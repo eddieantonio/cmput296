@@ -159,7 +159,7 @@ Use the `xxd` program to output a **hexadecimal dump** of the bytes in
 the `request.txt` file.
 
 ```
-xxd requests.txt
+xxd request.txt
 ```
 
 > **Question 5** Inspecting `request.txt` using `xxd`, how does HTTP
