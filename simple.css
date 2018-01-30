@@ -63,3 +63,18 @@ figure {
 figure > img {
     max-width: 100%;
 }
+
+kbd {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 1px;
+    border: 1px #666 solid;
+
+    font: small-caps smaller sans-serif;
+    vertical-align: text-bottom;
+
+    background-color: #EEE;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px #ccc,
+                0 0 0 1px #fff inset;
+}
