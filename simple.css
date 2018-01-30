@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*
- * Copyright 2016 Eddie Antonio Santos. MIT licensed.
+ * Copyright 2016, 2018 Eddie Antonio Santos. MIT licensed.
  */
 
 #header .author {
@@ -31,6 +31,33 @@ table {
     border-spacing: 1em 0;
 }
 
+/* Make figures look less dumb. */
+figure {
+    margin: auto;
+    text-align: center;
+    font-variant: italic;
+}
+
+figure > img {
+    max-width: 100%;
+}
+
+kbd {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 1px;
+    border: 1px #666 solid;
+
+    font: small-caps smaller sans-serif;
+    vertical-align: text-bottom;
+    text-transform: lowercase;
+
+    background-color: #EEE;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px #ccc,
+                0 0 0 1px #fff inset;
+}
+
 @media print {
     @page {
         margin: auto .72in;
@@ -51,30 +78,4 @@ table {
         /* Avoid extra scrollbars in the PDF. */
         overflow-x: auto;
     }
-}
-
-/* Make figures look less dumb. */
-figure {
-    margin: auto;
-    text-align: center;
-    font-variant: italic;
-}
-
-figure > img {
-    max-width: 100%;
-}
-
-kbd {
-    display: inline-block;
-    padding: 0 4px;
-    margin: 1px;
-    border: 1px #666 solid;
-
-    font: small-caps smaller sans-serif;
-    vertical-align: text-bottom;
-
-    background-color: #EEE;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px #ccc,
-                0 0 0 1px #fff inset;
 }
