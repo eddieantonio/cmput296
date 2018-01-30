@@ -99,6 +99,14 @@ Connection: close
 </ul>
 <p>Use the <code>xxd</code> program to output a <strong>hexadecimal dump</strong> of the bytes in the <code>request.txt</code> file.</p>
 <pre><code>xxd request.txt</code></pre>
+<aside>
+<header>
+Tips on reading hexadecimal
+</header>
+<p>
+Each pair of <strong>two</strong> hexadecimal digits is one byte. So <code>0a</code> is one bytes, whereas <code>0d0a</code> is two bytes. A single hexadecimal digit represents 4 bits, which is also colloquially known as a “<a href="https://en.wikipedia.org/wiki/Nibble">nibble</a>”.
+</p>
+</aside>
 <blockquote>
 <p><strong>Question 5</strong> Inspecting <code>request.txt</code> using <code>xxd</code>, how does HTTP specify line endings? Is it CR, LF, or CRLF? Specify the byte offset of the <strong>first</strong> line ending in <code>request.txt</code> (that is, the index of the first time you see either the line ending, which is one of CR, LF, or CRLF).</p>
 </blockquote>

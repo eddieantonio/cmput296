@@ -162,6 +162,16 @@ the `request.txt` file.
 xxd request.txt
 ```
 
+<aside>
+<header>Tips on reading hexadecimal</header>
+<p> Each pair of <strong>two</strong> hexadecimal digits is one byte. So
+<code>0a</code> is one bytes, whereas <code>0d0a</code> is two bytes.
+A single hexadecimal digit represents 4 bits, which is also colloquially
+known as a “<a href="https://en.wikipedia.org/wiki/Nibble">nibble</a>”.
+</p>
+</aside>
+
+
 > **Question 5** Inspecting `request.txt` using `xxd`, how does HTTP
 > specify line endings? Is it CR, LF, or CRLF? Specify the byte offset
 > of the **first** line ending in `request.txt` (that is, the index of
