@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CMPUT 296" />
+  <meta name="author" content="written by Eddie Antonio Santos" />
+  <title>Lab 4: Introduction to HTML</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="simple.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Lab 4: Introduction to HTML</h1>
+<p class="author">CMPUT 296</p>
+<p class="author">written by Eddie Antonio Santos</p>
+<p class="date">February 5, 2018</p>
+</header>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>…</li>
+</ul>
+<h1 id="materials">Materials</h1>
+<ul>
+<li>An internet connection</li>
+<li>A modern web browser (like Firefox or Google Chrome)</li>
+<li>A text editor</li>
+</ul>
+<h1 id="procedure">Procedure</h1>
+<p>Submit your responses to the questions in this lab on eClass.</p>
+<blockquote>
+<p><strong>Question X</strong>. Questions look like this.</p>
+</blockquote>
+<p><strong>Remember to cite your sources</strong>.</p>
+<p>–</p>
+<!-- introduction -->
+<!-- Question involving messing around with meta tags -->
+<!-- Question involving <title> tag: stuff in body is the content in the
+     viewport. -->
+<!-- Question involving changing CSS styles -->
+<!-- Question involving creating an <a href="..."> -->
+<!-- Question involving creating an <img src="..." alt="..."> -->
+<!-- QUESTION INVOLVING FILE ENCODINGS! -->
+<!-- teach them importance of escape chars: &lt; &gt; &amp; -->
+<!-- teach them what an HTML comment is! -->
+<!-- teach them to inspect with the dev tools -->
+<!-- eventually get them to produce this: -->
+<pre class="sourceCode html" id="cb1"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>HTML<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">   <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">      <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">      <span class="kw">&lt;title&gt;</span> My title <span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">   <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">   <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      <span class="co">&lt;!-- content --&gt;</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">   <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="kw">&lt;/html&gt;</span></a></code></pre>
+<!-- use this as inspiration:
+   http://ladieslearningcode.github.io/llc-html-css-one-page/slides.html#slide7
+   http://ladieslearningcode.github.io/llc-html-css-one-page/slides.html#slide22
+-->
+</body>
+</html>
