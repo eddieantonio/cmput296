@@ -24,15 +24,19 @@ Submit your responses to the questions in this lab on eClass.
 
 **Remember to cite your sources**.
 
-<!-- introduction -->
 # What is HTML?
 
 The **Hypertext Markup Language** defines the structure and content of
-a webpage. In this lab, we'll modify the following small template for an
-HTML document and get a better understanding of the structure of HTML.
+a webpage. In this lab, we'll modify some small HTML documents
+to get a better understanding of the structure of HTML.
 
-<!-- what part does chaning <title> change? -->
-<!-- what part does chaning <h1> change? -->
+Quick HTML syntax refresher
+---------------------------
+
+In HTML, there are
+
+<!-- what part does modifying <title> affect? -->
+<!-- what part does modifying <h1> affect? -->
 
 ---
 
@@ -45,12 +49,17 @@ HTML document and get a better understanding of the structure of HTML.
       <link rel="stylesheet" href="...">
    </head>
    <body>
-      <h1>Hello, World!</h1>
-      <p lang="zh">你好，世界</p>
-      <p lang="hi">नमस्ते दुनिया</p>
-      <p lang="es">¡Hola, Mundo!</p>
-      <p lang="ar" dir="rtl">مرحبا بالعالم!</p>
-      <p>👋🌎</p>
+      <h1>"Hello, World!</h1>
+      <p> Listed in the top 5 languages by speaker. </p>
+
+      <ol>
+        <li lang="zh">你好，世界</li>
+        <li lang="hi">नमस्ते दुनिया<li
+        <li lang="es">¡Hola, Mundo!</li>
+        <li lang="ar" dir="rtl">مرحبا بالعالم!</li>
+      </ol>
+
+      <p>And finally, "Hello, world" in emoji: 👋🌎</p>
    </body>
 </html>
 ```
@@ -93,9 +102,10 @@ browser and display something like this:
   - US-ASCII
   - GB-18030
   - GB-2312
-  - Shift-JIS
   - ISO-8859-1
   - CP1250
+  - KOI cyrillic encoding
+  - Shift-JIS
 -->
 
 <!-- render without meta charset line -->
