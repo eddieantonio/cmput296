@@ -146,9 +146,10 @@ A full HTML example
 
 We will be studying the following full HTML document, modifying it, and
 describing the effects of our modifications. Either copy-paste the
-example below and save it to a file called `hello.html`, or download it
+HTML code below and save it to a file called `hello.html`, or download it
 here:
-<a href="lab-4/hello.html" download>hello.html</a>.
+<a href="http://www.eddieantonio.ca/cmput296/lab-4/hello.html" download>hello.html</a>.
+Make sure you have downloaded the HTML code to your computer.
 
 ```html
 <!DOCTYPE html>
