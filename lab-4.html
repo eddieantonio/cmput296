@@ -99,31 +99,78 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h1 id="what-is-html">What is HTML?</h1>
 <p>The <strong>Hypertext Markup Language</strong> defines the structure and content of a webpage. In this lab, we’ll modify some small HTML documents to get a better understanding of the structure of HTML.</p>
 <h2 id="quick-html-syntax-refresher">Quick HTML syntax refresher</h2>
-<p>In HTML, there are</p>
+<aside>
+Note that while this lab pedantically distinguishes between the terms <strong>element</strong> and <strong>tag</strong> (as per the <a href="https://html.spec.whatwg.org/multipage/introduction.html#a-quick-introduction-to-html">WhatWG</a> standard), in common discussion, you may hear people use these terms interchangeably such as “Write a new <code>&lt;a&gt;</code> tag in your document” when they really mean “<code>&lt;a&gt;</code> element”. This is so common, your instructors may often mix these terms up without realizing!
+</aside>
+<p>HTML is made up of nested <strong>elements</strong>, which are marked by a <strong>start tag</strong>:</p>
+<pre><code>&lt;tag&gt;</code></pre>
+<p>and terminated by an <strong>end tag</strong>:</p>
+<pre><code>&lt;/tag&gt;</code></pre>
+<p>Elements are often <strong>nested</strong>. Consider the following example:</p>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt; &lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>In this example, the <strong>root element</strong> is <code>&lt;html&gt;</code>; <code>&lt;html&gt;</code> has two <strong>children</strong> elements: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>. Finally, <code>&lt;head&gt;</code> contains one child element: <code>&lt;title&gt;</code>. The <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> elements are <strong>siblings</strong>.</p>
+<p>For questions 1 and 2, consider the following example:</p>
+<pre><code>&lt;body&gt;
+  &lt;p&gt; Hello, &lt;strong&gt;World&lt;/strong&gt; &lt;/p&gt;
+&lt;/body&gt;</code></pre>
+<blockquote>
+<p><strong>Question 1</strong>: What element is the child of the <code>&lt;body&gt;</code> tag&gt;?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 2</strong>: Does the <code>&lt;p&gt;</code> tag have any child elements? If so, what are they?</p>
+</blockquote>
+<h2 id="attributes">Attributes</h2>
+<p>HTML elements may have <strong>attributes</strong>. Attributes are defined <strong>only</strong> in the start tag:</p>
+<pre><code>&lt;tag attribute-1=&quot;value 1&quot; attribute-2=&quot;value 2&quot;&gt;
+  ... contents ...
+&lt;/tag&gt;</code></pre>
+<p>Attributes are a way of specifying name/value pairs attached an element. Most of these name/value pairs are optional.</p>
+<p>The “HT” in “HTML” stands for “Hypertext” which is the nature in which different HTML documents can be linked together with <em>hyperlinks</em>. To make a <em>hyperlink</em> in an HTML document, one must use an <code>&lt;a&gt;</code> element, whose start and end tag surround the desired link text. The <code>&lt;a&gt;</code> element <strong>requires</strong> the <code>href=</code> attribute (“href” is short for “hyperlink reference”), which specifies the URL which clicking the link will go to. For example, here is a link to the homepage of <code>ualberta.ca</code> with the clickable text being “University of Alberta homepage”</p>
+<pre><code>&lt;a href=&quot;https://ualberta.ca/&quot;&gt;
+  University of Alberta homepage
+&lt;/a&gt;</code></pre>
+<p>This link will look like this: <a href="https://ualberta.ca/"> University of Alberta homepage</a>.</p>
+<blockquote>
+<p><strong>Question 3</strong>: Provide the HTML code for a link whose link text is “Example domain” and clicking it will go to <code>http://example.com/</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 4</strong>: Why is the <code>href=</code> attribute required for the <code>&lt;a&gt;</code> element? Try to answer this question without consulting external resources.</p>
+</blockquote>
+<h2 id="self-closing-tags">Self-closing tags</h2>
 <!-- what part does modifying <title> affect? -->
 <!-- what part does modifying <h1> affect? -->
-<hr />
-<pre class="sourceCode html" id="cb1"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>HTML<span class="dt">&gt;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">   <span class="kw">&lt;head&gt;</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">      <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">      <span class="kw">&lt;title&gt;</span>Hello, world!<span class="kw">&lt;/title&gt;</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">   <span class="kw">&lt;/head&gt;</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">   <span class="kw">&lt;body&gt;</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">      <span class="kw">&lt;h1&gt;</span>&quot;Hello, World!<span class="kw">&lt;/h1&gt;</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">      <span class="kw">&lt;p&gt;</span> Listed in the top 5 languages by speaker. <span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">      <span class="kw">&lt;ol&gt;</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;zh&quot;</span><span class="kw">&gt;</span>你好，世界<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;hi&quot;</span><span class="kw">&gt;</span>नमस्ते दुनिया<span class="kw">&lt;li</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">        <span class="er">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;es&quot;</span><span class="kw">&gt;</span>¡Hola, Mundo!<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;ar&quot;</span><span class="ot"> dir=</span><span class="st">&quot;rtl&quot;</span><span class="kw">&gt;</span>مرحبا بالعالم!<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">      <span class="kw">&lt;/ol&gt;</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19">      <span class="kw">&lt;p&gt;</span>And finally, &quot;Hello, world&quot; in emoji: 👋🌎<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20">   <span class="kw">&lt;/body&gt;</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="kw">&lt;/html&gt;</span></a></code></pre>
+<pre class="sourceCode html" id="cb7"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>HTML<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">   <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">      <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">      <span class="kw">&lt;title&gt;</span>Hello, World!<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">   <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">   <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">      <span class="kw">&lt;h1&gt;</span>Hello, World!<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">      <span class="kw">&lt;p&gt;</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">        Listed in descending order of top 5 languages by number of</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">        speakers.</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.ethnologue.com/statistics/size&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">          [Source]</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">        <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">      <span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">      <span class="kw">&lt;ol&gt;</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;zh&quot;</span><span class="kw">&gt;</span>你好，世界<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;es&quot;</span><span class="kw">&gt;</span>¡Hola, Mundo!<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Hello, World!<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;ar&quot;</span><span class="kw">&gt;&lt;span</span><span class="ot"> dir=</span><span class="st">&quot;rtl&quot;</span><span class="kw">&gt;</span>مرحبا بالعالم!<span class="kw">&lt;/span&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;hi&quot;</span><span class="kw">&gt;</span>नमस्ते दुनिया<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">      <span class="kw">&lt;/ol&gt;</span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">   <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="kw">&lt;/html&gt;</span></a></code></pre>
 <!-- give mini syntax lessons -->
 <!-- how many children of the <body> tag? -->
 <!-- attributes and ids:
