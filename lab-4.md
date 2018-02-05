@@ -341,7 +341,8 @@ In the list item for the Arabic "hello, world" (list item 4.), the text
 itself is wrapped in a `<span dir="rtl"> </span>`.
 
 > **Question 12**: What is a `<span>` element? What is the purpose of
-> this `<span>` element with the `dir="rtl"` attribute?
+> this `<span>` element with the `dir="rtl"` attribute? Why did I only
+> specify the `dir="rtl"` attribute for the Arabic example?
 
 <!-- teach them importance of escape chars: &lt; &gt; &amp; -->
 <!-- teach them what an HTML comment is! -->
