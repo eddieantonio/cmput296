@@ -31,6 +31,11 @@ The **Hypertext Markup Language** defines the structure and content of
 a webpage. In this lab, we'll modify the following small template for an
 HTML document and get a better understanding of the structure of HTML.
 
+<!-- what part does chaning <title> change? -->
+<!-- what part does chaning <h1> change? -->
+
+---
+
 ```html
 <!DOCTYPE HTML>
 <html lang="en">
@@ -41,18 +46,42 @@ HTML document and get a better understanding of the structure of HTML.
    </head>
    <body>
       <h1>Hello, World!</h1>
-      <p lang="es">¡Hola, Mundo!</p>
       <p lang="zh">你好，世界</p>
-      <p lang="ar" dir="rtl">مرحبا بالعالم!</p>
       <p lang="hi">नमस्ते दुनिया</p>
+      <p lang="es">¡Hola, Mundo!</p>
+      <p lang="ar" dir="rtl">مرحبا بالعالم!</p>
+      <p>👋🌎</p>
    </body>
 </html>
 ```
+
+<!-- give mini syntax lessons -->
+
+<!-- how many children of the <body> tag? -->
+
+<!-- attributes and ids:
+
+ 1. take earlier lorem ipsum page and download it.
+ 2. add ids to it to make it scroll.
+ 3. copy the lines changed as the answer
+
+-->
+
+# `<meta charset="...">`
+
+<!--
+Assume they already know attributes by here.
+
+-->
 
 Copy the above example to and paste it into a new text file (use your
 favourite text editor). Save that text file as `example.html`. Now open
 that file from your file manager. It should open in your default
 browser and display something like this:
+
+<!-- screenshot of intended rendering: -->
+
+<!-- download link for this page. -->
 
 ![The rendered page in my browser](lab-4/example.html.png)
 
@@ -68,6 +97,16 @@ browser and display something like this:
   - ISO-8859-1
   - CP1250
 -->
+
+<!-- render without meta charset line -->
+<!-- render trying different encodings -->
+<!-- why is UTF-8 the only possible encoding for the characters on this
+     page? this questino will be difficult to word...
+
+     Say I'm saving this file, and the text editor is asking me what
+     character encoding to use. Why is UTF-8 the only possible 8-bit
+     encoding to use?
+     -->
 
 <!-- Question involving messing around with meta tags -->
 
