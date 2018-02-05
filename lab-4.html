@@ -82,7 +82,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </header>
 <h1 id="overview">Overview</h1>
 <ul>
-<li>…</li>
+<li>Understand the basic syntax of HTML documents</li>
+<li>Be familiarized with a number of common HTML tags and attributes</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
@@ -97,10 +98,10 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <h1 id="what-is-html">What is HTML?</h1>
-<p>The <strong>Hypertext Markup Language</strong> defines the structure and content of a webpage. In this lab, we’ll modify some small HTML documents to get a better understanding of the structure of HTML.</p>
+<p>The <strong>Hypertext Markup Language</strong> defines the structure and content of a webpage. In this lab, we’ll modify small HTML examples to get a better understanding of the HTML documents.</p>
 <h2 id="quick-html-syntax-refresher">Quick HTML syntax refresher</h2>
 <aside>
-Note that while this lab pedantically distinguishes between the terms <strong>element</strong> and <strong>tag</strong> (as per the <a href="https://html.spec.whatwg.org/multipage/introduction.html#a-quick-introduction-to-html">WhatWG</a> standard), in common discussion, you may hear people use these terms interchangeably such as “Write a new <code>&lt;a&gt;</code> tag in your document” when they really mean “<code>&lt;a&gt;</code> element”. This is so common, your instructors may often mix these terms up without realizing!
+Note that while this lab pedantically distinguishes between the terms <strong>element</strong> and <strong>tag</strong> (as per the <a href="https://html.spec.whatwg.org/multipage/introduction.html#a-quick-introduction-to-html">WHATWG</a> standard), in common discussion, you may hear people use these terms interchangeably such as “Write a new <code>&lt;a&gt;</code> tag in your document” when they really mean “<code>&lt;a&gt;</code> element”. This is so common, your instructors may often mix these terms up without realizing!
 </aside>
 <p>HTML is made up of nested <strong>elements</strong>, which are marked by a <strong>start tag</strong>:</p>
 <pre><code>&lt;tag&gt;</code></pre>
@@ -126,86 +127,109 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
 <p><strong>Question 2</strong>: Does the <code>&lt;p&gt;</code> tag have any child elements? If so, what are they?</p>
 </blockquote>
 <h2 id="attributes">Attributes</h2>
-<p>HTML elements may have <strong>attributes</strong>. Attributes are defined <strong>only</strong> in the start tag:</p>
+<p>HTML elements may have <strong>attributes</strong>. Attributes are written <strong>only</strong> in the start tag:</p>
 <pre><code>&lt;tag attribute-1=&quot;value 1&quot; attribute-2=&quot;value 2&quot;&gt;
   ... contents ...
 &lt;/tag&gt;</code></pre>
-<p>Attributes are a way of specifying name/value pairs attached an element. Most of these name/value pairs are optional.</p>
-<p>The “HT” in “HTML” stands for “Hypertext” which is the nature in which different HTML documents can be linked together with <em>hyperlinks</em>. To make a <em>hyperlink</em> in an HTML document, one must use an <code>&lt;a&gt;</code> element, whose start and end tag surround the desired link text. The <code>&lt;a&gt;</code> element <strong>requires</strong> the <code>href=</code> attribute (“href” is short for “hyperlink reference”), which specifies the URL which clicking the link will go to. For example, here is a link to the homepage of <code>ualberta.ca</code> with the clickable text being “University of Alberta homepage”</p>
-<pre><code>&lt;a href=&quot;https://ualberta.ca/&quot;&gt;
+<p>Attributes are a way of specifying name/value pairs attached to an element. Most of these name/value pairs are optional.</p>
+<p>The “HT” in “HTML” stands for “Hypertext” which is the nature in which different HTML documents can be linked together using <em>hyperlinks</em>. To make a <em>hyperlink</em> in an HTML document, one must use an <code>&lt;a&gt;</code> element, whose start and end tag surround the desired link text. The <code>&lt;a&gt;</code> element <strong>requires</strong> the <code>href</code> attribute (“href” is short for “hyperlink reference”), which specifies the URL which clicking the link will go to. For example, here is a link to the homepage of <code>ualberta.ca</code> with the clickable text being “University of Alberta homepage”</p>
+<pre><code>&lt;a href=&quot;https://www.ualberta.ca/&quot;&gt;
   University of Alberta homepage
 &lt;/a&gt;</code></pre>
-<p>This link will look like this: <a href="https://ualberta.ca/"> University of Alberta homepage</a>.</p>
+<p>This link will look like this: <a href="https://www.ualberta.ca/"> University of Alberta homepage</a>.</p>
 <blockquote>
-<p><strong>Question 3</strong>: Provide the HTML code for a link whose link text is “Example domain” and clicking it will go to <code>http://example.com/</code>.</p>
+<p><strong>Question 3</strong>: Provide the HTML code for a link whose link text is “Example domain” and clicking on it will go to <code>http://example.com/</code>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 4</strong>: Why is the <code>href=</code> attribute required for the <code>&lt;a&gt;</code> element? Try to answer this question without consulting external resources.</p>
+<p><strong>Question 4</strong>: Why is the <code>href</code> attribute required for the <code>&lt;a&gt;</code> element? Try to answer this question without consulting external resources.</p>
 </blockquote>
-<h2 id="self-closing-tags">Self-closing tags</h2>
-<!-- what part does modifying <title> affect? -->
-<!-- what part does modifying <h1> affect? -->
-<pre class="sourceCode html" id="cb7"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>HTML<span class="dt">&gt;</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">   <span class="kw">&lt;head&gt;</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">      <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">      <span class="kw">&lt;title&gt;</span>Hello, World!<span class="kw">&lt;/title&gt;</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">   <span class="kw">&lt;/head&gt;</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">   <span class="kw">&lt;body&gt;</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">      <span class="kw">&lt;h1&gt;</span>Hello, World!<span class="kw">&lt;/h1&gt;</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">      <span class="kw">&lt;p&gt;</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">        Listed in descending order of top 5 languages by number of</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">        speakers.</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.ethnologue.com/statistics/size&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">          [Source]</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">        <span class="kw">&lt;/a&gt;</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">      <span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18">      <span class="kw">&lt;ol&gt;</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;zh&quot;</span><span class="kw">&gt;</span>你好，世界<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;es&quot;</span><span class="kw">&gt;</span>¡Hola, Mundo!<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Hello, World!<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;ar&quot;</span><span class="kw">&gt;&lt;span</span><span class="ot"> dir=</span><span class="st">&quot;rtl&quot;</span><span class="kw">&gt;</span>مرحبا بالعالم!<span class="kw">&lt;/span&gt;&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;hi&quot;</span><span class="kw">&gt;</span>नमस्ते दुनिया<span class="kw">&lt;/li&gt;</span></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24">      <span class="kw">&lt;/ol&gt;</span></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25">   <span class="kw">&lt;/body&gt;</span></a>
-<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="kw">&lt;/html&gt;</span></a></code></pre>
-<!-- give mini syntax lessons -->
-<!-- how many children of the <body> tag? -->
-<!-- attributes and ids:
-
- 1. take earlier lorem ipsum page and download it.
- 2. add ids to it to make it scroll.
- 3. copy the lines changed as the answer
-
--->
-<h1 id="meta-charset..."><code>&lt;meta charset=&quot;...&quot;&gt;</code></h1>
-<!--
-Assume they already know attributes by here.
-
--->
-<p>Copy the above example to and paste it into a new text file (use your favourite text editor). Save that text file as <code>example.html</code>. Now open that file from your file manager. It should open in your default browser and display something like this:</p>
-<!-- screenshot of intended rendering: -->
-<!-- download link for this page. -->
+<h2 id="void-elements">Void elements</h2>
+<p>Some elements do not require an end tag. These are called <em>void element</em>.</p>
+<p><code>&lt;img&gt;</code> is a void element. An <code>&lt;img&gt;</code> element consists of the image URL (its <code>src</code> attribute) and some alternative text (its <code>alt</code> attribute). For example,</p>
+<pre><code>&lt;img src=&quot;http://placekitten.com/200/201&quot; alt=&quot;kitten&quot;&gt;</code></pre>
+<p>Notice how this the <code>&lt;img&gt;</code> tag has no matching <code>&lt;/img&gt;</code> end tag. The result of this HTML code is embedding an image that looks like this:</p>
+<p><img src="http://placekitten.com/200/201" alt="kitten" /></p>
+<blockquote>
+<p><strong>Question 5</strong>: Why is <code>&lt;img&gt;</code> a void element? To answer this question, consider: what would the text content between the start and end tags <code>&lt;img&gt;</code> tags mean?</p>
+</blockquote>
+<h1 id="a-full-html-example">A full HTML example</h1>
+<p>We will be studying the following full HTML document, modifying it, and describing the effects of our modifications. Either copy-paste the example below and save it to a file called <code>hello.html</code>, or download it here: <a href="lab-4/hello.html" download>hello.html</a>.</p>
+<pre class="sourceCode html" id="cb8"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">   <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">      <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">      <span class="kw">&lt;title&gt;</span>Hello, World!<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">   <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">   <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">      <span class="kw">&lt;h1&gt;</span>Hello, World!<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">      <span class="kw">&lt;p&gt;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">        Listed in descending order of top 5 languages by number of</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">        speakers.</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.ethnologue.com/statistics/size&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">          [Source]</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">        <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">      <span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">      <span class="kw">&lt;ol&gt;</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;zh&quot;</span><span class="kw">&gt;</span>你好，世界<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;es&quot;</span><span class="kw">&gt;</span>¡Hola, Mundo!<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Hello, World!<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;ar&quot;</span><span class="kw">&gt;&lt;span</span><span class="ot"> dir=</span><span class="st">&quot;rtl&quot;</span><span class="kw">&gt;</span>مرحبا بالعالم!<span class="kw">&lt;/span&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">        <span class="kw">&lt;li</span><span class="ot"> lang=</span><span class="st">&quot;hi&quot;</span><span class="kw">&gt;</span>नमस्ते दुनिया<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">      <span class="kw">&lt;/ol&gt;</span></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">   <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="kw">&lt;/html&gt;</span></a></code></pre>
+<h2 id="the-doctype">The <code>&lt;!DOCTYPE&gt;</code></h2>
+<p>HTML has evolved quite a lot over the years. Most moderns browsers support the <a href="https://html.spec.whatwg.org/">HTML 5 living standard</a>, however they remain backwards-compatible with older versions of HTML. As such, a mechanism was devised to specify the HTML version used by the page. This is called “document type declaration”, or simply “doctype” for short. If specified, this must be at the very top of the HTML document.</p>
+<p>The HTML 5 doctype looks like this:</p>
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+<p>If present at the very beginning of the document, the browser is sure to render your document using the HTML 5 standard.</p>
+<blockquote>
+<p><strong>Question 6</strong>: Search the internet for the doctype declaration of an older version of the HTML standard, such HTML 4.01, or XHTML 1.1, and paste it as the answer to this question. Hint: older doctypes were <em>very</em> long.</p>
+</blockquote>
+<h2 id="the-html-element">The <code>&lt;html&gt;</code> element</h2>
+<p>The entirety of an HTML document is contained within the <code>&lt;html&gt;</code> element. Often, the <code>&lt;html&gt;</code> element has exactly two children: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>.</p>
+<blockquote>
+<p><strong>Question 7</strong>: What is the purpose of the <code>lang</code> attribute on the <code>&lt;html&gt;</code> element?</p>
+</blockquote>
+<h2 id="title"><code>&lt;title&gt;</code></h2>
+<p>Change the title of the page. In <code>hello.html</code>, modify the line that says</p>
+<pre><code>  &lt;title&gt;Hello, World!&lt;/title&gt;</code></pre>
+<p>and change it to say “Goodbye, planet!” instead, like following.</p>
+<pre><code>  &lt;title&gt;Goodbye, planet!&lt;/title&gt;</code></pre>
+<p>Save <code>hello.html</code> and reload the page in your browser (Windows/Linux: <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).</p>
+<blockquote>
+<p><strong>Question 8</strong>: Where did this change occur in your browser? Did it appear in the webpage or somewhere else?</p>
+</blockquote>
+<h2 id="the-difference-between-the-head-and-body-element">The difference between the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> element</h2>
+<p>We saw how the <code>&lt;title&gt;</code> element is a child of the <code>&lt;head&gt;</code> element. The content within the <code>&lt;head&gt;</code> are often <em>not</em> displayed on the webpage itself; rather, things in the <code>&lt;head&gt;</code> element specify things that the web browser and other <em>user agents</em> must be aware of, but will not directly display in the “viewport”, such as the character encoding of the HTML document, where to find the CSS stylesheet associated with the page, where to find any required JavaScript sources, and <em>meta information</em> such as the page’s author, the general title of the page, and a general description to appear in search engine results.</p>
+<p>Conversely, the <code>&lt;body&gt;</code> element contains content that <em>will</em> appear in the “viewport”, that is, what you regard as the text, images, and multimedia that make up the web page when you view it in a browser.</p>
+<h2 id="the-meta-charset...-line">The <code>&lt;meta charset=&quot;...&quot;&gt;</code> line</h2>
+<p>This line specifies the <strong>character encoding</strong> of the HTML document. Note that we will use the terms “charset”, “character set”, “encoding”, and “character encoding” interchangeably (they all mean the same thing).</p>
+<p>In the original version of <code>hello.html</code>, I specified the encoding as UTF-8.</p>
+<pre><code>  &lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+<p>We will see the effects of <em>not</em> specifying the file encoding.</p>
+<p>Make a mental note of how the webpage renders now in your browser. Delete the <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> line in the <code>hello.html</code>. Save the HTML file, and reload the page in your browser (Windows/Linux: <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).</p>
+<blockquote>
+<p><strong>Question 8</strong>: How does the page render now in your browser? How does it differ from when the <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> line was present in the <code>&lt;head&gt;</code> element?</p>
+</blockquote>
+<p>For reference, here is how the page renders on my computer <em>with</em> the charset declared as UTF-8:</p>
+<!-- todo: replace this with screenshots from the lab computers. -->
 <figure>
-<img src="lab-4/example.html.png" alt="The rendered page in my browser" /><figcaption>The rendered page in my browser</figcaption>
+<img src="lab-4/hello.html.png" alt="The rendered page in my browser, using UTF-8" /><figcaption>The rendered page in my browser, using UTF-8</figcaption>
 </figure>
+<p>Now, add the line back to the file:</p>
+<pre><code>  &lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+<p>Change the <code>charset</code> attribute to one of the following character encodings:</p>
+<ul>
+<li><code>shift_jis</code></li>
+<li><code>koi8_r</code></li>
+<li><code>iso-8859-1</code></li>
+<li><code>gb2312</code></li>
+</ul>
 <blockquote>
-<p><strong>Question 1</strong>: When this page opened in your browser, did it use HTTP? Provide evidence for your answer (hint: look at the URL).</p>
+<p><strong>Question 9</strong>: With a value for <code>charset</code> other than “UTF-8”, describe how the webpage looks different.</p>
 </blockquote>
-<!--
- Encodings list:
-  - US-ASCII
-  - GB-18030
-  - GB-2312
-  - ISO-8859-1
-  - CP1250
-  - KOI cyrillic encoding
-  - Shift-JIS
--->
-<!-- render without meta charset line -->
-<!-- render trying different encodings -->
 <!-- why is UTF-8 the only possible encoding for the characters on this
      page? this questino will be difficult to word...
 
@@ -213,20 +237,32 @@ Assume they already know attributes by here.
      character encoding to use. Why is UTF-8 the only possible 8-bit
      encoding to use?
      -->
-<!-- Question involving messing around with meta tags -->
-<!-- Question involving <title> tag: stuff in body is the content in the
-     viewport. -->
-<!-- Question involving changing CSS styles -->
-<!-- Question involving creating an <a href="..."> -->
-<!-- Question involving creating an <img src="..." alt="..."> -->
-<!-- QUESTION INVOLVING FILE ENCODINGS! -->
+<p>Before continuing, delete any existing <code>&lt;meta charset=&quot;...&quot;&gt;</code> lines in <code>hello.html</code> and replace it with what was there originally; namely:</p>
+<pre><code>  &lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+<h2 id="within-the-body-element">Within the <code>&lt;body&gt;</code> element</h2>
+<p>As mentioned previously, elements within the <code>&lt;body&gt;</code> element are displayed on the screen (the “viewport”). Many of the common elements that go in the <code>&lt;body&gt;</code> tag describe the <strong>semantic markup</strong> of the document. For example:</p>
+<ul>
+<li><code>&lt;p&gt;</code> – denotes a <strong>paragraph</strong></li>
+<li><code>&lt;h1&gt;</code> – denotes a <strong>level one heading</strong></li>
+<li><code>&lt;ol&gt;</code> – denotes an <strong>ordered list</strong></li>
+<li><code>&lt;li&gt;</code> – denotes an <strong>list item</strong></li>
+</ul>
+<blockquote>
+<p><strong>Question 10</strong>: How many children does the <code>&lt;body&gt;</code> tag contain? Provide the start tag of each element.</p>
+</blockquote>
+<p>Modify the content of the <code>&lt;h1&gt;</code> element from:</p>
+<pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;</code></pre>
+<p>to:</p>
+<pre><code>&lt;h1&gt;Jolly good day, there, chap!&lt;/h1&gt;</code></pre>
+<p>Save the file, and reload the page.</p>
+<blockquote>
+<p><strong>Question 11</strong>: What part of the page did changing the content of the <code>&lt;h1&gt;</code> element occur?</p>
+</blockquote>
+<p>In the list item for the Arabic “hello, world” (list item 4.), the text itself is wrapped in a <code>&lt;span dir=&quot;rtl&quot;&gt; &lt;/span&gt;</code>.</p>
+<blockquote>
+<p><strong>Question 12</strong>: What is a <code>&lt;span&gt;</code> element? What is the purpose of this <code>&lt;span&gt;</code> element with the <code>dir=&quot;rtl&quot;</code> attribute?</p>
+</blockquote>
 <!-- teach them importance of escape chars: &lt; &gt; &amp; -->
 <!-- teach them what an HTML comment is! -->
-<!-- teach them to inspect with the dev tools -->
-<!-- eventually get them to produce this: -->
-<!-- use this as inspiration:
-   http://ladieslearningcode.github.io/llc-html-css-one-page/slides.html#slide7
-   http://ladieslearningcode.github.io/llc-html-css-one-page/slides.html#slide22
--->
 </body>
 </html>
