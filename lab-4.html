@@ -98,7 +98,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <h1 id="what-is-html">What is HTML?</h1>
-<p>The <strong>Hypertext Markup Language</strong> defines the structure and content of a webpage. In this lab, we’ll modify small HTML examples to get a better understanding of the HTML documents.</p>
+<p>The <strong>Hypertext Markup Language</strong> defines the structure and content of a webpage. In this lab, we’ll modify small HTML examples to get a better understanding of HTML documents.</p>
 <h2 id="quick-html-syntax-refresher">Quick HTML syntax refresher</h2>
 <aside>
 Note that while this lab pedantically distinguishes between the terms <strong>element</strong> and <strong>tag</strong> (as per the <a href="https://html.spec.whatwg.org/multipage/introduction.html#a-quick-introduction-to-html">WHATWG</a> standard), in common discussion, you may hear people use these terms interchangeably such as “Write a new <code>&lt;a&gt;</code> tag in your document” when they really mean “<code>&lt;a&gt;</code> element”. This is so common, your instructors may often mix these terms up without realizing!
@@ -115,13 +115,13 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
   &lt;body&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>In this example, the <strong>root element</strong> is <code>&lt;html&gt;</code>; <code>&lt;html&gt;</code> has two <strong>children</strong> elements: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>. Finally, <code>&lt;head&gt;</code> contains one child element: <code>&lt;title&gt;</code>. The <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> elements are <strong>siblings</strong>.</p>
+<p>In this example, the <strong>root element</strong> is <code>&lt;html&gt;</code>. <code>&lt;html&gt;</code> has two <strong>children</strong> elements: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>. Finally, <code>&lt;head&gt;</code> contains one child element: <code>&lt;title&gt;</code>. The <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> elements are <strong>siblings</strong>.</p>
 <p>For questions 1 and 2, consider the following example:</p>
 <pre><code>&lt;body&gt;
   &lt;p&gt; Hello, &lt;strong&gt;World&lt;/strong&gt; &lt;/p&gt;
 &lt;/body&gt;</code></pre>
 <blockquote>
-<p><strong>Question 1</strong>: What element is the child of the <code>&lt;body&gt;</code> tag&gt;?</p>
+<p><strong>Question 1</strong>: What element is the child of the <code>&lt;body&gt;</code> tag?</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 2</strong>: Does the <code>&lt;p&gt;</code> tag have any child elements? If so, what are they?</p>
@@ -132,7 +132,7 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
   ... contents ...
 &lt;/tag&gt;</code></pre>
 <p>Attributes are a way of specifying name/value pairs attached to an element. Most of these name/value pairs are optional.</p>
-<p>The “HT” in “HTML” stands for “Hypertext” which is the nature in which different HTML documents can be linked together using <em>hyperlinks</em>. To make a <em>hyperlink</em> in an HTML document, one must use an <code>&lt;a&gt;</code> element, whose start and end tag surround the desired link text. The <code>&lt;a&gt;</code> element <strong>requires</strong> the <code>href</code> attribute (“href” is short for “hyperlink reference”), which specifies the URL which clicking the link will go to. For example, here is a link to the homepage of <code>ualberta.ca</code> with the clickable text being “University of Alberta homepage”</p>
+<p>The “HT” in “HTML” stands for “Hypertext” which is the nature in which different HTML documents can be linked together using <em>hyperlinks</em>. To make a hyperlink in an HTML document, one must use an <code>&lt;a&gt;</code> element, whose start and end tag surround the desired link text. The <code>&lt;a&gt;</code> element <strong>requires</strong> the <code>href</code> attribute (“href” is short for “hyperlink reference”), which specifies the URL which clicking the link will go to. For example, here is a link to the homepage of <code>ualberta.ca</code> with the clickable text being “University of Alberta homepage”</p>
 <pre><code>&lt;a href=&quot;https://www.ualberta.ca/&quot;&gt;
   University of Alberta homepage
 &lt;/a&gt;</code></pre>
@@ -144,13 +144,13 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
 <p><strong>Question 4</strong>: Why is the <code>href</code> attribute required for the <code>&lt;a&gt;</code> element? Try to answer this question without consulting external resources.</p>
 </blockquote>
 <h2 id="void-elements">Void elements</h2>
-<p>Some elements do not require an end tag. These are called <em>void element</em>.</p>
+<p>Some elements do not require an end tag. These are called <em>void elements</em>.</p>
 <p><code>&lt;img&gt;</code> is a void element. An <code>&lt;img&gt;</code> element consists of the image URL (its <code>src</code> attribute) and some alternative text (its <code>alt</code> attribute). For example,</p>
 <pre><code>&lt;img src=&quot;http://placekitten.com/200/201&quot; alt=&quot;kitten&quot;&gt;</code></pre>
 <p>Notice how this the <code>&lt;img&gt;</code> tag has no matching <code>&lt;/img&gt;</code> end tag. The result of this HTML code is embedding an image that looks like this:</p>
 <p><img src="http://placekitten.com/200/201" alt="kitten" /></p>
 <blockquote>
-<p><strong>Question 5</strong>: Why is <code>&lt;img&gt;</code> a void element? To answer this question, consider: what would the text content between the start and end tags <code>&lt;img&gt;</code> tags mean?</p>
+<p><strong>Question 5</strong>: Why is <code>&lt;img&gt;</code> a void element? To answer this question, consider: what would the text content between the start and end <code>&lt;img&gt;</code> tags mean?</p>
 </blockquote>
 <h1 id="a-full-html-example">A full HTML example</h1>
 <p>We will be studying the following full HTML document, modifying it, and describing the effects of our modifications. Either copy-paste the example below and save it to a file called <code>hello.html</code>, or download it here: <a href="lab-4/hello.html" download>hello.html</a>.</p>
@@ -180,29 +180,29 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
 <a class="sourceLine" id="cb8-24" data-line-number="24">   <span class="kw">&lt;/body&gt;</span></a>
 <a class="sourceLine" id="cb8-25" data-line-number="25"><span class="kw">&lt;/html&gt;</span></a></code></pre>
 <h2 id="the-doctype">The <code>&lt;!DOCTYPE&gt;</code></h2>
-<p>HTML has evolved quite a lot over the years. Most moderns browsers support the <a href="https://html.spec.whatwg.org/">HTML 5 living standard</a>, however they remain backwards-compatible with older versions of HTML. As such, a mechanism was devised to specify the HTML version used by the page. This is called “document type declaration”, or simply “doctype” for short. If specified, this must be at the very top of the HTML document.</p>
+<p>HTML has evolved quite a lot over the years. Most moderns browsers support the <a href="https://html.spec.whatwg.org/">HTML 5 living standard</a>, however they remain backwards-compatible with older versions of HTML. As such, a mechanism was devised to specify the HTML version used by the page. This is called the “document type declaration”, or simply “doctype” for short. If specified, this must be at the very top of the HTML document.</p>
 <p>The HTML 5 doctype looks like this:</p>
 <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
 <p>If present at the very beginning of the document, the browser is sure to render your document using the HTML 5 standard.</p>
 <blockquote>
-<p><strong>Question 6</strong>: Search the internet for the doctype declaration of an older version of the HTML standard, such HTML 4.01, or XHTML 1.1, and paste it as the answer to this question. Hint: older doctypes were <em>very</em> long.</p>
+<p><strong>Question 6</strong>: Search the internet for the doctype declaration of an older version of the HTML standard, such as HTML 4.01, or XHTML 1.1, and paste it as the answer to this question. Hint: older doctypes were <em>very</em> long.</p>
 </blockquote>
 <h2 id="the-html-element">The <code>&lt;html&gt;</code> element</h2>
 <p>The entirety of an HTML document is contained within the <code>&lt;html&gt;</code> element. Often, the <code>&lt;html&gt;</code> element has exactly two children: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>.</p>
 <blockquote>
 <p><strong>Question 7</strong>: What is the purpose of the <code>lang</code> attribute on the <code>&lt;html&gt;</code> element?</p>
 </blockquote>
-<h2 id="title"><code>&lt;title&gt;</code></h2>
+<h2 id="the-title-element">The <code>&lt;title&gt;</code> element</h2>
 <p>Change the title of the page. In <code>hello.html</code>, modify the line that says</p>
 <pre><code>  &lt;title&gt;Hello, World!&lt;/title&gt;</code></pre>
-<p>and change it to say “Goodbye, planet!” instead, like following.</p>
+<p>and change it to say “Goodbye, planet!”, like the following:</p>
 <pre><code>  &lt;title&gt;Goodbye, planet!&lt;/title&gt;</code></pre>
 <p>Save <code>hello.html</code> and reload the page in your browser (Windows/Linux: <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).</p>
 <blockquote>
 <p><strong>Question 8</strong>: Where did this change occur in your browser? Did it appear in the webpage or somewhere else?</p>
 </blockquote>
 <h2 id="the-difference-between-the-head-and-body-element">The difference between the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> element</h2>
-<p>We saw how the <code>&lt;title&gt;</code> element is a child of the <code>&lt;head&gt;</code> element. The content within the <code>&lt;head&gt;</code> are often <em>not</em> displayed on the webpage itself; rather, things in the <code>&lt;head&gt;</code> element specify things that the web browser and other <em>user agents</em> must be aware of, but will not directly display in the “viewport”, such as the character encoding of the HTML document, where to find the CSS stylesheet associated with the page, where to find any required JavaScript sources, and <em>meta information</em> such as the page’s author, the general title of the page, and a general description to appear in search engine results.</p>
+<p>We saw how the <code>&lt;title&gt;</code> element is a child of the <code>&lt;head&gt;</code> element. The content within the <code>&lt;head&gt;</code> is often <em>not</em> displayed on the webpage itself; rather, things in the <code>&lt;head&gt;</code> element specify things that the web browser and other <em>user agents</em> must be aware of, but will not directly display in the “viewport”, such as the character encoding of the HTML document, where to find the CSS stylesheet associated with the page, where to find any required JavaScript sources, and <em>meta information</em> such as the page’s author, the general title of the page, and a general description to appear in search engine results.</p>
 <p>Conversely, the <code>&lt;body&gt;</code> element contains content that <em>will</em> appear in the “viewport”, that is, what you regard as the text, images, and multimedia that make up the web page when you view it in a browser.</p>
 <h2 id="the-meta-charset...-line">The <code>&lt;meta charset=&quot;...&quot;&gt;</code> line</h2>
 <p>This line specifies the <strong>character encoding</strong> of the HTML document. Note that we will use the terms “charset”, “character set”, “encoding”, and “character encoding” interchangeably (they all mean the same thing).</p>
@@ -245,7 +245,7 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
 <li><code>&lt;p&gt;</code> – denotes a <strong>paragraph</strong></li>
 <li><code>&lt;h1&gt;</code> – denotes a <strong>level one heading</strong></li>
 <li><code>&lt;ol&gt;</code> – denotes an <strong>ordered list</strong></li>
-<li><code>&lt;li&gt;</code> – denotes an <strong>list item</strong></li>
+<li><code>&lt;li&gt;</code> – denotes a <strong>list item</strong></li>
 </ul>
 <blockquote>
 <p><strong>Question 10</strong>: How many children does the <code>&lt;body&gt;</code> tag contain? Provide the start tag of each element.</p>
@@ -256,9 +256,9 @@ Note that while this lab pedantically distinguishes between the terms <strong>el
 <pre><code>&lt;h1&gt;Jolly good day, there, chap!&lt;/h1&gt;</code></pre>
 <p>Save the file, and reload the page.</p>
 <blockquote>
-<p><strong>Question 11</strong>: What part of the page did changing the content of the <code>&lt;h1&gt;</code> element occur?</p>
+<p><strong>Question 11</strong>: What part of the page changed when you changed the content of the <code>&lt;h1&gt;</code> element?</p>
 </blockquote>
-<p>In the list item for the Arabic “hello, world” (list item 4.), the text itself is wrapped in a <code>&lt;span dir=&quot;rtl&quot;&gt; &lt;/span&gt;</code>.</p>
+<p>Within the list item for the Arabic “hello, world” (list item 4), the text itself is wrapped in a <code>&lt;span dir=&quot;rtl&quot;&gt; &lt;/span&gt;</code> element.</p>
 <blockquote>
 <p><strong>Question 12</strong>: What is a <code>&lt;span&gt;</code> element? What is the purpose of this <code>&lt;span&gt;</code> element with the <code>dir=&quot;rtl&quot;</code> attribute? Why did I only specify the <code>dir=&quot;rtl&quot;</code> attribute for the Arabic example?</p>
 </blockquote>

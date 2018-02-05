@@ -29,7 +29,7 @@ Submit your responses to the questions in this lab on eClass.
 
 The **Hypertext Markup Language** defines the structure and content of
 a webpage. In this lab, we'll modify small HTML examples to get a better
-understanding of the HTML documents.
+understanding of HTML documents.
 
 Quick HTML syntax refresher
 ---------------------------
@@ -64,7 +64,7 @@ Elements are often **nested**. Consider the following example:
       </body>
     </html>
 
-In this example, the **root element** is `<html>`; `<html>` has two
+In this example, the **root element** is `<html>`. `<html>` has two
 **children** elements: `<head>` and `<body>`. Finally, `<head>` contains
 one child element: `<title>`. The `<head>` and
 `<body>` elements are **siblings**.
@@ -76,7 +76,7 @@ For questions 1 and 2, consider the following example:
     </body>
 
 
-> **Question 1**: What element is the child of the `<body>` tag>?
+> **Question 1**: What element is the child of the `<body>` tag?
 
 > **Question 2**: Does the `<p>` tag have any child elements? If so,
 > what are they?
@@ -97,7 +97,7 @@ element. Most of these name/value pairs are optional.
 
 The "HT" in "HTML" stands for "Hypertext" which is the nature in which
 different HTML documents can be linked together using *hyperlinks*. To
-make a *hyperlink* in an HTML document, one must use an `<a>` element,
+make a hyperlink in an HTML document, one must use an `<a>` element,
 whose start and end tag surround the desired link text. The `<a>`
 element **requires** the `href` attribute ("href" is short for
 "hyperlink reference"), which specifies the URL which clicking the link
@@ -123,7 +123,7 @@ Void elements
 -------------
 
 Some elements do not require an end tag. These are called *void
-element*.
+elements*.
 
 `<img>` is a void element. An `<img>` element consists of
 the image URL (its `src` attribute) and some alternative text (its `alt`
@@ -138,7 +138,7 @@ result of this HTML code is embedding an image that looks like this:
 
 > **Question 5**: Why is `<img>` a void element? To answer this
 > question, consider: what would the text content between the start and
-> end tags `<img>` tags mean?
+> end `<img>` tags mean?
 
 
 A full HTML example
@@ -185,7 +185,7 @@ HTML has evolved quite a lot over the years. Most moderns browsers
 support the [HTML 5 living standard][HTML5], however they remain
 backwards-compatible with older versions of HTML. As such, a mechanism
 was devised to specify the HTML version used by the page. This is called
-"document type declaration", or simply "doctype" for short. If
+the "document type declaration", or simply "doctype" for short. If
 specified, this must be at the very top of the HTML document.
 
 The HTML 5 doctype looks like this:
@@ -196,8 +196,8 @@ If present at the very beginning of the document, the browser is sure to
 render your document using the HTML 5 standard.
 
 > **Question 6**: Search the internet for the doctype declaration of an
-> older version of the HTML standard, such HTML 4.01, or XHTML 1.1, and
-> paste it as the answer to this question. Hint: older doctypes were
+> older version of the HTML standard, such as HTML 4.01, or XHTML 1.1,
+> and paste it as the answer to this question. Hint: older doctypes were
 > *very* long.
 
 [HTML5]: https://html.spec.whatwg.org/
@@ -214,14 +214,14 @@ and `<body>`.
 > `<html>` element?
 
 
-`<title>`
---------
+The `<title>` element
+---------------------
 
 Change the title of the page. In `hello.html`, modify the line that says
 
       <title>Hello, World!</title>
 
-and change it to say "Goodbye, planet!" instead, like following.
+and change it to say "Goodbye, planet!", like the following:
 
       <title>Goodbye, planet!</title>
 
@@ -235,7 +235,7 @@ The difference between the `<head>` and `<body>` element
 --------------------------------------------------------
 
 We saw how the `<title>` element is a child of the `<head>` element.
-The content within the `<head>` are often *not* displayed on the webpage
+The content within the `<head>` is often *not* displayed on the webpage
 itself; rather, things in the `<head>` element specify things that the
 web browser and other *user agents* must be aware of, but will not
 directly display in the "viewport", such as the character encoding of
@@ -319,7 +319,7 @@ document. For example:
  - `<p>` -- denotes a **paragraph**
  - `<h1>` -- denotes a **level one heading**
  - `<ol>` -- denotes an **ordered list**
- - `<li>` -- denotes an **list item**
+ - `<li>` -- denotes a **list item**
 
 > **Question 10**: How many children does the `<body>` tag contain?
 > Provide the start tag of each element.
@@ -334,11 +334,11 @@ to:
 
 Save the file, and reload the page.
 
-> **Question 11**: What part of the page did changing the content of the
-> `<h1>` element occur?
+> **Question 11**: What part of the page changed when you changed the
+> content of the `<h1>` element?
 
-In the list item for the Arabic "hello, world" (list item 4.), the text
-itself is wrapped in a `<span dir="rtl"> </span>`.
+Within the list item for the Arabic "hello, world" (list item 4), the
+text itself is wrapped in a `<span dir="rtl"> </span>` element.
 
 > **Question 12**: What is a `<span>` element? What is the purpose of
 > this `<span>` element with the `dir="rtl"` attribute? Why did I only
