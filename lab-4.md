@@ -272,7 +272,7 @@ Delete the `<meta charset="UTF-8">` line in the `hello.html`. Save the
 HTML file, and reload `hello.html` in your browser (Windows/Linux:
 <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).
 
-> **Question 8**: How does the page render now in your browser? How does
+> **Question 9**: How does the page render now in your browser? How does
 > it differ from when the `<meta charset="UTF-8">` line was present in
 > the `<head>` element?
 
@@ -294,7 +294,7 @@ Change the `charset` attribute to one of the following character encodings:
  - `iso-8859-1`
  - `gb2312`
 
-> **Question 9**: With a value for `charset` other than "UTF-8", describe
+> **Question 10**: With a value for `charset` other than "UTF-8", describe
 > how the webpage looks different.
 
 <!-- why is UTF-8 the only possible encoding for the characters on this
@@ -325,7 +325,7 @@ document. For example:
  - `<ol>` -- denotes an **ordered list**
  - `<li>` -- denotes a **list item**
 
-> **Question 10**: How many children does the `<body>` tag contain?
+> **Question 11**: How many children does the `<body>` tag contain?
 > Provide the start tag of each element.
 
 Modify the content of the `<h1>` element from:
@@ -338,13 +338,13 @@ to:
 
 Save the changes to `hello.html`, and reload `hello.html` in your browser.
 
-> **Question 11**: What part of the page changed when you changed the
+> **Question 12**: What part of the page changed when you changed the
 > content of the `<h1>` element?
 
 Within the list item for the Arabic "hello, world" (list item 4), the
 text itself is wrapped in a `<span dir="rtl"> </span>` element.
 
-> **Question 12**: What is a `<span>` element? What is the purpose of
+> **Question 13**: What is a `<span>` element? What is the purpose of
 > this `<span>` element with the `dir="rtl"` attribute? Why did I only
 > specify the `dir="rtl"` attribute for the Arabic example?
 
