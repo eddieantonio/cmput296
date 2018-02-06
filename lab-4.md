@@ -218,6 +218,9 @@ and `<body>`.
 The `<title>` element
 ---------------------
 
+Open up `hello.html` in a web browser of your choice. At the same time,
+open up `hello.html` in a text editor of your choice.
+
 Change the title of the page. In `hello.html`, modify the line that says
 
       <title>Hello, World!</title>
@@ -226,7 +229,7 @@ and change it to say "Goodbye, planet!", like the following:
 
       <title>Goodbye, planet!</title>
 
-Save `hello.html` and reload the page in your browser (Windows/Linux:
+Save `hello.html` and reload `hello.html` in your browser (Windows/Linux:
 <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).
 
 > **Question 8**:  Where did this change occur in your browser? Did it
@@ -266,7 +269,7 @@ We will see the effects of _not_ specifying the file encoding.
 
 Make a mental note of how the webpage renders now in your browser.
 Delete the `<meta charset="UTF-8">` line in the `hello.html`. Save the
-HTML file, and reload the page in your browser (Windows/Linux:
+HTML file, and reload `hello.html` in your browser (Windows/Linux:
 <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).
 
 > **Question 8**: How does the page render now in your browser? How does
@@ -333,7 +336,7 @@ to:
 
     <h1>Jolly good day, there, chap!</h1>
 
-Save the file, and reload the page.
+Save the changes to `hello.html`, and reload `hello.html` in your browser.
 
 > **Question 11**: What part of the page changed when you changed the
 > content of the `<h1>` element?
