@@ -272,9 +272,10 @@ Delete the `<meta charset="UTF-8">` line in the `hello.html`. Save the
 HTML file, and reload `hello.html` in your browser (Windows/Linux:
 <kbd>F5</kbd>; macOS: <kbd>Command</kbd> + <kbd>R</kbd>).
 
-> **Question 9**: How does the page render now in your browser? How does
-> it differ from when the `<meta charset="UTF-8">` line was present in
-> the `<head>` element?
+> **Question 9**: How does the page render now in your browser? If you
+> were using Google Chrome, try to view the page now in a different
+> browser. How does it differ from when the `<meta charset="UTF-8">`
+> line was present in the `<head>` element?
 
 For reference, here is how the page renders on my computer _with_ the
 charset declared as UTF-8:
