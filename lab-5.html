@@ -183,17 +183,17 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 </blockquote>
 <h2 id="selectors">Selectors</h2>
 <p>In order to apply styles to an element, we need to know <em>which</em> elements these styles should be applied to. To <em>select</em> particular elements on a page, we write an appropriate <strong>selector</strong>.</p>
-<h3 id="element">Element</h3>
+<h3 id="element-selectors">Element selectors</h3>
 <p>To select all the elements of a particular kind like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;a&gt;</code>, simply using the name of the element as the selector, <strong>without the angle brackets (<code>&lt;&gt;</code>)</strong>. For example, the following CSS will show all the <code>&lt;p&gt;</code> tags in 18pt font:</p>
 <pre class="sourceCode css" id="cb5"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" data-line-number="1">p {</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="kw">font-size</span>: <span class="dv">18pt</span>;</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">}</a></code></pre>
 <p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheets</strong> for most browsers usually apply a margin to the left of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default left margin.</p>
-<p>Use an <strong>element</strong> selector to eliminate this default left margin. Write a selector for all <code>blockquote</code> elements that will set the <code>margin-left</code> property of all to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
+<p>Use an <strong>element</strong> selector to eliminate this default left margin. In <code>styles.css</code>, write a ruleset for all <code>blockquote</code> elements that will set the <code>margin-left</code> property to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
 <blockquote>
 <p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
 </blockquote>
-<h3 id="class">Class</h3>
+<h3 id="class-selectors">Class selectors</h3>
 <!-- class selectors -->
 <h3 id="id-selectors">ID selectors</h3>
 <blockquote>
@@ -212,5 +212,7 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <p><strong>Question X</strong>: Create a <strong>relative URL</strong> (without the scheme and host) that links to the <code>bridge</code> section on the page (The bridge starts with the lyrics <q>Along the drifting cloud / the eagle searching down on the land</q>).</p>
 </blockquote>
 <!-- margin:; max-width: text-align; -->
+<hr />
+<p>This is the end of the CSS lab; however, we encourage you to play around with the existing CSS styles, and for you to add more CSS styles.</p>
 </body>
 </html>

@@ -218,7 +218,7 @@ these styles should be applied to. To *select* particular elements on
 a page, we write an appropriate **selector**.
 
 
-### Element
+### Element selectors
 
 To select all the elements of a particular kind like `<h1>`, `<p>`, or
 `<a>`, simply using the name of the element as the selector, **without
@@ -238,14 +238,14 @@ However, most of the content in this page _is_ the lyrics, so we'd like
 to remove this default left margin.
 
 Use an **element** selector to eliminate this default left margin.
-Write a selector for all `blockquote` elements that will
-set the `margin-left` property of all to `0px`. Save your CSS file and
+In `styles.css`, write a ruleset for all `blockquote` elements that will
+set the `margin-left` property to `0px`. Save your CSS file and
 reload the page. The lyrics should no longer be indented.
 
 > **Question X**: Copy-paste your updated ruleset for `<blockquote>` as
 > the answer to this question.
 
-### Class
+### Class selectors
 
 <!-- class selectors -->
 
@@ -290,3 +290,8 @@ particular section is:
 
 
 <!-- margin:; max-width: text-align; -->
+
+---
+
+This is the end of the CSS lab; however, we encourage you to play around
+with the existing CSS styles, and for you to add more CSS styles.
