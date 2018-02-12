@@ -232,18 +232,23 @@ p {
 ```
 
 The entire lyrics on this page is in a `<blockquote>` element. The
-**User-Agent stylesheets** for most browsers usually apply a margin to
-the left of the `<blockquote>` element to make it look indented.
+**User-Agent stylesheet** for most browsers usually apply a margin to
+the left and right of the `<blockquote>` element to make it look indented.
 However, most of the content in this page _is_ the lyrics, so we'd like
-to remove this default left margin.
+to remove this default margin.
 
-Use an **element** selector to eliminate this default left margin.
+Use an **element** selector to eliminate this default left and right margin.
 In `styles.css`, write a ruleset for all `blockquote` elements that will
-set the `margin-left` property to `0px`. Save your CSS file and
+set the `margin-left` and `margin-right` properties to `0px`. Save your CSS file and
 reload the page. The lyrics should no longer be indented.
 
 > **Question X**: Copy-paste your updated ruleset for `<blockquote>` as
 > the answer to this question.
+
+> **Question X**: What is a "user-agent stylesheet"? How will it affect
+> how your web page will appear in common browsers? Remember to cite
+> your sources!
+
 
 ### Class selectors
 
@@ -375,6 +380,37 @@ particular section is:
 
 
 <!-- margin:; max-width: text-align; -->
+
+
+Final touches
+-------------
+
+There are a few remaining issues on the page. First of all, there is
+a magenta border around the content of the page that I would like to get
+rid of. Second, I would like the lyrics to **centered**.
+
+### Getting rid of the magenta "border"
+
+There are three properties in CSS that often work in tandem:
+
+ - `padding`
+ - `border`
+ - `margin`
+
+Do the following procedure to answer the following question.
+For each of these properties (`padding`, `border`, `margin`):
+
+ 1. Delete any existing declaration of padding, border, or margin in the
+    ruleset that applies styles to the `<body>` element.
+ 2. Add a rule to set the current property (`padding`, `border`, or `margin`) to `0px`.
+ 3. Save the CSS file, and refresh the page. Did the magenta border go
+    away?
+
+> **Question X**: Which property, when set to 0, made the magenta around
+> the content disappear? What other effects did setting this property to
+> `0px` have?
+
+
 
 ---
 

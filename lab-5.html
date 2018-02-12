@@ -188,10 +188,13 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <pre class="sourceCode css" id="cb5"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" data-line-number="1">p {</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="kw">font-size</span>: <span class="dv">18pt</span>;</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">}</a></code></pre>
-<p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheets</strong> for most browsers usually apply a margin to the left of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default left margin.</p>
-<p>Use an <strong>element</strong> selector to eliminate this default left margin. In <code>styles.css</code>, write a ruleset for all <code>blockquote</code> elements that will set the <code>margin-left</code> property to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
+<p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheet</strong> for most browsers usually apply a margin to the left and right of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default margin.</p>
+<p>Use an <strong>element</strong> selector to eliminate this default left and right margin. In <code>styles.css</code>, write a ruleset for all <code>blockquote</code> elements that will set the <code>margin-left</code> and <code>margin-right</code> properties to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
 <blockquote>
 <p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: What is a “user-agent stylesheet”? How will it affect how your web page will appear in common browsers? Remember to cite your sources!</p>
 </blockquote>
 <h3 id="class-selectors">Class selectors</h3>
 <p>You can specify one or more classes for an HTML element. This is done by adding the <code>class</code> attribute to the element. For example, in the following HTML snippet:</p>
@@ -249,6 +252,24 @@ to appear like this
 <p><strong>Question X</strong>: Create a <strong>relative URL</strong> (without the scheme and host) that links to the <code>bridge</code> section on the page (The bridge starts with the lyrics <q>Along the drifting cloud / the eagle searching down on the land</q>).</p>
 </blockquote>
 <!-- margin:; max-width: text-align; -->
+<h2 id="final-touches">Final touches</h2>
+<p>There are a few remaining issues on the page. First of all, there is a magenta border around the content of the page that I would like to get rid of. Second, I would like the lyrics to <strong>centered</strong>.</p>
+<h3 id="getting-rid-of-the-magenta-border">Getting rid of the magenta “border”</h3>
+<p>There are three properties in CSS that often work in tandem:</p>
+<ul>
+<li><code>padding</code></li>
+<li><code>border</code></li>
+<li><code>margin</code></li>
+</ul>
+<p>Do the following procedure to answer the following question. For each of these properties (<code>padding</code>, <code>border</code>, <code>margin</code>):</p>
+<ol type="1">
+<li>Delete any existing declaration of padding, border, or margin in the ruleset that applies styles to the <code>&lt;body&gt;</code> element.</li>
+<li>Add a rule to set the current property (<code>padding</code>, <code>border</code>, or <code>margin</code>) to <code>0px</code>.</li>
+<li>Save the CSS file, and refresh the page. Did the magenta border go away?</li>
+</ol>
+<blockquote>
+<p><strong>Question X</strong>: Which property, when set to 0, made the magenta around the content disappear? What other effects did setting this property to <code>0px</code> have?</p>
+</blockquote>
 <hr />
 <p>This is the end of the CSS lab; however, we encourage you to play around with the existing CSS styles, and for you to add more CSS styles.</p>
 </body>
