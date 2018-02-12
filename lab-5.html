@@ -110,11 +110,17 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2 id="including-styles-from-an-external-css-file">Including styles from an external CSS file</h2>
 <p><code>styles.css</code> already contains one <strong>ruleset</strong> that will be applied to the entire HTML document. However, the HTML document must first <strong>link</strong> to the CSS file to use its styles.</p>
 <p>Open <code>roundabout.html</code> in your browser. You will probably see a boring page, with a default background (usually white), default text colour (usually black), and the default font (usually Times New Roman).</p>
+<figure>
+<img src="lab-5/roundabout-initial.png" alt="roundabout.html with default browser styles." /><figcaption><code>roundabout.html</code> with default browser styles.</figcaption>
+</figure>
 <p><code>styles.css</code> contains some conspicuous styling choices. In order to view the results of <code>styles.css</code>, we must <strong>link</strong> to it. Within the <code>&lt;head&gt;</code> element of <code>roundabout.html</code>, add a <code>&lt;link&gt;</code> element to apply the CSS file <code>styles.html</code> to the page.</p>
 <p>A <code>&lt;link&gt;</code> element for including an external CSS file has this basic syntax:</p>
 <pre class="sourceCode html" id="cb1"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;path/to/file.css&quot;</span> <span class="kw">/&gt;</span></a></code></pre>
 <p>Adapt the example above to apply the styles within <code>styles.css</code> to <code>roundabout.html</code>. Replace <code>path/to/file.css</code> with the relative or absolute URL as needed. The <code>&lt;link&gt;</code> element must be a child of the <code>&lt;head&gt;</code> tag. <code>&lt;link&gt;</code> tags are typically placed near the end of the <code>&lt;head&gt;</code> element, after the <code>&lt;meta&gt;</code> and <code>&lt;title&gt;</code> elements. Add the appropriate <code>&lt;link&gt;</code> element, save the HTML file, and reload the page.</p>
 <p>If you have done this correctly, the page should appear magenta, with the text written in Comic Sans or some other “fantasy” typeface.</p>
+<figure>
+<img src="lab-5/roundabout-sans.png" alt="roundabout.html with styles.css applied." /><figcaption><code>roundabout.html</code> with <code>styles.css</code> applied.</figcaption>
+</figure>
 <blockquote>
 <p><strong>Question 1</strong>: Copy and paste the entire <code>&lt;head&gt;</code> element from <code>roundabout.html</code> (including the <code>&lt;link&gt;</code> you just added) as the answer to this question.</p>
 </blockquote>
@@ -181,6 +187,9 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <blockquote>
 <p><strong>Question 7</strong>: Copy-paste your updated ruleset for <code>&lt;body&gt;</code> as the answer to this question. How did the appearance of your webpage change?</p>
 </blockquote>
+<figure>
+<img src="lab-5/roundabout-no-margin.png" alt="roundabout.html with slightly better styles." /><figcaption><code>roundabout.html</code> with slightly better styles.</figcaption>
+</figure>
 <h2 id="selectors">Selectors</h2>
 <p>In order to apply styles to an element, we need to know <em>which</em> elements these styles should be applied to. To <em>select</em> particular elements on a page, we write an appropriate <strong>selector</strong>.</p>
 <h3 id="element-selectors">Element selectors</h3>
@@ -254,9 +263,9 @@ to appear like this
 <h2 id="final-touches">Final touches</h2>
 <p>I’d like the text of the lyrics to be <strong>centered</strong> horizontally.</p>
 <p>Write a ruleset that will center the text of the lyrics. It is up to you to write an appropriate selector, and determine the appropriate declaration that will center the lyrics on the page. If you don’t know which property you have to use to center the text, feel free to consult external resources. Since you are just using external sources as a reference to know which property to manipulate, you do not need to cite it, unless you copy-paste code from the resource.</p>
-<!--
-TODO: screenshot of end product
--->
+<figure>
+<img src="lab-5/roundabout-final.png" alt="roundabout.html with centered-text." /><figcaption><code>roundabout.html</code> with centered-text.</figcaption>
+</figure>
 <blockquote>
 <p><strong>Question 15</strong>: As the answer to this question, copy-and-paste the ruleset you used to (horizontally) center the text on the page.</p>
 </blockquote>

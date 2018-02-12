@@ -63,6 +63,8 @@ Open `roundabout.html` in your browser. You will probably see a boring
 page, with a default background (usually white), default text colour
 (usually black), and the default font (usually Times New Roman).
 
+![`roundabout.html` with default browser styles.](lab-5/roundabout-initial.png)
+
 `styles.css` contains some conspicuous styling choices. In order to
 view the results of `styles.css`, we must **link** to it.
 Within the `<head>` element of `roundabout.html`, add a `<link>` element
@@ -84,6 +86,8 @@ appropriate `<link>` element, save the HTML file, and reload the page.
 
 If you have done this correctly, the page should appear magenta, with
 the text written in Comic Sans or some other "fantasy" typeface.
+
+![`roundabout.html` with `styles.css` applied.](lab-5/roundabout-sans.png)
 
 > **Question 1**:  Copy and paste the entire `<head>` element from
 > `roundabout.html` (including the `<link>` you just added) as the
@@ -208,6 +212,8 @@ value of `font-family` to `sans-serif`. Set the `background-color` to
 > **Question 7**: Copy-paste your updated ruleset for `<body>` as the
 > answer to this question. How did the appearance of your webpage
 > change?
+
+![`roundabout.html` with slightly better styles.](lab-5/roundabout-no-margin.png)
 
 
 Selectors
@@ -396,9 +402,7 @@ external resources. Since you are just using external sources as
 a reference to know which property to manipulate, you do not need to
 cite it, unless you copy-paste code from the resource.
 
-<!--
-TODO: screenshot of end product
--->
+![`roundabout.html` with centered-text.](lab-5/roundabout-final.png)
 
 > **Question 15**: As the answer to this question, copy-and-paste the
 > ruleset you used to (horizontally) center the text on the page.
