@@ -42,4 +42,34 @@ Selectors
 
 > **Question X**: As the answer for this question, write a **ruleset**
 > that uses an **ID** selector to style the bridge `<section>` with
-> **black** background, and a **white** text.
+> a **black** background, and a **white** text.
+
+Note that there is a general consensus among web developers to never use
+IDs to style elements in CSS.
+
+> **Question X**: Search the web for *why* developers avoid using IDs in
+> selectors. Quote or summarize others' opinions as the answer to this
+> question, and remember to cite your sources!
+
+If you're not supposed to use IDs to style unique elements on a page,
+then what are you supposed to use IDs for?
+
+IDs can be used to link to specific sections on the page. For example,
+if I want to link to the Wikipedia page for the University of Alberta,
+I would use the following URL:
+
+<samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650</samp>
+
+However, if I wanted to link *specifically* to the "Machine learning and
+artificial intelligence" section of that page, I would add
+a **fragment** with the **exact text of the ID on the page**. This
+section on the  page happens to have an ID of
+`Machine_learning_and_artificial_intelligence`, so to URL for that
+particular section is:
+
+<samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650<wbr>#Machine_learning_and_artificial_intelligence</samp>
+
+> **Question X**: Create a **relative URL** (without the scheme and
+> host) that links to the `bridge` section on the page (The bridge
+> starts with the lyrics <q>Along the drifting cloud / the eagle
+> searching down on the land</q>).
