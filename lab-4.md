@@ -2,6 +2,18 @@
 % CMPUT 296; written by Eddie Antonio Santos
 % February 5, 2018
 
+<!--
+
+ - Note: This lab is a little short. Future versions may want to extend
+   this lab.
+ - potential concepts to add:
+   * teach them importance of escape chars: &lt; &gt; &amp;
+   * teach them what an HTML comment is!
+ - note that Chrome autodetects UTF-8, so asking them to remove <meta
+   charset="UTF-8"> will do nothing.
+
+-->
+
 Overview
 ========
 
@@ -349,5 +361,3 @@ text itself is wrapped in a `<span dir="rtl"> </span>` element.
 > this `<span>` element with the `dir="rtl"` attribute? Why did I only
 > specify the `dir="rtl"` attribute for the Arabic example?
 
-<!-- teach them importance of escape chars: &lt; &gt; &amp; -->
-<!-- teach them what an HTML comment is! -->
