@@ -2,6 +2,8 @@
 % CMPUT 296; written by Eddie Antonio Santos
 % February 5, 2018
 
+<style
+
 Overview
 ========
 
@@ -18,7 +20,7 @@ Materials
  - A text editor
  - Included files:
    <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a>
-   and <a href="lab-5/styles.css" download><code>styles.css</code></a> 
+   and <a href="lab-5/styles.css" download><code>styles.css</code></a>
 
 Procedure
 =========
@@ -52,8 +54,8 @@ CSS code, try it in the files `roundabout.html` and `styles.css`, add
 see the change in your browser!
 
 
-Including styles from an external CSS document
-----------------------------------------------
+Including styles from an external CSS file
+------------------------------------------
 
 `styles.css` already contains one **ruleset** that will be applied to
 the entire HTML document. However, the HTML document must first **link**
@@ -91,6 +93,70 @@ the text written in Comic Sans or some other "fantasy" typeface.
 
 
 [link]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+
+
+Defining styles within an HTML document
+---------------------------------------
+
+In simplified terms, the "Cascading" in "Cascading Style Sheets" means
+that styles are inherited (they "cascade down", like a waterfall),
+unless something **closer** or **more specific** applies to it.
+
+To define styles directly in an HTML document, there are two ways: using
+a `<style>` element, or using the `style` attribute of elements.
+
+Add the following `<style>` element to the end of the `<head>` in
+`roundabout.html`:
+
+```html
+<style>
+header {
+   font-family: Helvetica, Arial, sans-serif;
+   color: black;
+   background-color: white;
+}
+</style>
+```
+
+Save the HTML file, and reload the page in your browser.
+
+> **Question X**:  Describe what changed in your browser after you added
+> the `<style>` element?
+
+You may apply CSS styles to individual elements using the `style`
+attribute. These are called *inline styles*. Inline styles are applied
+by simply adding a `style` attribute to any element, like so:
+
+```html
+<p style="color: pink; font-style: italic; font-family: serif">
+   I will be a pink paragraph, in italic serif font.
+</p>
+```
+
+Which will display as:
+
+<p style="color: pink; font-style: italic; font-family: serif">
+   I will be a pink paragraph, in italic serif font.
+</p>
+
+Notice how **property/value pairs** like `color: pink` and
+`font-style: italic` and `font-family: Times New Roman, serif` are
+separated by semicolons (`;`).
+
+Apply inline styles to the `<h2>`. Make this element (containing the
+artist name, "Yes"), written in Comic Sans MS font, with a white background
+colour and magenta text. Adapt the previous examples to help guide you.
+
+
+> **Question X**: Copy-paste the entire `<h2>` element you just modified
+> as the answer to this question. Remember that it must display in your
+> browser as magenta Comic Sans MS text on a white background.
+
+
+
+
+CSS syntax
+----------
 
 <!--
  Basic syntax:

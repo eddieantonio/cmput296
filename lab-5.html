@@ -80,6 +80,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p class="author">written by Eddie Antonio Santos</p>
 <p class="date">February 5, 2018</p>
 </header>
+<p>&lt;style</p>
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Apply CSS styles to an existing HTML document</li>
@@ -107,7 +108,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>The stylesheet: <a href="lab-5/styles.css" download><code>styles.css</code></a></li>
 </ul>
 <p><strong>Tip</strong>: Before answering each question that asks you to write HTML or CSS code, try it in the files <code>roundabout.html</code> and <code>styles.css</code>, add see the change in your browser!</p>
-<h2 id="including-styles-from-an-external-css-document">Including styles from an external CSS document</h2>
+<h2 id="including-styles-from-an-external-css-file">Including styles from an external CSS file</h2>
 <p><code>styles.css</code> already contains one <strong>ruleset</strong> that will be applied to the entire HTML document. However, the HTML document must first <strong>link</strong> to the CSS file to use its styles.</p>
 <p>Open <code>roundabout.html</code> in your browser. You will probably see a boring page, with a default background (usually white), default text colour (usually black), and the default font (usually Times New Roman).</p>
 <p><code>styles.css</code> contains some conspicuous styling choices. In order to view the results of <code>styles.css</code>, we must <strong>link</strong> to it. Within the <code>&lt;head&gt;</code> element of <code>roundabout.html</code>, add a <code>&lt;link&gt;</code> element to apply the CSS file <code>styles.html</code> to the page.</p>
@@ -118,6 +119,35 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question X</strong>: Copy and paste the entire <code>&lt;head&gt;</code> element from <code>roundabout.html</code> (including the <code>&lt;link&gt;</code> you just added) as the answer to this question.</p>
 </blockquote>
+<h2 id="defining-styles-within-an-html-document">Defining styles within an HTML document</h2>
+<p>In simplified terms, the “Cascading” in “Cascading Style Sheets” means that styles are inherited (they “cascade down”, like a waterfall), unless something <strong>closer</strong> or <strong>more specific</strong> applies to it.</p>
+<p>To define styles directly in an HTML document, there are two ways: using a <code>&lt;style&gt;</code> element, or using the <code>style</code> attribute of elements.</p>
+<p>Add the following <code>&lt;style&gt;</code> element to the end of the <code>&lt;head&gt;</code> in <code>roundabout.html</code>:</p>
+<pre class="sourceCode html" id="cb2"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">header {</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">   <span class="kw">font-family</span>: Helvetica, Arial, <span class="dv">sans-serif</span>;</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">   <span class="kw">color</span>: <span class="dv">black</span>;</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">   <span class="kw">background-color</span>: <span class="dv">white</span>;</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">&lt;/style&gt;</span></a></code></pre>
+<p>Save the HTML file, and reload the page in your browser.</p>
+<blockquote>
+<p><strong>Question X</strong>: Describe what changed in your browser after you added the <code>&lt;style&gt;</code> element?</p>
+</blockquote>
+<p>You may apply CSS styles to individual elements using the <code>style</code> attribute. These are called <em>inline styles</em>. Inline styles are applied by simply adding a <code>style</code> attribute to any element, like so:</p>
+<pre class="sourceCode html" id="cb3"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;color: pink; font-style: italic; font-family: serif&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">   I will be a pink paragraph, in italic serif font.</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">&lt;/p&gt;</span></a></code></pre>
+<p>Which will display as:</p>
+<p style="color: pink; font-style: italic; font-family: serif">
+I will be a pink paragraph, in italic serif font.
+</p>
+<p>Notice how <strong>property/value pairs</strong> like <code>color: pink</code> and <code>font-style: italic</code> and <code>font-family: Times New Roman, serif</code> are separated by semicolons (<code>;</code>).</p>
+<p>Apply inline styles to the <code>&lt;h2&gt;</code>. Make this element (containing the artist name, “Yes”), written in Comic Sans MS font, with a white background colour and magenta text. Adapt the previous examples to help guide you.</p>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste the entire <code>&lt;h2&gt;</code> element you just modified as the answer to this question. Remember that it must display in your browser as magenta Comic Sans MS text on a white background.</p>
+</blockquote>
+<h2 id="css-syntax">CSS syntax</h2>
 <!--
  Basic syntax:
 

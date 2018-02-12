@@ -24,6 +24,11 @@ pre {
     border-radius: 4px;
     box-shadow: inset -1px 1px 4px rgba(0,0,0,0.2);
 }
+/* XXX: sometimes inline styles will override overflow-x, so make a slightly
+ * more specific selector that will ensure overflow-x is set to scroll. */
+pre.sourceCode.sourceCode {
+    overflow-x: scroll;
+}
 
 table {
     margin: auto;
