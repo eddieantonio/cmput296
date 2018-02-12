@@ -91,7 +91,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>An internet connection</li>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 <li>A text editor</li>
-<li>Included files: <a href="lab-5/roundabout.html" download> <code> roundabout.html </code> </a> and <a href="lab-5/styles.css" download> <code>styles.css</code> </a></li>
+<li>Included files: <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a> and <a href="lab-5/styles.css" download><code>styles.css</code></a></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -103,8 +103,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Cascading Style Sheets (CSS for short) is a language for specifying the <strong>presentation</strong> of a document. “Presentation” includes how a webpage will <strong>look</strong> in your browser (colours, fonts, positioning on the page), but it can also specify how an page will look like when printed, or what elements a screen-reader should read and in what order, or what elements to show on a refreshable braille display.</p>
 <p>In this lab, we’ll be writing <strong>CSS styles</strong> that affect the presentation of an HTML document. Start by downloading the following two files to same directory on your computer:</p>
 <ul>
-<li>The HTML document: <a href="lab-5/roundabout.html" download> <code> roundabout.html </code> </a></li>
-<li>The stylesheet: <a href="lab-5/styles.css" download> <code>styles.css</code> </a></li>
+<li>The HTML document: <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a></li>
+<li>The stylesheet: <a href="lab-5/styles.css" download><code>styles.css</code></a></li>
 </ul>
 <p><strong>Tip</strong>: Before answering each question that asks you to write HTML or CSS code, try it in the files <code>roundabout.html</code> and <code>styles.css</code>, add see the change in your browser!</p>
 <h2 id="including-styles-from-an-external-css-document">Including styles from an external CSS document</h2>
@@ -113,7 +113,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><code>styles.css</code> contains some conspicuous styling choices. In order to view the results of <code>styles.css</code>, we must <strong>link</strong> to it. Within the <code>&lt;head&gt;</code> element of <code>roundabout.html</code>, add a <code>&lt;link&gt;</code> element to apply the CSS file <code>styles.html</code> to the page.</p>
 <p>A <code>&lt;link&gt;</code> element for including an external CSS file has this basic syntax:</p>
 <pre class="sourceCode html" id="cb1"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;path/to/file.css&quot;</span> <span class="kw">/&gt;</span></a></code></pre>
-<p><code>&lt;link&gt;</code> elements are <strong>void elements</strong>; they have no content.</p>
 <p>Adapt the example above to apply the styles within <code>styles.css</code> to <code>roundabout.html</code>. Replace <code>path/to/file.css</code> with the relative or absolute URL as needed. The <code>&lt;link&gt;</code> element must be a child of the <code>&lt;head&gt;</code> tag. <code>&lt;link&gt;</code> tags are typically placed near the end of the <code>&lt;head&gt;</code> element, after the <code>&lt;meta&gt;</code> and <code>&lt;title&gt;</code> elements. Add the appropriate <code>&lt;link&gt;</code> element, save the HTML file, and reload the page.</p>
 <p>If you have done this correctly, the page should appear magenta, with the text written in Comic Sans or some other “fantasy” typeface.</p>
 <blockquote>

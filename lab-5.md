@@ -17,11 +17,8 @@ Materials
  - A modern web browser (like Firefox or Google Chrome)
  - A text editor
  - Included files:
-   <a href="lab-5/roundabout.html" download>
-      <code> roundabout.html </code>
-   </a> and <a href="lab-5/styles.css" download>
-      <code>styles.css</code>
-   </a>
+   <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a>
+   and <a href="lab-5/styles.css" download><code>styles.css</code></a> 
 
 Procedure
 =========
@@ -47,8 +44,8 @@ In this lab, we'll be writing **CSS styles** that affect the
 presentation of an HTML document. Start by downloading the following two
 files to same directory on your computer:
 
- - The HTML document: <a href="lab-5/roundabout.html" download> <code> roundabout.html </code> </a>
- - The stylesheet: <a href="lab-5/styles.css" download> <code>styles.css</code> </a>
+ - The HTML document: <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a>
+ - The stylesheet: <a href="lab-5/styles.css" download><code>styles.css</code></a>
 
 **Tip**: Before answering each question that asks you to write HTML or
 CSS code, try it in the files `roundabout.html` and `styles.css`, add
@@ -77,8 +74,6 @@ syntax:
 ```html
 <link rel="stylesheet" href="path/to/file.css" />
 ```
-
-`<link>` elements are **void elements**; they have no content.
 
 Adapt the example above to apply the styles within `styles.css` to
 `roundabout.html`. Replace `path/to/file.css` with the relative or
