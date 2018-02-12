@@ -80,7 +80,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p class="author">written by Eddie Antonio Santos</p>
 <p class="date">February 5, 2018</p>
 </header>
-<p>&lt;style</p>
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Apply CSS styles to an existing HTML document</li>
@@ -142,29 +141,65 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p style="color: pink; font-style: italic; font-family: serif">
 I will be a pink paragraph, in italic serif font.
 </p>
-<p>Notice how <strong>property/value pairs</strong> like <code>color: pink</code> and <code>font-style: italic</code> and <code>font-family: Times New Roman, serif</code> are separated by semicolons (<code>;</code>).</p>
+<p>Notice how <strong>property/value pairs</strong> like <code>color: pink</code> and <code>font-style: italic</code> and <code>font-family: serif</code> are separated by semicolons (<code>;</code>).</p>
 <p>Apply inline styles to the <code>&lt;h2&gt;</code>. Make this element (containing the artist name, “Yes”), written in Comic Sans MS font, with a white background colour and magenta text. Adapt the previous examples to help guide you.</p>
 <blockquote>
 <p><strong>Question X</strong>: Copy-paste the entire <code>&lt;h2&gt;</code> element you just modified as the answer to this question. Remember that it must display in your browser as magenta Comic Sans MS text on a white background.</p>
 </blockquote>
-<h2 id="css-syntax">CSS syntax</h2>
-<!--
- Basic syntax:
-
-   https://css-tricks.com/css-ruleset-terminology/
--->
+<h2 id="defining-styles-css-syntax">Defining styles: CSS syntax</h2>
+<p>CSS styles are created by writing <strong>rulesets</strong>. A ruleset consists of:</p>
+<ul>
+<li>a <strong>selector</strong> which selects which elements to apply the styles to.</li>
+<li>a block of <strong>declarations</strong>. Each declaration sets a <strong>property</strong> (like <code>color</code>, <code>font-family</code>, <code>margin</code>, etc.) to a <strong>value</strong> (like <code>white</code>, <code>Arial</code>, <code>32px</code>, etc.). Declarations are separated by semicolons.</li>
+</ul>
+<p>Below is a diagram which explains CSS terminology and syntax with an example ruleset. This ruleset selects elements with the class <code>container</code> and applies styles to set the colour to <code>#000</code> (black) and to set the size of the font to <code>24px</code>:</p>
+<p data-height="321" data-theme-id="0" data-slug-hash="NygbJR" data-default-tab="result" data-user="eddieantonio" data-embed-version="2" data-pen-title="CSS Terminology" class="codepen">
+See the Pen <a href="https://codepen.io/eddieantonio/pen/NygbJR/">CSS Terminology</a> by Eddie Antonio Santos (<a href="https://codepen.io/eddieantonio"><span class="citation" data-cites="eddieantonio">@eddieantonio</span></a>) on <a href="https://codepen.io">CodePen</a>.
+</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<aside>
+For more information on CSS terminology, see <a href="https://css-tricks.com/css-ruleset-terminology/">this article on CSS-Tricks</a>.
+</aside>
+<p>Before continuing, we’re going to remove <em>some</em> of the eye-bleeding styles that were previously applied to the page.</p>
+<p>In <code>styles.css</code>, append this ruleset to the bottom of the file.</p>
+<pre class="sourceCode css" id="cb4"><code class="sourceCode css"><a class="sourceLine" id="cb4-1" data-line-number="1">body {</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="kw">font-family</span>: <span class="dv">inherit</span>;</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">background-color</span>: <span class="dv">inherit</span>;</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="kw">color</span>: <span class="dv">inherit</span>;</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">}</a></code></pre>
+<p>Save the CSS file, and reload the page in the browser.</p>
+<blockquote>
+<p><strong>Question X</strong>: How many declarations are written in the ruleset for <code>&lt;body&gt;</code>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: List the properties in order from the previous ruleset. Briefly explain what you think each property affects.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: When you reloaded the page in your browser, did you see any changes? Why do you think this is? Hint: look at the values that each property is set to in the <code>&lt;body&gt;</code> ruleset.</p>
+</blockquote>
+<p>Change the ruleset for <code>&lt;body&gt;</code>. Currently, all the values are <code>inherit</code>. You will replace them with the following values: set the value of <code>font-family</code> to <code>sans-serif</code>. Set the <code>background-color</code> to <code>white</code>. Set the <code>color</code> to <code>black</code>.</p>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;body&gt;</code> as the answer to this question. How did the appearance of your webpage change?</p>
+</blockquote>
 <h2 id="selectors">Selectors</h2>
+<p>In order to apply styles to an element, we need to know <em>which</em> elements these styles should be applied to. To <em>select</em> particular elements on a page, we write an appropriate <strong>selector</strong>.</p>
+<h3 id="element">Element</h3>
+<p>To select all the elements of a particular kind like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;a&gt;</code>, simply using the name of the element as the selector, <strong>without the angle brackets (<code>&lt;&gt;</code>)</strong>. For example, the following CSS will show all the <code>&lt;p&gt;</code> tags in 18pt font:</p>
+<pre class="sourceCode css" id="cb5"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" data-line-number="1">p {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="kw">font-size</span>: <span class="dv">18pt</span>;</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">}</a></code></pre>
+<p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheets</strong> for most browsers usually apply a margin to the left of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default left margin.</p>
+<p>Use an <strong>element</strong> selector to eliminate this default left margin. Write a selector for all <code>blockquote</code> elements that will set the <code>margin-left</code> property of all to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
+</blockquote>
+<h3 id="class">Class</h3>
 <!-- class selectors -->
-<!-- element selectors -->
-<!-- margin:; max-width: text-align; -->
-<!--
-   the cascade
--->
 <h3 id="id-selectors">ID selectors</h3>
 <blockquote>
 <p><strong>Question X</strong>: As the answer for this question, write a <strong>ruleset</strong> that uses an <strong>ID</strong> selector to style the bridge <code>&lt;section&gt;</code> with a <strong>black</strong> background, and a <strong>white</strong> text.</p>
 </blockquote>
-<p>Note that there is a general consensus among web developers to never use IDs to style elements in CSS.</p>
+<p>There is a general consensus among web developers to avoid using IDs in selectors in CSS.</p>
 <blockquote>
 <p><strong>Question X</strong>: Search the web for <em>why</em> developers avoid using IDs in selectors. Quote or summarize others’ opinions as the answer to this question, and remember to cite your sources!</p>
 </blockquote>
@@ -176,5 +211,6 @@ I will be a pink paragraph, in italic serif font.
 <blockquote>
 <p><strong>Question X</strong>: Create a <strong>relative URL</strong> (without the scheme and host) that links to the <code>bridge</code> section on the page (The bridge starts with the lyrics <q>Along the drifting cloud / the eagle searching down on the land</q>).</p>
 </blockquote>
+<!-- margin:; max-width: text-align; -->
 </body>
 </html>

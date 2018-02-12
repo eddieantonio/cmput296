@@ -2,8 +2,6 @@
 % CMPUT 296; written by Eddie Antonio Santos
 % February 5, 2018
 
-<style
-
 Overview
 ========
 
@@ -140,7 +138,7 @@ Which will display as:
 </p>
 
 Notice how **property/value pairs** like `color: pink` and
-`font-style: italic` and `font-family: Times New Roman, serif` are
+`font-style: italic` and `font-family: serif` are
 separated by semicolons (`;`).
 
 Apply inline styles to the `<h2>`. Make this element (containing the
@@ -153,30 +151,105 @@ colour and magenta text. Adapt the previous examples to help guide you.
 > browser as magenta Comic Sans MS text on a white background.
 
 
+Defining styles: CSS syntax
+---------------------------
 
+CSS styles are created by writing **rulesets**. A ruleset consists of:
 
-CSS syntax
-----------
+ - a **selector** which selects which elements to apply the styles to.
+ - a block of **declarations**. Each declaration sets a **property**
+   (like `color`, `font-family`, `margin`, etc.) to a **value** (like
+   `white`, `Arial`, `32px`, etc.). Declarations are separated by
+   semicolons.
 
-<!--
- Basic syntax:
+Below is a diagram which explains CSS terminology and syntax with an
+example ruleset. This ruleset selects elements with the class
+`container` and applies styles to set the colour to `#000` (black) and
+to set the size of the font to `24px`:
 
-   https://css-tricks.com/css-ruleset-terminology/
--->
+<p data-height="321" data-theme-id="0" data-slug-hash="NygbJR" data-default-tab="result" data-user="eddieantonio" data-embed-version="2" data-pen-title="CSS Terminology" class="codepen">See the Pen <a href="https://codepen.io/eddieantonio/pen/NygbJR/">CSS Terminology</a> by Eddie Antonio Santos (<a href="https://codepen.io/eddieantonio">@eddieantonio</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<aside>
+For more information on CSS terminology, see
+[this article on CSS-Tricks](https://css-tricks.com/css-ruleset-terminology/).
+</aside>
+
+Before continuing, we're going to remove _some_ of the eye-bleeding
+styles that were previously applied to the page.
+
+In `styles.css`, append this ruleset to the bottom of the file.
+
+```css
+body {
+    font-family: inherit;
+    background-color: inherit;
+    color: inherit;
+}
+```
+
+Save the CSS file, and reload the page in the browser.
+
+> **Question X**: How many declarations are written in the ruleset for
+> `<body>`?
+
+> **Question X**: List the properties in order from the previous
+> ruleset. Briefly explain what you think each property affects.
+
+> **Question X**: When you reloaded the page in your browser,
+> did you see any changes? Why do you think this is? Hint: look at the
+> values that each property is set to in the `<body>` ruleset.
+
+Change the ruleset for `<body>`. Currently, all the values are
+`inherit`. You will replace them with the following values: set the
+value of `font-family` to `sans-serif`. Set the `background-color` to
+`white`. Set the `color` to `black`.
+
+> **Question X**: Copy-paste your updated ruleset for `<body>` as the
+> answer to this question. How did the appearance of your webpage
+> change?
 
 
 Selectors
 ---------
 
+In order to apply styles to an element, we need to know _which_ elements
+these styles should be applied to. To *select* particular elements on
+a page, we write an appropriate **selector**.
+
+
+### Element
+
+To select all the elements of a particular kind like `<h1>`, `<p>`, or
+`<a>`, simply using the name of the element as the selector, **without
+the angle brackets (`<>`)**. For example, the following CSS will show
+all the `<p>` tags in 18pt font:
+
+```css
+p {
+    font-size: 18pt;
+}
+```
+
+The entire lyrics on this page is in a `<blockquote>` element. The
+**User-Agent stylesheets** for most browsers usually apply a margin to
+the left of the `<blockquote>` element to make it look indented.
+However, most of the content in this page _is_ the lyrics, so we'd like
+to remove this default left margin.
+
+Use an **element** selector to eliminate this default left margin.
+Write a selector for all `blockquote` elements that will
+set the `margin-left` property of all to `0px`. Save your CSS file and
+reload the page. The lyrics should no longer be indented.
+
+> **Question X**: Copy-paste your updated ruleset for `<blockquote>` as
+> the answer to this question.
+
+### Class
+
 <!-- class selectors -->
 
-<!-- element selectors -->
 
-<!-- margin:; max-width: text-align; -->
-
-<!--
-   the cascade
--->
 
 
 ### ID selectors
@@ -185,8 +258,8 @@ Selectors
 > that uses an **ID** selector to style the bridge `<section>` with
 > a **black** background, and a **white** text.
 
-Note that there is a general consensus among web developers to never use
-IDs to style elements in CSS.
+There is a general consensus among web developers to avoid using
+IDs in selectors in CSS.
 
 > **Question X**: Search the web for *why* developers avoid using IDs in
 > selectors. Quote or summarize others' opinions as the answer to this
@@ -214,3 +287,6 @@ particular section is:
 > host) that links to the `bridge` section on the page (The bridge
 > starts with the lyrics <q>Along the drifting cloud / the eagle
 > searching down on the land</q>).
+
+
+<!-- margin:; max-width: text-align; -->
