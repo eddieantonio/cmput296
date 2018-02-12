@@ -101,12 +101,12 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Remember to cite your sources</strong>.</p>
 <h2 id="cascading-style-sheets">Cascading Style Sheets</h2>
 <p>Cascading Style Sheets (CSS for short) is a language for specifying the <strong>presentation</strong> of a document. “Presentation” includes how a webpage will <strong>look</strong> in your browser (colours, fonts, positioning on the page), but it can also specify how an page will look like when printed, or what elements a screen-reader should read and in what order, or what elements to show on a refreshable braille display.</p>
-<p>In this lab, we’ll be writing <strong>CSS styles</strong> that affect the presentation of an HTML document. Start by downloading the following two files to same directory on your computer:</p>
+<p>In this lab, we’ll be writing <strong>CSS styles</strong> that affect the presentation of an HTML document. Start by downloading the following two files to the same directory on your computer:</p>
 <ul>
 <li>The HTML document: <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a></li>
 <li>The stylesheet: <a href="lab-5/styles.css" download><code>styles.css</code></a></li>
 </ul>
-<p><strong>Tip</strong>: Before answering each question that asks you to write HTML or CSS code, try it in the files <code>roundabout.html</code> and <code>styles.css</code>, add see the change in your browser!</p>
+<p><strong>Tip</strong>: Before answering each question that asks you to write HTML or CSS code, try it in the files <code>roundabout.html</code> and <code>styles.css</code>, and see the change in your browser!</p>
 <h2 id="including-styles-from-an-external-css-file">Including styles from an external CSS file</h2>
 <p><code>styles.css</code> already contains one <strong>ruleset</strong> that will be applied to the entire HTML document. However, the HTML document must first <strong>link</strong> to the CSS file to use its styles.</p>
 <p>Open <code>roundabout.html</code> in your browser. You will probably see a boring page, with a default background (usually white), default text colour (usually black), and the default font (usually Times New Roman).</p>
@@ -116,7 +116,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Adapt the example above to apply the styles within <code>styles.css</code> to <code>roundabout.html</code>. Replace <code>path/to/file.css</code> with the relative or absolute URL as needed. The <code>&lt;link&gt;</code> element must be a child of the <code>&lt;head&gt;</code> tag. <code>&lt;link&gt;</code> tags are typically placed near the end of the <code>&lt;head&gt;</code> element, after the <code>&lt;meta&gt;</code> and <code>&lt;title&gt;</code> elements. Add the appropriate <code>&lt;link&gt;</code> element, save the HTML file, and reload the page.</p>
 <p>If you have done this correctly, the page should appear magenta, with the text written in Comic Sans or some other “fantasy” typeface.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy and paste the entire <code>&lt;head&gt;</code> element from <code>roundabout.html</code> (including the <code>&lt;link&gt;</code> you just added) as the answer to this question.</p>
+<p><strong>Question 1</strong>: Copy and paste the entire <code>&lt;head&gt;</code> element from <code>roundabout.html</code> (including the <code>&lt;link&gt;</code> you just added) as the answer to this question.</p>
 </blockquote>
 <h2 id="defining-styles-within-an-html-document">Defining styles within an HTML document</h2>
 <p>In simplified terms, the “Cascading” in “Cascading Style Sheets” means that styles are inherited (they “cascade down”, like a waterfall), unless something <strong>closer</strong> or <strong>more specific</strong> applies to it.</p>
@@ -131,7 +131,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">&lt;/style&gt;</span></a></code></pre>
 <p>Save the HTML file, and reload the page in your browser.</p>
 <blockquote>
-<p><strong>Question X</strong>: Describe what changed in your browser after you added the <code>&lt;style&gt;</code> element?</p>
+<p><strong>Question 2</strong>: Describe what changed in your browser after you added the <code>&lt;style&gt;</code> element?</p>
 </blockquote>
 <p>You may apply CSS styles to individual elements using the <code>style</code> attribute. These are called <em>inline styles</em>. Inline styles are applied by simply adding a <code>style</code> attribute to any element, like so:</p>
 <pre class="sourceCode html" id="cb3"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;color: pink; font-style: italic; font-family: serif&quot;</span><span class="kw">&gt;</span></a>
@@ -144,7 +144,7 @@ I will be a pink paragraph, in italic serif font.
 <p>Notice how <strong>property/value pairs</strong> like <code>color: pink</code> and <code>font-style: italic</code> and <code>font-family: serif</code> are separated by semicolons (<code>;</code>).</p>
 <p>Apply inline styles to the <code>&lt;h2&gt;</code>. Make this element (containing the artist name, “Yes”), written in Comic Sans MS font, with a white background colour and magenta text. Adapt the previous examples to help guide you.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the entire <code>&lt;h2&gt;</code> element you just modified as the answer to this question. Remember that it must display in your browser as magenta Comic Sans MS text on a white background.</p>
+<p><strong>Question 3</strong>: Copy-paste the entire <code>&lt;h2&gt;</code> element you just modified as the answer to this question. Remember that it must display in your browser as magenta Comic Sans MS text on a white background.</p>
 </blockquote>
 <h2 id="defining-styles-css-syntax">Defining styles: CSS syntax</h2>
 <p>CSS styles are created by writing <strong>rulesets</strong>. A ruleset consists of:</p>
@@ -169,37 +169,37 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <a class="sourceLine" id="cb4-5" data-line-number="5">}</a></code></pre>
 <p>Save the CSS file, and reload the page in the browser.</p>
 <blockquote>
-<p><strong>Question X</strong>: How many declarations are written in the ruleset for <code>&lt;body&gt;</code>?</p>
+<p><strong>Question 4</strong>: How many declarations are written in the ruleset for <code>&lt;body&gt;</code>?</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: List the properties in order from the previous ruleset. Briefly explain what you think each property affects.</p>
+<p><strong>Question 5</strong>: List the properties in order from the previous ruleset. Briefly explain what you think each property affects.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: When you reloaded the page in your browser, did you see any changes? Why do you think this is? Hint: look at the values that each property is set to in the <code>&lt;body&gt;</code> ruleset.</p>
+<p><strong>Question 6</strong>: When you reloaded the page in your browser, did you see any changes? Why do you think this is? Hint: look at the values that each property is set to in the <code>&lt;body&gt;</code> ruleset.</p>
 </blockquote>
 <p>Change the ruleset for <code>&lt;body&gt;</code>. Currently, all the values are <code>inherit</code>. You will replace them with the following values: set the value of <code>font-family</code> to <code>sans-serif</code>. Set the <code>background-color</code> to <code>white</code>. Set the <code>color</code> to <code>black</code>.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;body&gt;</code> as the answer to this question. How did the appearance of your webpage change?</p>
+<p><strong>Question 7</strong>: Copy-paste your updated ruleset for <code>&lt;body&gt;</code> as the answer to this question. How did the appearance of your webpage change?</p>
 </blockquote>
 <h2 id="selectors">Selectors</h2>
 <p>In order to apply styles to an element, we need to know <em>which</em> elements these styles should be applied to. To <em>select</em> particular elements on a page, we write an appropriate <strong>selector</strong>.</p>
 <h3 id="element-selectors">Element selectors</h3>
-<p>To select all the elements of a particular kind like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;a&gt;</code>, simply using the name of the element as the selector, <strong>without the angle brackets (<code>&lt;&gt;</code>)</strong>. For example, the following CSS will show all the <code>&lt;p&gt;</code> tags in 18pt font:</p>
+<p>To select all the elements of a particular kind like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;a&gt;</code>, simply use the name of the element as the selector, <strong>without the angle brackets (<code>&lt;&gt;</code>)</strong>. For example, the following CSS will show all the <code>&lt;p&gt;</code> tags in 18pt font:</p>
 <pre class="sourceCode css" id="cb5"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" data-line-number="1">p {</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="kw">font-size</span>: <span class="dv">18pt</span>;</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">}</a></code></pre>
-<p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheet</strong> for most browsers usually apply a margin to the left and right of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default margin.</p>
+<p>The entire lyrics on this page is in a <code>&lt;blockquote&gt;</code> element. The <strong>User-Agent stylesheet</strong> for most browsers usually applies a margin to the left and right of the <code>&lt;blockquote&gt;</code> element to make it look indented. However, most of the content in this page <em>is</em> the lyrics, so we’d like to remove this default margin.</p>
 <p>Use an <strong>element</strong> selector to eliminate this default left and right margin. In <code>styles.css</code>, write a ruleset for all <code>blockquote</code> elements that will set the <code>margin-left</code> and <code>margin-right</code> properties to <code>0px</code>. Save your CSS file and reload the page. The lyrics should no longer be indented.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
+<p><strong>Question 8</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: What is a “user-agent stylesheet”? How will it affect how your web page will appear in common browsers? Remember to cite your sources!</p>
+<p><strong>Question 9</strong>: What is a “user-agent stylesheet”? How will it affect how your web page will appear in common browsers? Remember to cite your sources!</p>
 </blockquote>
 <h3 id="class-selectors">Class selectors</h3>
 <p>You can specify one or more classes for an HTML element. This is done by adding the <code>class</code> attribute to the element. For example, in the following HTML snippet:</p>
-<pre class="sourceCode html" id="cb6"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;h1</span><span class="ot"> class=</span><span class="st">&quot;song-title&quot;</span><span class="kw">&gt;</span> Yes <span class="kw">&lt;/h2&gt;</span></a></code></pre>
-<p>The <code>&lt;h2&gt;</code> has one class: <code>song-title</code>. Some elements have multiple classes. For example, the first chorus:</p>
+<pre class="sourceCode html" id="cb6"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;h1</span><span class="ot"> class=</span><span class="st">&quot;song-title&quot;</span><span class="kw">&gt;</span> Roundabout <span class="kw">&lt;/h1&gt;</span></a></code></pre>
+<p>The <code>&lt;h1&gt;</code> has one class: <code>song-title</code>. Some elements have multiple classes. For example, the first chorus:</p>
 <pre class="sourceCode html" id="cb7"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;stanza chorus&quot;</span><span class="ot"> id=</span><span class="st">&quot;chorus-1&quot;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">  I&#39;ll be the roundabout<span class="kw">&lt;br/&gt;</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">  ...</a>
@@ -210,14 +210,14 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <a class="sourceLine" id="cb8-2" data-line-number="2">   <span class="kw">color</span>: <span class="dv">purple</span>;</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">}</a></code></pre>
 <hr />
-<p>With the current styles, the instrumental breaks are indistinguishable from regular lyrics. Instead, we’d like the instrumental breaks</p>
+<p>With the current styles, the instrumental breaks are indistinguishable from regular lyrics. Instead, we’d like the instrumental breaks…</p>
 <p style="color:hsl(0,0%,40%);font:italic 1rem sans-serif">
 to appear like this
 </p>
 <p>…such that the text colour is noticeably lighter than the normal text colour, and is rendered in italics.</p>
 <p>All instrumental breaks in the HTML have a class of <code>instrumental</code>. Write the ruleset that will select all the instrumental breaks in the document and applies these styles (lighter text colour and italic font).</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the ruleset you wrote for the instrumental sections as the answer to this question.</p>
+<p><strong>Question 10</strong>: Copy-paste the ruleset you wrote for the instrumental sections as the answer to this question.</p>
 </blockquote>
 <h3 id="id-selectors">ID selectors</h3>
 <p>An element on the page can be uniquely identified on the page by giving it an <code>id</code> attribute. For example, the second verse has an <code>id</code> attribute of <code>verse-2</code>:</p>
@@ -234,34 +234,33 @@ to appear like this
 <p>It would be nice if the bridge of the song was highlighted in some sort of way. Luckily, the bridge is inside of a <code>&lt;section&gt;</code> tag which has its ID set to <code>bridge</code>.</p>
 <p>Write a <strong>ruleset</strong> that uses an <strong>ID</strong> selector to style the bridge <code>&lt;section&gt;</code> with a left margin of <code>1em</code>, and a smaller font size.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the <strong>ruleset</strong> you just wrote for the bridge section as the answer for this question.</p>
+<p><strong>Question 11</strong>: Copy-paste the <strong>ruleset</strong> you just wrote for the bridge section as the answer for this question.</p>
 </blockquote>
 <p>There is a general consensus among web developers to avoid using IDs in selectors in CSS.</p>
 <blockquote>
-<p><strong>Question X</strong>: Search the web for <em>why</em> developers discourage the use of IDs in selectors. Quote or summarize others’ opinions as the answer to this question, and remember to cite your sources!</p>
+<p><strong>Question 12</strong>: Search the web for <em>why</em> developers discourage the use of IDs in selectors. Quote or summarize others’ opinions as the answer to this question, and remember to cite your sources!</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Write an alternative selector that does <strong>NOT</strong> use IDs for the ruleset that applies styles to the bridge section.</p>
+<p><strong>Question 13</strong>: Write an alternative selector that does <strong>NOT</strong> use IDs for the ruleset that applies styles to the bridge section.</p>
 </blockquote>
 <p>If you’re not supposed to use IDs to style unique elements on a page, then what are you supposed to use IDs for?</p>
-<p>IDs can be used to link to specific sections on the page. For example, if I want to link to the Wikipedia page for the University of Alberta, I would use the following URL:</p>
+<p>IDs can be used to link to specific sections on the page. For example, if I want to link to <a href="https://en.wikipedia.org/w/index.php?title=University_of_Alberta&amp;oldid=821346650">the Wikipedia page for the University of Alberta</a>, I would use the following URL:</p>
 <p><samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&amp;oldid=821346650</samp></p>
-<p>However, if I wanted to link <em>specifically</em> to the “Machine learning and artificial intelligence” section of that page, I would add a <strong>fragment</strong> with the <strong>exact text of the ID on the page</strong>. This section on the page happens to have an ID of <code>Machine_learning_and_artificial_intelligence</code>, so to URL for that particular section is:</p>
+<p>However, if I wanted to link <em>specifically</em> to the <a href="https://en.wikipedia.org/w/index.php?title=University_of_Alberta&amp;oldid=821346650%3Cwbr%3E#Machine_learning_and_artificial_intelligence">“Machine learning and artificial intelligence”</a> section of that page, I would add a <strong>fragment</strong> with the <strong>exact text of the ID on the page</strong>. This section on the page happens to have an ID of <code>Machine_learning_and_artificial_intelligence</code>, so to URL for that particular section is:</p>
 <p><samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&amp;oldid=821346650<wbr>#Machine_learning_and_artificial_intelligence</samp></p>
 <blockquote>
-<p><strong>Question X</strong>: Create a <strong>relative URL</strong> (without the scheme and host) that links to the <code>bridge</code> section on the page (The bridge starts with the lyrics <q>Along the drifting cloud / the eagle searching down on the land</q>).</p>
+<p><strong>Question 14</strong>: Create a <strong>relative URL</strong> (without the scheme and host) that links to the <code>bridge</code> section on the page (The bridge starts with the lyrics <q>Along the drifting cloud / the eagle searching down on the land</q>).</p>
 </blockquote>
-<!-- margin:; max-width: text-align; -->
 <h2 id="final-touches">Final touches</h2>
-<p>I’d like the text of the lyrics to be <strong>centered</strong>.</p>
+<p>I’d like the text of the lyrics to be <strong>centered</strong> horizontally.</p>
 <p>Write a ruleset that will center the text of the lyrics. It is up to you to write an appropriate selector, and determine the appropriate declaration that will center the lyrics on the page. If you don’t know which property you have to use to center the text, feel free to consult external resources. Since you are just using external sources as a reference to know which property to manipulate, you do not need to cite it, unless you copy-paste code from the resource.</p>
 <!--
 TODO: screenshot of end product
 -->
 <blockquote>
-<p><strong>Question X</strong>: As the answer to this question, copy-and-paste the ruleset you used to center the text on the page.</p>
+<p><strong>Question 15</strong>: As the answer to this question, copy-and-paste the ruleset you used to (horizontally) center the text on the page.</p>
 </blockquote>
 <hr />
-<p>This is the end of the CSS lab; however, we encourage you to play around with the existing CSS styles, and for you to add more CSS styles.</p>
+<p>This is the end of the CSS lab; however, we encourage you to play around with the existing CSS styles, and for you to add more CSS styles. Try getting rid of the magenta outline. Learn to use your browser’s development tools to help you tweak CSS styles.</p>
 </body>
 </html>

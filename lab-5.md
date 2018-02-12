@@ -42,13 +42,13 @@ elements to show on a refreshable braille display.
 
 In this lab, we'll be writing **CSS styles** that affect the
 presentation of an HTML document. Start by downloading the following two
-files to same directory on your computer:
+files to the same directory on your computer:
 
  - The HTML document: <a href="lab-5/roundabout.html" download><code>roundabout.html</code></a>
  - The stylesheet: <a href="lab-5/styles.css" download><code>styles.css</code></a>
 
 **Tip**: Before answering each question that asks you to write HTML or
-CSS code, try it in the files `roundabout.html` and `styles.css`, add
+CSS code, try it in the files `roundabout.html` and `styles.css`, and
 see the change in your browser!
 
 
@@ -85,7 +85,7 @@ appropriate `<link>` element, save the HTML file, and reload the page.
 If you have done this correctly, the page should appear magenta, with
 the text written in Comic Sans or some other "fantasy" typeface.
 
-> **Question X**:  Copy and paste the entire `<head>` element from
+> **Question 1**:  Copy and paste the entire `<head>` element from
 > `roundabout.html` (including the `<link>` you just added) as the
 > answer to this question.
 
@@ -118,7 +118,7 @@ header {
 
 Save the HTML file, and reload the page in your browser.
 
-> **Question X**:  Describe what changed in your browser after you added
+> **Question 2**:  Describe what changed in your browser after you added
 > the `<style>` element?
 
 You may apply CSS styles to individual elements using the `style`
@@ -146,7 +146,7 @@ artist name, "Yes"), written in Comic Sans MS font, with a white background
 colour and magenta text. Adapt the previous examples to help guide you.
 
 
-> **Question X**: Copy-paste the entire `<h2>` element you just modified
+> **Question 3**: Copy-paste the entire `<h2>` element you just modified
 > as the answer to this question. Remember that it must display in your
 > browser as magenta Comic Sans MS text on a white background.
 
@@ -190,13 +190,13 @@ body {
 
 Save the CSS file, and reload the page in the browser.
 
-> **Question X**: How many declarations are written in the ruleset for
+> **Question 4**: How many declarations are written in the ruleset for
 > `<body>`?
 
-> **Question X**: List the properties in order from the previous
+> **Question 5**: List the properties in order from the previous
 > ruleset. Briefly explain what you think each property affects.
 
-> **Question X**: When you reloaded the page in your browser,
+> **Question 6**: When you reloaded the page in your browser,
 > did you see any changes? Why do you think this is? Hint: look at the
 > values that each property is set to in the `<body>` ruleset.
 
@@ -205,7 +205,7 @@ Change the ruleset for `<body>`. Currently, all the values are
 value of `font-family` to `sans-serif`. Set the `background-color` to
 `white`. Set the `color` to `black`.
 
-> **Question X**: Copy-paste your updated ruleset for `<body>` as the
+> **Question 7**: Copy-paste your updated ruleset for `<body>` as the
 > answer to this question. How did the appearance of your webpage
 > change?
 
@@ -221,7 +221,7 @@ a page, we write an appropriate **selector**.
 ### Element selectors
 
 To select all the elements of a particular kind like `<h1>`, `<p>`, or
-`<a>`, simply using the name of the element as the selector, **without
+`<a>`, simply use the name of the element as the selector, **without
 the angle brackets (`<>`)**. For example, the following CSS will show
 all the `<p>` tags in 18pt font:
 
@@ -232,7 +232,7 @@ p {
 ```
 
 The entire lyrics on this page is in a `<blockquote>` element. The
-**User-Agent stylesheet** for most browsers usually apply a margin to
+**User-Agent stylesheet** for most browsers usually applies a margin to
 the left and right of the `<blockquote>` element to make it look indented.
 However, most of the content in this page _is_ the lyrics, so we'd like
 to remove this default margin.
@@ -242,10 +242,10 @@ In `styles.css`, write a ruleset for all `blockquote` elements that will
 set the `margin-left` and `margin-right` properties to `0px`. Save your CSS file and
 reload the page. The lyrics should no longer be indented.
 
-> **Question X**: Copy-paste your updated ruleset for `<blockquote>` as
+> **Question 8**: Copy-paste your updated ruleset for `<blockquote>` as
 > the answer to this question.
 
-> **Question X**: What is a "user-agent stylesheet"? How will it affect
+> **Question 9**: What is a "user-agent stylesheet"? How will it affect
 > how your web page will appear in common browsers? Remember to cite
 > your sources!
 
@@ -257,10 +257,10 @@ adding the `class` attribute to the element. For example, in the
 following HTML snippet:
 
 ```html
-<h1 class="song-title"> Yes </h2>
+<h1 class="song-title"> Roundabout </h1>
 ```
 
-The `<h2>` has one class: `song-title`. Some elements have multiple
+The `<h1>` has one class: `song-title`. Some elements have multiple
 classes. For example, the first chorus:
 
 ```html
@@ -287,7 +287,7 @@ elements with the `chorus` class, we would use the following ruleset:
 ---
 
 With the current styles, the instrumental breaks are indistinguishable
-from regular lyrics. Instead, we'd like the instrumental breaks
+from regular lyrics. Instead, we'd like the instrumental breaks...
 
 <p style="color:hsl(0,0%,40%);font:italic 1rem sans-serif"> to appear
 like this</p>
@@ -299,7 +299,7 @@ All instrumental breaks in the HTML have a class of `instrumental`.
 Write the ruleset that will select all the instrumental breaks in the
 document and applies these styles (lighter text colour and italic font).
 
-> **Question X**: Copy-paste the ruleset you wrote for the instrumental
+> **Question 10**: Copy-paste the ruleset you wrote for the instrumental
 > sections as the answer to this question.
 
 
@@ -342,30 +342,31 @@ ID set to `bridge`.
 Write a **ruleset** that uses an **ID** selector to style the bridge
 `<section>` with a left margin of `1em`, and a smaller font size.
 
-> **Question X**: Copy-paste the **ruleset** you just wrote for the
+> **Question 11**: Copy-paste the **ruleset** you just wrote for the
 > bridge section as the answer for this question.
 
 There is a general consensus among web developers to avoid using
 IDs in selectors in CSS.
 
-> **Question X**: Search the web for *why* developers discourage the use
+> **Question 12**: Search the web for *why* developers discourage the use
 > of IDs in selectors. Quote or summarize others' opinions as the answer
 > to this question, and remember to cite your sources!
 
-> **Question X**: Write an alternative selector that does **NOT** use
+> **Question 13**: Write an alternative selector that does **NOT** use
 > IDs for the ruleset that applies styles to the bridge section.
 
 If you're not supposed to use IDs to style unique elements on a page,
 then what are you supposed to use IDs for?
 
 IDs can be used to link to specific sections on the page. For example,
-if I want to link to the Wikipedia page for the University of Alberta,
+if I want to link to [the Wikipedia page for the University of
+Alberta][wiki1],
 I would use the following URL:
 
 <samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650</samp>
 
-However, if I wanted to link *specifically* to the "Machine learning and
-artificial intelligence" section of that page, I would add
+However, if I wanted to link *specifically* to the ["Machine learning and
+artificial intelligence"][wiki2] section of that page, I would add
 a **fragment** with the **exact text of the ID on the page**. This
 section on the  page happens to have an ID of
 `Machine_learning_and_artificial_intelligence`, so to URL for that
@@ -373,19 +374,19 @@ particular section is:
 
 <samp>https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650<wbr>#Machine_learning_and_artificial_intelligence</samp>
 
-> **Question X**: Create a **relative URL** (without the scheme and
+[wiki1]: https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650
+[wiki2]: https://en.wikipedia.org/w/index.php?title=University_of_Alberta&oldid=821346650<wbr>#Machine_learning_and_artificial_intelligence
+
+> **Question 14**: Create a **relative URL** (without the scheme and
 > host) that links to the `bridge` section on the page (The bridge
 > starts with the lyrics <q>Along the drifting cloud / the eagle
 > searching down on the land</q>).
 
 
-<!-- margin:; max-width: text-align; -->
-
-
 Final touches
 -------------
 
-I'd like the text of the lyrics to be **centered**.
+I'd like the text of the lyrics to be **centered** horizontally.
 
 Write a ruleset that will center the text of the lyrics. It is up to you
 to write an appropriate selector, and determine the appropriate
@@ -399,10 +400,12 @@ cite it, unless you copy-paste code from the resource.
 TODO: screenshot of end product
 -->
 
-> **Question X**: As the answer to this question, copy-and-paste the
-> ruleset you used to center the text on the page.
+> **Question 15**: As the answer to this question, copy-and-paste the
+> ruleset you used to (horizontally) center the text on the page.
 
 ---
 
 This is the end of the CSS lab; however, we encourage you to play around
-with the existing CSS styles, and for you to add more CSS styles.
+with the existing CSS styles, and for you to add more CSS styles. Try
+getting rid of the magenta outline. Learn to use your browser's
+development tools to help you tweak CSS styles.
