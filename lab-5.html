@@ -194,14 +194,51 @@ For more information on CSS terminology, see <a href="https://css-tricks.com/css
 <p><strong>Question X</strong>: Copy-paste your updated ruleset for <code>&lt;blockquote&gt;</code> as the answer to this question.</p>
 </blockquote>
 <h3 id="class-selectors">Class selectors</h3>
-<!-- class selectors -->
-<h3 id="id-selectors">ID selectors</h3>
+<p>You can specify one or more classes for an HTML element. This is done by adding the <code>class</code> attribute to the element. For example, in the following HTML snippet:</p>
+<pre class="sourceCode html" id="cb6"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;h1</span><span class="ot"> class=</span><span class="st">&quot;song-title&quot;</span><span class="kw">&gt;</span> Yes <span class="kw">&lt;/h2&gt;</span></a></code></pre>
+<p>The <code>&lt;h2&gt;</code> has one class: <code>song-title</code>. Some elements have multiple classes. For example, the first chorus:</p>
+<pre class="sourceCode html" id="cb7"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;stanza chorus&quot;</span><span class="ot"> id=</span><span class="st">&quot;chorus-1&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  I&#39;ll be the roundabout<span class="kw">&lt;br/&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  ...</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">&lt;/p&gt;</span></a></code></pre>
+<p>This <code>&lt;p&gt;</code> tag has two classes: <code>stanza</code> and <code>chorus</code>. Multiple classes are specified using only <strong>one</strong> <code>class</code> attribute, separating each class name with spaces.</p>
+<p>To write a selector for elements based on class, prepend a period (<code>.</code>) before the class name. For example, to apply a purple text colour to the elements with the <code>chorus</code> class, we would use the following ruleset:</p>
+<pre class="sourceCode css" id="cb8"><code class="sourceCode css"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">.chorus</span> {</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">   <span class="kw">color</span>: <span class="dv">purple</span>;</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">}</a></code></pre>
+<hr />
+<p>With the current styles, the instrumental breaks are indistinguishable from regular lyrics. Instead, we’d like the instrumental breaks</p>
+<p style="color:hsl(0,0%,40%);font:italic 1rem sans-serif">
+to appear like this
+</p>
+<p>…such that the text colour is noticeably lighter than the normal text colour, and is rendered in italics.</p>
+<p>All instrumental breaks in the HTML have a class of <code>instrumental</code>. Write the ruleset that will select all the instrumental breaks in the document and applies these styles (lighter text colour and italic font).</p>
 <blockquote>
-<p><strong>Question X</strong>: As the answer for this question, write a <strong>ruleset</strong> that uses an <strong>ID</strong> selector to style the bridge <code>&lt;section&gt;</code> with a <strong>black</strong> background, and a <strong>white</strong> text.</p>
+<p><strong>Question X</strong>: Copy-paste the ruleset you wrote for the instrumental sections as the answer to this question.</p>
+</blockquote>
+<h3 id="id-selectors">ID selectors</h3>
+<p>An element on the page can be uniquely identified on the page by giving it an <code>id</code> attribute. For example, the second verse has an <code>id</code> attribute of <code>verse-2</code>:</p>
+<pre class="sourceCode html" id="cb9"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;stanza verse&quot;</span><span class="ot"> id=</span><span class="st">&quot;verse-2&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  I will remember you<span class="kw">&lt;br/&gt;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  ...</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">&lt;/p&gt;</span></a></code></pre>
+<p>Since IDs are used for the unique identification of a specific element, <strong>IDs can only be used once on a page</strong>. That is, you can’t have multiple elements on the page with the attribute <code>id=&quot;verse-1&quot;</code>. However, you can have multiple elements with IDs on the page; they just have to be distinct.</p>
+<p>To write a selector for an element based on its <code>id</code>, prepend a hash (<code>#</code>) before the ID name. For example, to apply a orange text colour to <code>verse-2</code>, we would use the following ruleset:</p>
+<pre class="sourceCode css" id="cb10"><code class="sourceCode css"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="pp">#verse-2</span> {</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">   <span class="kw">color</span>: orange;</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">}</a></code></pre>
+<hr />
+<p>It would be nice if the bridge of the song was highlighted in some sort of way. Luckily, the bridge is inside of a <code>&lt;section&gt;</code> tag which has its ID set to <code>bridge</code>.</p>
+<p>Write a <strong>ruleset</strong> that uses an <strong>ID</strong> selector to style the bridge <code>&lt;section&gt;</code> with a left margin of <code>1em</code>, and a smaller font size.</p>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste the <strong>ruleset</strong> you just wrote for the bridge section as the answer for this question.</p>
 </blockquote>
 <p>There is a general consensus among web developers to avoid using IDs in selectors in CSS.</p>
 <blockquote>
-<p><strong>Question X</strong>: Search the web for <em>why</em> developers avoid using IDs in selectors. Quote or summarize others’ opinions as the answer to this question, and remember to cite your sources!</p>
+<p><strong>Question X</strong>: Search the web for <em>why</em> developers discourage the use of IDs in selectors. Quote or summarize others’ opinions as the answer to this question, and remember to cite your sources!</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Write an alternative selector that does <strong>NOT</strong> use IDs for the ruleset that applies styles to the bridge section.</p>
 </blockquote>
 <p>If you’re not supposed to use IDs to style unique elements on a page, then what are you supposed to use IDs for?</p>
 <p>IDs can be used to link to specific sections on the page. For example, if I want to link to the Wikipedia page for the University of Alberta, I would use the following URL:</p>

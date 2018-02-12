@@ -247,23 +247,108 @@ reload the page. The lyrics should no longer be indented.
 
 ### Class selectors
 
-<!-- class selectors -->
+You can specify one or more classes for an HTML element. This is done by
+adding the `class` attribute to the element. For example, in the
+following HTML snippet:
 
+```html
+<h1 class="song-title"> Yes </h2>
+```
 
+The `<h2>` has one class: `song-title`. Some elements have multiple
+classes. For example, the first chorus:
+
+```html
+<p class="stanza chorus" id="chorus-1">
+  I'll be the roundabout<br/>
+  ...
+</p>
+```
+
+This `<p>` tag has two classes: `stanza` and `chorus`. Multiple classes
+are specified using only **one** `class` attribute, separating each
+class name with spaces.
+
+To write a selector for elements based on class, prepend a period (`.`)
+before the class name. For example, to apply a purple text colour to the
+elements with the `chorus` class, we would use the following ruleset:
+
+```css
+.chorus {
+   color: purple;
+}
+```
+
+---
+
+With the current styles, the instrumental breaks are indistinguishable
+from regular lyrics. Instead, we'd like the instrumental breaks
+
+<p style="color:hsl(0,0%,40%);font:italic 1rem sans-serif"> to appear
+like this</p>
+
+...such that the text colour is noticeably lighter than the normal text
+colour, and is rendered in italics.
+
+All instrumental breaks in the HTML have a class of `instrumental`.
+Write the ruleset that will select all the instrumental breaks in the
+document and applies these styles (lighter text colour and italic font).
+
+> **Question X**: Copy-paste the ruleset you wrote for the instrumental
+> sections as the answer to this question.
 
 
 ### ID selectors
 
-> **Question X**: As the answer for this question, write a **ruleset**
-> that uses an **ID** selector to style the bridge `<section>` with
-> a **black** background, and a **white** text.
+An element on the page can be uniquely identified on the page by giving
+it an `id` attribute. For example, the second verse has an `id`
+attribute of `verse-2`:
+
+```html
+<p class="stanza verse" id="verse-2">
+  I will remember you<br/>
+  ...
+</p>
+```
+
+Since IDs are used for the unique identification of a specific element,
+**IDs can only be used once on a page**. That is, you can't have
+multiple elements on the page with the attribute `id="verse-1"`.
+However, you can have multiple elements with IDs on the page; they just
+have to be distinct.
+
+
+To write a selector for an element based on its `id`, prepend a hash (`#`)
+before the ID name. For example, to apply a orange text colour to
+`verse-2`, we would use the following ruleset:
+
+```css
+#verse-2 {
+   color: orange;
+}
+```
+
+---
+
+It would be nice if the bridge of the song was highlighted in some sort
+of way. Luckily, the bridge is inside of a `<section>` tag which has its
+ID set to `bridge`.
+
+Write a **ruleset** that uses an **ID** selector to style the bridge
+`<section>` with a left margin of `1em`, and a smaller font size.
+
+> **Question X**: Copy-paste the **ruleset** you just wrote for the
+> bridge section as the answer for this question.
 
 There is a general consensus among web developers to avoid using
 IDs in selectors in CSS.
 
-> **Question X**: Search the web for *why* developers avoid using IDs in
-> selectors. Quote or summarize others' opinions as the answer to this
-> question, and remember to cite your sources!
+> **Question X**: Search the web for *why* developers discourage the use
+> of IDs in selectors. Quote or summarize others' opinions as the answer
+> to this question, and remember to cite your sources!
+
+> **Question X**: Write an alternative selector that does **NOT** use
+> IDs for the ruleset that applies styles to the bridge section.
 
 If you're not supposed to use IDs to style unique elements on a page,
 then what are you supposed to use IDs for?
