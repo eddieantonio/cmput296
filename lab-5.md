@@ -25,18 +25,34 @@ Submit your responses to the questions in this lab on eClass.
 Cascading Style Sheets
 ----------------------
 
-<!--
-   https://css-tricks.com/css-ruleset-terminology/
--->
+<!-- intro -->
+
+**Tip**: Before answering each question that asks you to write HTML or
+CSS code, try it in the files `roundabout.html` and `styles.css`, add
+see the change in your browser!
 
 <!-- how to include a css file in your HTML -->
 
-**Tip**: Before answering each question that asks you to write HTML or
-CSS code, try it in the files `roundabout.html` and `lyrics.css`, add
-see the change in your browser!
+<!--
+ Basic syntax:
+
+   https://css-tricks.com/css-ruleset-terminology/
+-->
+
 
 Selectors
 ---------
+
+<!-- class selectors -->
+
+<!-- element selectors -->
+
+<!-- margin:; max-width: text-align; -->
+
+<!--
+   the cascade
+-->
+
 
 ### ID selectors
 
