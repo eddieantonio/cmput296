@@ -385,32 +385,22 @@ particular section is:
 Final touches
 -------------
 
-There are a few remaining issues on the page. First of all, there is
-a magenta border around the content of the page that I would like to get
-rid of. Second, I would like the lyrics to **centered**.
+I'd like the text of the lyrics to be **centered**.
 
-### Getting rid of the magenta "border"
+Write a ruleset that will center the text of the lyrics. It is up to you
+to write an appropriate selector, and determine the appropriate
+declaration that will center the lyrics on the page. If you don't know
+which property you have to use to center the text, feel free to consult
+external resources. Since you are just using external sources as
+a reference to know which property to manipulate, you do not need to
+cite it, unless you copy-paste code from the resource.
 
-There are three properties in CSS that often work in tandem:
+<!--
+TODO: screenshot of end product
+-->
 
- - `padding`
- - `border`
- - `margin`
-
-Do the following procedure to answer the following question.
-For each of these properties (`padding`, `border`, `margin`):
-
- 1. Delete any existing declaration of padding, border, or margin in the
-    ruleset that applies styles to the `<body>` element.
- 2. Add a rule to set the current property (`padding`, `border`, or `margin`) to `0px`.
- 3. Save the CSS file, and refresh the page. Did the magenta border go
-    away?
-
-> **Question X**: Which property, when set to 0, made the magenta around
-> the content disappear? What other effects did setting this property to
-> `0px` have?
-
-
+> **Question X**: As the answer to this question, copy-and-paste the
+> ruleset you used to center the text on the page.
 
 ---
 
