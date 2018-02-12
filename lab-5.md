@@ -5,13 +5,23 @@
 Overview
 ========
 
- - ...
+ - Apply CSS styles to an existing HTML document
+ - Understand the basic syntax of CSS
+ - Be familiarized with common CSS selectors, properties, and values
+
 
 Materials
 =========
 
- - ...
-
+ - An internet connection
+ - A modern web browser (like Firefox or Google Chrome)
+ - A text editor
+ - Included files:
+   <a href="lab-5/roundabout.html" download>
+      <code> roundabout.html </code>
+   </a> and <a href="lab-5/styles.css" download>
+      <code>styles.css</code>
+   </a>
 
 Procedure
 =========
@@ -22,16 +32,70 @@ Submit your responses to the questions in this lab on eClass.
 
 **Remember to cite your sources**.
 
+
 Cascading Style Sheets
 ----------------------
 
-<!-- intro -->
+Cascading Style Sheets (CSS for short) is a language for specifying the
+**presentation** of a document. "Presentation" includes how a webpage
+will **look** in your browser (colours, fonts, positioning on the page),
+but it can also specify how an page will look like when printed, or what
+elements a screen-reader should read and in what order, or what
+elements to show on a refreshable braille display.
+
+In this lab, we'll be writing **CSS styles** that affect the
+presentation of an HTML document. Start by downloading the following two
+files to same directory on your computer:
+
+ - The HTML document: <a href="lab-5/roundabout.html" download> <code> roundabout.html </code> </a>
+ - The stylesheet: <a href="lab-5/styles.css" download> <code>styles.css</code> </a>
 
 **Tip**: Before answering each question that asks you to write HTML or
 CSS code, try it in the files `roundabout.html` and `styles.css`, add
 see the change in your browser!
 
-<!-- how to include a css file in your HTML -->
+
+Including styles from an external CSS document
+----------------------------------------------
+
+`styles.css` already contains one **ruleset** that will be applied to
+the entire HTML document. However, the HTML document must first **link**
+to the CSS file to use its styles.
+
+Open `roundabout.html` in your browser. You will probably see a boring
+page, with a default background (usually white), default text colour
+(usually black), and the default font (usually Times New Roman).
+
+`styles.css` contains some conspicuous styling choices. In order to
+view the results of `styles.css`, we must **link** to it.
+Within the `<head>` element of `roundabout.html`, add a `<link>` element
+to apply the CSS file `styles.html` to the page.
+
+A `<link>` element for including an external CSS file has this basic
+syntax:
+
+```html
+<link rel="stylesheet" href="path/to/file.css" />
+```
+
+`<link>` elements are **void elements**; they have no content.
+
+Adapt the example above to apply the styles within `styles.css` to
+`roundabout.html`. Replace `path/to/file.css` with the relative or
+absolute URL as needed. The `<link>` element must be a child of the
+`<head>` tag. `<link>` tags are typically placed near the end of the
+`<head>` element, after the `<meta>` and `<title>` elements. Add the
+appropriate `<link>` element, save the HTML file, and reload the page.
+
+If you have done this correctly, the page should appear magenta, with
+the text written in Comic Sans or some other "fantasy" typeface.
+
+> **Question X**:  Copy and paste the entire `<head>` element from
+> `roundabout.html` (including the `<link>` you just added) as the
+> answer to this question.
+
+
+[link]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
 <!--
  Basic syntax:

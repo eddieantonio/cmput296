@@ -24,7 +24,7 @@ Materials
 =========
 
  - An internet connection
- - A modern web browser (like Firefox or  Google Chrome)
+ - A modern web browser (like Firefox or Google Chrome)
  - A text editor (with good Unicode support!)
 
 
