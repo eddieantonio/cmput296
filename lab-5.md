@@ -1,4 +1,4 @@
-% Lab 4: Introduction to CSS
+% Lab 5: Introduction to CSS
 % CMPUT 296; written by Eddie Antonio Santos
 % February 5, 2018
 
