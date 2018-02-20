@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX example</title>
+  <style>
+    label { display: block }
+  </style>
+</head>
+<body>
+  <h1> AJAX calculator </h1>
+  <form method="GET" action="/calc/">
+    <label>
+      a =  <input name="a" type="number" />
+    </label>
+    <label>
+      b =  <input name="b" type="number" />
+    </label>
+    <label>
+      a <select name="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">⨉</option>
+        <option value="/">÷</option>
+      </select> b
+    </label>
+    <input type="submit" value="Calculate" />
+  </form>
+
+  <output id="the-answer">
+  </output>
+
+  <script>
+    // write your code here!
+  </script>
+</body>
+</html>
