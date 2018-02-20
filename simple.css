@@ -95,3 +95,11 @@ aside > header {
         overflow-x: auto;
     }
 }
+
+blockquote > cite {
+    display: block;
+    text-indent: 2em;
+}
+blockquote > cite:before {
+    content: "—"
+}
