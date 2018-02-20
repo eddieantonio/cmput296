@@ -1,6 +1,5 @@
 % Lab 7: Introduction to JavaScript
 % CMPUT 296; written by Eddie Antonio Santos
-% January 29, 2018
 
 Overview
 ========
