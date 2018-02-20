@@ -34,3 +34,8 @@ Asynchronous programming
 <!-- Sending the right headers -->
 
 <!-- Handling the response -->
+
+<!-- Why asynchronous programming? How long does it take to send the
+     HTTP request/response? The page pauses while the entire request
+     downloads. What would be the consequence on the user experience if
+     the page paused? -->
