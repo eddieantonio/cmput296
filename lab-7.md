@@ -41,3 +41,13 @@ Submit your responses to the questions in this lab on eClass.
 
 <!-- how to debug: console.log() -->
 <!-- how to debug: debugger; -->
+
+<!--
+
+(syntax, if statement, for loop, lambos)
+
+syntax, curly bracket, for loop, semicolons, ===
+
+declare a variable
+
+-->
