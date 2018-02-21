@@ -21,7 +21,7 @@ Procedure
 
 Submit your responses to the questions in this lab on eClass.
 
-> **Question X**. Questions look like this.
+> **Question X**: Questions look like this.
 
 **Remember to cite your sources**.
 
@@ -49,34 +49,122 @@ many questions in this lab.
 [lorem ipsum]: https://www.webpagefx.com/tools/lorem-ipsum-generator/
 
 Create the scaffolding
-======================
+----------------------
 
 Create a new text file called `index.html`. Inside this text file, type
 the minimal HTML required for a valid HTML 5 page. You can find an
-example in [your
+example in [your lecture
 notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3).
-Verify that this is valid HTML 5 by copy-paste the code you wrote into
-the [W3C validator](https://validator.w3.org/#validate_by_input).
+Verify that it is valid HTML 5 by copy-paste the code you wrote into
+the [W3C validator][validator].
+
+[validator]: https://validator.w3.org/#validate_by_input
 
 ![Pasting my code into the validator.](./lab-6/paste-into-validator.png)
 
-![My HTML passed withour errors or warnings.](./lab-6/validate-pass.png)
+![My HTML passed without errors or warnings.](./lab-6/validate-pass.png)
 
 Do not continue until your minimal HTML passes the validator with
 0 errors.
 
-> **Question 1**. Copy-paste your minimal HTML (that passes the W3C
+> **Question 1**: Copy-paste your minimal HTML (that passes the W3C
 > validator) as the answer to this question.
 
+
+Adding content
+--------------
+
+Write a title for your fan site. Place your title in the `<title>`
+element and in a `<h1>` at the top your (displayed) page. Where should
+these elements go in your code? Use the [validator][] to check that you
+did it right.
+
+> **Question 2**: What is the difference between the `<title`> and the
+> `<h1>` tag?
+
+Now, add some content to the `<body>` of your website. Write *at least*
+3 paragraphs of content for your website. If you are feeling uncreative/lazy, you *may*
+copy-paste at least 3 paragraphs worth of [lorem ipsum][] text. Either way,
+wrap your paragraphs in the [appropriate HTML tags](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/9).
+
+> **Question 3**: Copy-paste the contents of your `<body>` tag up to
+> as the answer to this question.
+
+
+Apply some basic styles to your page
+------------------------------------
+
+Create a new CSS file in the same directory as `index.html` called
+`styles.css`. Start this file off with:
+
+```css
+@charset "UTF-8";
+```
+
+You should at very least override the default font for the entire page.
+Write the appropriate CSS ruleset that will change the `font-family` of
+the entire page. Change the font to `sans-serif`, or any other font of
+your choosing.
+
+Create the appropriate `<link>` to make your page use `styles.css`.
+Reload the page in your browser and ensure the font has changed
+appropriately.
+
+> **Question 4**: What
+> [selector](https://codepen.io/eddieantonio/full/NygbJR/) did you use
+> to change the font for the entire page? Why did you choose this
+> selector?
+
+> **Question 5**: Copy-paste your ruleset to change the font as the
+> answer to this question.
+
+> **Question 6**: Copy-paste your `<link>` element that includes the
+> external CSS file as the  answer to this question.
+
+
+Adding a figure
+---------------
+
+Add a image of the band, a band member, or the bands' logo to your page.
+Search the web to find an appropriate image, and **copy where you got
+the image from**. This is so that you can cite the source later.
+Download this image to your computer in the same directory as
+`index.html` and `style.css`. Add
+a [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
+element near the top of the page to contain your `<img>` element. Your
+`<img>` tag within the `<figure>` element must link to the image you
+just downloaded onto your computer. Below the `<img>` element (and still
+within the `<figure>` element), add a `<figcaption>` that has a written
+caption for the image (e.g., "BTS at the 32nd Golden Disk Awards on
+January 10, 2018"
+[[1]](https://en.wikipedia.org/w/index.php?title=BTS_(band)&oldid=826907650)).
+Within the end of the `<figcaption>`, create
+a [hyperlink](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14)
+**citing the source you got the image from**.
+
+
+> **Question 7**: Copy-paste the entire contents of your `<figure>`
+> element as the answer to this question.
+
+Now, move the figure, image, caption, and all, to the right side of the
+page.
+
+To do this, use the
+[`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
+property to "float" your `<figure>` to the right of the page.
+Add any additional styles to ensure your image and your caption due not
+exceed one-half of the screen width. You may want to look at the
+[`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width)
+property.
+
+![My page with a header, paragraphs, and figure.](./lab-6/with-figure.png)
+
+> **Question 8**: Copy-paste the styles you just wrote for the
+> `<figure>`, `<figcaption>`, and/or `<img>` elements.
+
+
+
 <!--
-
-write html from scratch
-
-Make sure it is valid HTML 5. Use the validator: http://validator.w3.org/ http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3
-
- - Will have at least an <h1>.
-
- - <p> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/9
 
  - <figure> and <figcaption> [NEW] https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
  - <img> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/13 attribute the work
