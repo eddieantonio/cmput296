@@ -39,3 +39,9 @@ Asynchronous programming
      HTTP request/response? The page pauses while the entire request
      downloads. What would be the consequence on the user experience if
      the page paused? -->
+
+<!--
+
+     http://wiki.c2.com/?HollywoodPrinciple
+
+-->
