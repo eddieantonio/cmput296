@@ -48,8 +48,7 @@ many questions in this lab.
 [BTS]: https://en.wikipedia.org/wiki/BTS_(band)
 [lorem ipsum]: https://www.webpagefx.com/tools/lorem-ipsum-generator/
 
-Create the scaffolding
-----------------------
+### Create the scaffolding
 
 Create a new text file called `index.html`. Inside this text file, type
 the minimal HTML required for a valid HTML 5 page. You can find an
@@ -71,8 +70,7 @@ Do not continue until your minimal HTML passes the validator with
 > validator) as the answer to this question.
 
 
-Adding content
---------------
+### Adding content
 
 Write a title for your fan site. Place your title in the `<title>`
 element and in a `<h1>` at the top your (displayed) page. Where should
@@ -91,8 +89,7 @@ wrap your paragraphs in the [appropriate HTML tags](http://webdocs.cs.ualberta.c
 > as the answer to this question.
 
 
-Apply some basic styles to your page
-------------------------------------
+### Apply some basic styles to your page
 
 Create a new CSS file in the same directory as `index.html` called
 `styles.css`. Start this file off with:
@@ -122,8 +119,7 @@ appropriately.
 > external CSS file as the  answer to this question.
 
 
-Adding a figure
----------------
+### Adding a figure
 
 Add a image of the band, a band member, or the bands' logo to your page.
 Search the web to find an appropriate image, and **copy where you got
@@ -146,8 +142,14 @@ a [hyperlink](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14)
 > **Question 7**: Copy-paste the entire contents of your `<figure>`
 > element as the answer to this question.
 
+<aside>
+This is what I mean by "floating". This text will render like an aside,
+"floating" to the right of the main text.
+</aside>
+
 Now, move the figure, image, caption, and all, to the right side of the
-page.
+page, allowing the text to flow around it on the left side of the image.
+
 
 To do this, use the
 [`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
@@ -155,30 +157,54 @@ property to "float" your `<figure>` to the right of the page.
 Add any additional styles to ensure your image and your caption due not
 exceed one-half of the screen width. You may want to look at the
 [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width)
-property.
+property. Reload your page, and make sure the figure is floating to the
+right of the text
 
 ![My page with a header, paragraphs, and figure.](./lab-6/with-figure.png)
 
 > **Question 8**: Copy-paste the styles you just wrote for the
 > `<figure>`, `<figcaption>`, and/or `<img>` elements.
 
+### Adding a footer
 
+At the bottom of the `<body>` element, add `<footer>` element. What you
+typically put here is a copyright notice, authorship information and
+other non-content information.
+
+You will add a message in the footer that says
+
+> Copyright © [the year right now] [your name here].
+
+For example, mine says:
+
+> Copyright © 2018 Eddie Antonio Santos.
+
+To add the copyright symbol (©), use an [HTML entity](https://developer.mozilla.org/en-US/docs/Glossary/Entity).
+For the purposes of this lab, **DO NOT** copy-paste the character in the
+text above when writing the code for your `<footer>` element.
+
+> **Question 9**: Copy-paste the code you just wrote for the `<footer>`
+> element as the answer to this question.
+
+Since the `<footer>` contains the non-content information, make its font
+size smaller. Write a ruleset that makes all the text in the footer
+a smaller font-size than the rest of the webpage, with one caveat: the
+font size *must* scale
+[relative to the default font size of the body](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units).
+This means you **cannot** use absolute units like `10px` or `8pt`.
+
+> **Question 10**: Copy-paste the ruleset you just wrote to make the
+> font size smaller in the `<footer>` element as the answer to this
+> question.
 
 <!--
 
- - <figure> and <figcaption> [NEW] https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
- - <img> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/13 attribute the work
- - make it float to the right of the content. give it some margin to put some space between it an the text. [NEW]
- - <a> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14
  - Use a <span> to apply inline styles http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17
  - apply display: inline-block;
  - Maybe like a transform: rotate(12deg);
  - What happens when you remove display: inline-block from this span?
    Why does this happen?
 
- - <footer> at bottom
- - Use an HTML entity to add a copyright symbol to the bottom. [ NEW]
- - Use a font-size smaller to the footer.
 
  - A custom hyperlink style with :hover http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
 

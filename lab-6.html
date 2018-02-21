@@ -101,7 +101,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2 id="creating-an-band-fan-site-from-scratch-using-html-and-css">Creating an band fan site from scratch using HTML and CSS</h2>
 <p>In the first part of this lab, we’ll be creating a fan site for your favourite musical group (e.g., Evanescence, Girls’ Generation, Maximum the Hormone, Opeth, Spice Girls, etc.). If you don’t have a favourite band, make a <a href="https://en.wikipedia.org/wiki/BTS_(band)">BTS</a> fan site (the particular band doesn’t matter).</p>
 <p>We’ll be writing this site from <strong>scratch</strong>. This means no use of site generators, themes, Bootstrap, or any pre-written code. <strong>Try as much as possible to not copy-paste any code from the internet</strong>. All the code you’ll write in your text editor should be typed out by hand (even if you had to go consult the internet on how to do something in HTML and CSS). There are only two exceptions to this recommendation: links like <span style="text-overflow:ellipsis;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;">https://upload.wikimedia.org/wikipedia/commons/c/ca/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8%28BTS%29_180110_%EC%A0%9C_32%ED%9A%8C_%EA%B3%A8%EB%93%A0%EB%94%94%EC%8A%A4%ED%81%AC.png</span> are okay to copy-paste; <a href="https://www.webpagefx.com/tools/lorem-ipsum-generator/">lorem ipsum</a> text is also okay to copy-paste. You will also be required to copy-paste the code <em>you</em> have written as answers to many questions in this lab.</p>
-<h2 id="create-the-scaffolding">Create the scaffolding</h2>
+<h3 id="create-the-scaffolding">Create the scaffolding</h3>
 <p>Create a new text file called <code>index.html</code>. Inside this text file, type the minimal HTML required for a valid HTML 5 page. You can find an example in <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3">your lecture notes</a>. Verify that it is valid HTML 5 by copy-paste the code you wrote into the <a href="https://validator.w3.org/#validate_by_input">W3C validator</a>.</p>
 <figure>
 <img src="./lab-6/paste-into-validator.png" alt="Pasting my code into the validator." /><figcaption>Pasting my code into the validator.</figcaption>
@@ -113,7 +113,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 1</strong>: Copy-paste your minimal HTML (that passes the W3C validator) as the answer to this question.</p>
 </blockquote>
-<h2 id="adding-content">Adding content</h2>
+<h3 id="adding-content">Adding content</h3>
 <p>Write a title for your fan site. Place your title in the <code>&lt;title&gt;</code> element and in a <code>&lt;h1&gt;</code> at the top your (displayed) page. Where should these elements go in your code? Use the <a href="https://validator.w3.org/#validate_by_input">validator</a> to check that you did it right.</p>
 <blockquote>
 <p><strong>Question 2</strong>: What is the difference between the <code>&lt;title</code>&gt; and the <code>&lt;h1&gt;</code> tag?</p>
@@ -122,7 +122,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 3</strong>: Copy-paste the contents of your <code>&lt;body&gt;</code> tag up to as the answer to this question.</p>
 </blockquote>
-<h2 id="apply-some-basic-styles-to-your-page">Apply some basic styles to your page</h2>
+<h3 id="apply-some-basic-styles-to-your-page">Apply some basic styles to your page</h3>
 <p>Create a new CSS file in the same directory as <code>index.html</code> called <code>styles.css</code>. Start this file off with:</p>
 <pre class="sourceCode css" id="cb1"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">@charset</span> <span class="st">&quot;UTF-8&quot;</span>;</a></code></pre>
 <p>You should at very least override the default font for the entire page. Write the appropriate CSS ruleset that will change the <code>font-family</code> of the entire page. Change the font to <code>sans-serif</code>, or any other font of your choosing.</p>
@@ -136,34 +136,48 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 6</strong>: Copy-paste your <code>&lt;link&gt;</code> element that includes the external CSS file as the answer to this question.</p>
 </blockquote>
-<h2 id="adding-a-figure">Adding a figure</h2>
+<h3 id="adding-a-figure">Adding a figure</h3>
 <p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>index.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). Within the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
 <blockquote>
 <p><strong>Question 7</strong>: Copy-paste the entire contents of your <code>&lt;figure&gt;</code> element as the answer to this question.</p>
 </blockquote>
-<p>Now, move the figure, image, caption, and all, to the right side of the page.</p>
-<p>To do this, use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a> property to “float” your <code>&lt;figure&gt;</code> to the right of the page. Add any additional styles to ensure your image and your caption due not exceed one-half of the screen width. You may want to look at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"><code>max-width</code></a> property.</p>
+<aside>
+This is what I mean by “floating”. This text will render like an aside, “floating” to the right of the main text.
+</aside>
+<p>Now, move the figure, image, caption, and all, to the right side of the page, allowing the text to flow around it on the left side of the image.</p>
+<p>To do this, use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a> property to “float” your <code>&lt;figure&gt;</code> to the right of the page. Add any additional styles to ensure your image and your caption due not exceed one-half of the screen width. You may want to look at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"><code>max-width</code></a> property. Reload your page, and make sure the figure is floating to the right of the text</p>
 <figure>
 <img src="./lab-6/with-figure.png" alt="My page with a header, paragraphs, and figure." /><figcaption>My page with a header, paragraphs, and figure.</figcaption>
 </figure>
 <blockquote>
 <p><strong>Question 8</strong>: Copy-paste the styles you just wrote for the <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, and/or <code>&lt;img&gt;</code> elements.</p>
 </blockquote>
+<h3 id="adding-a-footer">Adding a footer</h3>
+<p>At the bottom of the <code>&lt;body&gt;</code> element, add <code>&lt;footer&gt;</code> element. What you typically put here is a copyright notice, authorship information and other non-content information.</p>
+<p>You will add a message in the footer that says</p>
+<blockquote>
+<p>Copyright © [the year right now] [your name here].</p>
+</blockquote>
+<p>For example, mine says:</p>
+<blockquote>
+<p>Copyright © 2018 Eddie Antonio Santos.</p>
+</blockquote>
+<p>To add the copyright symbol (©), use an <a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity">HTML entity</a>. For the purposes of this lab, <strong>DO NOT</strong> copy-paste the character in the text above when writing the code for your <code>&lt;footer&gt;</code> element.</p>
+<blockquote>
+<p><strong>Question 9</strong>: Copy-paste the code you just wrote for the <code>&lt;footer&gt;</code> element as the answer to this question.</p>
+</blockquote>
+<p>Since the <code>&lt;footer&gt;</code> contains the non-content information, make its font size smaller. Write a ruleset that makes all the text in the footer a smaller font-size than the rest of the webpage, with one caveat: the font size <em>must</em> scale <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units">relative to the default font size of the body</a>. This means you <strong>cannot</strong> use absolute units like <code>10px</code> or <code>8pt</code>.</p>
+<blockquote>
+<p><strong>Question 10</strong>: Copy-paste the ruleset you just wrote to make the font size smaller in the <code>&lt;footer&gt;</code> element as the answer to this question.</p>
+</blockquote>
 <!--
 
- - <figure> and <figcaption> [NEW] https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
- - <img> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/13 attribute the work
- - make it float to the right of the content. give it some margin to put some space between it an the text. [NEW]
- - <a> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14
  - Use a <span> to apply inline styles http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17
  - apply display: inline-block;
  - Maybe like a transform: rotate(12deg);
  - What happens when you remove display: inline-block from this span?
    Why does this happen?
 
- - <footer> at bottom
- - Use an HTML entity to add a copyright symbol to the bottom. [ NEW]
- - Use a font-size smaller to the footer.
 
  - A custom hyperlink style with :hover http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
 
