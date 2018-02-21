@@ -197,18 +197,68 @@ This means you **cannot** use absolute units like `10px` or `8pt`.
 > font size smaller in the `<footer>` element as the answer to this
 > question.
 
+### Finishing touches
+
+Add a style to a word of your choosing in the first sentence of the first
+paragraph. Choose a word near the beginning of the page and wrap it in
+an element appropriate for [applying a class or inline styles](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17).
+
+Apply a class called `rotated` to the new element you just created. Now
+write a ruleset in `styles.css` that will rotate this text. Write an
+appropriate selector. Then, add these two declarations to your ruleset
+that selects the element.
+
+![A rotated word in the first paragraph.](./lab-6/rotated.png)
+
+> **Question 11**: What is the most appropriate element for applying
+> styles or special properties to some inline text in HTML?
+
+
+```css
+display: inline-block;
+transform: rotate(-12deg);
+```
+
+Save `styles.css` and reload the page. Before moving on, ensure that the
+particular word you selected is indeed rotated.
+
+> **Question 12**: Copy-paste the ruleset you just wrote to rotate the
+> text.
+
+> **Question 13**: Delete the `display: inline-block` declaration. What
+> changes when you reload the page? Note that you should **not** delete
+> the `transform: rotate(-12deg)` declaration. Add the `display`
+> declaration back. What does `display: inline-block` do?
+
+
+Finally, make we're going to a fancy [initial letter drop
+cap](https://en.wikipedia.org/wiki/Initial) like in old European
+manuscripts.
+
+![A fancy initial from a German manuscript. Source: <https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png>](https://upload.wikimedia.org/wikipedia/commons/1/1d/Fraktur.png)
+
+You must do this **without modifying the HTML**.  For the purposes of
+this lab, "fancy" means it's in a different font family that the rest of
+the text, is in a larger font in general, and has a different
+background colour than the rest of the document.
+
+Write a ruleset that applies at least a different font family and size,
+as well as adds a different background colour to _only_ the first letter
+of the first paragraph on the page. In order to create an appropriate
+selector, you may want to look at the [course
+notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32).
+You may also want to consult MDN for
+[pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+and
+[pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+for use in your selector.
+
+!["Fancy" initial letter drop caps.](./lab-6/drop-cap.png)
+
+> **Question 14**: Copy-paste your ruleset for the fancy initial letter
+> drop-cap as the answer to this question.
+
 <!--
-
- - Use a <span> to apply inline styles http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17
- - apply display: inline-block;
- - Maybe like a transform: rotate(12deg);
- - What happens when you remove display: inline-block from this span?
-   Why does this happen?
-
-
- - A custom hyperlink style with :hover http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
-
- - Fancy Captital Letter for the first item of a paragraph WITHOUT modifying the HTML. Show the CSS. http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
 
 ---
 

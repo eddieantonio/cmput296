@@ -170,18 +170,37 @@ This is what I mean by “floating”. This text will render like an aside, “f
 <blockquote>
 <p><strong>Question 10</strong>: Copy-paste the ruleset you just wrote to make the font size smaller in the <code>&lt;footer&gt;</code> element as the answer to this question.</p>
 </blockquote>
+<h3 id="finishing-touches">Finishing touches</h3>
+<p>Add a style to a word of your choosing in the first sentence of the first paragraph. Choose a word near the beginning of the page and wrap it in an element appropriate for <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17">applying a class or inline styles</a>.</p>
+<p>Apply a class called <code>rotated</code> to the new element you just created. Now write a ruleset in <code>styles.css</code> that will rotate this text. Write an appropriate selector. Then, add these two declarations to your ruleset that selects the element.</p>
+<figure>
+<img src="./lab-6/rotated.png" alt="A rotated word in the first paragraph." /><figcaption>A rotated word in the first paragraph.</figcaption>
+</figure>
+<blockquote>
+<p><strong>Question 11</strong>: What is the most appropriate element for applying styles or special properties to some inline text in HTML?</p>
+</blockquote>
+<pre class="sourceCode css" id="cb2"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" data-line-number="1">display<span class="in">:</span> inline-block;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">transform<span class="in">:</span> rotate(-12deg);</a></code></pre>
+<p>Save <code>styles.css</code> and reload the page. Before moving on, ensure that the particular word you selected is indeed rotated.</p>
+<blockquote>
+<p><strong>Question 12</strong>: Copy-paste the ruleset you just wrote to rotate the text.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 13</strong>: Delete the <code>display: inline-block</code> declaration. What changes when you reload the page? Note that you should <strong>not</strong> delete the <code>transform: rotate(-12deg)</code> declaration. Add the <code>display</code> declaration back. What does <code>display: inline-block</code> do?</p>
+</blockquote>
+<p>Finally, make we’re going to a fancy <a href="https://en.wikipedia.org/wiki/Initial">initial letter drop cap</a> like in old European manuscripts.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Fraktur.png" alt="A fancy initial from a German manuscript. Source: https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png" /><figcaption>A fancy initial from a German manuscript. Source: <a href="https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png" class="uri">https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png</a></figcaption>
+</figure>
+<p>You must do this <strong>without modifying the HTML</strong>. For the purposes of this lab, “fancy” means it’s in a different font family that the rest of the text, is in a larger font in general, and has a different background colour than the rest of the document.</p>
+<p>Write a ruleset that applies at least a different font family and size, as well as adds a different background colour to <em>only</em> the first letter of the first paragraph on the page. In order to create an appropriate selector, you may want to look at the <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32">course notes</a>. You may also want to consult MDN for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">pseudo-classes</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">pseudo-elements</a> for use in your selector.</p>
+<figure>
+<img src="./lab-6/drop-cap.png" alt="“Fancy” initial letter drop caps." /><figcaption>“Fancy” initial letter drop caps.</figcaption>
+</figure>
+<blockquote>
+<p><strong>Question 14</strong>: Copy-paste your ruleset for the fancy initial letter drop-cap as the answer to this question.</p>
+</blockquote>
 <!--
-
- - Use a <span> to apply inline styles http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17
- - apply display: inline-block;
- - Maybe like a transform: rotate(12deg);
- - What happens when you remove display: inline-block from this span?
-   Why does this happen?
-
-
- - A custom hyperlink style with :hover http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
-
- - Fancy Captital Letter for the first item of a paragraph WITHOUT modifying the HTML. Show the CSS. http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/32
 
 ---
 
