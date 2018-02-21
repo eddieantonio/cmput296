@@ -91,6 +91,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 <li>An internet connection</li>
 <li>A text editor</li>
+<li></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -102,7 +103,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>In the first part of this lab, we’ll be creating a fan site for your favourite musical group (e.g., Evanescence, Girls’ Generation, Maximum the Hormone, Opeth, Spice Girls, etc.). If you don’t have a favourite band, make a <a href="https://en.wikipedia.org/wiki/BTS_(band)">BTS</a> fan site (the particular band doesn’t matter).</p>
 <p>We’ll be writing this site from <strong>scratch</strong>. This means no use of site generators, themes, Bootstrap, or any pre-written code. <strong>Try as much as possible to not copy-paste any code from the internet</strong>. All the code you’ll write in your text editor should be typed out by hand (even if you had to go consult the internet on how to do something in HTML and CSS). There are only two exceptions to this recommendation: links like <span style="text-overflow:ellipsis;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;">https://upload.wikimedia.org/wikipedia/commons/c/ca/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8%28BTS%29_180110_%EC%A0%9C_32%ED%9A%8C_%EA%B3%A8%EB%93%A0%EB%94%94%EC%8A%A4%ED%81%AC.png</span> are okay to copy-paste; <a href="https://www.webpagefx.com/tools/lorem-ipsum-generator/">lorem ipsum</a> text is also okay to copy-paste. You will also be required to copy-paste the code <em>you</em> have written as answers to many questions in this lab.</p>
 <h3 id="create-the-scaffolding">Create the scaffolding</h3>
-<p>Create a new text file called <code>index.html</code>. Inside this text file, type the minimal HTML required for a valid HTML 5 page. You can find an example in <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3">your lecture notes</a>. Verify that it is valid HTML 5 by copy-paste the code you wrote into the <a href="https://validator.w3.org/#validate_by_input">W3C validator</a>.</p>
+<p>Create a new text file called <code>band.html</code>. Inside this text file, type the minimal HTML required for a valid HTML 5 page. You can find an example in <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3">your lecture notes</a>. Verify that it is valid HTML 5 by copy-paste the code you wrote into the <a href="https://validator.w3.org/#validate_by_input">W3C validator</a>.</p>
 <figure>
 <img src="./lab-6/paste-into-validator.png" alt="Pasting my code into the validator." /><figcaption>Pasting my code into the validator.</figcaption>
 </figure>
@@ -123,7 +124,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question 3</strong>: Copy-paste the contents of your <code>&lt;body&gt;</code> tag up to as the answer to this question.</p>
 </blockquote>
 <h3 id="apply-some-basic-styles-to-your-page">Apply some basic styles to your page</h3>
-<p>Create a new CSS file in the same directory as <code>index.html</code> called <code>styles.css</code>. Start this file off with:</p>
+<p>Create a new CSS file in the same directory as <code>band.html</code> called <code>styles.css</code>. Start this file off with:</p>
 <pre class="sourceCode css" id="cb1"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">@charset</span> <span class="st">&quot;UTF-8&quot;</span>;</a></code></pre>
 <p>You should at very least override the default font for the entire page. Write the appropriate CSS ruleset that will change the <code>font-family</code> of the entire page. Change the font to <code>sans-serif</code>, or any other font of your choosing.</p>
 <p>Create the appropriate <code>&lt;link&gt;</code> to make your page use <code>styles.css</code>. Reload the page in your browser and ensure the font has changed appropriately.</p>
@@ -137,7 +138,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question 6</strong>: Copy-paste your <code>&lt;link&gt;</code> element that includes the external CSS file as the answer to this question.</p>
 </blockquote>
 <h3 id="adding-a-figure">Adding a figure</h3>
-<p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>index.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). Within the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
+<p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>band.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). Within the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
 <blockquote>
 <p><strong>Question 7</strong>: Copy-paste the entire contents of your <code>&lt;figure&gt;</code> element as the answer to this question.</p>
 </blockquote>
@@ -200,6 +201,9 @@ This is what I mean by “floating”. This text will render like an aside, “f
 <blockquote>
 <p><strong>Question 14</strong>: Copy-paste your ruleset for the fancy initial letter drop-cap as the answer to this question.</p>
 </blockquote>
+Creating a working
+<form>
+<hr />
 <!--
 
 ---
