@@ -34,6 +34,8 @@ Submit your responses to the questions in this lab on eClass.
 
 <!-- goal: make a valid XHR. Put it in a <div> -->
 
+<!-- talk about DOM manipulation first? -->
+
 Asynchronous programming
 ------------------------
 
@@ -80,6 +82,20 @@ declare a way to **react** to that event.
 
 ### Asynchronous programming in JavaScript
 
+<aside>
+Just as in [Lab 6](./lab-6.html),
+if you are security conscience, you should verify that the SHA-256
+checksum of `server.py` that you downloaded matches the checksum that
+I computed:
+
+```
+334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058
+```
+
+Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
+SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
+</aside>
+
 Before please, download
 <a href="lab-8/server.py" download><code>server.py</code></a> and
 <a href="lab-8/index.html" download><code>index.html</code></a>.
@@ -92,24 +108,12 @@ downloaded the files. Start the server by typing:
 python3 server.py
 ```
 
+Enter in values for `a`, `b,` and use the drop-down to select an
+arithmetic operation.
 
-<aside>
-Just as in [Lab 6](./lab-6.html),
-if you are security concious, you should verify that the SHA-256
-checksum of `server.py` that you downloaded matches the checksum that
-I computed:
-
-```
-334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058
-```
-
-Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
-SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
-</aside>
+> **Question X**: What happens when you press the "Calculate" button?
 
 
-
-<!-- Asynchronous programming -->
 
 <!-- Sending the right headers -->
 
