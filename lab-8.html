@@ -6,12 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="CMPUT 296" />
   <meta name="author" content="written by Eddie Antonio Santos" />
-  <title>Lab 8: Asynchronous JavaScript and XML (AJAX)</title>
+  <meta name="dcterms.date" content="2018-03-18" />
+  <title>Lab 8: Asynchronous JavaScript and XMLHttpRequest (AJAX)</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       div.line-block{white-space: pre-line;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
   <link rel="stylesheet" href="simple.css">
   <!--[if lt IE 9]>
@@ -20,18 +76,22 @@
 </head>
 <body>
 <header>
-<h1 class="title">Lab 8: Asynchronous JavaScript and XML (AJAX)</h1>
+<h1 class="title">Lab 8: Asynchronous JavaScript and XMLHttpRequest (AJAX)</h1>
 <p class="author">CMPUT 296</p>
 <p class="author">written by Eddie Antonio Santos</p>
+<p class="date">March 18, 2018</p>
 </header>
 <h1 id="overview">Overview</h1>
 <ul>
-<li>TODO</li>
+<li>Learn about asynchronous programming in JavaScript</li>
+<li>Learn the API for <code>XMLHttpRequest</code></li>
+<li>Perform some asynchronous DOM manipulation</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
 <li>An internet connection</li>
-<li>A modern web browser (like Firefox or Google Chrome)</li>
+<li>Google Chrome’s <a href="https://developer.chrome.com/devtools">DevTools</a></li>
+<li>Included files: <a href="lab-8/server.py" download><code>server.py</code></a>, <a href="lab-8/index.html" download><code>index.html</code></a></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -39,10 +99,22 @@
 <p><strong>Question X</strong>. Questions look like this.</p>
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
-<hr />
 <!-- goal: make a valid XHR. Put it in a <div> -->
-<!-- Asynchronous programming -->
 <h2 id="asynchronous-programming">Asynchronous programming</h2>
+<p>In this lab, the goal is to make a request to an external server <strong>without</strong> navigating away from the current webpage.</p>
+<p>In order to understand to perform this, it is vital to understand <strong>asynchronous programming</strong>.</p>
+<h3 id="what-is-asynchronous-programming">What is “asynchronous programming”?</h3>
+<p>In typical procedural programming, the programmer is often in control of the exact flow of instructions. That is, you, as the programmer say:</p>
+<pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="op">}</span></a></code></pre>
+<p>And the program will <em>immediately</em> test if <code>x</code> is indeed less than 0, and then it will execute the consequent as soon as it determines this.</p>
+<p>Similarly, if you write JavaScript code that says:</p>
+<pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="at">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)</a></code></pre>
+<p>The program will call <code>add()</code> function <em>immediately</em>.</p>
+<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control <em>if</em> or <em>when</em> a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by <em>your</em> action, as a programmer. Rather, an external event may initiate an action <em>at any moment</em>, and you, as a programmer, must declare a way to <em>react</em> to that event.</p>
+<h3 id="asynchronous-programming-in-javascript">Asynchronous programming in JavaScript</h3>
+<!-- Asynchronous programming -->
 <!-- Sending the right headers -->
 <!-- Handling the response -->
 <!-- Why asynchronous programming? How long does it take to send the
@@ -54,5 +126,7 @@
      http://wiki.c2.com/?HollywoodPrinciple
 
 -->
+<h3 id="dom-manipulation">DOM manipulation</h3>
+<h3 id="xmlhttprequest"><code>XMLHttpRequest</code></h3>
 </body>
 </html>
