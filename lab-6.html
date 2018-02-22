@@ -91,7 +91,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 <li>An internet connection</li>
 <li>A text editor</li>
-<li></li>
+<li>Included file: <a href="lab-6/server.py" download><code>server.py</code></a></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -204,21 +204,55 @@ This is what I mean by “floating”. This text will render like an aside, “f
 Creating a working
 <form>
 <hr />
-<!--
-
----
-
-<form action="http://localhost:8000/"> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/38
-<select> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/42
-   OR <input type="radio"> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/41
-
-<form>
-
-inspect element
-
-resizing image with CSS width: height:
-
-
--->
+<p>In the second part of the lab, we will be creating a working <code>&lt;form&gt;</code> that will send information as a <code>GET</code> request to an HTTP server running a simple calculator.</p>
+<aside>
+<p>In case you are wary of running unknown code on your computer (you should be), the SHA-256 checksum of <code>server.py</code> as I wrote it is:</p>
+<pre><code>18ba8b046c98add0598b66f0b1338bd9ace81ea20f7ad9cfc76a494ff3dddd95</code></pre>
+Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</code></a> to verify that the file you downloaded has the same SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
+</aside>
+<p>First, make sure you have downloaded the HTTP server source code. It can be downloaded here: <a href="lab-6/server.py" download><code>server.py</code></a>.</p>
+<p>Now run the server. Open a terminal, and navigate to the directory where you downloaded <code>server.py</code>. Then run:</p>
+<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">python3</span> server.py</a></code></pre>
+<p>It should display a message saying:</p>
+<pre><output>Listening on http://localhost:8000/</output></pre>
+<p>Leave the server running. It will respond to <code>GET</code> requests.</p>
+<blockquote>
+<p><strong>Question 15</strong>: What do you see when you navigate to <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in your browser?</p>
+</blockquote>
+<p>Now create an HTML document called <code>index.html</code>, which must be in the same directory as <code>server.py</code>. Type the same minimal HTML that you used for <strong>Question 1</strong>.</p>
+<p>In the <code>&lt;body&gt;</code> of <code>index.html</code>, add an <code>&lt;h1&gt;</code> that says “Calculator”. Save the file <code>index.html</code>.</p>
+<blockquote>
+<p><strong>Question 16</strong>: Reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. What do you see now?</p>
+</blockquote>
+<p>We will be adding a form that does a <code>GET</code> request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a>.</p>
+<blockquote>
+<p><strong>Question 17</strong>: How are parameters sent to the server in a <code>GET</code> request? Be as specific as possible.</p>
+</blockquote>
+<p>Create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/38"><code>&lt;form&gt;</code></a> element that will make a <code>GET</code> request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a>.</p>
+<blockquote>
+<p><strong>Question 18</strong>: How do you specify what URI/URL the <code>&lt;form&gt;</code> will issue a request to?</p>
+</blockquote>
+<p><a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a> expects arguments called <code>a</code>, <code>b</code>, and <code>op</code> to be sent to it, and will return an HTTP error if it doesn’t get these. <code>a</code> and <code>b</code> should be numbers (integer or floating point). <code>op</code> is one of <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, which indicates the operation to perform.</p>
+<p>Create <code>&lt;input&gt;</code> elements within the <code>&lt;form&gt;</code> element for each of the parameters <code>a</code> and <code>b</code>. See <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/39">the course notes</a> for which attributes you should add to each <code>&lt;input&gt;</code> element.</p>
+<p>Use a <code>&lt;br/&gt;</code> to put these two inputs on separate lines. Peruse <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types">this list on MDN</a> to determine what the most appropriate value for the <code>type</code> attribute.</p>
+<p>At the bottom of the <code>&lt;form&gt;</code> add the following element:</p>
+<pre class="sourceCode html" id="cb5"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> value=</span><span class="st">&quot;Calculate&quot;</span><span class="kw">&gt;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 19</strong>: Copy-paste the code for your <code>&lt;form&gt;</code> element so far as the answer to this question.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 20</strong>: What was the most appropriate value for the <code>type</code> attribute of the <code>&lt;input&gt;</code> elements you created for the <code>a</code> and <code>b</code> parameters?</p>
+</blockquote>
+<p>Now, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/42"><code>&lt;select&gt;</code></a> element within the form to allow the user select the operation used in the calculation. The parameter that this affects is called <code>op</code>. Create an appropriate <code>&lt;option&gt;</code> element for each of the four operations supported: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.</p>
+<blockquote>
+<p><strong>Question 21</strong>: Copy-paste the code for your <code>&lt;select&gt;</code> element as the answer to this question.</p>
+</blockquote>
+<p>If you’ve done the last steps right, you should have a functional form. You can enter appropriate values, press “Calculate”, and it will send you to a page with the answer.</p>
+<figure>
+<img src="./lab-6/calculator.png" alt="My finished calculator." /><figcaption>My finished calculator.</figcaption>
+</figure>
+<figure>
+<img src="./lab-6/answer.png" alt="Clicking “submit” will perform the calculation." /><figcaption>Clicking “submit” will perform the calculation.</figcaption>
+</figure>
 </body>
 </html>

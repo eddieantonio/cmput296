@@ -15,6 +15,9 @@ Materials
  - A modern web browser (like Firefox or Google Chrome)
  - An internet connection
  - A text editor
+ - Included file:
+   <a href="lab-6/server.py" download><code>server.py</code></a>
+
 
 Procedure
 =========
@@ -50,7 +53,7 @@ many questions in this lab.
 
 ### Create the scaffolding
 
-Create a new text file called `index.html`. Inside this text file, type
+Create a new text file called `band.html`. Inside this text file, type
 the minimal HTML required for a valid HTML 5 page. You can find an
 example in [your lecture
 notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3).
@@ -91,7 +94,7 @@ wrap your paragraphs in the [appropriate HTML tags](http://webdocs.cs.ualberta.c
 
 ### Apply some basic styles to your page
 
-Create a new CSS file in the same directory as `index.html` called
+Create a new CSS file in the same directory as `band.html` called
 `styles.css`. Start this file off with:
 
 ```css
@@ -125,7 +128,7 @@ Add a image of the band, a band member, or the bands' logo to your page.
 Search the web to find an appropriate image, and **copy where you got
 the image from**. This is so that you can cite the source later.
 Download this image to your computer in the same directory as
-`index.html` and `style.css`. Add
+`band.html` and `style.css`. Add
 a [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
 element near the top of the page to contain your `<img>` element. Your
 `<img>` tag within the `<figure>` element must link to the image you
@@ -258,19 +261,105 @@ for use in your selector.
 > **Question 14**: Copy-paste your ruleset for the fancy initial letter
 > drop-cap as the answer to this question.
 
-<!--
 
----
+Creating a working <form>
+-------------------------
 
-<form action="http://localhost:8000/"> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/38
-<select> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/42
-   OR <input type="radio"> http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/41
+In the second part of the lab, we will be creating a working `<form>`
+that will send information as a `GET` request to an HTTP server running
+a simple calculator.
 
-<form>
+<aside>
+In case you are wary of running unknown code on your computer (you
+should be), the SHA-256 checksum of `server.py` as I wrote it is:
 
-inspect element
+```
+18ba8b046c98add0598b66f0b1338bd9ace81ea20f7ad9cfc76a494ff3dddd95
+```
 
-resizing image with CSS width: height:
+Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
+SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
+</aside>
 
+First, make sure you have downloaded the HTTP server source code. It can
+be downloaded here:
+<a href="lab-6/server.py" download><code>server.py</code></a>.
 
--->
+Now run the server. Open a terminal, and navigate to the directory where
+you downloaded `server.py`. Then run:
+
+```sh
+python3 server.py
+```
+
+It should display a message saying:
+
+<pre><output>Listening on http://localhost:8000/</output></pre>
+Leave the server running. It will respond to `GET` requests.
+
+> **Question 15**: What do you see when you navigate to
+> <http://localhost:8000/> in your browser?
+
+Now create an HTML document called `index.html`, which must be in the
+same directory as `server.py`. Type the same minimal HTML that you used for **Question 1**.
+
+In the `<body>` of `index.html`, add an `<h1>` that says "Calculator".
+Save the file `index.html`.
+
+> **Question 16**: Reload <http://localhost:8000/>. What do you see now?
+
+We will be adding a form that does a `GET` request to
+<http://localhost:8000/calc/>.
+
+> **Question 17**: How are parameters sent to the server in a `GET`
+> request? Be as specific as possible.
+
+Create a [`<form>`](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/38)
+element that will make a `GET` request to <http://localhost:8000/calc/>.
+
+> **Question 18**: How do you specify what URI/URL the `<form>` will issue
+> a request to?
+
+<http://localhost:8000/calc/> expects arguments called `a`, `b`, and
+`op` to be sent to it, and will return an HTTP error if it doesn't get
+these. `a` and `b` should be numbers (integer or floating point). `op`
+is one of `+`, `-`, `*`, `/`, which indicates the operation to perform.
+
+Create `<input>` elements within the `<form>` element for each of the
+parameters `a` and `b`. See [the course notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/39) for
+which attributes you should add to each `<input>` element.
+
+Use a `<br/>` to put these two inputs on separate lines.
+Peruse [this list on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_<input>_types)
+to determine what the most appropriate value for the `type` attribute.
+
+At the bottom of the `<form>` add the following element:
+
+```html
+<input type="submit" value="Calculate">
+```
+
+> **Question 19**: Copy-paste the code for your `<form>` element so far
+> as the answer to this question.
+
+> **Question 20**: What was the most appropriate value for the `type`
+> attribute of the `<input>` elements you created for the `a` and `b`
+> parameters?
+
+Now, create
+a [`<select>`](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/42)
+element within the form to allow the user select the operation used in
+the calculation. The parameter that this affects is called `op`. Create
+an appropriate `<option>` element for each of the four operations
+supported: `+`, `-`, `*`, `/`.
+
+> **Question 21**: Copy-paste the code for your `<select>` element
+> as the answer to this question.
+
+If you've done the last steps right, you should have a functional form.
+You can enter appropriate values, press "Calculate", and it will
+send you to a page with the answer.
+
+![My finished calculator.](./lab-6/calculator.png)
+
+![Clicking "submit" will perform the calculation.](./lab-6/answer.png)
