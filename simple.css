@@ -90,11 +90,21 @@ aside > pre {
     /* Make the link colours uniform when printed. */
     a:link, a:visited { color: #3344DD; }
 
+    /* Try to keep these entirely on one page. */
+    pre, figure, aside {
+        page-break-inside: avoid;
+    }
+
+    /* attempt to hypenate asides that are too long...
+     * might be a bad idea. */
+    aside > pre {
+        hyphens: auto;
+        overflow: visible;
+    }
+
     pre {
         /* Remove the box-shadow. */
         box-shadow: none;
-        /* Try to keep an entire code-block on one page. */
-        page-break-inside: avoid;
         /* Avoid extra scrollbars in the PDF. */
         overflow-x: auto;
     }
