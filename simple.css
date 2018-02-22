@@ -74,6 +74,10 @@ aside > header {
     font-weight: bold;
 }
 
+aside > pre {
+    overflow-x: scroll;
+}
+
 @media print {
     @page {
         margin: auto .72in;

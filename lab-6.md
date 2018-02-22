@@ -274,7 +274,7 @@ In case you are wary of running unknown code on your computer (you
 should be), the SHA-256 checksum of `server.py` as I wrote it is:
 
 ```
-18ba8b046c98add0598b66f0b1338bd9ace81ea20f7ad9cfc76a494ff3dddd95
+cac445401afb027585ae0d83239378f943f97c1e58d71edd752939384d33d2a5
 ```
 
 Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
