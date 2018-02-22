@@ -12,8 +12,10 @@ Overview
 Materials
 =========
 
- - An internet connection
  - Google Chrome's [DevTools]
+ - An internet connection
+ - A text editor
+ - A Python 3.5+ interpreter that can be run from the command line.
  - Included files:
    <a href="lab-8/server.py" download><code>server.py</code></a>,
    <a href="lab-8/index.html" download><code>index.html</code></a>
@@ -38,8 +40,9 @@ Asynchronous programming
 In this lab, the goal is to make a request to an external server
 **without** navigating away from the current webpage.
 
-In order to understand to perform this, it is vital to understand
-**asynchronous programming**.
+In order to do this, it is vital to understand **asynchronous
+programming**.
+
 
 ### What is "asynchronous programming"?
 
@@ -61,21 +64,49 @@ Similarly, if you write JavaScript code that says:
 add(2, 2)
 ```
 
-The program will call `add()` function _immediately_.
+The program will call the `add()` function _immediately_.
 
 However, you, as a programmer, have no control over user interaction, or
 at what moment, exactly, an external server replies to you (if at all).
-For example, the developers of Facebook Messenger have no control _if_
-or _when_ a user will write a message to someone and send. Yet, the
+For example, the developers of Facebook Messenger have no control if
+or when a user will write a message to someone and send. Yet, the
 developers of Facebook want you to be able to send a message at _any
 moment_ without navigating away from the page. This is an example of an
 _asynchronous event_. "Asynchronous" means that the event may not be
-initiated by _your_ action, as a programmer. Rather, an external event
-may initiate an action _at any moment_, and you, as a programmer, must
-declare a way to _react_ to that event.
+initiated by your action, as a programmer. Rather, an external event
+may initiate an action at any moment, and you, as a programmer, must
+declare a way to **react** to that event.
 
 
 ### Asynchronous programming in JavaScript
+
+Before please, download
+<a href="lab-8/server.py" download><code>server.py</code></a> and
+<a href="lab-8/index.html" download><code>index.html</code></a>.
+Place these files in the same directory.
+
+Now, open up a terminal and navigate to the directory in which you
+downloaded the files. Start the server by typing:
+
+```sh
+python3 server.py
+```
+
+
+<aside>
+Just as in [Lab 6](./lab-6.html),
+if you are security concious, you should verify that the SHA-256
+checksum of `server.py` that you downloaded matches the checksum that
+I computed:
+
+```
+334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058
+```
+
+Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
+SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
+</aside>
+
 
 
 <!-- Asynchronous programming -->

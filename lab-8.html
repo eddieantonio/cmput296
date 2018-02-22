@@ -89,8 +89,10 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
-<li>An internet connection</li>
 <li>Google Chrome’s <a href="https://developer.chrome.com/devtools">DevTools</a></li>
+<li>An internet connection</li>
+<li>A text editor</li>
+<li>A Python 3.5+ interpreter that can be run from the command line.</li>
 <li>Included files: <a href="lab-8/server.py" download><code>server.py</code></a>, <a href="lab-8/index.html" download><code>index.html</code></a></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
@@ -102,7 +104,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <!-- goal: make a valid XHR. Put it in a <div> -->
 <h2 id="asynchronous-programming">Asynchronous programming</h2>
 <p>In this lab, the goal is to make a request to an external server <strong>without</strong> navigating away from the current webpage.</p>
-<p>In order to understand to perform this, it is vital to understand <strong>asynchronous programming</strong>.</p>
+<p>In order to do this, it is vital to understand <strong>asynchronous programming</strong>.</p>
 <h3 id="what-is-asynchronous-programming">What is “asynchronous programming”?</h3>
 <p>In typical procedural programming, the programmer is often in control of the exact flow of instructions. That is, you, as the programmer say:</p>
 <pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
@@ -111,9 +113,17 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>And the program will <em>immediately</em> test if <code>x</code> is indeed less than 0, and then it will execute the consequent as soon as it determines this.</p>
 <p>Similarly, if you write JavaScript code that says:</p>
 <pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="at">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)</a></code></pre>
-<p>The program will call <code>add()</code> function <em>immediately</em>.</p>
-<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control <em>if</em> or <em>when</em> a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by <em>your</em> action, as a programmer. Rather, an external event may initiate an action <em>at any moment</em>, and you, as a programmer, must declare a way to <em>react</em> to that event.</p>
+<p>The program will call the <code>add()</code> function <em>immediately</em>.</p>
+<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control if or when a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by your action, as a programmer. Rather, an external event may initiate an action at any moment, and you, as a programmer, must declare a way to <strong>react</strong> to that event.</p>
 <h3 id="asynchronous-programming-in-javascript">Asynchronous programming in JavaScript</h3>
+<p>Before please, download <a href="lab-8/server.py" download><code>server.py</code></a> and <a href="lab-8/index.html" download><code>index.html</code></a>. Place these files in the same directory.</p>
+<p>Now, open up a terminal and navigate to the directory in which you downloaded the files. Start the server by typing:</p>
+<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">python3</span> server.py</a></code></pre>
+<aside>
+<p>Just as in <a href="./lab-6.html">Lab 6</a>, if you are security concious, you should verify that the SHA-256 checksum of <code>server.py</code> that you downloaded matches the checksum that I computed:</p>
+<pre><code>334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058</code></pre>
+Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</code></a> to verify that the file you downloaded has the same SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
+</aside>
 <!-- Asynchronous programming -->
 <!-- Sending the right headers -->
 <!-- Handling the response -->

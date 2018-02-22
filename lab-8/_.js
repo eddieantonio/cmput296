@@ -18,9 +18,10 @@ form.addEventListener('submit', function (event) {
 
   // What is the default action for clicking the "submit" button?
 
-  var a = form.elements.a.value;
-  var b = form.elements.b.value;
-  var op = form.elements.op.value;
+  // USE ids for this instead
+  //var a = form.elements.a.value;
+  //var b = form.elements.b.value;
+  //var op = form.elements.op.value;
 
   // question: how do GET requests send parameters? Do they send parameters
   // in the request body or by some other means?
@@ -29,13 +30,16 @@ form.addEventListener('submit', function (event) {
   url += '&b=' + encodeURIComponent(b);
   url += '&op=' + encodeURIComponent(op);
 
+  var output = document.getElementById('the-answer');
+
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url , true);
   xhr.setRequestHeader('Accept', 'application/json');
   xhr.onload = function () {
-    var output = document.getElementById('the-answer');
     var resp = JSON.parse(xhr.responseText);
-    output.innerHTML = resp.answer;
+    output.innerText = resp['answer'];
+    output.innerText = resp.answer;
+    //output.innerText = xhr.responseText;
   };
   xhr.send();
 });
