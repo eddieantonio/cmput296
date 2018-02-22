@@ -71,9 +71,9 @@ class AJAXRequestHandler(http.server.BaseHTTPRequestHandler):
         Serve index.html.
         """
         try:
-            with open(here / 'index.html', 'rb') as index_file:
+            with open(str(here / 'index.html'), 'rb') as index_file:
                 body = index_file.read()
-        except IOError:
+        except FileNotFoundError:
             return self.client_error(
                 'You must create a page called index.html '
                 'in the same directory as server.py',

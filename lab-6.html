@@ -84,13 +84,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h1 id="overview">Overview</h1>
 <ul>
 <li>Create an HTML and CSS page from scratch</li>
-<li>Create a form to GET information from an external resource</li>
+<li>Create a form to <code>GET</code> information from an HTTP server</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
 <li>An internet connection</li>
 <li>A text editor</li>
+<li>A Python 3.5+ interpreter that can be run from the command line.</li>
 <li>Included file: <a href="lab-6/server.py" download><code>server.py</code></a></li>
 </ul>
 <h1 id="procedure">Procedure</h1>
@@ -99,29 +100,29 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question X</strong>: Questions look like this.</p>
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
-<h2 id="creating-an-band-fan-site-from-scratch-using-html-and-css">Creating an band fan site from scratch using HTML and CSS</h2>
+<h2 id="creating-a-band-fan-site-from-scratch-using-html-and-css">Creating a band fan site from scratch using HTML and CSS</h2>
 <p>In the first part of this lab, we’ll be creating a fan site for your favourite musical group (e.g., Evanescence, Girls’ Generation, Maximum the Hormone, Opeth, Spice Girls, etc.). If you don’t have a favourite band, make a <a href="https://en.wikipedia.org/wiki/BTS_(band)">BTS</a> fan site (the particular band doesn’t matter).</p>
-<p>We’ll be writing this site from <strong>scratch</strong>. This means no use of site generators, themes, Bootstrap, or any pre-written code. <strong>Try as much as possible to not copy-paste any code from the internet</strong>. All the code you’ll write in your text editor should be typed out by hand (even if you had to go consult the internet on how to do something in HTML and CSS). There are only two exceptions to this recommendation: links like <span style="text-overflow:ellipsis;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;">https://upload.wikimedia.org/wikipedia/commons/c/ca/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8%28BTS%29_180110_%EC%A0%9C_32%ED%9A%8C_%EA%B3%A8%EB%93%A0%EB%94%94%EC%8A%A4%ED%81%AC.png</span> are okay to copy-paste; <a href="https://www.webpagefx.com/tools/lorem-ipsum-generator/">lorem ipsum</a> text is also okay to copy-paste. You will also be required to copy-paste the code <em>you</em> have written as answers to many questions in this lab.</p>
+<p>We’ll be writing this site from <strong>scratch</strong>. This means no use of site generators, themes, Bootstrap, or any pre-written code. <strong>Try as much as possible to not copy-paste any code from the internet</strong>. All the code you’ll write in your text editor should be typed out by hand (even if you had to consult the internet on how to do something in HTML and CSS). There are only two exceptions to this recommendation: links like <span style="text-overflow:ellipsis;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;">https://upload.wikimedia.org/wikipedia/commons/c/ca/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8%28BTS%29_180110_%EC%A0%9C_32%ED%9A%8C_%EA%B3%A8%EB%93%A0%EB%94%94%EC%8A%A4%ED%81%AC.png</span> are okay to copy-paste; <a href="https://www.webpagefx.com/tools/lorem-ipsum-generator/">lorem ipsum</a> text is also okay to copy-paste. You will also be required to copy-paste the code <em>you</em> have written as answers to many questions in this lab.</p>
 <h3 id="create-the-scaffolding">Create the scaffolding</h3>
-<p>Create a new text file called <code>band.html</code>. Inside this text file, type the minimal HTML required for a valid HTML 5 page. You can find an example in <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3">your lecture notes</a>. Verify that it is valid HTML 5 by copy-paste the code you wrote into the <a href="https://validator.w3.org/#validate_by_input">W3C validator</a>.</p>
+<p>Create a new text file called <code>band.html</code>. Inside this text file, type the minimal HTML required for a valid HTML 5 page. You can find an example in <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3">your lecture notes</a>. Verify that it is valid HTML 5 by copy-pasting the code you wrote into the <a href="https://validator.w3.org/#validate_by_input">W3C validator</a>.</p>
 <figure>
 <img src="./lab-6/paste-into-validator.png" alt="Pasting my code into the validator." /><figcaption>Pasting my code into the validator.</figcaption>
 </figure>
 <figure>
 <img src="./lab-6/validate-pass.png" alt="My HTML passed without errors or warnings." /><figcaption>My HTML passed without errors or warnings.</figcaption>
 </figure>
-<p>Do not continue until your minimal HTML passes the validator with 0 errors.</p>
+<p>Do not continue until your minimal HTML passes the validator with zero errors.</p>
 <blockquote>
 <p><strong>Question 1</strong>: Copy-paste your minimal HTML (that passes the W3C validator) as the answer to this question.</p>
 </blockquote>
 <h3 id="adding-content">Adding content</h3>
-<p>Write a title for your fan site. Place your title in the <code>&lt;title&gt;</code> element and in a <code>&lt;h1&gt;</code> at the top your (displayed) page. Where should these elements go in your code? Use the <a href="https://validator.w3.org/#validate_by_input">validator</a> to check that you did it right.</p>
+<p>Write a title for your fan site. Place your title in the <code>&lt;title&gt;</code> element and in a <code>&lt;h1&gt;</code> at the top your page. Where should these elements go in your code? Use the <a href="https://validator.w3.org/#validate_by_input">validator</a> to check that you did it right.</p>
 <blockquote>
 <p><strong>Question 2</strong>: What is the difference between the <code>&lt;title</code>&gt; and the <code>&lt;h1&gt;</code> tag?</p>
 </blockquote>
 <p>Now, add some content to the <code>&lt;body&gt;</code> of your website. Write <em>at least</em> 3 paragraphs of content for your website. If you are feeling uncreative/lazy, you <em>may</em> copy-paste at least 3 paragraphs worth of <a href="https://www.webpagefx.com/tools/lorem-ipsum-generator/">lorem ipsum</a> text. Either way, wrap your paragraphs in the <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/9">appropriate HTML tags</a>.</p>
 <blockquote>
-<p><strong>Question 3</strong>: Copy-paste the contents of your <code>&lt;body&gt;</code> tag up to as the answer to this question.</p>
+<p><strong>Question 3</strong>: Copy-paste the contents of your <code>&lt;body&gt;</code> tag as the answer to this question.</p>
 </blockquote>
 <h3 id="apply-some-basic-styles-to-your-page">Apply some basic styles to your page</h3>
 <p>Create a new CSS file in the same directory as <code>band.html</code> called <code>styles.css</code>. Start this file off with:</p>
@@ -132,21 +133,21 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question 4</strong>: What <a href="https://codepen.io/eddieantonio/full/NygbJR/">selector</a> did you use to change the font for the entire page? Why did you choose this selector?</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 5</strong>: Copy-paste your ruleset to change the font as the answer to this question.</p>
+<p><strong>Question 5</strong>: Copy-paste the ruleset you used to change the font as the answer to this question.</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 6</strong>: Copy-paste your <code>&lt;link&gt;</code> element that includes the external CSS file as the answer to this question.</p>
 </blockquote>
 <h3 id="adding-a-figure">Adding a figure</h3>
-<p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>band.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). Within the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
+<p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy to link to where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>band.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). At the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
 <blockquote>
 <p><strong>Question 7</strong>: Copy-paste the entire contents of your <code>&lt;figure&gt;</code> element as the answer to this question.</p>
 </blockquote>
 <aside>
 This is what I mean by “floating”. This text will render like an aside, “floating” to the right of the main text.
 </aside>
-<p>Now, move the figure, image, caption, and all, to the right side of the page, allowing the text to flow around it on the left side of the image.</p>
-<p>To do this, use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a> property to “float” your <code>&lt;figure&gt;</code> to the right of the page. Add any additional styles to ensure your image and your caption due not exceed one-half of the screen width. You may want to look at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"><code>max-width</code></a> property. Reload your page, and make sure the figure is floating to the right of the text</p>
+<p>Now, move the figure—image, caption, and all—to the right side of the page, allowing the text to flow around it on the left side of the image.</p>
+<p>To do this, use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a> property to “float” your <code>&lt;figure&gt;</code> to the right of the page. Add any additional styles to ensure your image and your caption due not exceed one-half of the screen width. You may want to look at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"><code>max-width</code></a> property. Reload your page, and make sure the figure is floating to the right of the text.</p>
 <figure>
 <img src="./lab-6/with-figure.png" alt="My page with a header, paragraphs, and figure." /><figcaption>My page with a header, paragraphs, and figure.</figcaption>
 </figure>
@@ -154,7 +155,7 @@ This is what I mean by “floating”. This text will render like an aside, “f
 <p><strong>Question 8</strong>: Copy-paste the styles you just wrote for the <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, and/or <code>&lt;img&gt;</code> elements.</p>
 </blockquote>
 <h3 id="adding-a-footer">Adding a footer</h3>
-<p>At the bottom of the <code>&lt;body&gt;</code> element, add <code>&lt;footer&gt;</code> element. What you typically put here is a copyright notice, authorship information and other non-content information.</p>
+<p>At the bottom of the <code>&lt;body&gt;</code> element, add a <code>&lt;footer&gt;</code> element. What you typically put here is a copyright notice, authorship information and other non-content information.</p>
 <p>You will add a message in the footer that says</p>
 <blockquote>
 <p>Copyright © [the year right now] [your name here].</p>
@@ -173,15 +174,15 @@ This is what I mean by “floating”. This text will render like an aside, “f
 </blockquote>
 <h3 id="finishing-touches">Finishing touches</h3>
 <p>Add a style to a word of your choosing in the first sentence of the first paragraph. Choose a word near the beginning of the page and wrap it in an element appropriate for <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17">applying a class or inline styles</a>.</p>
-<p>Apply a class called <code>rotated</code> to the new element you just created. Now write a ruleset in <code>styles.css</code> that will rotate this text. Write an appropriate selector. Then, add these two declarations to your ruleset that selects the element.</p>
+<blockquote>
+<p><strong>Question 11</strong>: What is the most appropriate element for applying styles or special properties to arbitrary inline text in HTML?</p>
+</blockquote>
+<p>Apply a class called <code>rotated</code> to the new element you just created. Now write a ruleset in <code>styles.css</code> that will rotate this text. Write an appropriate selector. Then, add these two declarations to your ruleset that selects the element:</p>
+<pre class="sourceCode css" id="cb2"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" data-line-number="1">display<span class="in">:</span> inline-block;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">transform<span class="in">:</span> rotate(-12deg);</a></code></pre>
 <figure>
 <img src="./lab-6/rotated.png" alt="A rotated word in the first paragraph." /><figcaption>A rotated word in the first paragraph.</figcaption>
 </figure>
-<blockquote>
-<p><strong>Question 11</strong>: What is the most appropriate element for applying styles or special properties to some inline text in HTML?</p>
-</blockquote>
-<pre class="sourceCode css" id="cb2"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" data-line-number="1">display<span class="in">:</span> inline-block;</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">transform<span class="in">:</span> rotate(-12deg);</a></code></pre>
 <p>Save <code>styles.css</code> and reload the page. Before moving on, ensure that the particular word you selected is indeed rotated.</p>
 <blockquote>
 <p><strong>Question 12</strong>: Copy-paste the ruleset you just wrote to rotate the text.</p>
@@ -189,7 +190,7 @@ This is what I mean by “floating”. This text will render like an aside, “f
 <blockquote>
 <p><strong>Question 13</strong>: Delete the <code>display: inline-block</code> declaration. What changes when you reload the page? Note that you should <strong>not</strong> delete the <code>transform: rotate(-12deg)</code> declaration. Add the <code>display</code> declaration back. What does <code>display: inline-block</code> do?</p>
 </blockquote>
-<p>Finally, make we’re going to a fancy <a href="https://en.wikipedia.org/wiki/Initial">initial letter drop cap</a> like in old European manuscripts.</p>
+<p>Finally, we’re going to make a fancy <a href="https://en.wikipedia.org/wiki/Initial">initial letter drop cap</a> like in old European manuscripts.</p>
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Fraktur.png" alt="A fancy initial from a German manuscript. Source: https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png" /><figcaption>A fancy initial from a German manuscript. Source: <a href="https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png" class="uri">https://en.wikipedia.org/wiki/Initial#/media/File:Fraktur.png</a></figcaption>
 </figure>
@@ -201,13 +202,11 @@ This is what I mean by “floating”. This text will render like an aside, “f
 <blockquote>
 <p><strong>Question 14</strong>: Copy-paste your ruleset for the fancy initial letter drop-cap as the answer to this question.</p>
 </blockquote>
-Creating a working
-<form>
-<hr />
+<h2 id="creating-a-working-form-element">Creating a working <code>&lt;form&gt;</code> element</h2>
 <p>In the second part of the lab, we will be creating a working <code>&lt;form&gt;</code> that will send information as a <code>GET</code> request to an HTTP server running a simple calculator.</p>
 <aside>
 <p>In case you are wary of running unknown code on your computer (you should be), the SHA-256 checksum of <code>server.py</code> as I wrote it is:</p>
-<pre><code>cac445401afb027585ae0d83239378f943f97c1e58d71edd752939384d33d2a5</code></pre>
+<pre><code>0dd7c9712ab7126cac7f8c50e5747451cd7b93dc576700be8159d2f72380cc26</code></pre>
 Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</code></a> to verify that the file you downloaded has the same SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
 </aside>
 <p>First, make sure you have downloaded the HTTP server source code. It can be downloaded here: <a href="lab-6/server.py" download><code>server.py</code></a>.</p>
@@ -233,8 +232,8 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
 <p><strong>Question 18</strong>: How do you specify what URI/URL the <code>&lt;form&gt;</code> will issue a request to?</p>
 </blockquote>
 <p><a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a> expects arguments called <code>a</code>, <code>b</code>, and <code>op</code> to be sent to it, and will return an HTTP error if it doesn’t get these. <code>a</code> and <code>b</code> should be numbers (integer or floating point). <code>op</code> is one of <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, which indicates the operation to perform.</p>
-<p>Create <code>&lt;input&gt;</code> elements within the <code>&lt;form&gt;</code> element for each of the parameters <code>a</code> and <code>b</code>. See <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/39">the course notes</a> for which attributes you should add to each <code>&lt;input&gt;</code> element.</p>
-<p>Use a <code>&lt;br/&gt;</code> to put these two inputs on separate lines. Peruse <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types">this list on MDN</a> to determine what the most appropriate value for the <code>type</code> attribute.</p>
+<p>Create <code>&lt;input&gt;</code> elements within the <code>&lt;form&gt;</code> element for each of the parameters <code>a</code> and <code>b</code>. See <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/39">the course notes</a> for which attributes you should add to each <code>&lt;input&gt;</code> element. Peruse <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types">this list on MDN</a> to determine what the most appropriate value for the <code>type</code> attribute.</p>
+<p>Use a <code>&lt;br/&gt;</code> to put these two inputs on separate lines.</p>
 <p>At the bottom of the <code>&lt;form&gt;</code> add the following element:</p>
 <pre class="sourceCode html" id="cb5"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> value=</span><span class="st">&quot;Calculate&quot;</span><span class="kw">&gt;</span></a></code></pre>
 <blockquote>

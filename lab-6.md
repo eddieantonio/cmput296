@@ -6,7 +6,7 @@ Overview
 ========
 
  - Create an HTML and CSS page from scratch
- - Create a form to GET information from an external resource
+ - Create a form to `GET` information from an HTTP server
 
 
 Materials
@@ -15,9 +15,9 @@ Materials
  - A modern web browser (like Firefox or Google Chrome)
  - An internet connection
  - A text editor
+ - A Python 3.5+ interpreter that can be run from the command line.
  - Included file:
    <a href="lab-6/server.py" download><code>server.py</code></a>
-
 
 Procedure
 =========
@@ -29,7 +29,7 @@ Submit your responses to the questions in this lab on eClass.
 **Remember to cite your sources**.
 
 
-Creating an band fan site from scratch using HTML and CSS
+Creating a band fan site from scratch using HTML and CSS
 ---------------------------------------------------------
 
 In the first part of this lab, we'll be creating a fan site for your
@@ -41,8 +41,8 @@ We'll be writing this site from **scratch**. This means no use of site
 generators, themes, Bootstrap, or any pre-written code. **Try as much as
 possible to not copy-paste any code from the internet**. All the code
 you'll write in your text editor should be typed out by hand (even if
-you had to go consult the internet on how to do something in HTML and
-CSS). There are only two exceptions to this recommendation: links like
+you had to consult the internet on how to do something in HTML and CSS).
+There are only two exceptions to this recommendation: links like
 <span style="text-overflow:ellipsis;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;">https://upload.wikimedia.org/wikipedia/commons/c/ca/%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8%28BTS%29_180110_%EC%A0%9C_32%ED%9A%8C_%EA%B3%A8%EB%93%A0%EB%94%94%EC%8A%A4%ED%81%AC.png</span>
 are okay to copy-paste; [lorem ipsum][] text is also okay to copy-paste.
 You will also be required to copy-paste the code _you_ have written as answers to
@@ -57,7 +57,7 @@ Create a new text file called `band.html`. Inside this text file, type
 the minimal HTML required for a valid HTML 5 page. You can find an
 example in [your lecture
 notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/3).
-Verify that it is valid HTML 5 by copy-paste the code you wrote into
+Verify that it is valid HTML 5 by copy-pasting the code you wrote into
 the [W3C validator][validator].
 
 [validator]: https://validator.w3.org/#validate_by_input
@@ -67,7 +67,7 @@ the [W3C validator][validator].
 ![My HTML passed without errors or warnings.](./lab-6/validate-pass.png)
 
 Do not continue until your minimal HTML passes the validator with
-0 errors.
+zero errors.
 
 > **Question 1**: Copy-paste your minimal HTML (that passes the W3C
 > validator) as the answer to this question.
@@ -76,7 +76,7 @@ Do not continue until your minimal HTML passes the validator with
 ### Adding content
 
 Write a title for your fan site. Place your title in the `<title>`
-element and in a `<h1>` at the top your (displayed) page. Where should
+element and in a `<h1>` at the top your page. Where should
 these elements go in your code? Use the [validator][] to check that you
 did it right.
 
@@ -88,7 +88,7 @@ Now, add some content to the `<body>` of your website. Write *at least*
 copy-paste at least 3 paragraphs worth of [lorem ipsum][] text. Either way,
 wrap your paragraphs in the [appropriate HTML tags](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/9).
 
-> **Question 3**: Copy-paste the contents of your `<body>` tag up to
+> **Question 3**: Copy-paste the contents of your `<body>` tag
 > as the answer to this question.
 
 
@@ -115,8 +115,8 @@ appropriately.
 > to change the font for the entire page? Why did you choose this
 > selector?
 
-> **Question 5**: Copy-paste your ruleset to change the font as the
-> answer to this question.
+> **Question 5**: Copy-paste the ruleset you used to change the font as
+> the answer to this question.
 
 > **Question 6**: Copy-paste your `<link>` element that includes the
 > external CSS file as the  answer to this question.
@@ -125,8 +125,8 @@ appropriately.
 ### Adding a figure
 
 Add a image of the band, a band member, or the bands' logo to your page.
-Search the web to find an appropriate image, and **copy where you got
-the image from**. This is so that you can cite the source later.
+Search the web to find an appropriate image, and **copy to link to where
+you got the image from**. This is so that you can cite the source later.
 Download this image to your computer in the same directory as
 `band.html` and `style.css`. Add
 a [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
@@ -137,7 +137,7 @@ within the `<figure>` element), add a `<figcaption>` that has a written
 caption for the image (e.g., "BTS at the 32nd Golden Disk Awards on
 January 10, 2018"
 [[1]](https://en.wikipedia.org/w/index.php?title=BTS_(band)&oldid=826907650)).
-Within the end of the `<figcaption>`, create
+At the end of the `<figcaption>`, create
 a [hyperlink](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14)
 **citing the source you got the image from**.
 
@@ -150,7 +150,7 @@ This is what I mean by "floating". This text will render like an aside,
 "floating" to the right of the main text.
 </aside>
 
-Now, move the figure, image, caption, and all, to the right side of the
+Now, move the figure---image, caption, and all---to the right side of the
 page, allowing the text to flow around it on the left side of the image.
 
 
@@ -161,7 +161,7 @@ Add any additional styles to ensure your image and your caption due not
 exceed one-half of the screen width. You may want to look at the
 [`max-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width)
 property. Reload your page, and make sure the figure is floating to the
-right of the text
+right of the text.
 
 ![My page with a header, paragraphs, and figure.](./lab-6/with-figure.png)
 
@@ -170,7 +170,7 @@ right of the text
 
 ### Adding a footer
 
-At the bottom of the `<body>` element, add `<footer>` element. What you
+At the bottom of the `<body>` element, add a `<footer>` element. What you
 typically put here is a copyright notice, authorship information and
 other non-content information.
 
@@ -206,21 +206,21 @@ Add a style to a word of your choosing in the first sentence of the first
 paragraph. Choose a word near the beginning of the page and wrap it in
 an element appropriate for [applying a class or inline styles](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/17).
 
+> **Question 11**: What is the most appropriate element for applying
+> styles or special properties to arbitrary inline text in HTML?
+
 Apply a class called `rotated` to the new element you just created. Now
 write a ruleset in `styles.css` that will rotate this text. Write an
 appropriate selector. Then, add these two declarations to your ruleset
-that selects the element.
-
-![A rotated word in the first paragraph.](./lab-6/rotated.png)
-
-> **Question 11**: What is the most appropriate element for applying
-> styles or special properties to some inline text in HTML?
-
+that selects the element:
 
 ```css
 display: inline-block;
 transform: rotate(-12deg);
 ```
+
+![A rotated word in the first paragraph.](./lab-6/rotated.png)
+
 
 Save `styles.css` and reload the page. Before moving on, ensure that the
 particular word you selected is indeed rotated.
@@ -234,7 +234,7 @@ particular word you selected is indeed rotated.
 > declaration back. What does `display: inline-block` do?
 
 
-Finally, make we're going to a fancy [initial letter drop
+Finally, we're going to make a fancy [initial letter drop
 cap](https://en.wikipedia.org/wiki/Initial) like in old European
 manuscripts.
 
@@ -262,8 +262,8 @@ for use in your selector.
 > drop-cap as the answer to this question.
 
 
-Creating a working <form>
--------------------------
+Creating a working `<form>` element
+---------------------------------
 
 In the second part of the lab, we will be creating a working `<form>`
 that will send information as a `GET` request to an HTTP server running
@@ -274,7 +274,7 @@ In case you are wary of running unknown code on your computer (you
 should be), the SHA-256 checksum of `server.py` as I wrote it is:
 
 ```
-cac445401afb027585ae0d83239378f943f97c1e58d71edd752939384d33d2a5
+0dd7c9712ab7126cac7f8c50e5747451cd7b93dc576700be8159d2f72380cc26
 ```
 
 Use [`sha256sum`](https://help.ubuntu.com/community/HowToSHA256SUM) to verify that the file you downloaded has the same
@@ -328,10 +328,10 @@ is one of `+`, `-`, `*`, `/`, which indicates the operation to perform.
 Create `<input>` elements within the `<form>` element for each of the
 parameters `a` and `b`. See [the course notes](http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/39) for
 which attributes you should add to each `<input>` element.
-
-Use a `<br/>` to put these two inputs on separate lines.
 Peruse [this list on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_<input>_types)
 to determine what the most appropriate value for the `type` attribute.
+
+Use a `<br/>` to put these two inputs on separate lines.
 
 At the bottom of the `<form>` add the following element:
 
