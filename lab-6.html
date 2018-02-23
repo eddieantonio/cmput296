@@ -129,14 +129,15 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <pre class="sourceCode css" id="cb1"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">@charset</span> <span class="st">&quot;UTF-8&quot;</span>;</a></code></pre>
 <p>You should at very least override the default font for the entire page. Write the appropriate CSS ruleset that will change the <code>font-family</code> of the entire page. Change the font to <code>sans-serif</code>, or any other font of your choosing.</p>
 <p>Create the appropriate <code>&lt;link&gt;</code> to make your page use <code>styles.css</code>. Reload the page in your browser and ensure the font has changed appropriately.</p>
+<p>For the next questions, review <a href="https://codepen.io/eddieantonio/full/NygbJR/">the terminology used to describe CSS syntax</a>.</p>
 <blockquote>
-<p><strong>Question 4</strong>: What <a href="https://codepen.io/eddieantonio/full/NygbJR/">selector</a> did you use to change the font for the entire page? Why did you choose this selector?</p>
+<p><strong>Question 4</strong>: Copy-paste your <code>&lt;link&gt;</code> element that includes the external CSS file as the answer to this question.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 5</strong>: Copy-paste the ruleset you used to change the font as the answer to this question.</p>
+<p><strong>Question 5</strong>: What selector did you use to change the font for the entire page? Why did you choose this selector?</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 6</strong>: Copy-paste your <code>&lt;link&gt;</code> element that includes the external CSS file as the answer to this question.</p>
+<p><strong>Question 6</strong>: Copy-paste the ruleset you used to change the font as the answer to this question.</p>
 </blockquote>
 <h3 id="adding-a-figure">Adding a figure</h3>
 <p>Add a image of the band, a band member, or the bands’ logo to your page. Search the web to find an appropriate image, and <strong>copy to link to where you got the image from</strong>. This is so that you can cite the source later. Download this image to your computer in the same directory as <code>band.html</code> and <code>style.css</code>. Add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element near the top of the page to contain your <code>&lt;img&gt;</code> element. Your <code>&lt;img&gt;</code> tag within the <code>&lt;figure&gt;</code> element must link to the image you just downloaded onto your computer. Below the <code>&lt;img&gt;</code> element (and still within the <code>&lt;figure&gt;</code> element), add a <code>&lt;figcaption&gt;</code> that has a written caption for the image (e.g., “BTS at the 32nd Golden Disk Awards on January 10, 2018” <a href="https://en.wikipedia.org/w/index.php?title=BTS_(band)&amp;oldid=826907650">[1]</a>). At the end of the <code>&lt;figcaption&gt;</code>, create a <a href="http://webdocs.cs.ualberta.ca/~hindle1/2014/HTML-Slides/#/14">hyperlink</a> <strong>citing the source you got the image from</strong>.</p>
@@ -214,14 +215,14 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
 <pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">python3</span> server.py</a></code></pre>
 <p>It should display a message saying:</p>
 <pre><output>Listening on http://localhost:8000/</output></pre>
-<p>Leave the server running. It will respond to <code>GET</code> requests.</p>
+<p>Leave the terminal window open with the server running. It will respond to <code>GET</code> requests.</p>
 <blockquote>
-<p><strong>Question 15</strong>: What do you see when you navigate to <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in your browser?</p>
+<p><strong>Question 15</strong>: Describe what you see when you navigate to <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in your browser.</p>
 </blockquote>
 <p>Now create an HTML document called <code>index.html</code>, which must be in the same directory as <code>server.py</code>. Type the same minimal HTML that you used for <strong>Question 1</strong>.</p>
 <p>In the <code>&lt;body&gt;</code> of <code>index.html</code>, add an <code>&lt;h1&gt;</code> that says “Calculator”. Save the file <code>index.html</code>.</p>
 <blockquote>
-<p><strong>Question 16</strong>: Reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. What do you see now?</p>
+<p><strong>Question 16</strong>: Reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. The page should have changed. Describe what you see in the webpage, and where that content originated from.</p>
 </blockquote>
 <p>We will be adding a form that does a <code>GET</code> request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a>.</p>
 <blockquote>

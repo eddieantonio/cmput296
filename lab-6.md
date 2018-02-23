@@ -110,16 +110,18 @@ Create the appropriate `<link>` to make your page use `styles.css`.
 Reload the page in your browser and ensure the font has changed
 appropriately.
 
-> **Question 4**: What
-> [selector](https://codepen.io/eddieantonio/full/NygbJR/) did you use
-> to change the font for the entire page? Why did you choose this
-> selector?
+For the next questions, review [the terminology used to describe CSS
+syntax](https://codepen.io/eddieantonio/full/NygbJR/).
 
-> **Question 5**: Copy-paste the ruleset you used to change the font as
+> **Question 4**: Copy-paste your `<link>` element that includes the
+> external CSS file as the answer to this question.
+
+> **Question 5**: What selector  did you use to change the font for the
+> entire page? Why did you choose this selector?
+
+> **Question 6**: Copy-paste the ruleset you used to change the font as
 > the answer to this question.
 
-> **Question 6**: Copy-paste your `<link>` element that includes the
-> external CSS file as the  answer to this question.
 
 
 ### Adding a figure
@@ -295,10 +297,12 @@ python3 server.py
 It should display a message saying:
 
 <pre><output>Listening on http://localhost:8000/</output></pre>
-Leave the server running. It will respond to `GET` requests.
 
-> **Question 15**: What do you see when you navigate to
-> <http://localhost:8000/> in your browser?
+Leave the terminal window open with the server running. It will respond
+to `GET` requests.
+
+> **Question 15**: Describe what you see when you navigate to
+> <http://localhost:8000/> in your browser.
 
 Now create an HTML document called `index.html`, which must be in the
 same directory as `server.py`. Type the same minimal HTML that you used for **Question 1**.
@@ -306,7 +310,9 @@ same directory as `server.py`. Type the same minimal HTML that you used for **Qu
 In the `<body>` of `index.html`, add an `<h1>` that says "Calculator".
 Save the file `index.html`.
 
-> **Question 16**: Reload <http://localhost:8000/>. What do you see now?
+> **Question 16**: Reload <http://localhost:8000/>. The page should have
+> changed. Describe what you see in the webpage, and where that content
+> originated from.
 
 We will be adding a form that does a `GET` request to
 <http://localhost:8000/calc/>.
