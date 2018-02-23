@@ -368,4 +368,4 @@ send you to a page with the answer.
 
 ![My finished calculator.](./lab-6/calculator.png)
 
-![Clicking "submit" will perform the calculation.](./lab-6/answer.png)
+![Clicking "Calculate" will redirect to this page.](./lab-6/answer.png)
