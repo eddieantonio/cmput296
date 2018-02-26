@@ -105,8 +105,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2 id="ajax">AJAX</h2>
 <p>In this lab, the goal is to make a request to an external server and show the results in the webpage <strong>without</strong> navigating away from the current webpage.</p>
 <h3 id="warm-up-exercise-dom-manipulation">Warm-up exercise: DOM manipulation</h3>
-<p><strong>DOM Maniulation</strong> refers to using JavaScript to change the <strong>Document Object Model (DOM)</strong>, which represents the logical structure of your HTML document loaded in the web browser.</p>
-<p>This means that we can access and modify the text and elements on the webpage. The langauge we’ll use to do this is JavaScript.</p>
+<p><strong>DOM Manipulation</strong> refers to using JavaScript to change the <strong>Document Object Model (DOM)</strong>, which represents the logical structure of your HTML document loaded in the web browser.</p>
+<p>This means that we can access and modify the text and elements on the webpage. The language we’ll use to do this is JavaScript.</p>
 <aside>
 <p>Just as in <a href="./lab-6.html">Lab 6</a>, if you are security conscience, you should verify that the SHA-256 checksum of <code>server.py</code> that you downloaded matches the checksum that I computed:</p>
 <pre><code>334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058</code></pre>
@@ -142,7 +142,7 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
 <p><strong>Question 5</strong>: Copy-paste the JavaScript code you just wrote to change the <code>&lt;output&gt;</code> element as the answer to this question.</p>
 </blockquote>
 <h2 id="asynchronous-programming">Asynchronous programming</h2>
-<p>To recap, the goal of this lab is to make a request to an external server without navigating away from the current webpage.</p>
+<p>To recap, the goal of this lab is to make a request to an external server and display a result without navigating away from the current webpage.</p>
 <p>In order to do this, it is vital to understand <strong>asynchronous programming</strong>.</p>
 <h3 id="what-is-asynchronous-programming">What is “asynchronous programming”?</h3>
 <p>In typical procedural programming, the programmer is often in control of the exact flow of instructions. That is, you, as the programmer say:</p>
@@ -153,23 +153,126 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
 <p>Similarly, if you write JavaScript code that says:</p>
 <pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)</a></code></pre>
 <p>The program will call the <code>add()</code> function <em>immediately</em>.</p>
-<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control if or when a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by your action, as a programmer. Rather, an external event may initiate an action at any moment, and you, as a programmer, must declare a way to react to that event.</p>
+<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control if or when a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by your action, as a programmer. Rather, an external event may initiate an action at any moment, and you, as a programmer, must declare a way to respond to that event.</p>
 <h3 id="asynchronous-programming-in-javascript">Asynchronous programming in JavaScript</h3>
-<p>Enter in values for <code>a</code>, <code>b,</code> and use the drop-down to select an arithmetic operation.</p>
+<p>We’re going to register an <strong>event listener</strong> that will be called whenever some event occurs on the page. Registering event listeners is how we write asynchronous code in JavaScript. Essentially, we register some code that will run <em>when</em> a certain event occurs.</p>
+<p>Open up <code>index.html</code> in your text editor of choice. Near the bottom of the file should be a <code>&lt;script&gt;&lt;/script&gt;</code> element. We will write JavaScript code within this element.</p>
+<p>Create an event listener that will listen to the “submit” event for the form.</p>
+<p>First, write some code that assigns a reference to the <code>&lt;form id=&quot;input-form&quot;&gt;</code> element to a variable called <code>form</code>, like this:</p>
+<pre class="sourceCode javascript" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">var</span> form <span class="op">=</span> <span class="co">/* write your code here */</span><span class="op">;</span></a></code></pre>
+<p>A <code>&lt;form&gt;</code> is an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a>. This means we can call <code>.addEventListener()</code> to register a function to be called when a certain event occurs.</p>
+<p>At the end of the <code>&lt;script&gt;</code> element, write this:</p>
+<pre class="sourceCode javascript" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="va">form</span>.<span class="at">addEventListener</span>(<span class="st">&#39;submit&#39;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="at">alert</span>(<span class="st">&quot;Form submitted!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre>
+<p>Reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in your web browser. Open up the JavaScript console and ensure there are no errors in your code. Once you’re sure your code has no errors, fill out the form as you wish, and click “Calculate”.</p>
 <blockquote>
-<p><strong>Question X</strong>: Describe what happens when you press the “Calculate” button. Does it stay on the same webpage or does your browser navigate to a different webpage?</p>
+<p><strong>Question 6</strong>: When does the function you just wrote get called? How many arguments does this function take? Does this function have a name?</p>
 </blockquote>
-<!-- Sending the right headers -->
-<!-- Handling the response -->
-<!-- Why asynchronous programming? How long does it take to send the
-     HTTP request/response? The page pauses while the entire request
-     downloads. What would be the consequence on the user experience if
-     the page paused? -->
-<!--
-
-     http://wiki.c2.com/?HollywoodPrinciple
-
--->
+<blockquote>
+<p><strong>Question 7</strong>: Describe what happens when you press the “Calculate” button. After you dismiss the message, does the browser stay on the same webpage or does your browser navigate to a different webpage?</p>
+</blockquote>
+<p>Add a line to your <code>submit</code> event handler.</p>
+<p>Somewhere in the body of the function you just defined, add this code:</p>
+<pre class="sourceCode javascript" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1">  <span class="va">event</span>.<span class="at">preventDefault</span>()<span class="op">;</span></a></code></pre>
+<p>Reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>, fill out the form, and press submit again.</p>
+<blockquote>
+<p><strong>Question 8</strong>: What happens when your press “Calculate” now? What does <code>event.preventDefault()</code> do? What is the “default” that it is preventing?</p>
+</blockquote>
 <h3 id="xmlhttprequest"><code>XMLHttpRequest</code></h3>
+<aside>
+Despite its name, you can request <em>anything</em> using <code>XMLHttpRequest</code>—not just XML.
+</aside>
+<p>The <code>XMLHttpRequest</code> object allows us to make an arbitrary HTTP request using JavaScript. In order to do this we must first:</p>
+<ul>
+<li>Instantiate a new <code>XMLHttpRequest</code> object.</li>
+<li>“Open” a new request, specifying the request method, the request URI, and whether we want the request to be asynchronous or not.</li>
+<li>Assign event handlers to be called at different stages of processing the HTTP response.</li>
+<li>Send the HTTP request.</li>
+</ul>
+<p>Open the DevTools JavaScript console. We will experiment with the <code>XMLHttpRequest</code> object.</p>
+<p>In the console, instantiate a new <code>XMLHttpRequest</code> object and assign it to a variable called <code>xhr</code>.</p>
+<p><a name="xhr"></p>
+<!-- screenshot? -->
+<pre class="sourceCode javascript" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">var</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a></code></pre>
+<p>We want to execute an asynchronous GET request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a>. Use the documentation on <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open">XMLHttpRequest.open</a> to write the appropriate code for this. Test your code in the console to ensure it does not crash.</p>
+<blockquote>
+<p><strong>Question 9</strong>: Copy-paste the working code you wrote to make a <code>GET</code> request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a> as the answer to this question.</p>
+</blockquote>
+<p>Now, define your <strong>event handler</strong>. To do so, you must assign a function to <code>xhr.onload</code>.</p>
+<p>Assign the following event handler:</p>
+<pre class="sourceCode javascript" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="va">xhr</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="at">alert</span>(<span class="va">xhr</span>.<span class="at">responseText</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="op">};</span></a></code></pre>
+<blockquote>
+<p><strong>Question 10</strong>: The way we defined an event handler for the <code>submit</code> event earlier and the way we defined an event handler for when the XMLHttpRequest is loaded has different syntax. Explain what is semantically different about how we defined these two even handlers?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 11</strong>: What part of the HTTP response will be contained in <code>xhr.responseText</code>. Be as descriptive as possible using terms used in describing HTTP messages.</p>
+</blockquote>
+<p>Now that we have opened the request with the desired HTTP method and request URI, and setup what will be called when the we receive the full HTTP response, we can finally send the HTTP request. Write the following code in the console:</p>
+<pre class="sourceCode javascript" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="va">xhr</span>.<span class="at">send</span>()<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 12</strong>: What is shown in the pop-up message after calling <code>xhr.send()</code>? Do you get any error messages? What was the status code of the GET request to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a>? Describe what this error message means.</p>
+</blockquote>
+<h3 id="getting-parameters-from-the-webpage">Getting parameters from the webpage</h3>
+<p>AJAX requests typically require sending parameters to the server. Since this is a <code>GET</code> request, we’ll have to package up the parameters in the URL’s query string.</p>
+<p><a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a> expects three query parameters:</p>
+<ul>
+<li><code>a</code> — a number</li>
+<li><code>b</code> — a number</li>
+<li><code>op</code> — a value in <code>+</code>, <code>-</code>, <code>*</code>, or <code>/</code></li>
+</ul>
+<p>We can obtain this from the <code>&lt;form&gt;</code> on the page. With the latest version of <a href="http://localhost:8000" class="uri">http://localhost:8000</a> open in you browser, open the JavaScript console and get a reference to the <code>&lt;form&gt;</code> element and assign it to a variable called <code>form</code>.</p>
+<pre class="sourceCode javascript" id="cb14"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">var</span> form <span class="op">=</span> <span class="co">/* write your code here */</span><span class="op">;</span></a></code></pre>
+<p>Now type the following in the console:</p>
+<pre class="sourceCode javascript" id="cb15"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="va">form</span>.<span class="at">elements</span>[<span class="st">&quot;a&quot;</span>]</a></code></pre>
+<p>Then type:</p>
+<pre class="sourceCode javascript" id="cb16"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="va">form</span>.<span class="at">elements</span>[<span class="st">&quot;op&quot;</span>]</a></code></pre>
+<p>Now try the next two lines:</p>
+<pre class="sourceCode javascript" id="cb17"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="va">form</span>.<span class="at">elements</span>[<span class="st">&quot;a&quot;</span>].<span class="at">value</span></a></code></pre>
+<pre class="sourceCode javascript" id="cb18"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="va">form</span>.<span class="at">elements</span>[<span class="st">&quot;op&quot;</span>].<span class="at">value</span></a></code></pre>
+<blockquote>
+<p><strong>Question 12</strong>: What do these previous lines return? Where do the values come from? Use the drop-down on the webpage to change the operation (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>). Now what does <code>form.elements[&quot;op&quot;].value</code> return?</p>
+</blockquote>
+<p>We must construct an appropriate query string that sends the parameters <code>a</code>, <code>b</code>, and <code>op</code> to make a valid request to <a href="http://localhost:8000/calc" class="uri">http://localhost:8000/calc</a>. Use the following template to get started. Set the values of <code>a</code>, <code>b</code>, and <code>op</code>, to the values obtained from the <code>&lt;form&gt;</code> element. Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent">encodeURIComponent</a> to do percent-encoding where appropriate.</p>
+<pre class="sourceCode javascript" id="cb19"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">var</span> url <span class="op">=</span> <span class="st">&quot;http://localhost:8000&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">url <span class="op">=</span> url <span class="op">+</span> <span class="co">/* write your code here */</span><span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 13</strong>: What’s the difference between</p>
+<pre><code>&quot;&amp;op&quot; + form.elements[&quot;op&quot;].value;</code></pre>
+<p>and</p>
+<pre><code>&quot;&amp;op&quot; + encodeURIComponent(form.elements[&quot;op&quot;].value);</code></pre>
+<p>Which one is correct? Why is the other option <em>incorrect</em>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 14</strong>: Copy-paste your code that constructs the valid URL as the answer to this question.</p>
+</blockquote>
+<p>Once you have created a valid URL, create a new <code>XMLHttpRequest</code> object as before, but this time, open the URL you just created with a valid query string, and set an <code>onload</code> event handler that prints the <code>xhr.responseText</code> (<a href="#xhr">see above</a> for a refresher on how we did this). With the <code>XMLHttpRequest</code> object set up to request to the correct URL, execute <code>xhr.send()</code>.</p>
+<blockquote>
+<p><strong>Question 15</strong>: Executing <code>xhr.send()</code> should now allow us to receive an HTTP response with status code 200. Now that the correct URL has been sent, what is the value of the <code>xhr.responseText</code>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 16</strong>: Use the <strong>Network</strong> panel to inspect the successful HTTP response to <a href="http://localhost:8000/calc" class="uri">http://localhost:8000/calc</a> (with status code 200). What is the <code>Content-Type</code> of this response?</p>
+</blockquote>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>We’re going to combine</p>
+<ul>
+<li>registering an event listener for submit events;</li>
+<li>getting form values from the page;</li>
+<li>sending an <code>XMLHttpResponse</code>; and</li>
+<li>changing an element’s <code>.innerText</code></li>
+</ul>
+<p>to create our AJAX-powered calculator. By the end of this, the answer should appear in the same webpage without navigating away from the current page.</p>
+<p>Open <code>index.html</code>, and write your JavaScript code to the <code>&lt;script&gt;</code> element near the bottom of the file.</p>
+<p>Define an event listener to the <code>&lt;form&gt;</code> element. It should prevent the default action, which is to navigate away from the page. If there already is an event listener defined in your copy of <code>index.html</code>, delete it and write a new one.</p>
+<p><strong>Within</strong> the event handler, use <code>form.elements[...]</code> and <code>encodeURIComponent()</code> to construct a URL to be sent to <a href="http://localhost:8000/calc/" class="uri">http://localhost:8000/calc/</a> with query parameters based on what’s typed and selected within the webpage.</p>
+<p>Create an <code>XMLHttpResponse</code> object and assign it to the variable name <code>xhr</code>, and open a <code>GET</code> request to the URL you just constructed. Assign a new <code>onload</code> handler. Within the <code>onload</code> handler, get a reference to the <code>&lt;output&gt;</code> element. Now, change the <code>&lt;output&gt;</code> element’s text to the value of <code>xhr.responseText</code>.</p>
+<p>Finally, still within the “submit” event listener, call <code>xhr.send()</code> to start the HTTP request.</p>
+<p>Save your changes to <code>index.html</code> and reload <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. Enter in some values on the form and click <code>Calculate</code>. If you have done everything right, it should display the answer on the same page, without navigating to a new page.</p>
+<blockquote>
+<p><strong>Question 17</strong>: Copy-paste the JavaScript you wrote within the <code>&lt;script&gt;</code> element as the answer to this question. Make sure it successfully performs an HTTP request and changes the content of the <code>&lt;output&gt;</code> element.</p>
+</blockquote>
 </body>
 </html>

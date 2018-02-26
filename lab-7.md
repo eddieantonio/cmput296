@@ -51,3 +51,5 @@ syntax, curly bracket, for loop, semicolons, ===
 declare a variable
 
 -->
+
+nan in Python. nan in C.
