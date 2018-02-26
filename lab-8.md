@@ -54,7 +54,7 @@ webpage. The language we'll use to do this is JavaScript.
 
 <aside>
 Just as in [Lab 6](./lab-6.html),
-if you are security conscience, you should verify that the SHA-256
+if you are security conscious, you should verify that the SHA-256
 checksum of `server.py` that you downloaded matches the checksum that
 I computed:
 
@@ -106,7 +106,7 @@ We just created a variable called `h1`.
 > console. What kind of output do you get? What does
 > `document.getElementById()` do?
 
-Now type this in console:
+Now type this in the console:
 
 ```javascript
 h1.innerText
@@ -170,7 +170,7 @@ The program will call the `add()` function _immediately_.
 However, you, as a programmer, have no control over user interaction, or
 at what moment, exactly, an external server replies to you (if at all).
 For example, the developers of Facebook Messenger have no control if
-or when a user will write a message to someone and send. Yet, the
+or when a user will write a message to someone and send it. Yet, the
 developers of Facebook want you to be able to send a message at _any
 moment_ without navigating away from the page. This is an example of an
 _asynchronous event_. "Asynchronous" means that the event may not be
@@ -237,7 +237,7 @@ Somewhere in the body of the function you just defined, add this code:
 Reload <http://localhost:8000/>, fill out the form, and press submit
 again.
 
-> **Question 8**: What happens when your press "Calculate" now? What
+> **Question 8**: What happens when you press "Calculate" now? What
 > does `event.preventDefault()` do? What is the "default" that it is
 > preventing?
 
@@ -298,11 +298,11 @@ xhr.onload = function () {
 > **Question 10**: The way we defined an event handler for the `submit`
 > event earlier and the way we defined an event handler for when the
 > XMLHttpRequest is loaded has different syntax. Explain what is
-> semantically different about how we defined these two even handlers?
+> semantically different about how we defined these two event handlers.
 
 > **Question 11**: What part of the HTTP response will be contained in
-> `xhr.responseText`. Be as descriptive as possible using terms used in
-> describing HTTP messages.
+> `xhr.responseText`? Be as descriptive as possible using terms used
+> when messages in the HTTP protocol.
 
 Now that we have opened the request with the desired HTTP method and
 request URI, and setup what will be called when the we receive the full
@@ -314,9 +314,9 @@ xhr.send();
 ```
 
 > **Question 12**: What is shown in the pop-up message after calling
-> `xhr.send()`? Do you get any error messages? What was the status code
-> of the GET request to <http://localhost:8000/calc/>? Describe what
-> this error message means.
+> `xhr.send()`? Do you get any error messages? What was the HTTP status
+> code of the GET request to <http://localhost:8000/calc/>? Describe
+> what this error message means.
 
 
 ### Getting parameters from the webpage
@@ -332,7 +332,7 @@ in the URL's query string.
  - `op` --- a value in `+`, `-`, `*`, or `/`
 
 We can obtain this from the `<form>` on the page. With the latest
-version of <http://localhost:8000> open in you browser, open the
+version of <http://localhost:8000/> open in you browser, open the
 JavaScript console and get a reference to the `<form>` element and
 assign it to a variable called `form`.
 
@@ -368,14 +368,15 @@ form.elements["op"].value
 > `form.elements["op"].value` return?
 
 We must construct an appropriate query string that sends the parameters
-`a`, `b`, and `op` to make a valid request to <http://localhost:8000/calc>.
+`a`, `b`, and `op` to make a valid request to
+<http://localhost:8000/calc/>.
 Use the following template to get started. Set the values of `a`, `b`,
 and `op`, to the values obtained from the `<form>` element.
 Use [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)
 to do percent-encoding where appropriate.
 
 ```javascript
-var url = "http://localhost:8000";
+var url = "http://localhost:8000/calc/";
 
 url = url + /* write your code here */;
 ```
@@ -406,7 +407,7 @@ execute `xhr.send()`.
 > been sent, what is the value of the `xhr.responseText`?
 
 > **Question 16**: Use the **Network** panel to inspect the successful
-> HTTP response to <http://localhost:8000/calc> (with status code 200).
+> HTTP response to <http://localhost:8000/calc/> (with status code 200).
 > What is the `Content-Type` of this response?
 
 
@@ -415,10 +416,10 @@ Putting it all together
 
 We're going to combine
 
- - registering an event listener for submit events;
- - getting form values from the page;
- - sending an `XMLHttpResponse`; and
- - changing an element's `.innerText`
+ - registering an event listener for submit events (...);
+ - getting form values from the page (...);
+ - sending an `XMLHttpResponse` (...); and
+ - changing an element's `.innerText` (...)
 
  to create our AJAX-powered calculator. By the end of this, the answer
  should appear in the same webpage without navigating away from the
