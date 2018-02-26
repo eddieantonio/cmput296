@@ -85,7 +85,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <ul>
 <li>Learn about asynchronous programming in JavaScript</li>
 <li>Learn the API for <code>XMLHttpRequest</code></li>
-<li>Perform some asynchronous DOM manipulation</li>
+<li>Perform asynchronous DOM manipulation</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
@@ -102,32 +102,62 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <!-- goal: make a valid XHR. Put it in a <div> -->
-<!-- talk about DOM manipulation first? -->
-<h2 id="asynchronous-programming">Asynchronous programming</h2>
-<p>In this lab, the goal is to make a request to an external server <strong>without</strong> navigating away from the current webpage.</p>
-<p>In order to do this, it is vital to understand <strong>asynchronous programming</strong>.</p>
-<h3 id="what-is-asynchronous-programming">What is “asynchronous programming”?</h3>
-<p>In typical procedural programming, the programmer is often in control of the exact flow of instructions. That is, you, as the programmer say:</p>
-<pre class="sourceCode js" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="op">}</span></a></code></pre>
-<p>And the program will <em>immediately</em> test if <code>x</code> is indeed less than 0, and then it will execute the consequent as soon as it determines this.</p>
-<p>Similarly, if you write JavaScript code that says:</p>
-<pre class="sourceCode js" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="at">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)</a></code></pre>
-<p>The program will call the <code>add()</code> function <em>immediately</em>.</p>
-<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control if or when a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by your action, as a programmer. Rather, an external event may initiate an action at any moment, and you, as a programmer, must declare a way to <strong>react</strong> to that event.</p>
-<h3 id="asynchronous-programming-in-javascript">Asynchronous programming in JavaScript</h3>
+<h2 id="ajax">AJAX</h2>
+<p>In this lab, the goal is to make a request to an external server and show the results in the webpage <strong>without</strong> navigating away from the current webpage.</p>
+<h3 id="warm-up-exercise-dom-manipulation">Warm-up exercise: DOM manipulation</h3>
+<p><strong>DOM Maniulation</strong> refers to using JavaScript to change the <strong>Document Object Model (DOM)</strong>, which represents the logical structure of your HTML document loaded in the web browser.</p>
+<p>This means that we can access and modify the text and elements on the webpage. The langauge we’ll use to do this is JavaScript.</p>
 <aside>
 <p>Just as in <a href="./lab-6.html">Lab 6</a>, if you are security conscience, you should verify that the SHA-256 checksum of <code>server.py</code> that you downloaded matches the checksum that I computed:</p>
 <pre><code>334e487a26471a1724d22da4b5418efba63ad2a0b1eb269cf5e989bf3be08058</code></pre>
 Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</code></a> to verify that the file you downloaded has the same SHA-256 checksum. Please peruse the source code to ensure it is not malicious in nature.
 </aside>
-<p>Before please, download <a href="lab-8/server.py" download><code>server.py</code></a> and <a href="lab-8/index.html" download><code>index.html</code></a>. Place these files in the same directory.</p>
+<p>Please download <a href="lab-8/server.py" download><code>server.py</code></a> and <a href="lab-8/index.html" download><code>index.html</code></a>. Place these files in the same directory.</p>
 <p>Now, open up a terminal and navigate to the directory in which you downloaded the files. Start the server by typing:</p>
-<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">python3</span> server.py</a></code></pre>
+<pre class="sourceCode sh" id="cb2"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">python3</span> server.py</a></code></pre>
+<p>Look at the source code of the provided file called <code>index.html</code>.</p>
+<blockquote>
+<p><strong>Question 1</strong>: How many elements in <code>index.html</code> have an <code>id</code> attribute? What are these elements, and what are the IDs?</p>
+</blockquote>
+<p>Open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
+<p>We’re going to programmatically retrieve the text of the <code>&lt;h1&gt;</code> displaying the title of the page.</p>
+<p>In the JavaScript console, type:</p>
+<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> h1 <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;main-title&#39;</span>)</a></code></pre>
+<p>We just created a variable called <code>h1</code>.</p>
+<blockquote>
+<p><strong>Question 2</strong>: Retrieve the value of <code>h1</code> by typing <code>h1</code> in the console. What kind of output do you get? What does <code>document.getElementById()</code> do?</p>
+</blockquote>
+<p>Now type this in console:</p>
+<pre class="sourceCode javascript" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">h1</span>.<span class="at">innerText</span></a></code></pre>
+<blockquote>
+<p><strong>Question 3</strong>: What did this line return? What type of JavaScript value/object did this return? Where did this value come from?</p>
+</blockquote>
+<p>Now, assign to <code>h1.innerText</code>. Type the following, replacing “<code>&lt;name&gt;</code>” with your name:</p>
+<pre class="sourceCode javascript" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="va">h1</span>.<span class="at">innerText</span> <span class="op">=</span> <span class="st">&quot;&lt;name&gt;&#39;s AJAX Calculator&quot;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 4</strong>: What has changed on the webpage? Describe why the previous lines of code had this effect.</p>
+</blockquote>
+<p>Now, type code in the JavaScript console to change the text on the page for the <code>&lt;output id=&quot;the-answer&quot;&gt;</code> element to <code>No answer yet</code>.</p>
+<blockquote>
+<p><strong>Question 5</strong>: Copy-paste the JavaScript code you just wrote to change the <code>&lt;output&gt;</code> element as the answer to this question.</p>
+</blockquote>
+<h2 id="asynchronous-programming">Asynchronous programming</h2>
+<p>To recap, the goal of this lab is to make a request to an external server without navigating away from the current webpage.</p>
+<p>In order to do this, it is vital to understand <strong>asynchronous programming</strong>.</p>
+<h3 id="what-is-asynchronous-programming">What is “asynchronous programming”?</h3>
+<p>In typical procedural programming, the programmer is often in control of the exact flow of instructions. That is, you, as the programmer say:</p>
+<pre class="sourceCode js" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="op">}</span></a></code></pre>
+<p>And the program will <em>immediately</em> test if <code>x</code> is indeed less than 0, and then it will execute the consequent as soon as it determines this.</p>
+<p>Similarly, if you write JavaScript code that says:</p>
+<pre class="sourceCode js" id="cb7"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)</a></code></pre>
+<p>The program will call the <code>add()</code> function <em>immediately</em>.</p>
+<p>However, you, as a programmer, have no control over user interaction, or at what moment, exactly, an external server replies to you (if at all). For example, the developers of Facebook Messenger have no control if or when a user will write a message to someone and send. Yet, the developers of Facebook want you to be able to send a message at <em>any moment</em> without navigating away from the page. This is an example of an <em>asynchronous event</em>. “Asynchronous” means that the event may not be initiated by your action, as a programmer. Rather, an external event may initiate an action at any moment, and you, as a programmer, must declare a way to react to that event.</p>
+<h3 id="asynchronous-programming-in-javascript">Asynchronous programming in JavaScript</h3>
 <p>Enter in values for <code>a</code>, <code>b,</code> and use the drop-down to select an arithmetic operation.</p>
 <blockquote>
-<p><strong>Question X</strong>: What happens when you press the “Calculate” button?</p>
+<p><strong>Question X</strong>: Describe what happens when you press the “Calculate” button. Does it stay on the same webpage or does your browser navigate to a different webpage?</p>
 </blockquote>
 <!-- Sending the right headers -->
 <!-- Handling the response -->
@@ -140,7 +170,6 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
      http://wiki.c2.com/?HollywoodPrinciple
 
 -->
-<h3 id="dom-manipulation">DOM manipulation</h3>
 <h3 id="xmlhttprequest"><code>XMLHttpRequest</code></h3>
 </body>
 </html>
