@@ -116,6 +116,7 @@ h1.innerText
 > What type of JavaScript value/object did this return?
 > Where did this value come from?
 
+<a id="innerText"></a>
 
 Now, assign to `h1.innerText`. Type the following, replacing
 "`<name>`" with your name:
@@ -190,6 +191,8 @@ Open up `index.html` in your text editor of choice. Near the bottom of
 the file should be a `<script></script>` element. We will write
 JavaScript code within this element.
 
+<a id="submit"></a>
+
 Create an event listener that will listen to the "submit" event for the
 form.
 
@@ -262,10 +265,10 @@ using JavaScript. In order to do this we must first:
 Open the DevTools JavaScript console. We will experiment with the
 `XMLHttpRequest` object.
 
+<a id="xhr"></a>
+
 In the console, instantiate a new `XMLHttpRequest` object and assign it
 to a variable called `xhr`.
-
-<a name="xhr">
 
 <!-- screenshot? -->
 
@@ -320,6 +323,8 @@ xhr.send();
 
 
 ### Getting parameters from the webpage
+
+<a id="params"></a>
 
 AJAX requests typically require sending parameters to the server.
 Since this is a `GET` request, we'll have to package up the parameters
@@ -416,10 +421,10 @@ Putting it all together
 
 We're going to combine
 
- - registering an event listener for submit events (...);
- - getting form values from the page (...);
- - sending an `XMLHttpResponse` (...); and
- - changing an element's `.innerText` (...)
+ - [registering an event listener for submit events](#submit);
+ - [getting form values from the page](#params);
+ - [sending an `XMLHttpResponse`](#xhr); and
+ - [changing an element's `.innerText`](#innerText)
 
  to create our AJAX-powered calculator. By the end of this, the answer
  should appear in the same webpage without navigating away from the
