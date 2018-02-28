@@ -5,7 +5,7 @@ CSSFILE = simple.css
 
 # Explicitly set to correct DPI
 # https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3241
-DPI := $(shell dc -e '96 4 * p')
+DPI := $(shell dc -e '96 7 * p')
 
 .PHONY: all
 all: html pdf
@@ -29,4 +29,4 @@ install-hooks:
 
 
 %.pdf: %.html simple.css
-	wkhtmltopdf --print-media-type --page-size letter --dpi 384 $< $@
+	wkhtmltopdf --page-size letter --print-media-type --dpi $(DPI) $< $@
