@@ -207,7 +207,7 @@ Despite its name, you can request <em>anything</em> using <code>XMLHttpRequest</
 <a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="at">alert</span>(<span class="va">xhr</span>.<span class="at">responseText</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"><span class="op">};</span></a></code></pre>
 <blockquote>
-<p><strong>Question 10</strong>: The way we defined an event handler for the <code>submit</code> event earlier and the way we defined an event handler for when the XMLHttpRequest is loaded has different syntax. Explain what is semantically different about how we defined these two event handlers.</p>
+<p><strong>Question 10</strong>: The way we defined an event handler for the <code>submit</code> event earlier and the way we defined an event handler for the XMLHttpRequest has different syntax. Explain the difference between the <strong>syntax</strong> of how we defined the event handlers.</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 11</strong>: What part of the HTTP response will be contained in <code>xhr.responseText</code>? Be as descriptive as possible using terms used when messages in the HTTP protocol.</p>
@@ -244,9 +244,9 @@ Despite its name, you can request <em>anything</em> using <code>XMLHttpRequest</
 <a class="sourceLine" id="cb19-3" data-line-number="3">url <span class="op">=</span> url <span class="op">+</span> <span class="co">/* write your code here */</span><span class="op">;</span></a></code></pre>
 <blockquote>
 <p><strong>Question 13</strong>: What’s the difference between</p>
-<pre><code>&quot;&amp;op&quot; + form.elements[&quot;op&quot;].value;</code></pre>
+<pre><code>&quot;&amp;op=&quot; + form.elements[&quot;op&quot;].value;</code></pre>
 <p>and</p>
-<pre><code>&quot;&amp;op&quot; + encodeURIComponent(form.elements[&quot;op&quot;].value);</code></pre>
+<pre><code>&quot;&amp;op=&quot; + encodeURIComponent(form.elements[&quot;op&quot;].value);</code></pre>
 <p>Which one is correct? Why is the other option <em>incorrect</em>?</p>
 </blockquote>
 <blockquote>

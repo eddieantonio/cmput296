@@ -299,9 +299,9 @@ xhr.onload = function () {
 ```
 
 > **Question 10**: The way we defined an event handler for the `submit`
-> event earlier and the way we defined an event handler for when the
-> XMLHttpRequest is loaded has different syntax. Explain what is
-> semantically different about how we defined these two event handlers.
+> event earlier and the way we defined an event handler for the
+> XMLHttpRequest has different syntax. Explain the difference between
+> the **syntax** of how we defined the event handlers.
 
 > **Question 11**: What part of the HTTP response will be contained in
 > `xhr.responseText`? Be as descriptive as possible using terms used
@@ -388,11 +388,11 @@ url = url + /* write your code here */;
 
 > **Question 13**: What's the difference between
 >
->     "&op" + form.elements["op"].value;
+>     "&op=" + form.elements["op"].value;
 >
 > and
 >
->     "&op" + encodeURIComponent(form.elements["op"].value);
+>     "&op=" + encodeURIComponent(form.elements["op"].value);
 >
 > Which one is correct? Why is the other option *incorrect*?
 
