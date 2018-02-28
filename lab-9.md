@@ -1,6 +1,6 @@
-% Lab 8: Asynchronous JavaScript and XMLHttpRequest (AJAX)
+% Lab 9: Asynchronous JavaScript and XMLHttpRequest (AJAX)
 % CMPUT 296; written by Eddie Antonio Santos
-% March 18, 2018
+% March 19, 2018
 
 Overview
 ========
@@ -426,9 +426,9 @@ We're going to combine
  - [sending an `XMLHttpResponse`](#xhr); and
  - [changing an element's `.innerText`](#innerText)
 
- to create our AJAX-powered calculator. By the end of this, the answer
- should appear in the same webpage without navigating away from the
- current page.
+to create our AJAX-powered calculator. By the end of this, the answer
+should appear in the same webpage without navigating away from the
+current page.
 
 Open `index.html`, and write your JavaScript code to the `<script>`
 element near the bottom of the file.

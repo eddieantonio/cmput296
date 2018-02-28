@@ -16,18 +16,13 @@ html: $(HTML)
 .PHONY: pdf
 pdf: $(PDF)
 
-# Extra dependencies
-lab-6.md: lab-6/server.py
-lab-8.md: lab-8/server.py
-
-
 .PHONY: install-hooks
 install-hooks:
 	ln -sf ../../pre-commit.sh .git/hooks/pre-commit
 
 %.html: %.md
 	pandoc --standalone --css $(CSSFILE) -o $@ $<
-	-@sh -c 'for i in lab-8/*.py; do [ -f "$$i" ] && openssl dgst -sha256 "$$i"; done'
+	-@sh -c 'for i in $*/*.py; do [ -f "$$i" ] && openssl dgst -sha256 "$$i"; done'
 
 %.py:
 	openssl dgst -256 $@
