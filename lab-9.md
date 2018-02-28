@@ -17,8 +17,8 @@ Materials
  - A text editor
  - A Python 3.5+ interpreter that can be run from the command line.
  - Included files:
-   <a href="lab-8/server.py" download><code>server.py</code></a>,
-   <a href="lab-8/index.html" download><code>index.html</code></a>
+   <a href="lab-9/server.py" download><code>server.py</code></a>,
+   <a href="lab-9/index.html" download><code>index.html</code></a>
 
 [DevTools]: https://developer.chrome.com/devtools
 
@@ -68,8 +68,8 @@ SHA-256 checksum. Please peruse the source code to ensure it is not malicious in
 
 
 Please download
-<a href="lab-8/server.py" download><code>server.py</code></a> and
-<a href="lab-8/index.html" download><code>index.html</code></a>.
+<a href="lab-9/server.py" download><code>server.py</code></a> and
+<a href="lab-9/index.html" download><code>index.html</code></a>.
 Place these files in the same directory.
 
 Now, open up a terminal and navigate to the directory in which you
