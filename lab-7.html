@@ -82,9 +82,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </header>
 <h1 id="overview">Overview</h1>
 <ul>
-<li>Learn how to embed JavaScript in the browser</li>
+<li>Learn how to embed JavaScript in a web page</li>
 <li>Learn basic JavaScript syntax</li>
-<li>Learn how to debug JavaScript</li>
+<li>Use first-class functions to run on an event</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
@@ -199,7 +199,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2 id="functions-as-first-class-objects">Functions as first-class objects</h2>
 <p>In JavaScript, functions are “first-class citizens”. That means that you can treat functions are ordinary values in JavaScript, and as such, they can be used just like any other kind of object (like <code>Number</code>s, <code>String</code>s, <code>Date</code> objects, etc.). That means you can assign functions as properties, pass functions in as arguments to functions, or even return functions from other functions. Although this is possible in many other languages (notably, Python), in JavaScript programming, it is <em>necessary</em> to treat functions in this way.</p>
 <hr />
-<p>When JavaScript is being run within the browser, there is a global variable called <code>document</code>. This is a <code>Document</code> object, and it represents the logical structure of the HTML document. Typically, we JavaScript to run after the document structure is loaded. The problem with that is that <code>&lt;script&gt;</code> tags are part of the document structure, and thus, any <code>&lt;script&gt;</code> will run <em>before</em> the entire document structure is loaded. We’ll explain a method of running some code as soon as the HTML document has finished loading. You need to call <code>document.addEventListener()</code> with the event <code>&quot;DOMContentLoaded&quot;</code>, and a function whose code will be run when the event triggers.</p>
+<p>When JavaScript is being run within the browser, there is a global variable called <code>document</code>. This is a <code>Document</code> object, and it represents the logical structure of the HTML document. Typically, we write JavaScript to run after the document structure has loaded. The problem with that is that <code>&lt;script&gt;</code> tags are part of the document structure, and thus, any <code>&lt;script&gt;</code> will run <em>before</em> the entire document structure is loaded. We’ll explain a method of running some code as soon as the HTML document has finished loading. You need to call <code>document.addEventListener()</code> with the event <code>&quot;DOMContentLoaded&quot;</code>, and a function whose code will be run when the event triggers.</p>
 <pre class="sourceCode javascript" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">   <span class="co">/* your code here */</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre>
@@ -240,10 +240,43 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Question 14</strong>: Copy-paste your <code>&lt;button&gt;</code> element as the answer to this question.</p>
 </blockquote>
 <h2 id="for-loops"><code>for</code>-loops</h2>
-<!-- for loop -->
-<p>…</p>
+<p><code>for</code>-loops in JavaScript resemble <code>for</code> loops in C. This is an example <code>for</code>-loop in JavaScript:</p>
+<pre class="sourceCode javascript" id="cb18"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">var</span> i<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">   <span class="co">// Something that will be done 10 times</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">   <span class="va">console</span>.<span class="at">log</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="op">}</span></a></code></pre>
+<p>This <code>for</code>-loop will count from 0 to 9.</p>
+<p>As a refresher of the syntax:</p>
+<pre class="sourceCode javascript" id="cb19"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">var</span> i<span class="op">;</span> <span class="co">/* declare variables here */</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="cf">for</span> (</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">   i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">/* initialize variables before the first semicolon. */</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">   i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> <span class="co">/* loop until this is false. */</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">   i<span class="op">++</span> <span class="co">/* what should be done after every loop iteration */</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">       <span class="co">/* (in this case, increment i by 1) */</span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">   ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">   <span class="co">/* the body of the loop */</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">   <span class="va">console</span>.<span class="at">log</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="op">}</span></a></code></pre>
+<p>In <code>js-example.html</code>, create a new <code>&lt;script&gt;&lt;/script&gt;</code> element. In this <code>&lt;script&gt;</code>, write a <code>for</code>-loop that uses <code>console.log()</code> to write the following to the console:</p>
+<pre><code>10 pupsas left in the basket
+9 pupsas left in the basket
+8 pupsas left in the basket
+7 pupsas left in the basket
+6 pupsas left in the basket
+5 pupsas left in the basket
+4 pupsas left in the basket
+3 pupsas left in the basket
+2 pupsas left in the basket
+One pupusa left in the basket
+No more pupsas left in the basket</code></pre>
+<p>You may need to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else#Using_else_if"><code>else if</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)"><code>--</code></a> to complete this assignment. Reload <code>js-example.html</code> and open the JavaScript Console (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>) to see if your code worked.</p>
 <blockquote>
-<p><strong>Question X</strong>: Use your experience writing JavaScript to answer the following question. In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
+<p><strong>Question 15</strong>: Copy-paste your <code>for</code>-loop that uses <code>console.log()</code> to print the above output as the answer to this question. Make sure it works in the browser.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Question 16</strong>: Use your experience writing JavaScript to answer the following question. In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
 </blockquote>
 </body>
 </html>

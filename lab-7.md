@@ -5,9 +5,9 @@
 Overview
 ========
 
- - Learn how to embed JavaScript in the browser
+ - Learn how to embed JavaScript in a web page
  - Learn basic JavaScript syntax
- - Learn how to debug JavaScript
+ - Use first-class functions to run on an event
 
 
 Materials
@@ -281,11 +281,11 @@ _necessary_ to treat functions in this way.
 When JavaScript is being run within the browser, there is a global
 variable called `document`. This is a `Document` object, and it
 represents the logical structure of the HTML document. Typically, we
-JavaScript to run after the document structure is loaded. The problem
-with that is that `<script>` tags are part of the document structure,
-and thus, any `<script>` will run _before_ the entire document structure
-is loaded. We'll explain a method of running some code as soon as the
-HTML document has finished loading. You need to call
+write JavaScript to run after the document structure has loaded. The
+problem with that is that `<script>` tags are part of the document
+structure, and thus, any `<script>` will run _before_ the entire
+document structure is loaded. We'll explain a method of running some
+code as soon as the HTML document has finished loading. You need to call
 `document.addEventListener()` with the event `"DOMContentLoaded"`, and
 a function whose code will be run when the event triggers.
 
@@ -380,11 +380,69 @@ is!
 `for`-loops
 -----------
 
-<!-- for loop -->
+`for`-loops in JavaScript resemble `for` loops in C. This is an example
+`for`-loop in JavaScript:
 
-...
+```javascript
+var i;
+for (i = 0; i < 10; i++) {
+   // Something that will be done 10 times
+   console.log(i);
+}
+```
 
-> **Question X**: Use your experience writing JavaScript to answer the
+This `for`-loop will count from 0 to 9.
+
+As a refresher of the syntax:
+
+```javascript
+var i; /* declare variables here */
+for (
+   i = 0; /* initialize variables before the first semicolon. */
+   i < 10; /* loop until this is false. */
+   i++ /* what should be done after every loop iteration */
+       /* (in this case, increment i by 1) */
+   ) {
+   /* the body of the loop */
+   console.log(i);
+}
+```
+
+In `js-example.html`, create a new `<script></script>` element. In this
+`<script>`, write a `for`-loop that uses `console.log()` to write the
+following to the console:
+
+```
+10 pupsas left in the basket
+9 pupsas left in the basket
+8 pupsas left in the basket
+7 pupsas left in the basket
+6 pupsas left in the basket
+5 pupsas left in the basket
+4 pupsas left in the basket
+3 pupsas left in the basket
+2 pupsas left in the basket
+One pupusa left in the basket
+No more pupsas left in the basket
+```
+
+You may need to use [`else if`][else if]
+and [`--`][decrement] to complete this assignment.
+Reload `js-example.html` and open the JavaScript Console
+(Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>;
+macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>)
+to see if your code worked.
+
+[else if]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else#Using_else_if
+[decrement]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)
+
+> **Question 15**: Copy-paste your `for`-loop that uses `console.log()`
+> to print the above output as the answer to this question. Make sure it
+> works in the browser.
+
+---
+
+> **Question 16**: Use your experience writing JavaScript to answer the
 > following question. In terms of _syntax_ (the structure of the code:
 > the use of punctuation, semicolons, whitespace, etc.), is JavaScript
 > more like **Python** or **C/C++**? In terms of _semantics_ (the
