@@ -148,8 +148,8 @@ var faveFood = prompt("What is your favourite food?");
 ```
 
 Write JavaScript code that uses `alert()` to print a string that says
-"your favourite food is <FOOD>!" where `<FOOD>` is the whatever the user
-wrote in the `prompt()`.
+"your favourite food is `<FOOD>`!" where `<FOOD>` is the whatever the user
+input into the `prompt()`.
 
 Now we must include this JavaScript file in the page.
 
