@@ -94,13 +94,13 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
 <blockquote>
-<p><strong>Question X</strong>. Questions look like this.</p>
+<p><strong>Question X</strong>: Questions look like this.</p>
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <h2 id="introduction-to-javascript">Introduction to JavaScript</h2>
 <p>JavaScript (also known by its standard name, <a href="https://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a>) is the programming language embedded in most modern web browsers. In this lab, we’ll explore how to write and run JavaScript in our own web pages.</p>
 <h2 id="using-the-javascript-console">Using the JavaScript console</h2>
-<p>A helpful way to practice JavaScript is to experiment in the interactive console. Open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
+<p>A helpful way to practice JavaScript is to experiment in the interactive console. On <em>any</em> webpage, open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
 <figure>
 <img src="./lab-7/console-open.png" alt="Opening the JavaScript console" /><figcaption>Opening the JavaScript console</figcaption>
 </figure>
@@ -111,27 +111,77 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 1</strong>: What did each line do? If you were casually browsing a webpage, which one of <code>alert()</code> or <code>console.log()</code> would be less intrusive?</p>
 </blockquote>
-<!-- Try to keep this one to the console? -->
 <!-- Don't just tell people about mistakes; make them do it. -->
-<!-- how to alert() -->
-<!-- how to debug: console.log() -->
-<!-- how to debug: debugger; -->
-<!--
-
-(syntax, if statement, for loop, lambos)
-
-syntax, curly bracket, for loop, semicolons, ===
-
-declare a variable
-
--->
-<!-- Lambos -->
-<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">};</span></a></code></pre>
+<h2 id="basic-javascript">Basic JavaScript</h2>
+<p>As in the Python console, you can use the JavaScript console to run code. Try the following in the JavaScript console:</p>
+<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="dv">7</span> / <span class="dv">2</span><span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 2</strong>: What value did <code>7 / 2;</code> return? Is this an integer or a floating-point value?</p>
+</blockquote>
+<p>Define a variable in the JavaScript. Write the following in the JavaScript console:</p>
+<pre class="sourceCode javascript" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">var</span> hello<span class="op">;</span></a></code></pre>
+<p>This defined a variable called <code>hello</code>. Notice how we have not <em>assigned</em> anything to the variable yet.</p>
+<p>Now, simply type the name of the variable to get back its value in the JavaScript console.</p>
+<pre class="sourceCode javascript" id="cb5"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1">hello<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 3</strong>: What value did <code>hello;</code> return?</p>
+</blockquote>
+<p>Try the following in the JavaScript console.</p>
+<pre class="sourceCode javascript" id="cb6"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1">hello <span class="op">=</span> <span class="st">&quot;world&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="va">hello</span>.<span class="at">toUpperCase</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">hello<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 4</strong>: Using your knowledge of Python and other programming languages, explain what you assume the last three lines of JavaScript may have done, in as much detail as possible.</p>
+</blockquote>
+<h2 id="embedding-javascript-in-a-webpage">Embedding JavaScript in a webpage</h2>
+<p>We’ll learn how to include JavaScript in a web page. Copy the following minimal HTML and call it <code>js-example.html</code>:</p>
+<pre class="sourceCode html" id="cb7"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">   <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">   <span class="kw">&lt;title&gt;</span> JavaScript example <span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">&lt;/html&gt;</span></a></code></pre>
+<p>Open <code>js-example.html</code> in Google Chrome/Chromium. In the same directory as <code>js-example.html</code>, create a new, empty file called <code>food.js</code>.</p>
+<p>We will write a small JavaScript program that takes input, and prints it back out, in a message. This <code>food.js</code> will ask you what your favourite food is, and then <code>alert()</code> it back out at you. Start with the following code:</p>
+<pre class="sourceCode javascript" id="cb8"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">var</span> faveFood <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;What is your favourite food?&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">// </span><span class="al">TODO</span><span class="co">: use alert() to print &quot;Your favourite food is &lt;FOOD&gt;!&quot;.</span></a></code></pre>
+<p>Write JavaScript code that uses <code>alert()</code> to print a string that says “your favourite food is <FOOD>!” where <code>&lt;FOOD&gt;</code> is the whatever the user wrote in the <code>prompt()</code>.</p>
+<p>Now we must include this JavaScript file in the page.</p>
+<p>To include an <strong>external JavaScript file</strong> in an HTML document, you must add <code>&lt;script&gt;</code> element, like the following:</p>
+<pre class="sourceCode html" id="cb9"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;path/to/your/file.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
+<p>Note that this line contains both a start <code>&lt;script&gt;</code> tag and a closing <code>&lt;/script&gt;</code> tag. You may know refresh <code>js-example.html</code> to see if your code worked.</p>
+<blockquote>
+<p><strong>Question 5</strong>: What is the appropriate <code>&lt;script&gt;</code> tags that you should use to include <code>food.js</code> into <code>js-example.html</code>?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 6</strong>: Where in your HTML page should you put the <code>&lt;script&gt;&lt;/script&gt;</code> tags? (Within what element?) Why is this the most appropriate place to put include the JavaScript?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 7</strong>: The <code>&lt;script&gt;</code> tags looks like it should be a void element (like <code>&lt;link&gt;</code> or <code>&lt;img&gt;</code>), but is it? Try using a self-closing tag like <code>&lt;script src=&quot;...&quot; /&gt;</code>. Does the code still work when using a self-closing tag?</p>
+</blockquote>
+<p>With <code>food.js</code> referenced within <code>js-example.html</code>, test that <code>food.js</code> works before continuing. As a reminder, each time you load <code>js-example.html</code>, it should ask you what your favourite food is, and then it print it back out in a formatted message using <code>alert()</code>.</p>
+<blockquote>
+<p><strong>Question 8</strong>: Copy-paste your finished version of <code>food.js</code> as the answer to this question.</p>
+</blockquote>
+<!-- curly brackets -->
+<!-- if statements -->
+<!-- for loop -->
+<!-- function expressions -->
+<pre class="sourceCode javascript" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="op">};</span></a></code></pre>
+<h2 id="including-javascript-in-html-pages">Including JavaScript in HTML pages</h2>
 <!-- how to include JavaScript -->
-<pre class="sourceCode html" id="cb4"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
+<pre class="sourceCode html" id="cb11"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;./hello.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
 <!-- how to include inline JavaScript -->
-<pre class="sourceCode html" id="cb5"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
+<pre class="sourceCode html" id="cb12"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
+<blockquote>
+<p><strong>Question X</strong>: In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
+</blockquote>
 </body>
 </html>

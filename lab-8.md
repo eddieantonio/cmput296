@@ -8,6 +8,7 @@
 <cite>[Bjarne Stroustrup](http://www.stroustrup.com/blast.html), Creator of C++</cite>
 </blockquote>
 
+<!-- how to debug: debugger; -->
 
 <!--
 NaN
