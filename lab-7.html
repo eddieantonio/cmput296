@@ -186,13 +186,62 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <h2 id="functions">Functions</h2>
 <p>Let’s <em>refactor</em> our code so that it is contained completely inside a function.</p>
-<pre class="sourceCode javascript" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="op">};</span></a></code></pre>
+<p>This is how to declare a function in JavaScript:</p>
+<pre class="sourceCode javascript" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">function</span> <span class="at">myFunctionName</span>(<span class="co">/* arguments */</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">   <span class="co">/* code... */</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="op">}</span></a></code></pre>
+<p>Move all the code you wrote for <strong>Question 10</strong> inside a function called <code>askForFavouriteFood()</code> in <code>food.js</code>. Reload <code>js-example.html</code> in your browser. It should not longer ask you what your favourite food is. With <code>js-example.html</code> in the current browser tab, open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>). If you have done everything right, when you type the following in the JavaScript console:</p>
+<pre class="sourceCode javascript" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="at">askForFavouriteFood</span>()</a></code></pre>
+<p>…it should ask you what your favourite food is, as before.</p>
+<blockquote>
+<p><strong>Question 11</strong>: Copy-paste the source code for your <code>askForFavouriteFood()</code> function as the answer to this question.</p>
+</blockquote>
+<h2 id="functions-as-first-class-objects">Functions as first-class objects</h2>
+<p>In JavaScript, functions are “first-class citizens”. That means that you can treat functions are ordinary values in JavaScript, and as such, they can be used just like any other kind of object (like <code>Number</code>s, <code>String</code>s, <code>Date</code> objects, etc.). That means you can assign functions as properties, pass functions in as arguments to functions, or even return functions from other functions. Although this is possible in many other languages (notably, Python), in JavaScript programming, it is <em>necessary</em> to treat functions in this way.</p>
+<hr />
+<p>When JavaScript is being run within the browser, there is a global variable called <code>document</code>. This is a <code>Document</code> object, and it represents the logical structure of the HTML document. Typically, we JavaScript to run after the document structure is loaded. The problem with that is that <code>&lt;script&gt;</code> tags are part of the document structure, and thus, any <code>&lt;script&gt;</code> will run <em>before</em> the entire document structure is loaded. We’ll explain a method of running some code as soon as the HTML document has finished loading. You need to call <code>document.addEventListener()</code> with the event <code>&quot;DOMContentLoaded&quot;</code>, and a function whose code will be run when the event triggers.</p>
+<pre class="sourceCode javascript" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">   <span class="co">/* your code here */</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre>
+<p>We’ll modify <code>js-example.html</code> such that it runs <code>askForFavouriteFood()</code> only after the entire page content is finished loading. First, ensure that if you reload <code>js-example.html</code>, it does <em>not</em> ask you what your favourite food is.</p>
+<p>Create a new <code>&lt;script&gt;</code> element in <code>js-examples.html</code>, except this time, instead of providing a <code>src</code> attribute, we’ll write the code <em>inline</em>. The <code>&lt;script&gt;</code> element should look like this:</p>
+<pre class="sourceCode html" id="cb14"><code class="sourceCode html"><a class="sourceLine" id="cb14-1" data-line-number="1">   <span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">      <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">        <span class="co">// </span><span class="al">TODO</span><span class="co">: write code here</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">      <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">   <span class="kw">&lt;/script&gt;</span></a></code></pre>
+<p>You may place this <code>&lt;script&gt;</code> element anywhere in your HTML that you think is appropriate. Change the contents of the <code>&lt;script&gt;&lt;/script&gt;</code> tag such that it calls <code>askForFavouriteFood()</code> when the document has finished loading.</p>
+<p>Reload <code>js-example.html</code>. It should ask you what your favourite food is when it’s reloaded.</p>
+<blockquote>
+<p><strong>Question 12</strong>: Copy-paste the <code>&lt;script&gt;</code> element you just wrote as the answer to this question.</p>
+</blockquote>
+<p>Add yet another <code>&lt;script&gt;&lt;/script&gt;</code> element. This <code>&lt;script&gt;</code> must be the very last element within the <code>&lt;body&gt;</code> tag (i.e., at the bottom of the HTML page page <em>before</em> the end <code>&lt;/body&gt;</code> tag). This will be the contents of the <code>&lt;script&gt;</code> element:</p>
+<pre class="sourceCode html" id="cb15"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" data-line-number="1">   <span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">      <span class="at">alert</span>(<span class="st">&quot;The HTML is still loading...&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">   <span class="kw">&lt;/script&gt;</span></a></code></pre>
+<p>To recap,</p>
+<ol type="1">
+<li>Somewhere in the page, we have included <code>food.js</code> using a <code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code> element.</li>
+<li>Somewhere in the page, we have an inline <code>&lt;script&gt;</code> that tells the document to call <code>askForFavouriteFood()</code> when the page is finished loading.</li>
+<li>At the very bottom of the page, we have a <code>&lt;script&gt;</code> that simply <code>alert()</code>s that the page is still loading.</li>
+</ol>
+<p>Now reload the <code>js-example.js</code>.</p>
+<blockquote>
+<p><strong>Question 13</strong>: What is the order of the <code>alert()</code>s and <code>prompt()</code>s that appear when you reload <code>js-exmaple.js</code> now? How does this differ from the order in which the code was defined?</p>
+</blockquote>
+<hr />
+<p>Finally, we’ll change the page so that we have to click an HTML <code>&lt;button&gt;</code> to be prompted to enter in our favourite food. Delete all the <code>&lt;script&gt;</code> elements except for the one that includes <code>food.js</code>.</p>
+<p>In the <code>&lt;body&gt;</code> of <code>js-example.html</code>, add a <code>&lt;button&gt;</code> element.</p>
+<pre class="sourceCode html" id="cb16"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">&lt;button&gt;</span> Ask me what my favourite food is <span class="kw">&lt;/button&gt;</span></a></code></pre>
+<p>Add an attribute to the <code>&lt;button&gt;</code>’s start tag called <code>onclick</code>.</p>
+<pre class="sourceCode html" id="cb17"><code class="sourceCode html"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">&lt;button</span><span class="ot"> onclick=</span><span class="st">&quot;/* JavaScript code */&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/button&gt;</span></a></code></pre>
+<p>Within the quotes, write the JavaScript code that will call <code>askForFavouriteFood()</code>. Then reload <code>js-example.html</code> in your browser. Click on the button, and make sure it asks you what your favourite food is!</p>
+<blockquote>
+<p><strong>Question 14</strong>: Copy-paste your <code>&lt;button&gt;</code> element as the answer to this question.</p>
+</blockquote>
 <h2 id="for-loops"><code>for</code>-loops</h2>
 <!-- for loop -->
-<!-- how to include inline JavaScript -->
-<pre class="sourceCode html" id="cb12"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
+<p>…</p>
 <blockquote>
 <p><strong>Question X</strong>: Use your experience writing JavaScript to answer the following question. In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
 </blockquote>

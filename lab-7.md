@@ -236,24 +236,153 @@ Functions
 Let's _refactor_ our code so that it is contained completely inside
 a function.
 
+This is how to declare a function in JavaScript:
+
 ```javascript
-document.onload = function () {
-};
+function myFunctionName(/* arguments */) {
+   /* code... */
+}
 ```
+
+Move all the code you wrote for **Question 10** inside a function called
+`askForFavouriteFood()` in `food.js`. Reload `js-example.html` in your
+browser. It should not longer ask you what your favourite food is.
+With `js-example.html` in the current browser tab, open up the [DevTools
+JavaScript Console][console]
+(Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>;
+macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).
+If you have done everything right, when you type the following in the
+JavaScript console:
+
+```javascript
+askForFavouriteFood()
+```
+
+...it should ask you what your favourite food is, as before.
+
+> **Question 11**: Copy-paste the source code for your
+> `askForFavouriteFood()` function as the answer to this question.
+
+
+Functions as first-class objects
+--------------------------------
+
+In JavaScript, functions are "first-class citizens". That means that you
+can treat functions are ordinary values in JavaScript, and as such, they
+can be used just like any other kind of object (like `Number`s,
+`String`s, `Date` objects, etc.). That means you can assign functions as
+properties, pass functions in as arguments to functions, or even return
+functions from other functions. Although this is possible in many other
+languages (notably, Python), in JavaScript programming, it is
+_necessary_ to treat functions in this way.
+
+---
+
+When JavaScript is being run within the browser, there is a global
+variable called `document`. This is a `Document` object, and it
+represents the logical structure of the HTML document. Typically, we
+JavaScript to run after the document structure is loaded. The problem
+with that is that `<script>` tags are part of the document structure,
+and thus, any `<script>` will run _before_ the entire document structure
+is loaded. We'll explain a method of running some code as soon as the
+HTML document has finished loading. You need to call
+`document.addEventListener()` with the event `"DOMContentLoaded"`, and
+a function whose code will be run when the event triggers.
+
+```javascript
+document.addEventListener('DOMContentLoaded', function (event) {
+   /* your code here */
+});
+```
+
+We'll modify `js-example.html` such that it runs `askForFavouriteFood()`
+only after the entire page content is finished loading. First, ensure
+that if you reload `js-example.html`, it does *not* ask you what your
+favourite food is.
+
+Create a new `<script>` element in `js-examples.html`, except this time,
+instead of providing a `src` attribute, we'll write the code _inline_.
+The `<script>` element should look like this:
+
+```html
+   <script>
+      document.addEventListener('DOMContentLoaded', function (event) {
+        // TODO: write code here
+      });
+   </script>
+```
+
+You may place this `<script>` element anywhere in your HTML that you
+think is appropriate.
+Change the contents of the `<script></script>` tag such that it calls
+`askForFavouriteFood()` when the document has finished loading.
+
+Reload `js-example.html`. It should ask you what your favourite food is
+when it's reloaded.
+
+> **Question 12**: Copy-paste the `<script>` element you just wrote as
+> the answer to this question.
+
+Add yet another `<script></script>` element. This `<script>` must
+be the very last element within the `<body>` tag (i.e., at the bottom of
+the HTML page page _before_ the end `</body>` tag). This will be the
+contents of the `<script>` element:
+
+```html
+   <script>
+      alert("The HTML is still loading...");
+   </script>
+```
+
+To recap,
+
+ 1. Somewhere in the page, we have included `food.js` using a `<script src="..."></script>` element.
+ 2. Somewhere in the page, we have an inline `<script>` that tells the
+    document to call `askForFavouriteFood()` when the page is finished
+    loading.
+ 3. At the very bottom of the page, we have a `<script>` that simply
+    `alert()`s that the page is still loading.
+
+Now reload the `js-example.js`.
+
+
+> **Question 13**: What is the order of the `alert()`s and `prompt()`s
+> that appear when you reload `js-exmaple.js` now? How does this differ
+> from the order in which the code was defined?
+
+---
+
+Finally, we'll change the page so that we have to click an HTML
+`<button>` to be prompted to enter in our favourite food. Delete all the
+`<script>` elements except for the one that includes `food.js`.
+
+In the `<body>` of `js-example.html`, add a `<button>` element.
+
+```html
+<button> Ask me what my favourite food is </button>
+```
+
+Add an attribute to the `<button>`'s start tag called `onclick`.
+
+```html
+<button onclick="/* JavaScript code */"> ... </button>
+```
+
+Within the quotes, write the JavaScript code that will call
+`askForFavouriteFood()`. Then reload `js-example.html` in your browser.
+Click on the button, and make sure it asks you what your favourite food
+is!
+
+> **Question 14**: Copy-paste your `<button>` element as the answer to
+> this question.
 
 
 `for`-loops
 -----------
 
-
 <!-- for loop -->
 
-<!-- how to include inline JavaScript -->
-
-```html
-<script>
-</script>
-```
+...
 
 > **Question X**: Use your experience writing JavaScript to answer the
 > following question. In terms of _syntax_ (the structure of the code:
