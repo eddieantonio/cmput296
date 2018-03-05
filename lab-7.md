@@ -1,16 +1,22 @@
 % Lab 7: Introduction to JavaScript
 % CMPUT 296; written by Eddie Antonio Santos
+% March 5, 2018
 
 Overview
 ========
 
- - TODO
+ - Learn how to embed JavaScript in the browser
+ - Learn basic JavaScript syntax
+ - Learn how to debug JavaScript
 
 Materials
 =========
 
- - An internet connection
- - A modern web browser (like Firefox or  Google Chrome)
+ - Google Chrome's [DevTools]
+ - A text editor
+
+[DevTools]: https://developer.chrome.com/devtools
+
 
 
 Procedure
@@ -24,18 +30,22 @@ Submit your responses to the questions in this lab on eClass.
 
 --
 
-<blockquote cite="http://www.stroustrup.com/blast.html">
-<p>There are only two kinds of programming languages: those people always
-[complain] about and those nobody uses.</p>
-<cite>[Bjarne Stroustrup](http://www.stroustrup.com/blast.html), Creator of C++</cite>
-</blockquote>
+<!-- how to include JavaScript -->
+```
+<script src=""></script>
+```
+
+> Don't just tell people about mistakes; make them do it.
 
 
+<!-- how to include inline JavaScript -->
+
+```
+<script>
+</script>
+```
 
 <!-- Try to keep this one to the console? -->
-
-<!-- how to include JavaScript -->
-<!-- how to include inline JavaScript -->
 
 <!-- how to alert() -->
 
@@ -52,4 +62,11 @@ declare a variable
 
 -->
 
-nan in Python. nan in C.
+
+<!-- Lambos -->
+
+```
+document.onload = function () {
+};
+```
+
