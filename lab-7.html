@@ -168,20 +168,33 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 8</strong>: Copy-paste your finished version of <code>food.js</code> as the answer to this question.</p>
 </blockquote>
-<!-- curly brackets -->
-<!-- if statements -->
+<p>Let’s extend the program we wrote for <strong>Question 8</strong>. Now, it will check if the user’s favorite food is <code>&quot;pupusas&quot;</code>. If so, it will say: “Yay! Pupusas are my favourite too!”.</p>
+<p>Extend <code>food.js</code> with an <code>if</code> statement. <code>if</code> statements look like this in <code>JavaScript</code>:</p>
+<pre class="sourceCode javascript" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="cf">if</span> (<span class="co">/* condition */</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">   <span class="co">/* consequent */</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="op">}</span>  <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">   <span class="co">/* alternative */</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="op">}</span></a></code></pre>
+<p>In this case, the alternative will be the same as what we printed in <strong>Question 8</strong>. The consequent should <code>alert()</code>, “Yay! Pupusas are my favourite too!”.</p>
+<p>As with Python, you can compare strings simply using the <code>==</code> (“double equals”) operator; unlike Python, you may compare strings using the <code>===</code> (“triple equals”) operator.</p>
+<p>In <code>food.js</code>, write the code to <code>alert()</code>, “Yay, Pupusas are my favourite too!” if what the user typed into the <code>prompt()</code> was “pupusas” (all lowercase, with no extraneous whitespace). Save the file and reload <code>js-example.html</code>. Try the prompt once with “pupusas” and reload the page with and input a different food this time. Make sure the code works as intended.</p>
+<blockquote>
+<p><strong>Question 9</strong>: Copy-paste your working <code>if</code>/<code>else</code> statement from <code>food.js</code> as the answer to this question.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 10</strong>: Rewrite the <code>if</code> condition such that it disregards differences in capitalization (such as <code>&quot;Pupupas&quot;</code>) and extraneous whitespace (such as <code>&quot;   PUPUSAS  &quot;</code>) when deciding whether the user input <code>pupusas</code>. Suggestion: Look through MDN’s list of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_instances"><code>String</code> methods</a> to find methods that will help normalize letter case and remove extraneous whitespace. Copy-paste your new <code>if</code>/<code>else</code> as the answer to this question.</p>
+</blockquote>
+<h2 id="functions">Functions</h2>
+<p>Let’s <em>refactor</em> our code so that it is contained completely inside a function.</p>
+<pre class="sourceCode javascript" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="op">};</span></a></code></pre>
+<h2 id="for-loops"><code>for</code>-loops</h2>
 <!-- for loop -->
-<!-- function expressions -->
-<pre class="sourceCode javascript" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="op">};</span></a></code></pre>
-<h2 id="including-javascript-in-html-pages">Including JavaScript in HTML pages</h2>
-<!-- how to include JavaScript -->
-<pre class="sourceCode html" id="cb11"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;./hello.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
 <!-- how to include inline JavaScript -->
 <pre class="sourceCode html" id="cb12"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
 <blockquote>
-<p><strong>Question X</strong>: In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
+<p><strong>Question X</strong>: Use your experience writing JavaScript to answer the following question. In terms of <em>syntax</em> (the structure of the code: the use of punctuation, semicolons, whitespace, etc.), is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>? In terms of <em>semantics</em> (the meaning of code: how variables are interpreted, when types are considered, memory management, etc.) is JavaScript more like <strong>Python</strong> or <strong>C/C++</strong>?</p>
 </blockquote>
 </body>
 </html>

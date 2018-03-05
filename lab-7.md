@@ -184,13 +184,57 @@ then it print it back out in a formatted message using `alert()`.
 > **Question 8**: Copy-paste your finished version of `food.js` as the
 > answer to this question.
 
-<!-- curly brackets -->
+Let's extend the program we wrote for **Question 8**. Now, it will check
+if the user's favorite food is `"pupusas"`. If so, it will say:
+"Yay! Pupusas are my favourite too!".
 
-<!-- if statements -->
 
-<!-- for loop -->
+Extend `food.js` with an `if` statement. `if` statements look like this
+in `JavaScript`:
 
-<!-- function expressions -->
+```javascript
+if (/* condition */) {
+   /* consequent */;
+}  else {
+   /* alternative */;
+}
+```
+
+In this case, the alternative will be the same as what we printed in
+**Question 8**. The consequent should `alert()`, "Yay! Pupusas are my
+favourite too!".
+
+As with Python, you can compare strings simply using the `==` ("double
+equals") operator; unlike Python, you may compare strings using the
+`===` ("triple equals") operator.
+
+In `food.js`, write the code to `alert()`, "Yay, Pupusas are my
+favourite too!" if what the user typed into the `prompt()` was
+"pupusas" (all lowercase, with no extraneous whitespace). Save the file
+and reload `js-example.html`. Try the prompt once with "pupusas" and
+reload the page with and input a different food this time. Make sure the
+code works as intended.
+
+> **Question 9**: Copy-paste your working `if`/`else` statement from
+> `food.js` as the answer to this question.
+
+
+> **Question 10**: Rewrite the `if` condition such that it disregards
+> differences in capitalization (such as `"Pupupas"`) and extraneous
+> whitespace (such as `"   PUPUSAS  "`) when deciding whether the user
+> input `pupusas`. Suggestion: Look through MDN's list of
+> [`String` methods][string methods] to find methods that will help
+> normalize letter case and remove extraneous whitespace. Copy-paste
+> your new `if`/`else` as the answer to this question.
+
+
+[string methods]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_instances
+
+Functions
+---------
+
+Let's _refactor_ our code so that it is contained completely inside
+a function.
 
 ```javascript
 document.onload = function () {
@@ -198,14 +242,11 @@ document.onload = function () {
 ```
 
 
-Including JavaScript in HTML pages
-----------------------------------
+`for`-loops
+-----------
 
-<!-- how to include JavaScript -->
 
-```html
-<script src="./hello.js"></script>
-```
+<!-- for loop -->
 
 <!-- how to include inline JavaScript -->
 
@@ -214,8 +255,10 @@ Including JavaScript in HTML pages
 </script>
 ```
 
-> **Question X**: In terms of _syntax_ (the structure of the code: the
-> use of punctuation, semicolons, whitespace, etc.), is JavaScript more
-> like **Python** or **C/C++**? In terms of _semantics_ (the meaning of
-> code: how variables are interpreted, when types are considered, memory
-> management, etc.) is JavaScript more like **Python** or **C/C++**?
+> **Question X**: Use your experience writing JavaScript to answer the
+> following question. In terms of _syntax_ (the structure of the code:
+> the use of punctuation, semicolons, whitespace, etc.), is JavaScript
+> more like **Python** or **C/C++**? In terms of _semantics_ (the
+> meaning of code: how variables are interpreted, when types are
+> considered, memory management, etc.) is JavaScript more like
+> **Python** or **C/C++**?
