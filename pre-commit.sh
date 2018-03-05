@@ -7,7 +7,7 @@
 # Install:
 # ln -s ../../pre-commit.sh .git/hooks/pre-commit
 
-make html && git add ./*.html
+make html && git add ./lab-*.html
 RESULT=$?
 
 [ $RESULT -ne 0 ] && exit 1
