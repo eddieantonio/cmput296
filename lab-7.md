@@ -9,6 +9,7 @@ Overview
  - Learn basic JavaScript syntax
  - Learn how to debug JavaScript
 
+
 Materials
 =========
 
@@ -16,7 +17,6 @@ Materials
  - A text editor
 
 [DevTools]: https://developer.chrome.com/devtools
-
 
 
 Procedure
@@ -28,24 +28,49 @@ Submit your responses to the questions in this lab on eClass.
 
 **Remember to cite your sources**.
 
---
 
-<!-- how to include JavaScript -->
+Introduction to JavaScript
+--------------------------
+
+JavaScript (also known by its standard name, [ECMAScript]) is the
+programming language embedded in most modern web browsers. In this lab,
+we'll explore how to write and run JavaScript in our own web pages.
+
+[ECMAScript]: https://www.ecma-international.org/publications/standards/Ecma-262.htm
+
+
+Using the JavaScript console
+----------------------------
+
+A helpful way to practice JavaScript is to experiment in the interactive
+console. Open up the [DevTools JavaScript Console][console]
+(Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>;
+macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).
+
+![Opening the JavaScript console](./lab-7/console-open.png)
+
+[console]: https://developers.google.com/web/tools/chrome-devtools/console/?hl=en
+
+In the console, type the following:
+
+```javascript
+alert("Hello, World!");
 ```
-<script src=""></script>
+
+Now, type the following:
+
+```javascript
+console.log("Hello, World!");
 ```
 
-> Don't just tell people about mistakes; make them do it.
+> **Question 1**: What did each line do? If you were casually browsing
+> a webpage, which one of `alert()` or `console.log()` would be less
+> intrusive?
 
 
-<!-- how to include inline JavaScript -->
-
-```
-<script>
-</script>
-```
 
 <!-- Try to keep this one to the console? -->
+<!-- Don't just tell people about mistakes; make them do it. -->
 
 <!-- how to alert() -->
 
@@ -65,8 +90,19 @@ declare a variable
 
 <!-- Lambos -->
 
-```
+```javascript
 document.onload = function () {
 };
 ```
 
+<!-- how to include JavaScript -->
+```html
+<script src=""></script>
+```
+
+<!-- how to include inline JavaScript -->
+
+```html
+<script>
+</script>
+```

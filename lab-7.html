@@ -99,7 +99,18 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p><strong>Remember to cite your sources</strong>.</p>
 <h2 id="introduction-to-javascript">Introduction to JavaScript</h2>
 <p>JavaScript (also known by its standard name, <a href="https://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a>) is the programming language embedded in most modern web browsers. In this lab, we’ll explore how to write and run JavaScript in our own web pages.</p>
-<p>–</p>
+<h2 id="using-the-javascript-console">Using the JavaScript console</h2>
+<p>A helpful way to practice JavaScript is to experiment in the interactive console. Open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
+<figure>
+<img src="./lab-7/console-open.png" alt="Opening the JavaScript console" /><figcaption>Opening the JavaScript console</figcaption>
+</figure>
+<p>In the console, type the following:</p>
+<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="at">alert</span>(<span class="st">&quot;Hello, World!&quot;</span>)<span class="op">;</span></a></code></pre>
+<p>Now, type the following:</p>
+<pre class="sourceCode javascript" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Hello, World!&quot;</span>)<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 1</strong>: What did each line do? If you were casually browsing a webpage, which one of <code>alert()</code> or <code>console.log()</code> would be less intrusive?</p>
+</blockquote>
 <!-- Try to keep this one to the console? -->
 <!-- Don't just tell people about mistakes; make them do it. -->
 <!-- how to alert() -->
@@ -115,12 +126,12 @@ declare a variable
 
 -->
 <!-- Lambos -->
-<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="op">};</span></a></code></pre>
+<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="va">document</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">};</span></a></code></pre>
 <!-- how to include JavaScript -->
-<pre class="sourceCode html" id="cb2"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
+<pre class="sourceCode html" id="cb4"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
 <!-- how to include inline JavaScript -->
-<pre class="sourceCode html" id="cb3"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
+<pre class="sourceCode html" id="cb5"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">&lt;/script&gt;</span></a></code></pre>
 </body>
 </html>
