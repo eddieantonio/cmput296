@@ -448,4 +448,4 @@ to see if your code worked.
 > more like **Python** or **C/C++**? In terms of _semantics_ (the
 > meaning of code: how variables are interpreted, when types are
 > considered, memory management, etc.) is JavaScript more like
-> **Python** or **C/C++**?
+> **Python** or **C/C++**? Explain your answers.
