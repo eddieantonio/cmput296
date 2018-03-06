@@ -240,7 +240,7 @@ This is how to declare a function in JavaScript:
 
 ```javascript
 function myFunctionName(/* arguments */) {
-   /* code... */
+   /* code... */;
 }
 ```
 
@@ -255,7 +255,7 @@ If you have done everything right, when you type the following in the
 JavaScript console:
 
 ```javascript
-askForFavouriteFood()
+askForFavouriteFood();
 ```
 
 ...it should ask you what your favourite food is, as before.
@@ -291,7 +291,7 @@ a function whose code will be run when the event triggers.
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function (event) {
-   /* your code here */
+   /* your code here */;
 });
 ```
 
