@@ -413,17 +413,17 @@ In `js-example.html`, create a new `<script></script>` element. In this
 following to the console:
 
 ```
-10 pupsas left in the basket
-9 pupsas left in the basket
-8 pupsas left in the basket
-7 pupsas left in the basket
-6 pupsas left in the basket
-5 pupsas left in the basket
-4 pupsas left in the basket
-3 pupsas left in the basket
-2 pupsas left in the basket
+10 pupusas left in the basket
+9 pupusas left in the basket
+8 pupusas left in the basket
+7 pupusas left in the basket
+6 pupusas left in the basket
+5 pupusas left in the basket
+4 pupusas left in the basket
+3 pupusas left in the basket
+2 pupusas left in the basket
 One pupusa left in the basket
-No more pupsas left in the basket
+No more pupusas left in the basket
 ```
 
 You may need to use [`else if`][else if]
