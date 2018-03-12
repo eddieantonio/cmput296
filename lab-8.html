@@ -114,7 +114,7 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <p><strong>Type coercion</strong> is the automatic conversion from one data type to another in programming languages without necessarily requesting it. Languages that perform implicit type conversions like this are often called <strong>weakly-typed</strong>, because they translate between data types without the programmer explicitly requesting any type conversions. Conversely, a programming language that <em>requires</em> the programmer specify when to convert between data types—say when converting between a string and a number—is called a <strong>strongly-typed</strong> programming language.</p>
 <p>Let’s determine whether JavaScript is a <strong>weakly-typed</strong> or <strong>strongly-typed</strong> language.</p>
 <p>In Google Chrome, on any webpage, open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
-<p>We’re going to write a very small program that determines how old you are. Type the following into the Console:</p>
+<p>We’re going to write a very small program that determines how old you are. Type the following into the JavaScript console:</p>
 <pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">var</span> birthYear <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;What year were you born?&quot;</span>)<span class="op">;</span></a></code></pre>
 <p>Answer the prompt by typing an appropriate <strong>positive integer</strong> (e.g., I would have written <code>1992</code> in the prompt).</p>
 <blockquote>
@@ -125,7 +125,7 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <blockquote>
 <p><strong>Question 2</strong>: What is the type of the variable <code>yourAge</code>?</p>
 </blockquote>
-<p>Now finish it by writing a two lines of code that will print how old you are:</p>
+<p>Now finish it by writing two lines of code that will print how old you are:</p>
 <pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> message <span class="op">=</span> <span class="st">&quot;You are &quot;</span> <span class="op">+</span> yourAge <span class="op">+</span> <span class="st">&quot; years old&quot;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="va">console</span>.<span class="at">log</span>(message)<span class="op">;</span></a></code></pre>
 <blockquote>
@@ -141,10 +141,11 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <pre class="sourceCode javascript" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="dv">1</span> <span class="op">==</span> <span class="st">&#39;1&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="dv">0</span> <span class="op">==</span> <span class="st">&#39;&#39;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="dv">1</span> <span class="op">==</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="dv">70</span> <span class="op">==</span> <span class="st">&#39;0x070&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="op">+</span><span class="st">&#39;42&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="op">+</span><span class="st">&#39;0xbadbeef&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="op">+</span><span class="st">&#39;0xgoodbeef&#39;</span><span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="dv">70</span> <span class="op">==</span> <span class="st">&#39;70&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="dv">70</span> <span class="op">==</span> <span class="st">&#39;0x070&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="op">+</span><span class="st">&#39;42&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="op">+</span><span class="st">&#39;0xbadbeef&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="op">+</span><span class="st">&#39;0xgoodbeef&#39;</span><span class="op">;</span></a></code></pre>
 <blockquote>
 <p><strong>Question 6</strong>: What is the result of each line of code? Did any of the results surprise you?</p>
 </blockquote>
@@ -204,20 +205,22 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <a class="sourceLine" id="cb13-8" data-line-number="8"><span class="va">arr</span>.<span class="at">shift</span>()<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-9" data-line-number="9">arr<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-10" data-line-number="10"><span class="va">arr</span>.<span class="at">length</span> <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11">arr<span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb13-11" data-line-number="11">arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">arr[<span class="dv">15</span>] <span class="op">=</span> <span class="st">&#39;sixteen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">arr<span class="op">;</span></a></code></pre>
 <blockquote>
 <p><strong>Question 14</strong>: For each of the following methods: <code>.push()</code>, <code>.pop()</code>, <code>.unshift()</code> and <code>.shift()</code> explain what they do, and what they return.</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 15</strong>: Are arrays mutable or immutable? Explain your answer.</p>
 </blockquote>
-<p>To iterate over arrays in JavaScript, it may be tempting to do this:</p>
+<p>To answer <strong>Question 16</strong>, write the following <code>for-in</code> loop in the JavaScript console to iterate over items in an array:</p>
 <pre><code>var arr = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;];
 for (var thing in arr) {
   console.log(thing)
 }</code></pre>
 <blockquote>
-<p><strong>Question 16</strong>: Is <code>thing</code> bound to each object in the array, or each index of the array?</p>
+<p><strong>Question 16</strong>: In each iteration of the for loop, is <code>thing</code> assigned to each <em>element</em> in the array, or each <em>index</em> of the array?</p>
 </blockquote>
 <p>Try the following lines in the JavaScript console and use the results to answer questions <strong>17</strong> and <strong>18</strong>.</p>
 <pre class="sourceCode javascript" id="cb15"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="st">&quot;one&quot;</span><span class="op">,</span> <span class="st">&quot;two&quot;</span><span class="op">,</span> <span class="st">&quot;three&quot;</span><span class="op">,</span> <span class="st">&quot;four&quot;</span>]<span class="op">;</span></a>
@@ -226,7 +229,7 @@ for (var thing in arr) {
 <p><strong>Question 17</strong>: What are the contents of <code>arr</code> now? Is this what you expect? What does this imply about JavaScript arrays?</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 18</strong>: What happens when you use a <code>for (... in ...)</code> loop on <code>arr</code>? That is, if you ran the following loop:</p>
+<p><strong>Question 18</strong>: What happens when you use a <code>for-in</code> loop on <code>arr</code>? That is, if you ran the following loop:</p>
 <pre><code>var arr = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;];
 for (var thing in arr) {
   console.log(thing)
@@ -235,22 +238,22 @@ for (var thing in arr) {
 </blockquote>
 <h2 id="prototypes-and-classes">Prototypes and “classes”</h2>
 <p>While JavaScript is an object-oriented language, its implementation of objects and “inheritance” is a bit different than in other conventional object-oriented languages. JavaScript does not have classes in a traditional sense; instead it relies on sharing properties and methods with <strong>prototype</strong> objects.</p>
-<p>Let’s walk through an example. We’re going to be defining a JavaScript class in <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript">three different ways</a>: <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#the-good-old-es3-way">the ES3 way</a>, <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#extending-in-es5">the ES5 way</a>, and <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#es6-classes">the ES6 way</a>. The class will be a complex number (a number composed of both a real and an imaginary part).</p>
+<p>Let’s walk through an example. We’re going to be defining a JavaScript class in <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript">three different styles</a>: <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#the-good-old-es3-way">the ES3 style</a>, <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#extending-in-es5">the ES5 style</a>, and <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#es6-classes">the ES6 style</a>. The class will be a complex number (a number composed of both a real and an imaginary part).</p>
 <p>Create a new HTML file called <code>classes.html</code> with the following (non-validating!) contents:</p>
 <pre class="sourceCode html" id="cb17"><code class="sourceCode html"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es3.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es5.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es6.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
-<h3 id="defining-a-javascript-class-the-old-way">Defining a JavaScript class (the old way)</h3>
-<p>In this method, you define a <strong>function</strong> that will end up being the constructor. To define new <strong>properties</strong> on the newly constructed object, simply assign to <code>this.&lt;yourPropertyName&gt;</code>. Define the constructor in “es3.js”:</p>
+<h3 id="defining-a-javascript-class-the-old-style">Defining a JavaScript class (the old style)</h3>
+<p>In this style, you define a <strong>function</strong> that will end up being the constructor. To define new <strong>properties</strong> on the newly constructed object, simply assign to <code>this.&lt;yourPropertyName&gt;</code>. Write the following constructor in <code>es3.js</code>:</p>
 <pre class="sourceCode javascript" id="cb18"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">function</span> <span class="at">Complex1</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">this</span>.<span class="at">real</span> <span class="op">=</span> real<span class="op">;</span></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="kw">this</span>.<span class="at">imag</span> <span class="op">=</span> imag<span class="op">;</span></a>
 <a class="sourceLine" id="cb18-4" data-line-number="4"><span class="op">}</span></a></code></pre>
-<p>To define methods, you assign functions to the <strong>prototype</strong> that will be shared amongst all instances of your “class”. The methods can refer to properties of the current object by using <code>this</code>. Define a method called <code>.magnitude()</code> that will return the magnitude of the Complex object.</p>
+<p>To define methods, you assign functions to the <strong>prototype</strong> that will be shared amongst all instances of your “class”. The methods can refer to properties of the current object by using <code>this</code>. Define a method called <code>.magnitude()</code> that will return the magnitude of the <code>Complex1</code> object.</p>
 <pre class="sourceCode javascript" id="cb19"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="va">Complex1</span>.<span class="va">prototype</span>.<span class="at">magnitude</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">sqrt</span>(<span class="kw">this</span>.<span class="at">real</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">imag</span> <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3"><span class="op">};</span></a></code></pre>
-<p>Finally, to <strong>instantiate</strong> an object, use the <code>new</code> keyword (like Java and C++). Save “es3.js” and reload “classes.html” in your browser. Open the JavaScript console and type the following:</p>
+<p>Finally, to <strong>instantiate</strong> an object, use the <code>new</code> keyword (like Java and C++). Save <code>es3.js</code> and reload “classes.html” in your browser. Open the JavaScript console and type the following:</p>
 <pre class="sourceCode javascript" id="cb20"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">var</span> c1 <span class="op">=</span> <span class="kw">new</span> <span class="at">Complex1</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre>
 <p>Now call its <code>.magnitude()</code> method:</p>
 <pre class="sourceCode javascript" id="cb21"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="va">c1</span>.<span class="at">magnitude</span>()<span class="op">;</span></a></code></pre>
@@ -265,13 +268,13 @@ for (var thing in arr) {
 <a class="sourceLine" id="cb24-4" data-line-number="4"><span class="va">c1</span>.<span class="at">magnitude</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">magnitude</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb24-5" data-line-number="5"><span class="va">c1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">__proto__</span><span class="op">;</span></a></code></pre>
 <blockquote>
-<p><strong>Question 19</strong>: What is the value <code>__proto__</code> property of the <code>c1</code> and <code>c2</code> instances? How did these objects get their <code>__proto__</code> property?</p>
+<p><strong>Question 19</strong>: What is the value of the <code>__proto__</code> property of the <code>c1</code> and <code>c2</code> instances? How did these objects get their <code>__proto__</code> property?</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 20</strong>: What is the value of <code>c1.__proto__.constructor</code>? Where was it defined?</p>
 </blockquote>
-<h3 id="defining-a-javascript-class-the-es5-way">Defining a JavaScript class (the ES5 way)</h3>
-<p>ECMAScript 5 introduced <code>Object.create()</code> that increase the customization and power give to define classes. However, this is at the cost at not having an obvious way to define a constructor.</p>
+<h3 id="defining-a-javascript-class-the-es5-style">Defining a JavaScript class (the ES5 style)</h3>
+<p>ECMAScript 5 introduced <code>Object.create()</code> that increase the customization and power given to define classes. However, this is at the cost at not having an obvious way to define a constructor.</p>
 <p>In the file <code>es5.js</code>, define a new function called <code>Complex2</code> as follows:</p>
 <pre class="sourceCode javascript" id="cb25"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">function</span> <span class="at">Complex2</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="kw">var</span> obj <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(proto)<span class="op">;</span></a>
@@ -294,8 +297,8 @@ for (var thing in arr) {
 <blockquote>
 <p><strong>Question 21</strong>: How does the prototype of <code>Complex2</code> objects differ from <code>Complex1</code>? Does the behaviour change? Explain your answer.</p>
 </blockquote>
-<h3 id="defining-a-javascript-class-the-es6-way">Defining a JavaScript class (the ES6 way)</h3>
-<p>In 2015, the TC39 standardized a new method of defining classes, using the <code>class</code> keyword.</p>
+<h3 id="defining-a-javascript-class-the-es6-style">Defining a JavaScript class (the ES6 style)</h3>
+<p>In 2015, the <a href="https://ecma-international.org/memento/TC39.htm">TC39</a> standardized a new method of defining classes, using the <code>class</code> keyword.</p>
 <p>In the file <code>es6.js</code>, define the class called <code>Complex3</code> as follows:</p>
 <pre class="sourceCode javascript" id="cb30"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">class</span> Complex3 <span class="op">{</span></a>
 <a class="sourceLine" id="cb30-2" data-line-number="2">  <span class="at">constructor</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
@@ -317,7 +320,7 @@ for (var thing in arr) {
 </blockquote>
 <p>To answer Question <strong>23</strong>, type the following in the JavaScript console:</p>
 <pre class="sourceCode javascript" id="cb33"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Complex1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Complex3</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre>
-<p>Add a method to the class defined using the ES6 method:</p>
+<p>Add a method to the class defined using the ES6 style:</p>
 <pre class="sourceCode javascript" id="cb34"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="va">Complex3</span>.<span class="va">prototype</span>.<span class="at">keepItReal</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="at">alert</span>(<span class="kw">this</span>.<span class="at">real</span>)<span class="op">;</span> <span class="op">};</span></a></code></pre>
 <p>Finally, instantiate objects of the <code>Complex1</code> class.</p>
 <pre><code>var a = new Complex1(3, 4);</code></pre>
@@ -329,7 +332,7 @@ for (var thing in arr) {
 <p><strong>Question 23</strong>: Is <code>a</code> an instance of the <code>Complex1</code> or <code>Complex3</code> class? Explain.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 24</strong>: Compare and contrast the three differences in defining classes. Do they differ dramatically in meaning?</p>
+<p><strong>Question 24</strong>: Compare and contrast the three different styles for defining classes. Which is easiest to understand? Do they differ in behaviour?</p>
 </blockquote>
 </body>
 </html>

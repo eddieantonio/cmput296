@@ -77,7 +77,7 @@ Console][console] (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd>
 
 
 We're going to write a very small program that determines how old you
-are. Type the following into the Console:
+are. Type the following into the JavaScript console:
 
 ```javascript
 var birthYear = prompt("What year were you born?");
@@ -96,7 +96,7 @@ var yourAge = (new Date()).getFullYear() - birthYear;
 
 > **Question 2**: What is the type of the variable `yourAge`?
 
-Now finish it by writing a two lines of code that will print how old you
+Now finish it by writing two lines of code that will print how old you
 are:
 
 ```javascript
@@ -127,6 +127,7 @@ results:
 1 == '1';
 0 == '';
 1 == true;
+70 == '70';
 70 == '0x070';
 +'42';
 +'0xbadbeef';
@@ -242,6 +243,8 @@ arr.shift();
 arr;
 arr.length = 16;
 arr;
+arr[15] = 'sixteen';
+arr;
 ```
 
 > **Question 14**: For each of the following methods: `.push()`, `.pop()`,
@@ -251,7 +254,8 @@ arr;
 > **Question 15**: Are arrays mutable or immutable? Explain your
 > answer.
 
-To iterate over arrays in JavaScript, it may be tempting to do this:
+To answer **Question 16**, write the following `for-in` loop in the
+JavaScript console to iterate over items in an array:
 
 ```
 var arr = ["one", "two", "three", "four"];
@@ -260,8 +264,8 @@ for (var thing in arr) {
 }
 ```
 
-> **Question 16**: Is `thing` bound to each object in the array, or each
-> index of the array?
+> **Question 16**: In each iteration of the for loop, is `thing`
+> assigned to each _element_ in the array, or each _index_ of the array?
 
 Try the following lines in the JavaScript console and use the
 results to answer questions **17** and **18**.
@@ -274,7 +278,7 @@ arr.five = 5;
 > **Question 17**: What are the contents of `arr` now? Is this what you
 > expect? What does this imply about JavaScript arrays?
 
-> **Question 18**: What happens when you use a `for (... in ...)` loop
+> **Question 18**: What happens when you use a `for-in` loop
 > on `arr`? That is, if you ran the following loop:
 >
 >     var arr = ["one", "two", "three", "four"];
@@ -295,8 +299,8 @@ a traditional sense; instead it relies on sharing properties and methods
 with **prototype** objects.
 
 Let's walk through an example. We're going to be defining a JavaScript
-class in [three different ways][class-comparison]: [the ES3 way][es3],
-[the ES5 way][es5], and [the ES6 way][es6]. The class will be a complex
+class in [three different styles][class-comparison]: [the ES3 style][es3],
+[the ES5 style][es5], and [the ES6 style][es6]. The class will be a complex
 number (a number composed of both a real and an imaginary part).
 
 [class-comparison]: https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript
@@ -314,12 +318,12 @@ Create a new HTML file called `classes.html` with the following
 ```
 
 
-### Defining a JavaScript class (the old way)
+### Defining a JavaScript class (the old style)
 
-In this method, you define a **function** that will end up being the
+In this style, you define a **function** that will end up being the
 constructor. To define new **properties** on the newly constructed
-object, simply assign to `this.<yourPropertyName>`.
-Define the constructor in   "es3.js":
+object, simply assign to `this.<yourPropertyName>`. Write the following
+constructor in `es3.js`:
 
 ```javascript
 function Complex1(real, imag) {
@@ -331,7 +335,7 @@ function Complex1(real, imag) {
 To define methods, you assign functions to the **prototype** that will
 be shared amongst all instances of your "class". The methods can refer
 to properties of the current object by using `this`. Define a method
-called `.magnitude()` that will return the magnitude of the Complex
+called `.magnitude()` that will return the magnitude of the `Complex1`
 object.
 
 ```javascript
@@ -341,7 +345,7 @@ Complex1.prototype.magnitude = function() {
 ```
 
 Finally, to **instantiate** an object, use the `new` keyword (like Java
-and C++). Save "es3.js" and reload "classes.html" in your browser.
+and C++). Save `es3.js` and reload "classes.html" in your browser.
 Open the JavaScript console and type the following:
 
 ```javascript
@@ -377,19 +381,19 @@ c1.magnitude === c2.magnitude;
 c1.__proto__ === c2.__proto__;
 ```
 
-> **Question 19**: What is the value `__proto__` property of the `c1` and `c2`
-> instances? How did these objects get their `__proto__` property?
+> **Question 19**: What is the value of the `__proto__` property of the
+> `c1` and `c2` instances? How did these objects get their `__proto__`
+> property?
 
 > **Question 20**: What is the value of `c1.__proto__.constructor`?
 > Where was it defined?
 
 
-### Defining a JavaScript class (the ES5 way)
+### Defining a JavaScript class (the ES5 style)
 
 ECMAScript 5 introduced `Object.create()` that increase the
-customization and power give to define classes. However, this is at the
+customization and power given to define classes. However, this is at the
 cost at not having an obvious way to define a constructor.
-
 
 In the file `es5.js`, define a new function called `Complex2` as
 follows:
@@ -436,10 +440,12 @@ d1.__proto__;
 > from `Complex1`?  Does the behaviour change? Explain your answer.
 
 
-### Defining a JavaScript class (the ES6 way)
+### Defining a JavaScript class (the ES6 style)
 
-In 2015, the TC39 standardized a new method of defining classes, using
+In 2015, the [TC39][] standardized a new method of defining classes, using
 the `class` keyword.
+
+[TC39]: https://ecma-international.org/memento/TC39.htm
 
 In the file `es6.js`, define the class called `Complex3` as follows:
 
@@ -482,7 +488,7 @@ console:
 Complex1.prototype = Complex3.prototype;
 ```
 
-Add a method to the class defined using the ES6 method:
+Add a method to the class defined using the ES6 style:
 
 ```javascript
 Complex3.prototype.keepItReal = function () { alert(this.real); };
@@ -505,5 +511,6 @@ a.keepItReal();
 > **Question 23**: Is `a` an instance of the `Complex1` or `Complex3`
 > class? Explain.
 
-> **Question 24**: Compare and contrast the three differences in
-> defining classes. Do they differ dramatically in meaning?
+> **Question 24**: Compare and contrast the three different styles for
+> defining classes. Which is easiest to understand? Do they differ in
+> behaviour?
