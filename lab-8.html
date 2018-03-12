@@ -7,12 +7,67 @@
   <meta name="author" content="CMPUT 296" />
   <meta name="author" content="written by Eddie Antonio Santos" />
   <meta name="dcterms.date" content="2018-03-12" />
-  <title>Lab 8: wat</title>
+  <title>Lab 8: Intermediate JavaScript</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       div.line-block{white-space: pre-line;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
   <link rel="stylesheet" href="simple.css">
   <!--[if lt IE 9]>
@@ -21,23 +76,88 @@
 </head>
 <body>
 <header>
-<h1 class="title">Lab 8: wat</h1>
+<h1 class="title">Lab 8: Intermediate JavaScript</h1>
 <p class="author">CMPUT 296</p>
 <p class="author">written by Eddie Antonio Santos</p>
 <p class="date">March 12, 2018</p>
 </header>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Become familiar with JavaScript objects</li>
+<li>Become familiar with JavaScript’s</li>
+</ul>
+<h1 id="materials">Materials</h1>
+<ul>
+<li>Google Chrome’s <a href="https://developer.chrome.com/devtools">DevTools</a></li>
+<li>A text editor</li>
+</ul>
+<h1 id="procedure">Procedure</h1>
+<p>Submit your responses to the questions in this lab on eClass.</p>
+<blockquote>
+<p><strong>Question X</strong>: Questions look like this.</p>
+</blockquote>
+<p><strong>Remember to cite your sources</strong>.</p>
+<h2 id="wat.js">wat.js</h2>
 <blockquote cite="http://www.stroustrup.com/blast.html">
 <p>
 There are only two kinds of programming languages: those people always [complain] about and those nobody uses.
 </p>
 <cite><a href="http://www.stroustrup.com/blast.html">Bjarne Stroustrup</a>, Creator of C++</cite>
 </blockquote>
-<!-- how to debug: debugger; -->
+<p>As a warm-up exercise, we’ll explore the more infamous aspects of JavaScript, such as its <strong>weak typing</strong>, <strong>type coercion</strong>, and using IEEE 754 <strong>double-precision floating point</strong> numbers as its built-in numeric type.</p>
+<h3 id="wat-type-coercion-and-weak-typing">wat: Type coercion and weak typing</h3>
+<aside>
+Note that “weakly-typed” and “strongly-typed” is more of a continuum than a dichotomy; a programming language can be sometimes weakly-typed and sometimes strongly-typed. For example, Python 3 will convert between <code>int</code> and <code>float</code> automatically, and has “truthy” and “falsey” values, but is strongly-typed in that it does not allow automatic conversion between strings and numbers, and it does not like to mix byte and Unicode strings.
+</aside>
+<p><strong>Type coercion</strong> is the automatic conversion from one data type to another in programming languages without necessarily requesting it. Languages that perform implicit type conversions like this are often called <strong>weakly-typed</strong>, because they translate between data types without the programmer explicitly requesting any type conversions. Conversely, a programming language that <em>requires</em> the programmer specify when to convert between data types—say when converting between a string and a number—is called a <strong>strongly-typed</strong> programming language.</p>
+<!-- try prompt: prompt for a number -->
+<p>Let’s determine whether JavaScript is a <strong>weakly-typed</strong> or <strong>strongly-typed</strong> language.</p>
+<p>In Google Chrome, on any webpage, open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
+<p>We’re going to write a very small program that determines how old you are. Type the following into the Console:</p>
+<pre class="sourceCode javascript" id="cb1"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">var</span> birthYear <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;What year were you born?&quot;</span>)<span class="op">;</span></a></code></pre>
+<p>Answer the prompt by typing an appropriate <strong>positive integer</strong> (e.g., I would have written <code>1992</code> in the prompt).</p>
+<blockquote>
+<p><strong>Question 1</strong>: What is the type of the variable <code>birthYear</code>?</p>
+</blockquote>
+<p>Now type the following:</p>
+<pre class="sourceCode javascript" id="cb2"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">var</span> yourAge <span class="op">=</span> (<span class="kw">new</span> <span class="at">Date</span>()).<span class="at">getFullYear</span>() <span class="op">-</span> birthYear<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 2</strong>: What is the type of the variable <code>yourAge</code>?</p>
+</blockquote>
+<p>Now finish it by writing a line of code that will print how old you are:</p>
+<pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> output <span class="op">=</span> <span class="st">&quot;You are &quot;</span> <span class="op">+</span> yourAge <span class="op">+</span> <span class="st">&quot; years old&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="va">console</span>.<span class="at">log</span>(output)<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 3</strong>: Did JavaScript perform any implicit type conversions? How many type conversions and where?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 4</strong>: Write the same small program in Python (asks for your birth year, calculates your age, prints it in a sentence). Use <code>input()</code> and <code>print()</code> instead of <code>prompt()</code> and <code>console.log()</code> (you may hard code the current year instead of using the <code>datetime</code> module). Make sure your program works, and copy-paste it as the answer to this question.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 5</strong>: Is JavaScript more of a <strong>weakly-typed</strong> language or a <strong>strongly-typed</strong> language? Provide code to justify your answer.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 6</strong>: State one <strong>advantage</strong> of weak typing.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 7</strong>: State one <strong>disadvantage</strong> of weak typing.</p>
+</blockquote>
+<h3 id="how-to-avoid-it-use-and">How to avoid it use: <code>===</code> and <code>!==</code></h3>
+<h3 id="wat-ieee-754-floating-point">wat: IEEE 754 floating point</h3>
+<p>JavaScript’s default numeric type is <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> Binary64 “double precision” floating point format. This number representation is available as the <code>float</code> type in Python and is (usually) the <code>double</code> type in C/C++.</p>
+<p>Quick facts about floating points:</p>
+<ul>
+<li>numbers are <em>approximations</em> of (real numbers)</li>
+<li>includes many finite values, two infinities, and lots of NaN.</li>
+</ul>
 <!--
+Forgetting var; creating a global
+
 NaN
 
 nan in Python. nan in C.
 -->
+<!-- at what power of can you no longer -->
 <!--
 triple equal
 -->
@@ -74,11 +194,24 @@ function hello() {
 }
 
 -->
-<!--
-
-Forgetting var; creating a global
-
-
--->
+<p>Along the way, we’ll be learning how to use Chrome’s JavaScript debugger. We’ll explore <strong>first-class functions</strong> (a.k.a., “<strong>closures</strong>”, or “<strong>lambdas</strong>”),</p>
+<pre class="sourceCode js" id="cb4"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">function</span> <span class="at">cons</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="cf">return</span> <span class="kw">function</span> (m) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="cf">return</span> <span class="at">m</span>(a<span class="op">,</span> b)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw">function</span> <span class="at">car</span>(cell) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="cf">return</span> <span class="at">cell</span>(<span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="cf">return</span> a<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="kw">function</span> <span class="at">cdr</span>(cell) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="cf">return</span> <span class="at">cell</span>(<span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="cf">return</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="op">};</span></a></code></pre>
+<!-- how to debug: debugger; -->
 </body>
 </html>
