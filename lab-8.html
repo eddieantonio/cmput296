@@ -7,7 +7,7 @@
   <meta name="author" content="CMPUT 296" />
   <meta name="author" content="written by Eddie Antonio Santos" />
   <meta name="dcterms.date" content="2018-03-12" />
-  <title>Lab 8: JavaScript: type coersion, and objects</title>
+  <title>Lab 8: JavaScript: type coersion, arrays, and objects</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -76,15 +76,16 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </head>
 <body>
 <header>
-<h1 class="title">Lab 8: JavaScript: type coersion, and objects</h1>
+<h1 class="title">Lab 8: JavaScript: type coersion, arrays, and objects</h1>
 <p class="author">CMPUT 296</p>
 <p class="author">written by Eddie Antonio Santos</p>
 <p class="date">March 12, 2018</p>
 </header>
 <h1 id="overview">Overview</h1>
 <ul>
-<li>Become familiar with JavaScript objects</li>
-<li>Become familiar with JavaScript’s</li>
+<li>Become familiar with JavaScript’s type coercion</li>
+<li>Learn how to use JavaScript’s arrays</li>
+<li>Define “classes” in three different ways in JavaScript</li>
 </ul>
 <h1 id="materials">Materials</h1>
 <ul>
@@ -208,6 +209,27 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <blockquote>
 <p><strong>Question 15</strong>: At what power of 2 does adding one to a number no longer work as expected?</p>
 </blockquote>
+<h1 id="arrays">Arrays</h1>
+<!-- are arrays mutable or immutable? -->
+<!--
+
+  > l.push(0)
+  4
+  > l
+  [ 1, 2, 3, 0 ]
+  > l.five = 5
+  5
+
+for (var i in l) {
+  console.log(i)
+}
+
+does it print indices or contents?
+
+  > l
+  [ 1, 2, 3, 0, five: 5 ]
+
+-->
 <!--
 Forgetting var; creating a global
 

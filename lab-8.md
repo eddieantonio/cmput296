@@ -1,12 +1,13 @@
-% Lab 8: JavaScript: type coersion, and objects
+% Lab 8: JavaScript: type coersion, arrays, and objects
 % CMPUT 296; written by Eddie Antonio Santos
 % March 12, 2018
 
 Overview
 ========
 
- - Become familiar with JavaScript objects
- - Become familiar with JavaScript's
+ - Become familiar with JavaScript's type coercion
+ - Learn how to use JavaScript's arrays
+ - Define "classes" in three different ways in JavaScript
 
 
 Materials
@@ -252,6 +253,29 @@ That is, at what value of *n* is this expression true?
 > **Question 15**: At what power of 2 does adding one to a number no
 > longer work as expected?
 
+# Arrays
+
+<!-- are arrays mutable or immutable? -->
+
+<!--
+
+  > l.push(0)
+  4
+  > l
+  [ 1, 2, 3, 0 ]
+  > l.five = 5
+  5
+
+for (var i in l) {
+  console.log(i)
+}
+
+does it print indices or contents?
+
+  > l
+  [ 1, 2, 3, 0, five: 5 ]
+
+-->
 
 <!--
 Forgetting var; creating a global
