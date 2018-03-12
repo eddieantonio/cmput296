@@ -298,7 +298,7 @@ for (var thing in arr) {
 <p><strong>Question 21</strong>: How does the prototype of <code>Complex2</code> objects differ from <code>Complex1</code>? Does the behaviour change? Explain your answer.</p>
 </blockquote>
 <h3 id="defining-a-javascript-class-the-es6-style">Defining a JavaScript class (the ES6 style)</h3>
-<p>In 2015, the <a href="https://ecma-international.org/memento/TC39.htm">TC39</a> standardized a new method of defining classes, using the <code>class</code> keyword.</p>
+<p>In 2015, the <a href="https://ecma-international.org/memento/TC39.htm">TC39</a> standardized a new style of defining classes, using the <code>class</code> keyword.</p>
 <p>In the file <code>es6.js</code>, define the class called <code>Complex3</code> as follows:</p>
 <pre class="sourceCode javascript" id="cb30"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">class</span> Complex3 <span class="op">{</span></a>
 <a class="sourceLine" id="cb30-2" data-line-number="2">  <span class="at">constructor</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
@@ -320,9 +320,9 @@ for (var thing in arr) {
 </blockquote>
 <p>To answer Question <strong>23</strong>, type the following in the JavaScript console:</p>
 <pre class="sourceCode javascript" id="cb33"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Complex1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Complex3</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre>
-<p>Add a method to the class defined using the ES6 style:</p>
+<p>Add a method to the <code>Complex3</code> prototype:</p>
 <pre class="sourceCode javascript" id="cb34"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="va">Complex3</span>.<span class="va">prototype</span>.<span class="at">keepItReal</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="at">alert</span>(<span class="kw">this</span>.<span class="at">real</span>)<span class="op">;</span> <span class="op">};</span></a></code></pre>
-<p>Finally, instantiate objects of the <code>Complex1</code> class.</p>
+<p>Finally, instantiate an object of the <code>Complex1</code> class.</p>
 <pre><code>var a = new Complex1(3, 4);</code></pre>
 <p>Try the following the JavaScript console and observe the results:</p>
 <pre class="sourceCode javascript" id="cb36"><code class="sourceCode javascript"><a class="sourceLine" id="cb36-1" data-line-number="1">a <span class="kw">instanceof</span> Complex1<span class="op">;</span></a>
@@ -332,7 +332,11 @@ for (var thing in arr) {
 <p><strong>Question 23</strong>: Is <code>a</code> an instance of the <code>Complex1</code> or <code>Complex3</code> class? Explain.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 24</strong>: Compare and contrast the three different styles for defining classes. Which is easiest to understand? Do they differ in behaviour?</p>
+<p><strong>Question 24</strong>: When you added the method <code>.keepItReal()</code> to <code>Complex3</code>, did you use the old style of defining methods or the new style? Does this affect its functionality?</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Question 25</strong>: Compare and contrast the three different styles for defining classes. Which is easiest to understand? Do they differ in behaviour?</p>
 </blockquote>
 </body>
 </html>

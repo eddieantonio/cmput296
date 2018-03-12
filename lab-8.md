@@ -442,7 +442,7 @@ d1.__proto__;
 
 ### Defining a JavaScript class (the ES6 style)
 
-In 2015, the [TC39][] standardized a new method of defining classes, using
+In 2015, the [TC39][] standardized a new style of defining classes, using
 the `class` keyword.
 
 [TC39]: https://ecma-international.org/memento/TC39.htm
@@ -488,13 +488,13 @@ console:
 Complex1.prototype = Complex3.prototype;
 ```
 
-Add a method to the class defined using the ES6 style:
+Add a method to the `Complex3` prototype:
 
 ```javascript
 Complex3.prototype.keepItReal = function () { alert(this.real); };
 ```
 
-Finally, instantiate objects of the `Complex1` class.
+Finally, instantiate an object of the `Complex1` class.
 
 ```
 var a = new Complex1(3, 4);
@@ -511,6 +511,12 @@ a.keepItReal();
 > **Question 23**: Is `a` an instance of the `Complex1` or `Complex3`
 > class? Explain.
 
-> **Question 24**: Compare and contrast the three different styles for
+> **Question 24**: When you added the method `.keepItReal()` to
+> `Complex3`, did you use the old style of defining methods or the new
+> style? Does this affect its functionality?
+
+---
+
+> **Question 25**: Compare and contrast the three different styles for
 > defining classes. Which is easiest to understand? Do they differ in
 > behaviour?
