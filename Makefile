@@ -22,7 +22,7 @@ install-hooks:
 
 %.html: %.md
 	pandoc --standalone --css $(CSSFILE) -o $@ $<
-	-@sh -c 'for i in $*/*.py; do [ -f "$$i" ] && openssl dgst -sha256 "$$i"; done'
+	@sh -c 'for i in $*/*.py; do [ -f "$$i" ] && openssl dgst -sha256 "$$i"; done || true'
 
 %.py:
 	openssl dgst -256 $@
