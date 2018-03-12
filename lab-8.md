@@ -175,6 +175,9 @@ and
 [`parseFloat()`][parseFloat]
 functions as appropriate.
 
+[parseInt]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#Syntax
+[parseFloat]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat#Syntax
+
 
 > **Question 12**: Rewrite the first line of the JavaScript program
 > (i.e., `var birthYear = prompt("What year were you born?");`)
@@ -184,7 +187,7 @@ functions as appropriate.
 > `0x1992` into the prompt?
 
 When comparing items of different types, use the
-**strict equality operators**: `===` and `!==`.
+**strict comparison operators**: `===` and `!==`.
 
 > **Question 13**: In JavaScript, what is the difference between
 > the output and meaning of the following two statements?
@@ -194,7 +197,8 @@ When comparing items of different types, use the
 >    1 === true;
 
 
-### Arrays
+Arrays
+------
 
 An empty array in JavaScript is written like this:
 
@@ -235,6 +239,8 @@ arr;
 arr.unshift("zero");
 arr;
 arr.shift();
+arr;
+arr.length = 16;
 arr;
 ```
 
@@ -279,23 +285,219 @@ arr.five = 5;
 > What does it print and why?
 
 
-<!--
+Prototypes and "classes"
+------------------------
+
+While JavaScript is an object-oriented language, its implementation of
+objects and "inheritance" is a bit different than in other conventional
+object-oriented languages. JavaScript does not have classes in
+a traditional sense; instead it relies on sharing properties and methods
+with **prototype** objects.
+
+Let's walk through an example. We're going to be defining a JavaScript
+class in [three different ways][class-comparison]: [the ES3 way][es3],
+[the ES5 way][es5], and [the ES6 way][es6]. The class will be a complex
+number (a number composed of both a real and an imaginary part).
+
+[class-comparison]: https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript
+[es3]: https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#the-good-old-es3-way
+[es5]: https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#extending-in-es5
+[es6]: https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#es6-classes
+
+Create a new HTML file called `classes.html` with the following
+(non-validating!) contents:
+
+```html
+<script src="es3.js"></script>
+<script src="es5.js"></script>
+<script src="es6.js"></script>
+```
+
+
+### Defining a JavaScript class (the old way)
+
+In this method, you define a **function** that will end up being the
+constructor. To define new **properties** on the newly constructed
+object, simply assign to `this.<yourPropertyName>`.
+Define the constructor in   "es3.js":
 
 ```javascript
-class Complex {
+function Complex1(real, imag) {
+  this.real = real;
+  this.imag = imag;
+}
+```
+
+To define methods, you assign functions to the **prototype** that will
+be shared amongst all instances of your "class". The methods can refer
+to properties of the current object by using `this`. Define a method
+called `.magnitude()` that will return the magnitude of the Complex
+object.
+
+```javascript
+Complex1.prototype.magnitude = function() {
+  return Math.sqrt(this.real ** 2 + this.imag ** 2);
+};
+```
+
+Finally, to **instantiate** an object, use the `new` keyword (like Java
+and C++). Save "es3.js" and reload "classes.html" in your browser.
+Open the JavaScript console and type the following:
+
+```javascript
+var c1 = new Complex1(3, 4);
+```
+
+Now call its `.magnitude()` method:
+
+```javascript
+c1.magnitude();
+```
+
+Create a new `Complex1` instance:
+
+```javascript
+var c2 = new Complex(3, 4);
+```
+
+Now call this new instance's `.magnitude()` method:
+
+```javascript
+c2.magnitude();
+```
+
+Try the following lines in the JavaScript console and observe the
+results:
+
+```javascript
+c1.real === c2.real;
+c1.imag === c2.real;
+c1 === c2;
+c1.magnitude === c2.magnitude;
+c1.__proto__ === c2.__proto__;
+```
+
+> **Question 19**: What is the value `__proto__` property of the `c1` and `c2`
+> instances? How did these objects get their `__proto__` property?
+
+> **Question 20**: What is the value of `c1.__proto__.constructor`?
+> Where was it defined?
+
+
+### Defining a JavaScript class (the ES5 way)
+
+ECMAScript 5 introduced `Object.create()` that increase the
+customization and power give to define classes. However, this is at the
+cost at not having an obvious way to define a constructor.
+
+
+In the file `es5.js`, define a new function called `Complex2` as
+follows:
+
+```javascript
+function Complex2(real, imag) {
+  var obj = Object.create(proto);
+  obj.real = real;
+  obj.imag = imag;
+  return obj;
+}
+```
+
+Define the prototype object that will be shared by all `Complex2` objects:
+
+```javascript
+var proto = {
+  magnitude: function() {
+    return Math.sqrt(this.real ** 2 + this.imag ** 2);
+  }
+};
+```
+
+Save `es5.js` and reload `classes.html` in your browser. Type the
+following to "instantiate" your object:
+
+```javascript
+var d1 = Complex2(3, 4);
+```
+
+Just as before, try using the `.magnitude()` method:
+
+```javascript
+d1.magnitude();
+```
+
+Inspect the **prototype** of `d1` by typing:
+
+```javascript
+d1.__proto__;
+```
+
+> **Question 21**: How does the prototype of `Complex2` objects differ
+> from `Complex1`?  Does the behaviour change? Explain your answer.
+
+
+### Defining a JavaScript class (the ES6 way)
+
+In 2015, the TC39 standardized a new method of defining classes, using
+the `class` keyword.
+
+In the file `es6.js`, define the class called `Complex3` as follows:
+
+```javascript
+class Complex3 {
   constructor(real, imag) {
     this.real = real;
     this.imag = imag;
   }
 
-  toString() {
-    return this.real.toString() + '+' + this.imag.toString() +'i';
+  magnitude() {
+    return Math.sqrt(this.real ** 2 + this.imag ** 2);
   }
 }
 ```
--->
 
+Save `es6.js`, and reload `classes.html` in your browser.
 
+In the JavaScript console, instantiate a `Complex3` object using the
+`new` keyword:
 
-[parseInt]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#Syntax
-[parseFloat]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat#Syntax
+```javascript
+var e1 = new Complex3(3, 4);
+```
+
+Yet again, try the `.magnitude()` method of the object you just defined.
+
+```javascript
+e1.magnitude();
+```
+
+> **Question 22**: How does the prototype of `Complex3` objects differ
+> from the prototype shared by `Complex1` objects and the prototype
+> shared by `Complex2` objects?  Does the behaviour change? Explain your answer.
+
+To answer Question **23**, type the following in the JavaScript
+console:
+
+```javascript
+Complex3.prototype = Complex1.prototype;
+```
+
+Add a method to the class defined using the ES3 method:
+
+```javascript
+Complex3.prototype.keepItReal = function () { alert(this.real); };
+```
+
+Finally, instantiate objects of the `Complex1` class and the `Complex3`
+class.
+
+```
+var x = new Complex1(3, 4);
+var y = new Complex3(4, 3);
+```
+
+Try
+
+> **Question 23**: 
+> from the prototype shared by `Complex1` objects and the prototype
+> shared by `Complex2` objects?  Does the behaviour change? Explain your answer.

@@ -176,13 +176,13 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <blockquote>
 <p><strong>Question 12</strong>: Rewrite the first line of the JavaScript program (i.e., <code>var birthYear = prompt(&quot;What year were you born?&quot;);</code>) using either <code>parseInt()</code> or <code>parseFloat()</code> (which ever you think is most appropriate. Paste this revised line of code as the answer to this question. What will happen if I enter in my birth year as <code>0x1992</code> into the prompt?</p>
 </blockquote>
-<p>When comparing items of different types, use the <strong>strict equality operators</strong>: <code>===</code> and <code>!==</code>.</p>
+<p>When comparing items of different types, use the <strong>strict comparison operators</strong>: <code>===</code> and <code>!==</code>.</p>
 <blockquote>
 <p><strong>Question 13</strong>: In JavaScript, what is the difference between the output and meaning of the following two statements?</p>
 <p>1 == true;</p>
 <p>1 === true;</p>
 </blockquote>
-<h3 id="arrays">Arrays</h3>
+<h2 id="arrays">Arrays</h2>
 <p>An empty array in JavaScript is written like this:</p>
 <pre class="sourceCode javascript" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> []<span class="op">;</span></a></code></pre>
 <p>An array with four elements is written like this:</p>
@@ -202,7 +202,9 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <a class="sourceLine" id="cb13-6" data-line-number="6"><span class="va">arr</span>.<span class="at">unshift</span>(<span class="st">&quot;zero&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-7" data-line-number="7">arr<span class="op">;</span></a>
 <a class="sourceLine" id="cb13-8" data-line-number="8"><span class="va">arr</span>.<span class="at">shift</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">arr<span class="op">;</span></a></code></pre>
+<a class="sourceLine" id="cb13-9" data-line-number="9">arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="va">arr</span>.<span class="at">length</span> <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">arr<span class="op">;</span></a></code></pre>
 <blockquote>
 <p><strong>Question 14</strong>: For each of the following methods: <code>.push()</code>, <code>.pop()</code>, <code>.unshift()</code> and <code>.shift()</code> explain what they do, and what they return.</p>
 </blockquote>
@@ -231,20 +233,98 @@ for (var thing in arr) {
 }</code></pre>
 <p>What does it print and why?</p>
 </blockquote>
-<!--
-
-```javascript
-class Complex {
-  constructor(real, imag) {
-    this.real = real;
-    this.imag = imag;
-  }
-
-  toString() {
-    return this.real.toString() + '+' + this.imag.toString() +'i';
-  }
-}
-```
--->
+<h2 id="prototypes-and-classes">Prototypes and “classes”</h2>
+<p>While JavaScript is an object-oriented language, its implementation of objects and “inheritance” is a bit different than in other conventional object-oriented languages. JavaScript does not have classes in a traditional sense; instead it relies on sharing properties and methods with <strong>prototype</strong> objects.</p>
+<p>Let’s walk through an example. We’re going to be defining a JavaScript class in <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript">three different ways</a>: <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#the-good-old-es3-way">the ES3 way</a>, <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#extending-in-es5">the ES5 way</a>, and <a href="https://www.webreflection.co.uk/blog/2015/11/07/the-history-of-simulated-classes-in-javascript#es6-classes">the ES6 way</a>. The class will be a complex number (a number composed of both a real and an imaginary part).</p>
+<p>Create a new HTML file called <code>classes.html</code> with the following (non-validating!) contents:</p>
+<pre class="sourceCode html" id="cb17"><code class="sourceCode html"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es3.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es5.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;es6.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre>
+<h3 id="defining-a-javascript-class-the-old-way">Defining a JavaScript class (the old way)</h3>
+<p>In this method, you define a <strong>function</strong> that will end up being the constructor. To define new <strong>properties</strong> on the newly constructed object, simply assign to <code>this.&lt;yourPropertyName&gt;</code>. Define the constructor in “es3.js”:</p>
+<pre class="sourceCode javascript" id="cb18"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">function</span> <span class="at">Complex1</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">this</span>.<span class="at">real</span> <span class="op">=</span> real<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="kw">this</span>.<span class="at">imag</span> <span class="op">=</span> imag<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="op">}</span></a></code></pre>
+<p>To define methods, you assign functions to the <strong>prototype</strong> that will be shared amongst all instances of your “class”. The methods can refer to properties of the current object by using <code>this</code>. Define a method called <code>.magnitude()</code> that will return the magnitude of the Complex object.</p>
+<pre class="sourceCode javascript" id="cb19"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="va">Complex1</span>.<span class="va">prototype</span>.<span class="at">magnitude</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">sqrt</span>(<span class="kw">this</span>.<span class="at">real</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">imag</span> <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="op">};</span></a></code></pre>
+<p>Finally, to <strong>instantiate</strong> an object, use the <code>new</code> keyword (like Java and C++). Save “es3.js” and reload “classes.html” in your browser. Open the JavaScript console and type the following:</p>
+<pre class="sourceCode javascript" id="cb20"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">var</span> c1 <span class="op">=</span> <span class="kw">new</span> <span class="at">Complex1</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre>
+<p>Now call its <code>.magnitude()</code> method:</p>
+<pre class="sourceCode javascript" id="cb21"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="va">c1</span>.<span class="at">magnitude</span>()<span class="op">;</span></a></code></pre>
+<p>Create a new <code>Complex1</code> instance:</p>
+<pre class="sourceCode javascript" id="cb22"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">var</span> c2 <span class="op">=</span> <span class="kw">new</span> <span class="at">Complex</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre>
+<p>Now call this new instance’s <code>.magnitude()</code> method:</p>
+<pre class="sourceCode javascript" id="cb23"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="va">c2</span>.<span class="at">magnitude</span>()<span class="op">;</span></a></code></pre>
+<p>Try the following lines in the JavaScript console and observe the results:</p>
+<pre class="sourceCode javascript" id="cb24"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="va">c1</span>.<span class="at">real</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">real</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="va">c1</span>.<span class="at">imag</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">real</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">c1 <span class="op">===</span> c2<span class="op">;</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="va">c1</span>.<span class="at">magnitude</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">magnitude</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="va">c1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">c2</span>.<span class="at">__proto__</span><span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 19</strong>: What is the value <code>__proto__</code> property of the <code>c1</code> and <code>c2</code> instances? How did these objects get their <code>__proto__</code> property?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 20</strong>: What is the value of <code>c1.__proto__.constructor</code>? Where was it defined?</p>
+</blockquote>
+<h3 id="defining-a-javascript-class-the-es5-way">Defining a JavaScript class (the ES5 way)</h3>
+<p>ECMAScript 5 introduced <code>Object.create()</code> that increase the customization and power give to define classes. However, this is at the cost at not having an obvious way to define a constructor.</p>
+<p>In the file <code>es5.js</code>, define a new function called <code>Complex2</code> as follows:</p>
+<pre class="sourceCode javascript" id="cb25"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">function</span> <span class="at">Complex2</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="kw">var</span> obj <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(proto)<span class="op">;</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">  <span class="va">obj</span>.<span class="at">real</span> <span class="op">=</span> real<span class="op">;</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">  <span class="va">obj</span>.<span class="at">imag</span> <span class="op">=</span> imag<span class="op">;</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">  <span class="cf">return</span> obj<span class="op">;</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="op">}</span></a></code></pre>
+<p>Define the prototype object that will be shared by all <code>Complex2</code> objects:</p>
+<pre class="sourceCode javascript" id="cb26"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">var</span> proto <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="dt">magnitude</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">    <span class="cf">return</span> <span class="va">Math</span>.<span class="at">sqrt</span>(<span class="kw">this</span>.<span class="at">real</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">imag</span> <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="op">};</span></a></code></pre>
+<p>Save <code>es5.js</code> and reload <code>classes.html</code> in your browser. Type the following to “instantiate” your object:</p>
+<pre class="sourceCode javascript" id="cb27"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">var</span> d1 <span class="op">=</span> <span class="at">Complex2</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre>
+<p>Just as before, try using the <code>.magnitude()</code> method:</p>
+<pre class="sourceCode javascript" id="cb28"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="va">d1</span>.<span class="at">magnitude</span>()<span class="op">;</span></a></code></pre>
+<p>Inspect the <strong>prototype</strong> of <code>d1</code> by typing:</p>
+<pre class="sourceCode javascript" id="cb29"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="va">d1</span>.<span class="at">__proto__</span><span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 21</strong>: How does the prototype of <code>Complex2</code> objects differ from <code>Complex1</code>? Does the behaviour change? Explain your answer.</p>
+</blockquote>
+<h3 id="defining-a-javascript-class-the-es6-way">Defining a JavaScript class (the ES6 way)</h3>
+<p>In 2015, the TC39 standardized a new method of defining classes, using the <code>class</code> keyword.</p>
+<p>In the file <code>es6.js</code>, define the class called <code>Complex3</code> as follows:</p>
+<pre class="sourceCode javascript" id="cb30"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">class</span> Complex3 <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">  <span class="at">constructor</span>(real<span class="op">,</span> imag) <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">    <span class="kw">this</span>.<span class="at">real</span> <span class="op">=</span> real<span class="op">;</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">    <span class="kw">this</span>.<span class="at">imag</span> <span class="op">=</span> imag<span class="op">;</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">  <span class="at">magnitude</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-8" data-line-number="8">    <span class="cf">return</span> <span class="va">Math</span>.<span class="at">sqrt</span>(<span class="kw">this</span>.<span class="at">real</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">imag</span> <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb30-10" data-line-number="10"><span class="op">}</span></a></code></pre>
+<p>Save <code>es6.js</code>, and reload <code>classes.html</code> in your browser.</p>
+<p>In the JavaScript console, instantiate a <code>Complex3</code> object using the <code>new</code> keyword:</p>
+<pre class="sourceCode javascript" id="cb31"><code class="sourceCode javascript"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">var</span> e1 <span class="op">=</span> <span class="kw">new</span> <span class="at">Complex3</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre>
+<p>Yet again, try the <code>.magnitude()</code> method of the object you just defined.</p>
+<pre class="sourceCode javascript" id="cb32"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="va">e1</span>.<span class="at">magnitude</span>()<span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 22</strong>: How does the prototype of <code>Complex3</code> objects differ from the prototype shared by <code>Complex1</code> objects and the prototype shared by <code>Complex2</code> objects? Does the behaviour change? Explain your answer.</p>
+</blockquote>
+<p>To answer Question <strong>23</strong>, type the following in the JavaScript console:</p>
+<pre class="sourceCode javascript" id="cb33"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Complex3</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Complex1</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre>
+<p>Add a method to the class defined using the ES3 method:</p>
+<pre class="sourceCode javascript" id="cb34"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="va">Complex3</span>.<span class="va">prototype</span>.<span class="at">keepItReal</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="at">alert</span>(<span class="kw">this</span>.<span class="at">real</span>)<span class="op">;</span> <span class="op">};</span></a></code></pre>
+<p>Finally, instantiate objects of the <code>Complex1</code> class and the <code>Complex3</code> class.</p>
+<pre><code>var x = new Complex1(3, 4);
+var y = new Complex3(4, 3);</code></pre>
+<p>Try</p>
+<blockquote>
+<p><strong>Question 23</strong>: from the prototype shared by <code>Complex1</code> objects and the prototype shared by <code>Complex2</code> objects? Does the behaviour change? Explain your answer.</p>
+</blockquote>
 </body>
 </html>
