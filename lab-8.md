@@ -32,13 +32,10 @@ Submit your responses to the questions in this lab on eClass.
 Intermediate JavaScript
 -----------------------
 
-In this lab, we'll explore some of the more esoteric features of the
-JavaScript programming language. Along the way, we'll be learning how to
-use Chrome's JavaScript debugger.
+In this lab, we'll explore intermediate features of the JavaScript
+programming language.
 
-
-wat.js
-------
+### Type coercion and weak typing
 
 <blockquote cite="http://www.stroustrup.com/blast.html">
 <p>There are only two kinds of programming languages: those people always
@@ -46,13 +43,8 @@ wat.js
 <cite>[Bjarne Stroustrup](http://www.stroustrup.com/blast.html), Creator of C++</cite>
 </blockquote>
 
-As a warm-up exercise, we'll explore the more infamous aspects of
-JavaScript, such as its **weak typing**, **type coercion**, and using
-IEEE 754 **double-precision floating point** numbers as its built-in
-numeric type.
-
-
-### wat: Type coercion and weak typing
+As a warm-up exercise, we'll explore **type coercion** in
+JavaScript.
 
 <aside>
 Note that "weakly-typed" and "strongly-typed" is more of a continuum
@@ -201,118 +193,109 @@ When comparing items of different types, use the
 >
 >    1 === true;
 
-### wat: IEEE 754 floating point
 
-JavaScript's default numeric type is [IEEE 754][] Binary64 "double precision"
-floating point format. This number representation is available as the
-`float` type in Python and is (usually) the `double` type in C/C++.
+### Arrays
 
-Quick facts about floating points:
+An empty array in JavaScript is written like this:
 
- - numbers are _approximations_ of (real numbers)
- - includes many finite values, two infinities, and lots of **NaN**.
-
-[IEEE 754]: https://en.wikipedia.org/wiki/IEEE_754
-
-Since there are a limited number of whole numbers that can be precisely
-represented using IEEE 754 floats, arithmetic becomes counter-intuitive
-as the numbers become more and more extreme.
-
-For example, in double-precision floating points, numbers, adding 1 to
-a number no longer works as you would expect when the one of the numbers
-is sufficiently large. For example, try this in your favourite language
-with floating point numbers (I'm using Python:
-
-```python
->>> 1000000000000000000.0 + 1
-1e+18
->>> 1000000000000000000.0 + 1 == 1000000000000000000.0
-True
+```javascript
+var arr = [];
 ```
 
-However, for small whole numbers, this arithmetic works as you would
-expect:
+An array with four elements is written like this:
 
-```python
->>> 100.0 + 1
-101.0
->>> 100.0 + 1 == 100.0
-False
+```javascript
+var arr = ["one", "two", "three", "four"];
 ```
 
-Let's find the point at which arithmetic stops making sense.
-Write a JavaScript program that outputs the **minimum
-power of 2** at which adding 1 to a number no longer works as expected.
-That is, at what value of *n* is this expression true?
+Like Python, array elements can be accessed using index notation.
 
-    (2 ** n + 1) === (2 ** n)
+```javascript
+> arr[0];
+"one"
+```
 
-> **Question 14**: Copy-paste your program as the answer to this
-> question.
+To get the length of an array, use its `.length` property:
 
-> **Question 15**: At what power of 2 does adding one to a number no
-> longer work as expected?
+```javascript
+arr.length
+> 4
+```
 
-# Arrays
+Try the following lines in the JavaScript console and observe the
+results:
 
-<!-- are arrays mutable or immutable? -->
 
-<!--
+```javascript
+var arr = ["one", "two", "three", "four"];
+arr.push("five");
+arr;
+arr.pop();
+arr;
+arr.unshift("zero");
+arr;
+arr.shift();
+arr;
+```
 
-  > l.push(0)
-  4
-  > l
-  [ 1, 2, 3, 0 ]
-  > l.five = 5
-  5
+> **Question 14**: For each of the following methods: `.push()`, `.pop()`,
+> `.unshift()` and `.shift()` explain what they do, and what they
+> return.
 
-for (var i in l) {
-  console.log(i)
+> **Question 15**: Are arrays mutable or immutable? Explain your
+> answer.
+
+To iterate over arrays in JavaScript, it may be tempting to do this:
+
+```
+var arr = ["one", "two", "three", "four"];
+for (var thing in arr) {
+  console.log(thing)
 }
+```
 
-does it print indices or contents?
+> **Question 16**: Is `thing` bound to each object in the array, or each
+> index of the array?
 
-  > l
-  [ 1, 2, 3, 0, five: 5 ]
+Try the following lines in the JavaScript console and use the
+results to answer questions **17** and **18**.
 
--->
+```javascript
+var arr = ["one", "two", "three", "four"];
+arr.five = 5;
+```
+
+> **Question 17**: What are the contents of `arr` now? Is this what you
+> expect? What does this imply about JavaScript arrays?
+
+> **Question 18**: What happens when you use a `for (... in ...)` loop
+> on `arr`? That is, if you ran the following loop:
+>
+>     var arr = ["one", "two", "three", "four"];
+>     for (var thing in arr) {
+>       console.log(thing)
+>     }
+>
+> What does it print and why?
+
 
 <!--
-Forgetting var; creating a global
 
-NaN
+```javascript
+class Complex {
+  constructor(real, imag) {
+    this.real = real;
+    this.imag = imag;
+  }
 
-nan in Python. nan in C.
--->
-
-
-<!-- at what power of can you no longer -->
-
-<!--
-triple equal
--->
-
-<!--
-make them define a Python class, method, and then do the
-
->>> whoami(object.method())
-
-print(type(self))
-
-
-Do the same thing in JavaScript
-
-class Herp {
-   derp() {
-      console.log(this);
-   }
+  toString() {
+    return this.real.toString() + '+' + this.imag.toString() +'i';
+  }
 }
-
->>> whoami((new Herp).derp)
-
-Use Function.bind(obj)
-
+```
 -->
+
+
 
 [parseInt]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#Syntax
 [parseFloat]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat#Syntax

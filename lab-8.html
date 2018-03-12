@@ -99,16 +99,15 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <h2 id="intermediate-javascript">Intermediate JavaScript</h2>
-<p>In this lab, we’ll explore some of the more esoteric features of the JavaScript programming language. Along the way, we’ll be learning how to use Chrome’s JavaScript debugger.</p>
-<h2 id="wat.js">wat.js</h2>
+<p>In this lab, we’ll explore intermediate features of the JavaScript programming language.</p>
+<h3 id="type-coercion-and-weak-typing">Type coercion and weak typing</h3>
 <blockquote cite="http://www.stroustrup.com/blast.html">
 <p>
 There are only two kinds of programming languages: those people always [complain] about and those nobody uses.
 </p>
 <cite><a href="http://www.stroustrup.com/blast.html">Bjarne Stroustrup</a>, Creator of C++</cite>
 </blockquote>
-<p>As a warm-up exercise, we’ll explore the more infamous aspects of JavaScript, such as its <strong>weak typing</strong>, <strong>type coercion</strong>, and using IEEE 754 <strong>double-precision floating point</strong> numbers as its built-in numeric type.</p>
-<h3 id="wat-type-coercion-and-weak-typing">wat: Type coercion and weak typing</h3>
+<p>As a warm-up exercise, we’ll explore <strong>type coercion</strong> in JavaScript.</p>
 <aside>
 Note that “weakly-typed” and “strongly-typed” is more of a continuum than a dichotomy; a programming language can be sometimes weakly-typed and sometimes strongly-typed. For example, Python 3 will convert between <code>int</code> and <code>float</code> automatically, and has “truthy” and “falsey” values, but is strongly-typed in that it does not allow automatic conversion between strings and numbers, and it does not like to mix byte and Unicode strings.
 </aside>
@@ -183,84 +182,69 @@ Note that “weakly-typed” and “strongly-typed” is more of a continuum tha
 <p>1 == true;</p>
 <p>1 === true;</p>
 </blockquote>
-<h3 id="wat-ieee-754-floating-point">wat: IEEE 754 floating point</h3>
-<p>JavaScript’s default numeric type is <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> Binary64 “double precision” floating point format. This number representation is available as the <code>float</code> type in Python and is (usually) the <code>double</code> type in C/C++.</p>
-<p>Quick facts about floating points:</p>
-<ul>
-<li>numbers are <em>approximations</em> of (real numbers)</li>
-<li>includes many finite values, two infinities, and lots of <strong>NaN</strong>.</li>
-</ul>
-<p>Since there are a limited number of whole numbers that can be precisely represented using IEEE 754 floats, arithmetic becomes counter-intuitive as the numbers become more and more extreme.</p>
-<p>For example, in double-precision floating points, numbers, adding 1 to a number no longer works as you would expect when the one of the numbers is sufficiently large. For example, try this in your favourite language with floating point numbers (I’m using Python:</p>
-<pre class="sourceCode python" id="cb9"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> <span class="fl">1000000000000000000.0</span> <span class="op">+</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fl">1e+18</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> <span class="fl">1000000000000000000.0</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">==</span> <span class="fl">1000000000000000000.0</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="va">True</span></a></code></pre>
-<p>However, for small whole numbers, this arithmetic works as you would expect:</p>
-<pre class="sourceCode python" id="cb10"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> <span class="fl">100.0</span> <span class="op">+</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="fl">101.0</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> <span class="fl">100.0</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">==</span> <span class="fl">100.0</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="va">False</span></a></code></pre>
-<p>Let’s find the point at which arithmetic stops making sense. Write a JavaScript program that outputs the <strong>minimum power of 2</strong> at which adding 1 to a number no longer works as expected. That is, at what value of <em>n</em> is this expression true?</p>
-<pre><code>(2 ** n + 1) === (2 ** n)</code></pre>
+<h3 id="arrays">Arrays</h3>
+<p>An empty array in JavaScript is written like this:</p>
+<pre class="sourceCode javascript" id="cb9"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> []<span class="op">;</span></a></code></pre>
+<p>An array with four elements is written like this:</p>
+<pre class="sourceCode javascript" id="cb10"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="st">&quot;one&quot;</span><span class="op">,</span> <span class="st">&quot;two&quot;</span><span class="op">,</span> <span class="st">&quot;three&quot;</span><span class="op">,</span> <span class="st">&quot;four&quot;</span>]<span class="op">;</span></a></code></pre>
+<p>Like Python, array elements can be accessed using index notation.</p>
+<pre class="sourceCode javascript" id="cb11"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="op">&gt;</span> arr[<span class="dv">0</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">&quot;one&quot;</span></a></code></pre>
+<p>To get the length of an array, use its <code>.length</code> property:</p>
+<pre class="sourceCode javascript" id="cb12"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="va">arr</span>.<span class="at">length</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="op">&gt;</span> <span class="dv">4</span></a></code></pre>
+<p>Try the following lines in the JavaScript console and observe the results:</p>
+<pre class="sourceCode javascript" id="cb13"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="st">&quot;one&quot;</span><span class="op">,</span> <span class="st">&quot;two&quot;</span><span class="op">,</span> <span class="st">&quot;three&quot;</span><span class="op">,</span> <span class="st">&quot;four&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="va">arr</span>.<span class="at">push</span>(<span class="st">&quot;five&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="va">arr</span>.<span class="at">pop</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="va">arr</span>.<span class="at">unshift</span>(<span class="st">&quot;zero&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="va">arr</span>.<span class="at">shift</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">arr<span class="op">;</span></a></code></pre>
 <blockquote>
-<p><strong>Question 14</strong>: Copy-paste your program as the answer to this question.</p>
+<p><strong>Question 14</strong>: For each of the following methods: <code>.push()</code>, <code>.pop()</code>, <code>.unshift()</code> and <code>.shift()</code> explain what they do, and what they return.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question 15</strong>: At what power of 2 does adding one to a number no longer work as expected?</p>
+<p><strong>Question 15</strong>: Are arrays mutable or immutable? Explain your answer.</p>
 </blockquote>
-<h1 id="arrays">Arrays</h1>
-<!-- are arrays mutable or immutable? -->
+<p>To iterate over arrays in JavaScript, it may be tempting to do this:</p>
+<pre><code>var arr = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;];
+for (var thing in arr) {
+  console.log(thing)
+}</code></pre>
+<blockquote>
+<p><strong>Question 16</strong>: Is <code>thing</code> bound to each object in the array, or each index of the array?</p>
+</blockquote>
+<p>Try the following lines in the JavaScript console and use the results to answer questions <strong>17</strong> and <strong>18</strong>.</p>
+<pre class="sourceCode javascript" id="cb15"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="st">&quot;one&quot;</span><span class="op">,</span> <span class="st">&quot;two&quot;</span><span class="op">,</span> <span class="st">&quot;three&quot;</span><span class="op">,</span> <span class="st">&quot;four&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="va">arr</span>.<span class="at">five</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a></code></pre>
+<blockquote>
+<p><strong>Question 17</strong>: What are the contents of <code>arr</code> now? Is this what you expect? What does this imply about JavaScript arrays?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 18</strong>: What happens when you use a <code>for (... in ...)</code> loop on <code>arr</code>? That is, if you ran the following loop:</p>
+<pre><code>var arr = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;];
+for (var thing in arr) {
+  console.log(thing)
+}</code></pre>
+<p>What does it print and why?</p>
+</blockquote>
 <!--
 
-  > l.push(0)
-  4
-  > l
-  [ 1, 2, 3, 0 ]
-  > l.five = 5
-  5
+```javascript
+class Complex {
+  constructor(real, imag) {
+    this.real = real;
+    this.imag = imag;
+  }
 
-for (var i in l) {
-  console.log(i)
+  toString() {
+    return this.real.toString() + '+' + this.imag.toString() +'i';
+  }
 }
-
-does it print indices or contents?
-
-  > l
-  [ 1, 2, 3, 0, five: 5 ]
-
--->
-<!--
-Forgetting var; creating a global
-
-NaN
-
-nan in Python. nan in C.
--->
-<!-- at what power of can you no longer -->
-<!--
-triple equal
--->
-<!--
-make them define a Python class, method, and then do the
-
->>> whoami(object.method())
-
-print(type(self))
-
-
-Do the same thing in JavaScript
-
-class Herp {
-   derp() {
-      console.log(this);
-   }
-}
-
->>> whoami((new Herp).derp)
-
-Use Function.bind(obj)
-
+```
 -->
 </body>
 </html>
