@@ -479,25 +479,31 @@ To answer Question **23**, type the following in the JavaScript
 console:
 
 ```javascript
-Complex3.prototype = Complex1.prototype;
+Complex1.prototype = Complex3.prototype;
 ```
 
-Add a method to the class defined using the ES3 method:
+Add a method to the class defined using the ES6 method:
 
 ```javascript
 Complex3.prototype.keepItReal = function () { alert(this.real); };
 ```
 
-Finally, instantiate objects of the `Complex1` class and the `Complex3`
-class.
+Finally, instantiate objects of the `Complex1` class.
 
 ```
-var x = new Complex1(3, 4);
-var y = new Complex3(4, 3);
+var a = new Complex1(3, 4);
 ```
 
-Try
+Try the following the JavaScript console and observe the results:
 
-> **Question 23**: 
-> from the prototype shared by `Complex1` objects and the prototype
-> shared by `Complex2` objects?  Does the behaviour change? Explain your answer.
+```javascript
+a instanceof Complex1;
+a instanceof Complex3;
+a.keepItReal();
+```
+
+> **Question 23**: Is `a` an instance of the `Complex1` or `Complex3`
+> class? Explain.
+
+> **Question 24**: Compare and contrast the three differences in
+> defining classes. Do they differ dramatically in meaning?

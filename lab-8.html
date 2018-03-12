@@ -316,15 +316,20 @@ for (var thing in arr) {
 <p><strong>Question 22</strong>: How does the prototype of <code>Complex3</code> objects differ from the prototype shared by <code>Complex1</code> objects and the prototype shared by <code>Complex2</code> objects? Does the behaviour change? Explain your answer.</p>
 </blockquote>
 <p>To answer Question <strong>23</strong>, type the following in the JavaScript console:</p>
-<pre class="sourceCode javascript" id="cb33"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Complex3</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Complex1</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre>
-<p>Add a method to the class defined using the ES3 method:</p>
+<pre class="sourceCode javascript" id="cb33"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Complex1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Complex3</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre>
+<p>Add a method to the class defined using the ES6 method:</p>
 <pre class="sourceCode javascript" id="cb34"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="va">Complex3</span>.<span class="va">prototype</span>.<span class="at">keepItReal</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="at">alert</span>(<span class="kw">this</span>.<span class="at">real</span>)<span class="op">;</span> <span class="op">};</span></a></code></pre>
-<p>Finally, instantiate objects of the <code>Complex1</code> class and the <code>Complex3</code> class.</p>
-<pre><code>var x = new Complex1(3, 4);
-var y = new Complex3(4, 3);</code></pre>
-<p>Try</p>
+<p>Finally, instantiate objects of the <code>Complex1</code> class.</p>
+<pre><code>var a = new Complex1(3, 4);</code></pre>
+<p>Try the following the JavaScript console and observe the results:</p>
+<pre class="sourceCode javascript" id="cb36"><code class="sourceCode javascript"><a class="sourceLine" id="cb36-1" data-line-number="1">a <span class="kw">instanceof</span> Complex1<span class="op">;</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">a <span class="kw">instanceof</span> Complex3<span class="op">;</span></a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="va">a</span>.<span class="at">keepItReal</span>()<span class="op">;</span></a></code></pre>
 <blockquote>
-<p><strong>Question 23</strong>: from the prototype shared by <code>Complex1</code> objects and the prototype shared by <code>Complex2</code> objects? Does the behaviour change? Explain your answer.</p>
+<p><strong>Question 23</strong>: Is <code>a</code> an instance of the <code>Complex1</code> or <code>Complex3</code> class? Explain.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question 24</strong>: Compare and contrast the three differences in defining classes. Do they differ dramatically in meaning?</p>
 </blockquote>
 </body>
 </html>
