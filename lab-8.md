@@ -362,7 +362,7 @@ c1.magnitude();
 Create a new `Complex1` instance:
 
 ```javascript
-var c2 = new Complex(3, 4);
+var c2 = new Complex1(3, 4);
 ```
 
 Now call this new instance's `.magnitude()` method:
