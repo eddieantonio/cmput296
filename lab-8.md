@@ -334,10 +334,11 @@ function Complex1(real, imag) {
 ```
 
 To define methods, you assign functions to the **prototype** that will
-be shared amongst all instances of your "class". The methods can refer
-to properties of the current object by using `this`. Define a method
-called `.magnitude()` that will return the magnitude of the `Complex1`
-object.
+be shared amongst all instances of your "class". You do this *after*
+the definition of the constructor.
+The methods can refer to properties of the current object by using
+`this`. Below the constructor, define a method called `.magnitude()`
+that will return the magnitude of the `Complex1` object.
 
 ```javascript
 Complex1.prototype.magnitude = function() {
