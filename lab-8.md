@@ -282,6 +282,7 @@ arr.five = 5;
 > on `arr`? That is, if you ran the following loop:
 >
 >     var arr = ["one", "two", "three", "four"];
+>     arr.five = 5;
 >     for (var thing in arr) {
 >       console.log(thing)
 >     }
