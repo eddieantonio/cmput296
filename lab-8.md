@@ -137,7 +137,10 @@ results:
 > **Question 6**: What is the result of each line of code? Did any of
 > the results surprise you?
 
-> **Question 7**: What is the type of this expression?
+> **Question 7**: Use the JavaScript console to evaluate the following
+> expressions.
+>
+> What is the type of this expression?
 >
 >     "42"
 >
