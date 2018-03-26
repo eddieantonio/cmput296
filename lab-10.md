@@ -32,8 +32,10 @@ React
 creating consistent interactive web pages (somewhat) easier than
 manipulating the JavaScript DOM directly.
 
-<aside> The exact revision of the tutorial assumed in this lab is
-[538ec13][react-tutoral-revision]. </aside>
+<aside>
+The exact revision of the tutorial assumed in this lab is
+[538ec13](https://github.com/reactjs/reactjs.org/blob/538ec137440816e19679a49e215ff94dbd8d163e/content/tutorial/tutorial.md).
+</aside>
 
 In this lab, we will be following along and doing the exercise in the
 [official React tutorial][react-tutorial] and answering some reflection
@@ -76,7 +78,7 @@ How to Follow Along
 -------------------
 
 For the purposes of this tutorial, use the first option---open up the
-[starter code][] in a new tab, and write your code in CodePen.
+[starter code][] in a new tab, and write your code in the browser.
 
 Continue the tutorial until the section entitled **Developer Tools**.
 
@@ -95,24 +97,24 @@ Continue the tutorial until the section entitled **Developer Tools**.
 > two lines is correct? Why is the other line **incorrect**?
 
 Continue the tutorial from [Lifiting State
-Up](https://reactjs.org/tutorial/tutorial.html#lifting-state-up). Stop when you reach the section entitled **Functional
-Components**.
+Up](https://reactjs.org/tutorial/tutorial.html#lifting-state-up). Stop
+when you reach the section entitled **Functional Components**.
 
 > **Question 3**: Copy-paste your code for the `Board` class as the
 > answer to this question.
 
 > **Question 4**: From a software maintainability perspective, why is it
-> recommend to lift the management state outside of inner components
-> (like `<Square>`), having the state to being passed down to these
-> components instead?
+> recommend to lift the management of state outside of inner components
+> (e.g., from `<Square>` to `<Board>`), having the state to being passed
+> down to these components instead?
 
 Continue the tutorial from [Functional
-Components](https://reactjs.org/tutorial/tutorial.html#lifting-state-up).
+Components](https://reactjs.org/tutorial/tutorial.html#functional-components).
 Stop when you reach the section entitled **Declaring a Winner**.
 
 > **Question 5**: Copy-paste your code for the `handleClick()` method of
 > the `Board` class as the answer to this question. (This code should be
-> update the `squares` and handle setting 'X' or O'.
+> update the `squares` array and handle setting 'X' or O').
 
 > **Question 6**: Provide one concise line of code that creates a
 > copy of an array in JavaScript. That is every element of `oldArray`
@@ -122,8 +124,8 @@ Stop when you reach the section entitled **Declaring a Winner**.
 
 > **Question 7**: What is the time complexity (big-O notation) of
 > checking whether two JavaScript Array objects have different elements,
-> *if the code always uses arrays in an immutable manner*  (e.g., copied
-> the array before each call to `.push()` or `.shift()`).
+> *if the code always uses arrays in an immutable manner*  (e.g., copies
+> the Array before each call to `.push()` or `.shift()`).
 
 Continue the tutorial from [Declaring
 a Winner](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner).
@@ -148,6 +150,6 @@ thus far.
 > which situation you would use the second way instead.
 
 [react]: https://reactjs.org/
-[stater code]: https://codepen.io/gaearon/pen/oWWQNa?editors=0010
+[starter code]: https://codepen.io/gaearon/pen/oWWQNa?editors=0010
 [react-tutorial]: https://reactjs.org/tutorial/tutorial.html
-[react-tutorial-revision]: https://github.com/reactjs/reactjs.org/blob/538ec137440816e19679a49e215ff94dbd8d163e/content/tutorial/tutorial.md
+[react-tutorial-revision]:
