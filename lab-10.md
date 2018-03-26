@@ -114,17 +114,38 @@ Stop when you reach the section entitled **Declaring a Winner**.
 > the `Board` class as the answer to this question. (This code should be
 > update the `squares` and handle setting 'X' or O'.
 
-> **Question 6**: Provide a short, one line of code that creates a new
-> copy of an array in JavaScript (hint: you should have already written
-> this in the `handleClick()` method).
+> **Question 6**: Provide one concise line of code that creates a
+> copy of an array in JavaScript. That is every element of `oldArray`
+> and `newArray` should be the same, however `newArray === oldArray`
+> should evaluate to false. (hint: you should have already written this
+> in the `handleClick()` method).
 
-> **Question X**: React introduces JSX---an extension to the JavaScript
-> language.
+> **Question 7**: What is the time complexity (big-O notation) of
+> checking whether two JavaScript Array objects have different elements,
+> *if the code always uses arrays in an immutable manner*  (e.g., copied
+> the array before each call to `.push()` or `.shift()`).
 
-> **Question X**: Specify two different ways to define new components in
+Continue the tutorial from [Declaring
+a Winner](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner).
+Stop when you reach the section entitled **Storing a History**.
+
+> **Question 8**: Copy-paste your code for the `render()` method of the
+> `Board` class as the answer to this question.
+
+At this point, you have completed the required sections of the tutorial.
+The following questions require you to reflect on your usage of React
+thus far.
+
+> **Question 9**: React recommends using JSX---an extension to the
+> JavaScript language that is not supported directly by current web
+> browsers. What is an advantage of using JSX when writing React
+> components (hint: what is the alternative way of writing React
+> components *without* JSX?) What is a disadvantage of using JSX in your
+> JavaScript projects?
+
+> **Question 10**: Specify two different ways to define new components in
 > React. Explain in which situation you would use the first way, and in
 > which situation you would use the second way instead.
-
 
 [react]: https://reactjs.org/
 [stater code]: https://codepen.io/gaearon/pen/oWWQNa?editors=0010
