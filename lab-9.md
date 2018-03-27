@@ -84,9 +84,10 @@ Look at the source code of the provided file called `index.html`.
 > **Question 1**: How many elements in `index.html` have an `id`
 > attribute? What are these elements, and what are the IDs?
 
-Open up the [DevTools JavaScript Console][console]
-(Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>;
-macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).
+With the server running, open <http://localhost:8000/> in Google Chrome.
+Open up the [DevTools JavaScript Console][console] (Windows/Linux:
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd>
++ <kbd>Alt</kbd> + <kbd>J</kbd>).
 
 [console]: https://developers.google.com/web/tools/chrome-devtools/console/?hl=en
 

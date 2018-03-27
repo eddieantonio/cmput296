@@ -119,7 +119,7 @@ Use <a href="https://help.ubuntu.com/community/HowToSHA256SUM"><code>sha256sum</
 <blockquote>
 <p><strong>Question 1</strong>: How many elements in <code>index.html</code> have an <code>id</code> attribute? What are these elements, and what are the IDs?</p>
 </blockquote>
-<p>Open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
+<p>With the server running, open <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in Google Chrome. Open up the <a href="https://developers.google.com/web/tools/chrome-devtools/console/?hl=en">DevTools JavaScript Console</a> (Windows/Linux: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>; macOS: <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>).</p>
 <p>We’re going to programmatically retrieve the text of the <code>&lt;h1&gt;</code> displaying the title of the page.</p>
 <p>In the JavaScript console, type:</p>
 <pre class="sourceCode javascript" id="cb3"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> h1 <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;main-title&#39;</span>)</a></code></pre>
