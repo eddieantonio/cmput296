@@ -367,7 +367,7 @@ form.elements["a"].value
 form.elements["op"].value
 ```
 
-> **Question 12**: What do these previous lines return? Where do the
+> **Question 13**: What do these previous lines return? Where do the
 > values come from? Use the drop-down on the webpage to change the
 > operation (`+`, `-`, `*`, `/`). Now what does
 > `form.elements["op"].value` return?
@@ -386,7 +386,7 @@ var url = "http://localhost:8000/calc/";
 url = url + /* write your code here */;
 ```
 
-> **Question 13**: What's the difference between
+> **Question 14**: What's the difference between
 >
 >     "&op=" + form.elements["op"].value;
 >
@@ -396,7 +396,7 @@ url = url + /* write your code here */;
 >
 > Which one is correct? Why is the other option *incorrect*?
 
-> **Question 14**: Copy-paste your code that constructs the valid URL as
+> **Question 15**: Copy-paste your code that constructs the valid URL as
 > the answer to this question.
 
 Once you have created a valid URL, create a new `XMLHttpRequest` object
@@ -407,11 +407,11 @@ this).
 With the `XMLHttpRequest` object set up to request to the correct URL,
 execute `xhr.send()`.
 
-> **Question 15**: Executing `xhr.send()` should now allow us to receive
+> **Question 16**: Executing `xhr.send()` should now allow us to receive
 > an HTTP response with status code 200. Now that the correct URL has
 > been sent, what is the value of the `xhr.responseText`?
 
-> **Question 16**: Use the **Network** panel to inspect the successful
+> **Question 17**: Use the **Network** panel to inspect the successful
 > HTTP response to <http://localhost:8000/calc/> (with status code 200).
 > What is the `Content-Type` of this response?
 
@@ -457,7 +457,7 @@ Enter in some values on the form and click `Calculate`. If you have done
 everything right, it should display the answer on the same page, without
 navigating to a new page.
 
-> **Question 17**: Copy-paste the JavaScript you wrote within the
+> **Question 18**: Copy-paste the JavaScript you wrote within the
 > `<script>` element as the answer to this question. Make sure it
 > successfully performs an HTTP request and changes the content of the
 > `<output>` element.
