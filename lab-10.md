@@ -125,7 +125,8 @@ Stop when you reach the section entitled **Declaring a Winner**.
 > **Question 7**: What is the time complexity (big-O notation) of
 > checking whether two JavaScript Array objects have different elements,
 > *if the code always uses arrays in an immutable manner*  (e.g., copies
-> the Array before each call to `.push()` or `.shift()`).
+> the Array before each call to `.push()` or `.shift()`)? You do **NOT**
+> have to provide a rigorous proof; a simple intuitive will suffice.
 
 Continue the tutorial from [Declaring
 a Winner](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner).
