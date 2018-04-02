@@ -14,7 +14,6 @@ Materials
 
  - An internet connection
  - A modern web browser (like Firefox or Google Chrome)
- - ...
 
 
 Procedure
@@ -31,14 +30,14 @@ Introduction
 ------------
 
 **Cross-site scripting** is the act of inserting (possibly malicious)
-JavaScript code into a different website when it is not intended. You,
+JavaScript code into a different website when it is not intended.
 Typically this is to extract sensitive information from unsuspecting
 users (such as `document.cookie`), which may provide a way for an
 attacker to gain access to users' accounts without a password.
 
 In this lab, you will be writing code that performs cross-site scripting
-attacks on vulnerable webpages---fake webpages, specifically constructed
-to help teach cross-site scripting! You will also offer solutions on how
+attacks on vulnerable webpages (fake webpages, specifically constructed
+to help teach cross-site scripting!). You will also offer solutions on how
 to write websites that are immune to these attacks.
 
 To start cross-site scripting, go to this site:
@@ -62,7 +61,7 @@ The first thing to try is to **insert your code** into a source of input
 in the webpage, that is otherwise intended for normal user interactions.
 
 Consider the sources of input on the page: there are at
-least two sources of input!
+least two sources of input.
 
 > **Question X**: List as many sources of input on the homepage of
 > "FourOrFour". Hint: look both inside the viewport and *outside* of the
@@ -119,13 +118,121 @@ load due to a 404 error).
 > were writing a chat page like the vulnerable "Madchattr" webpage, how
 > would you program it to make such an exploit impossible?
 
+Once you have succeeded in exploiting level 2, proceed to level 3.
+
 
 Level 3
 -------
 
+In order to insert malicious code (HTML, or [SQL][bobby]) into a webpage, you
+may first have to complete existing code that is being generated such
+that it is syntactically-valid. Thus, the attacker (you, in this
+example) can insert the malicious code, after the completed,
+syntactically-valid code.
+
+[bobby]: https://xkcd.com/327/
+
+> **Question X**: What code do you need to complete the following
+> `<img>` tag to make it syntactically-valid?
+>
+>     <img href="/static/images/images.jpg
+
+A thing to be careful about when writing user-facing code are any places
+where you are concatenating many strings together to form valid code
+(e.g., HTML).
+
+> **Question X**: Toggle the code open, and view the code for
+> `index.html`. Identify the line numbers of JavaScript where user input
+> is being concatenated with strings to create HTML code.
+
+Using what you learned in the past two questions, create an exploit that
+will execute `alert('CMPUT 296')` into the "cloudiddly" web page. You
+may find [this percent-encoding
+app](https://meyerweb.com/eric/tools/dencoder/) helpful to insert your
+malicious code.
+
+> **Question X**: Copy-paste the exploit your wrote to pass **Level 3**
+> as the answer to this question.
+
+Once you have succeeded in exploiting level 3, proceed to level 4.
+
+
+Level 4
+-------
+
+One way that people have tried to prevent XSS attacks is to escape **HTML
+tags** before creating the page. Level 4's "timemer" app tries to do
+this. Basically, before creating HTML, the following transformations are
+made:
+
+ - `<` is converted to `&lt;`
+ - `>` is converted to `&gt;`
+ - `&` is converted to `&amp;`
+ - `'` is converted to `&#39;`
+
+ This is so that you cannot insert arbitrary HTML tags into webpages
+ (e.g., you cannot insert a `<script>` element, or even a `<img>`
+ element).
+
+Despite the HTML escaping, "timemer" does something unwise with user
+input.
+
+> **Question X**: Toggle the code open, and view the code for
+> `timer.html`. This is a *template* in which any mention of
+`{{ timer }}` is replaced with the user input with HTML tags
+> escaped. Identify the line numbers tags where `{{ timer }}` is mentioned.
+
+> **Question X**: Run the following in the JavaScript developer console:
+>
+>     console.log('hello ' + alert('goodbye') + ' world');
+>
+> Describe what is output (either as a pop-up window or in the
+> console). Why does the output appear in this order?
+
+
+> **Question X**: Copy-paste the exploit your wrote to pass **Level 4**
+> as the answer to this question. Where did you insert this input?
+
+Once you have succeeded in exploiting level 4, proceed to level 5.
+
+
+Level 5
+-------
+
+You are aware of the `http://` and `https://` URI schemes, but there are
+many more. For example,
+
+ - `mailto:` allows you to instruct the browser to send an email when
+   the link is clicked.
+ - `data:` allows to specify arbitrary data in HTML and CSS documents.
+   This is useful for embedding an images into one HTML file without any
+   external resources.
+ - `javascript:` allows you to run JavaScript when a link is clicked.
+
+> **Question X**: Toggle the code open, and view the code for
+> HTML templates. Identify both the file and the line number where
+> `{{ next }}` appears as the `href` attribute of a link.
+
+> **Question X**: Toggle the code open, and view the code for
+> `level.py`. How does the server check whether the user requested the
+> "signup", "confirm", or "welcome" page? (Hint: describe the `if/elif`
+> block that deals with signup/confirm).
+
+> **Question X**: Copy-paste the exploit your wrote to pass **Level 5**
+> as the answer to this question. Where did you insert this input? How
+> would an unsuspecting user trigger it?
+
+Once you have succeeded in exploiting level 5, you _may_ attempt
+level 6. However, it requires being able to create external resources,
+so it is not required for this lab.
 
 ---
 
-> **Question X**: Using your own words, describe XSS If you use sources
-> to define XSS, you must cite your sources and you must rewrite what
-> the source says in your own words.
+
+> **Question X**: Using your own words, describe what XSS is. If you use
+> external sources to define XSS, you must not only cite your sources
+> but you must also rewrite what the source says in your own words.
+
+> **Question X**: Using what you learned in this lab, provide a general
+> suggestion for how to program web applications that are NOT vulnerable
+> to XSS attacks (like the ones you exploited in this lab).

@@ -90,7 +90,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <ul>
 <li>An internet connection</li>
 <li>A modern web browser (like Firefox or Google Chrome)</li>
-<li>…</li>
 </ul>
 <h1 id="procedure">Procedure</h1>
 <p>Submit your responses to the questions in this lab on eClass.</p>
@@ -99,8 +98,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p><strong>Remember to cite your sources</strong>.</p>
 <h2 id="introduction">Introduction</h2>
-<p><strong>Cross-site scripting</strong> is the act of inserting (possibly malicious) JavaScript code into a different website when it is not intended. You, Typically this is to extract sensitive information from unsuspecting users (such as <code>document.cookie</code>), which may provide a way for an attacker to gain access to users’ accounts without a password.</p>
-<p>In this lab, you will be writing code that performs cross-site scripting attacks on vulnerable webpages—fake webpages, specifically constructed to help teach cross-site scripting! You will also offer solutions on how to write websites that are immune to these attacks.</p>
+<p><strong>Cross-site scripting</strong> is the act of inserting (possibly malicious) JavaScript code into a different website when it is not intended. Typically this is to extract sensitive information from unsuspecting users (such as <code>document.cookie</code>), which may provide a way for an attacker to gain access to users’ accounts without a password.</p>
+<p>In this lab, you will be writing code that performs cross-site scripting attacks on vulnerable webpages (fake webpages, specifically constructed to help teach cross-site scripting!). You will also offer solutions on how to write websites that are immune to these attacks.</p>
 <p>To start cross-site scripting, go to this site: <a href="https://xss-game.appspot.com/" class="uri">https://xss-game.appspot.com/</a>. Read the introduction, and proceed to <strong>level 1</strong>. Then continue reading this write-up.</p>
 <h2 id="level-1">Level 1</h2>
 <p>The goal is to insert the HTML <code>&lt;script&gt;alert('CMPUT 296')&lt;/script&gt;</code> into the embedded web page, a fake search engine called “FourOrFour”.</p>
@@ -108,7 +107,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <img src="./lab-11/vulnerable.png" alt="Vulnerable webpage, embedded in https://xss-game.appspot.com/level1" /><figcaption>Vulnerable webpage, embedded in <a href="https://xss-game.appspot.com/level1" class="uri">https://xss-game.appspot.com/level1</a></figcaption>
 </figure>
 <p>Although you have read-only access to the web server’s source code, you do not have access to modify it; in order to insert your code, you’ll have to find a way to <em>trick</em> the website into executing your code! The first thing to try is to <strong>insert your code</strong> into a source of input in the webpage, that is otherwise intended for normal user interactions.</p>
-<p>Consider the sources of input on the page: there are at least two sources of input!</p>
+<p>Consider the sources of input on the page: there are at least two sources of input.</p>
 <blockquote>
 <p><strong>Question X</strong>: List as many sources of input on the homepage of “FourOrFour”. Hint: look both inside the viewport and <em>outside</em> of the viewport.</p>
 </blockquote>
@@ -134,10 +133,67 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question X</strong>: Why did the exploit that you just wrote work? If you were writing a chat page like the vulnerable “Madchattr” webpage, how would you program it to make such an exploit impossible?</p>
 </blockquote>
+<p>Once you have succeeded in exploiting level 2, proceed to level 3.</p>
 <h2 id="level-3">Level 3</h2>
+<p>In order to insert malicious code (HTML, or <a href="https://xkcd.com/327/">SQL</a>) into a webpage, you may first have to complete existing code that is being generated such that it is syntactically-valid. Thus, the attacker (you, in this example) can insert the malicious code, after the completed, syntactically-valid code.</p>
+<blockquote>
+<p><strong>Question X</strong>: What code do you need to complete the following <code>&lt;img&gt;</code> tag to make it syntactically-valid?</p>
+<pre><code>&lt;img href=&quot;/static/images/images.jpg</code></pre>
+</blockquote>
+<p>A thing to be careful about when writing user-facing code are any places where you are concatenating many strings together to form valid code (e.g., HTML).</p>
+<blockquote>
+<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>index.html</code>. Identify the line numbers of JavaScript where user input is being concatenated with strings to create HTML code.</p>
+</blockquote>
+<p>Using what you learned in the past two questions, create an exploit that will execute <code>alert('CMPUT 296')</code> into the “cloudiddly” web page. You may find <a href="https://meyerweb.com/eric/tools/dencoder/">this percent-encoding app</a> helpful to insert your malicious code.</p>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 3</strong> as the answer to this question.</p>
+</blockquote>
+<p>Once you have succeeded in exploiting level 3, proceed to level 4.</p>
+<h2 id="level-4">Level 4</h2>
+<p>One way that people have tried to prevent XSS attacks is to escape <strong>HTML tags</strong> before creating the page. Level 4’s “timemer” app tries to do this. Basically, before creating HTML, the following transformations are made:</p>
+<ul>
+<li><code>&lt;</code> is converted to <code>&amp;lt;</code></li>
+<li><code>&gt;</code> is converted to <code>&amp;gt;</code></li>
+<li><code>&amp;</code> is converted to <code>&amp;amp;</code></li>
+<li><code>'</code> is converted to <code>&amp;#39;</code></li>
+</ul>
+<p>This is so that you cannot insert arbitrary HTML tags into webpages (e.g., you cannot insert a <code>&lt;script&gt;</code> element, or even a <code>&lt;img&gt;</code> element).</p>
+<p>Despite the HTML escaping, “timemer” does something unwise with user input.</p>
+<blockquote>
+<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>timer.html</code>. This is a <em>template</em> in which any mention of <code>{{ timer }}</code> is replaced with the user input with HTML tags escaped. Identify the line numbers tags where <code>{{ timer }}</code> is mentioned.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Run the following in the JavaScript developer console:</p>
+<pre><code>console.log(&#39;hello &#39; + alert(&#39;goodbye&#39;) + &#39; world&#39;);</code></pre>
+<p>Describe what is output (either as a pop-up window or in the console). Why does the output appear in this order?</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 4</strong> as the answer to this question. Where did you insert this input?</p>
+</blockquote>
+<p>Once you have succeeded in exploiting level 4, proceed to level 5.</p>
+<h2 id="level-5">Level 5</h2>
+<p>You are aware of the <code>http://</code> and <code>https://</code> URI schemes, but there are many more. For example,</p>
+<ul>
+<li><code>mailto:</code> allows you to instruct the browser to send an email when the link is clicked.</li>
+<li><code>data:</code> allows to specify arbitrary data in HTML and CSS documents. This is useful for embedding an images into one HTML file without any external resources.</li>
+<li><code>javascript:</code> allows you to run JavaScript when a link is clicked.</li>
+</ul>
+<blockquote>
+<p><strong>Question X</strong>: Toggle the code open, and view the code for HTML templates. Identify both the file and the line number where <code>{{ next }}</code> appears as the <code>href</code> attribute of a link.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>level.py</code>. How does the server check whether the user requested the “signup”, “confirm”, or “welcome” page? (Hint: describe the <code>if/elif</code> block that deals with signup/confirm).</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 5</strong> as the answer to this question. Where did you insert this input? How would an unsuspecting user trigger it?</p>
+</blockquote>
+<p>Once you have succeeded in exploiting level 5, you <em>may</em> attempt level 6. However, it requires being able to create external resources, so it is not required for this lab.</p>
 <hr />
 <blockquote>
-<p><strong>Question X</strong>: Using your own words, describe XSS If you use sources to define XSS, you must cite your sources and you must rewrite what the source says in your own words.</p>
+<p><strong>Question X</strong>: Using your own words, describe what XSS is. If you use external sources to define XSS, you must not only cite your sources but you must also rewrite what the source says in your own words.</p>
+</blockquote>
+<blockquote>
+<p><strong>Question X</strong>: Using what you learned in this lab, provide a general suggestion for how to program web applications that are NOT vulnerable to XSS attacks (like the ones you exploited in this lab).</p>
 </blockquote>
 </body>
 </html>
