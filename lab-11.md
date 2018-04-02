@@ -77,8 +77,8 @@ the game should allow you to proceed to the next level.
 > **Question 2**: What source of input did you use to make the page do
 > the `alert('CMPUT 296')`?
 
-Toggle the "Target code" on the page. This is the Python source code for
-the server.
+Toggle the "Target code" open (near the bottom of the page). This is the
+Python source code for the server.
 
 > **Question 3**: What part of the source code was responsible for
 > allowing you to execute your own `<script>` on the page? Why is it
@@ -141,7 +141,7 @@ A thing to be careful about when writing user-facing code are any places
 where you are concatenating many strings together to form valid code
 (e.g., HTML).
 
-> **Question 7**: Toggle the code open, and view the code for
+> **Question 7**: Toggle the "Target code" open, and view the code for
 > `index.html`. Identify the line numbers of JavaScript where user input
 > is being concatenated with strings to create HTML code.
 
@@ -177,7 +177,7 @@ made:
 Despite the HTML escaping, "timemer" does something unwise with user
 input.
 
-> **Question 9**: Toggle the code open, and view the code for
+> **Question 9**: Toggle the "Target code" open, and view the code for
 > `timer.html`. This is a *template* in which any mention of
 `{{ timer }}` is replaced with the user input with HTML tags
 > escaped. Identify the line numbers tags where `{{ timer }}` is mentioned.

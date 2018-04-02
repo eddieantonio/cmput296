@@ -116,7 +116,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <blockquote>
 <p><strong>Question 2</strong>: What source of input did you use to make the page do the <code>alert('CMPUT 296')</code>?</p>
 </blockquote>
-<p>Toggle the “Target code” on the page. This is the Python source code for the server.</p>
+<p>Toggle the “Target code” open (near the bottom of the page). This is the Python source code for the server.</p>
 <blockquote>
 <p><strong>Question 3</strong>: What part of the source code was responsible for allowing you to execute your own <code>&lt;script&gt;</code> on the page? Why is it vulnerable to the cross-site scripting attack (in other words, why does it allow you to insert <em>your</em> code into the webpage).</p>
 </blockquote>
@@ -142,7 +142,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </blockquote>
 <p>A thing to be careful about when writing user-facing code are any places where you are concatenating many strings together to form valid code (e.g., HTML).</p>
 <blockquote>
-<p><strong>Question 7</strong>: Toggle the code open, and view the code for <code>index.html</code>. Identify the line numbers of JavaScript where user input is being concatenated with strings to create HTML code.</p>
+<p><strong>Question 7</strong>: Toggle the “Target code” open, and view the code for <code>index.html</code>. Identify the line numbers of JavaScript where user input is being concatenated with strings to create HTML code.</p>
 </blockquote>
 <p>Using what you learned in the past two questions, create an exploit that will execute <code>alert('CMPUT 296')</code> into the “cloudiddly” web page. You may find <a href="https://meyerweb.com/eric/tools/dencoder/">this percent-encoding app</a> helpful to insert your malicious code.</p>
 <blockquote>
@@ -160,7 +160,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>This is so that you cannot insert arbitrary HTML tags into webpages (e.g., you cannot insert a <code>&lt;script&gt;</code> element, or even a <code>&lt;img&gt;</code> element).</p>
 <p>Despite the HTML escaping, “timemer” does something unwise with user input.</p>
 <blockquote>
-<p><strong>Question 9</strong>: Toggle the code open, and view the code for <code>timer.html</code>. This is a <em>template</em> in which any mention of <code>{{ timer }}</code> is replaced with the user input with HTML tags escaped. Identify the line numbers tags where <code>{{ timer }}</code> is mentioned.</p>
+<p><strong>Question 9</strong>: Toggle the “Target code” open, and view the code for <code>timer.html</code>. This is a <em>template</em> in which any mention of <code>{{ timer }}</code> is replaced with the user input with HTML tags escaped. Identify the line numbers tags where <code>{{ timer }}</code> is mentioned.</p>
 </blockquote>
 <blockquote>
 <p><strong>Question 10</strong>: Run the following in the JavaScript developer console:</p>
