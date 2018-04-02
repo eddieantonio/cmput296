@@ -109,16 +109,16 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>Although you have read-only access to the web server’s source code, you do not have access to modify it; in order to insert your code, you’ll have to find a way to <em>trick</em> the website into executing your code! The first thing to try is to <strong>insert your code</strong> into a source of input in the webpage, that is otherwise intended for normal user interactions.</p>
 <p>Consider the sources of input on the page: there are at least two sources of input.</p>
 <blockquote>
-<p><strong>Question X</strong>: List as many sources of input on the homepage of “FourOrFour”. Hint: look both inside the viewport and <em>outside</em> of the viewport.</p>
+<p><strong>Question 1</strong>: List as many sources of input on the homepage of “FourOrFour”. Hint: look both inside the viewport and <em>outside</em> of the viewport.</p>
 </blockquote>
 <p>Try simply providing <code>&lt;script&gt;alert('CMPUT 296')&lt;/script&gt;</code> into any sources of input into the vulnerable page. Feel free to use the <strong>hints</strong> at the bottom of the page.</p>
 <p>If you did this right, the page should pop up a box saying “CMPUT 296”, and the game should allow you to proceed to the next level.</p>
 <blockquote>
-<p><strong>Question X</strong>: What source of input did you use to make the page do the <code>alert('CMPUT 296')</code>?</p>
+<p><strong>Question 2</strong>: What source of input did you use to make the page do the <code>alert('CMPUT 296')</code>?</p>
 </blockquote>
 <p>Toggle the “Target code” on the page. This is the Python source code for the server.</p>
 <blockquote>
-<p><strong>Question X</strong>: What part of the source code was responsible for allowing you to execute your own <code>&lt;script&gt;</code> on the page? Why is it vulnerable to the cross-site scripting attack (in other words, why does it allow you to insert <em>your</em> code into the webpage).</p>
+<p><strong>Question 3</strong>: What part of the source code was responsible for allowing you to execute your own <code>&lt;script&gt;</code> on the page? Why is it vulnerable to the cross-site scripting attack (in other words, why does it allow you to insert <em>your</em> code into the webpage).</p>
 </blockquote>
 <p>Once you have succeeded in exploiting level 1, proceed to level 2.</p>
 <h2 id="level-2">Level 2</h2>
@@ -128,25 +128,25 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ot">     onerror=</span><span class="st">&quot;console.log(&#39;sorry, could not load space cats&#39;)&quot;</span><span class="kw">&gt;</span></a></code></pre>
 <p><img src="http://example.com/space-cats-in-space.jpg" onerror="console.log('sorry, could not load space cats')"></p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the input your provided that to pass <strong>Level 2</strong> as the answer to this question.</p>
+<p><strong>Question 4</strong>: Copy-paste the input your provided that to pass <strong>Level 2</strong> as the answer to this question.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Why did the exploit that you just wrote work? If you were writing a chat page like the vulnerable “Madchattr” webpage, how would you program it to make such an exploit impossible?</p>
+<p><strong>Question 5</strong>: Why did the exploit that you just wrote work? If you were writing a chat page like the vulnerable “Madchattr” webpage, how would you program it to make such an exploit impossible?</p>
 </blockquote>
 <p>Once you have succeeded in exploiting level 2, proceed to level 3.</p>
 <h2 id="level-3">Level 3</h2>
 <p>In order to insert malicious code (HTML, or <a href="https://xkcd.com/327/">SQL</a>) into a webpage, you may first have to complete existing code that is being generated such that it is syntactically-valid. Thus, the attacker (you, in this example) can insert the malicious code, after the completed, syntactically-valid code.</p>
 <blockquote>
-<p><strong>Question X</strong>: What code do you need to complete the following <code>&lt;img&gt;</code> tag to make it syntactically-valid?</p>
+<p><strong>Question 6</strong>: What code do you need to complete the following <code>&lt;img&gt;</code> tag to make it syntactically-valid?</p>
 <pre><code>&lt;img href=&quot;/static/images/images.jpg</code></pre>
 </blockquote>
 <p>A thing to be careful about when writing user-facing code are any places where you are concatenating many strings together to form valid code (e.g., HTML).</p>
 <blockquote>
-<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>index.html</code>. Identify the line numbers of JavaScript where user input is being concatenated with strings to create HTML code.</p>
+<p><strong>Question 7</strong>: Toggle the code open, and view the code for <code>index.html</code>. Identify the line numbers of JavaScript where user input is being concatenated with strings to create HTML code.</p>
 </blockquote>
 <p>Using what you learned in the past two questions, create an exploit that will execute <code>alert('CMPUT 296')</code> into the “cloudiddly” web page. You may find <a href="https://meyerweb.com/eric/tools/dencoder/">this percent-encoding app</a> helpful to insert your malicious code.</p>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 3</strong> as the answer to this question.</p>
+<p><strong>Question 8</strong>: Copy-paste the exploit your wrote to pass <strong>Level 3</strong> as the answer to this question.</p>
 </blockquote>
 <p>Once you have succeeded in exploiting level 3, proceed to level 4.</p>
 <h2 id="level-4">Level 4</h2>
@@ -160,40 +160,40 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>This is so that you cannot insert arbitrary HTML tags into webpages (e.g., you cannot insert a <code>&lt;script&gt;</code> element, or even a <code>&lt;img&gt;</code> element).</p>
 <p>Despite the HTML escaping, “timemer” does something unwise with user input.</p>
 <blockquote>
-<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>timer.html</code>. This is a <em>template</em> in which any mention of <code>{{ timer }}</code> is replaced with the user input with HTML tags escaped. Identify the line numbers tags where <code>{{ timer }}</code> is mentioned.</p>
+<p><strong>Question 9</strong>: Toggle the code open, and view the code for <code>timer.html</code>. This is a <em>template</em> in which any mention of <code>{{ timer }}</code> is replaced with the user input with HTML tags escaped. Identify the line numbers tags where <code>{{ timer }}</code> is mentioned.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Run the following in the JavaScript developer console:</p>
+<p><strong>Question 10</strong>: Run the following in the JavaScript developer console:</p>
 <pre><code>console.log(&#39;hello &#39; + alert(&#39;goodbye&#39;) + &#39; world&#39;);</code></pre>
-<p>Describe what is output (either as a pop-up window or in the console). Why does the output appear in this order?</p>
+<p>Describe what is output (both as a pop-up window and in the console). Why does the output appear in this order?</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 4</strong> as the answer to this question. Where did you insert this input?</p>
+<p><strong>Question 11</strong>: Copy-paste the exploit your wrote to pass <strong>Level 4</strong> as the answer to this question. Where did you insert this input?</p>
 </blockquote>
 <p>Once you have succeeded in exploiting level 4, proceed to level 5.</p>
 <h2 id="level-5">Level 5</h2>
 <p>You are aware of the <code>http://</code> and <code>https://</code> URI schemes, but there are many more. For example,</p>
 <ul>
 <li><code>mailto:</code> allows you to instruct the browser to send an email when the link is clicked.</li>
-<li><code>data:</code> allows to specify arbitrary data in HTML and CSS documents. This is useful for embedding an images into one HTML file without any external resources.</li>
+<li><code>data:</code> allows you to specify arbitrary data in HTML and CSS documents. This is useful for embedding an images into one HTML file without any external resources.</li>
 <li><code>javascript:</code> allows you to run JavaScript when a link is clicked.</li>
 </ul>
 <blockquote>
-<p><strong>Question X</strong>: Toggle the code open, and view the code for HTML templates. Identify both the file and the line number where <code>{{ next }}</code> appears as the <code>href</code> attribute of a link.</p>
+<p><strong>Question 12</strong>: Toggle the code open, and view the code for HTML templates. Identify both the file and the line number where <code>{{ next }}</code> appears as the <code>href</code> attribute of a link.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Toggle the code open, and view the code for <code>level.py</code>. How does the server check whether the user requested the “signup”, “confirm”, or “welcome” page? (Hint: describe the <code>if/elif</code> block that deals with signup/confirm).</p>
+<p><strong>Question 13</strong>: Toggle the code open, and view the code for <code>level.py</code>. How does the server check whether the user requested the “signup”, “confirm”, or “welcome” page? (Hint: describe the <code>if/elif</code> block that deals with signup/confirm).</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Copy-paste the exploit your wrote to pass <strong>Level 5</strong> as the answer to this question. Where did you insert this input? How would an unsuspecting user trigger it?</p>
+<p><strong>Question 14</strong>: Copy-paste the exploit your wrote to pass <strong>Level 5</strong> as the answer to this question. Where did you insert this input? How would an unsuspecting user trigger it?</p>
 </blockquote>
 <p>Once you have succeeded in exploiting level 5, you <em>may</em> attempt level 6. However, it requires being able to create external resources, so it is not required for this lab.</p>
 <hr />
 <blockquote>
-<p><strong>Question X</strong>: Using your own words, describe what XSS is. If you use external sources to define XSS, you must not only cite your sources but you must also rewrite what the source says in your own words.</p>
+<p><strong>Question 15</strong>: Using your own words, describe what XSS is. If you use external sources to define XSS, you must not only cite your sources but you must also rewrite what the source says in your own words.</p>
 </blockquote>
 <blockquote>
-<p><strong>Question X</strong>: Using what you learned in this lab, provide a general suggestion for how to program web applications that are NOT vulnerable to XSS attacks (like the ones you exploited in this lab).</p>
+<p><strong>Question 16</strong>: Using what you learned in this lab, provide a general suggestion for how to program web applications that are NOT vulnerable to XSS attacks (like the ones you exploited in this lab).</p>
 </blockquote>
 </body>
 </html>

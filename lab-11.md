@@ -63,7 +63,7 @@ in the webpage, that is otherwise intended for normal user interactions.
 Consider the sources of input on the page: there are at
 least two sources of input.
 
-> **Question X**: List as many sources of input on the homepage of
+> **Question 1**: List as many sources of input on the homepage of
 > "FourOrFour". Hint: look both inside the viewport and *outside* of the
 > viewport.
 
@@ -74,13 +74,13 @@ bottom of the page.
 If you did this right, the page should pop up a box saying "CMPUT 296", and
 the game should allow you to proceed to the next level.
 
-> **Question X**: What source of input did you use to make the page do
+> **Question 2**: What source of input did you use to make the page do
 > the `alert('CMPUT 296')`?
 
 Toggle the "Target code" on the page. This is the Python source code for
 the server.
 
-> **Question X**: What part of the source code was responsible for
+> **Question 3**: What part of the source code was responsible for
 > allowing you to execute your own `<script>` on the page? Why is it
 > vulnerable to the cross-site scripting attack (in other words, why
 > does it allow you to insert _your_ code into the webpage).
@@ -111,10 +111,10 @@ load due to a 404 error).
 
 <img src="http://example.com/space-cats-in-space.jpg" onerror="console.log('sorry, could not load space cats')">
 
-> **Question X**: Copy-paste the input your provided that to pass
+> **Question 4**: Copy-paste the input your provided that to pass
 > **Level 2** as the answer to this question.
 
-> **Question X**: Why did the exploit that you just wrote work? If you
+> **Question 5**: Why did the exploit that you just wrote work? If you
 > were writing a chat page like the vulnerable "Madchattr" webpage, how
 > would you program it to make such an exploit impossible?
 
@@ -132,7 +132,7 @@ syntactically-valid code.
 
 [bobby]: https://xkcd.com/327/
 
-> **Question X**: What code do you need to complete the following
+> **Question 6**: What code do you need to complete the following
 > `<img>` tag to make it syntactically-valid?
 >
 >     <img href="/static/images/images.jpg
@@ -141,7 +141,7 @@ A thing to be careful about when writing user-facing code are any places
 where you are concatenating many strings together to form valid code
 (e.g., HTML).
 
-> **Question X**: Toggle the code open, and view the code for
+> **Question 7**: Toggle the code open, and view the code for
 > `index.html`. Identify the line numbers of JavaScript where user input
 > is being concatenated with strings to create HTML code.
 
@@ -151,7 +151,7 @@ may find [this percent-encoding
 app](https://meyerweb.com/eric/tools/dencoder/) helpful to insert your
 malicious code.
 
-> **Question X**: Copy-paste the exploit your wrote to pass **Level 3**
+> **Question 8**: Copy-paste the exploit your wrote to pass **Level 3**
 > as the answer to this question.
 
 Once you have succeeded in exploiting level 3, proceed to level 4.
@@ -177,20 +177,20 @@ made:
 Despite the HTML escaping, "timemer" does something unwise with user
 input.
 
-> **Question X**: Toggle the code open, and view the code for
+> **Question 9**: Toggle the code open, and view the code for
 > `timer.html`. This is a *template* in which any mention of
 `{{ timer }}` is replaced with the user input with HTML tags
 > escaped. Identify the line numbers tags where `{{ timer }}` is mentioned.
 
-> **Question X**: Run the following in the JavaScript developer console:
+> **Question 10**: Run the following in the JavaScript developer console:
 >
 >     console.log('hello ' + alert('goodbye') + ' world');
 >
-> Describe what is output (either as a pop-up window or in the
-> console). Why does the output appear in this order?
+> Describe what is output (both as a pop-up window and in the console).
+> Why does the output appear in this order?
 
 
-> **Question X**: Copy-paste the exploit your wrote to pass **Level 4**
+> **Question 11**: Copy-paste the exploit your wrote to pass **Level 4**
 > as the answer to this question. Where did you insert this input?
 
 Once you have succeeded in exploiting level 4, proceed to level 5.
@@ -204,21 +204,21 @@ many more. For example,
 
  - `mailto:` allows you to instruct the browser to send an email when
    the link is clicked.
- - `data:` allows to specify arbitrary data in HTML and CSS documents.
-   This is useful for embedding an images into one HTML file without any
-   external resources.
+ - `data:` allows you to specify arbitrary data in HTML and CSS
+   documents. This is useful for embedding an images into one HTML file
+   without any external resources.
  - `javascript:` allows you to run JavaScript when a link is clicked.
 
-> **Question X**: Toggle the code open, and view the code for
+> **Question 12**: Toggle the code open, and view the code for
 > HTML templates. Identify both the file and the line number where
 > `{{ next }}` appears as the `href` attribute of a link.
 
-> **Question X**: Toggle the code open, and view the code for
+> **Question 13**: Toggle the code open, and view the code for
 > `level.py`. How does the server check whether the user requested the
 > "signup", "confirm", or "welcome" page? (Hint: describe the `if/elif`
 > block that deals with signup/confirm).
 
-> **Question X**: Copy-paste the exploit your wrote to pass **Level 5**
+> **Question 14**: Copy-paste the exploit your wrote to pass **Level 5**
 > as the answer to this question. Where did you insert this input? How
 > would an unsuspecting user trigger it?
 
@@ -229,10 +229,10 @@ so it is not required for this lab.
 ---
 
 
-> **Question X**: Using your own words, describe what XSS is. If you use
+> **Question 15**: Using your own words, describe what XSS is. If you use
 > external sources to define XSS, you must not only cite your sources
 > but you must also rewrite what the source says in your own words.
 
-> **Question X**: Using what you learned in this lab, provide a general
+> **Question 16**: Using what you learned in this lab, provide a general
 > suggestion for how to program web applications that are NOT vulnerable
 > to XSS attacks (like the ones you exploited in this lab).
