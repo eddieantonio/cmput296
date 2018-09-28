@@ -1,8 +1,8 @@
-# CMPUT 404 Resources repository
+# CMPUT 296 Resources repository
 
 # License
 
- - Copyright 2016 Eddie Antonio Santos [eddieantonio](https://github.com/eddieantonio/).
+ - Copyright 2016, 2018 Eddie Antonio Santos [eddieantonio](https://github.com/eddieantonio/).
  - Copyright 2016 Alexander Wong [awwong1](https://github.com/awwong1).
 
 All text is licensed under a [Creative Commons Attribution-ShareAlike
